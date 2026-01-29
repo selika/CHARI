@@ -1,0 +1,963 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "med-pt-test-001-01",
+        "status": "active",
+        "medicationCodeableConcept": {
+          "text": "Aspirin 100mg QD (抗血小板)"
+        },
+        "subject": {
+          "reference": "Patient/pt-test-001",
+          "display": "王大明"
+        },
+        "effectiveDateTime": "2026-01-15T14:30:00+08:00",
+        "derivedFrom": [
+          {
+            "reference": "Composition/comp-test-001"
+          }
+        ],
+        "dosage": [
+          {
+            "text": "Aspirin 100mg QD (抗血小板)"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "MedicationStatement/med-pt-test-001-01"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "med-pt-test-001-02",
+        "status": "active",
+        "medicationCodeableConcept": {
+          "text": "Plavix (Clopidogrel) 75mg QD (抗血小板，需服用至少一年)"
+        },
+        "subject": {
+          "reference": "Patient/pt-test-001",
+          "display": "王大明"
+        },
+        "effectiveDateTime": "2026-01-15T14:30:00+08:00",
+        "derivedFrom": [
+          {
+            "reference": "Composition/comp-test-001"
+          }
+        ],
+        "dosage": [
+          {
+            "text": "Plavix (Clopidogrel) 75mg QD (抗血小板，需服用至少一年)"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "MedicationStatement/med-pt-test-001-02"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "med-pt-test-001-03",
+        "status": "active",
+        "medicationCodeableConcept": {
+          "text": "Lipitor (Atorvastatin) 40mg QD (降血脂，劑量調高)"
+        },
+        "subject": {
+          "reference": "Patient/pt-test-001",
+          "display": "王大明"
+        },
+        "effectiveDateTime": "2026-01-15T14:30:00+08:00",
+        "derivedFrom": [
+          {
+            "reference": "Composition/comp-test-001"
+          }
+        ],
+        "dosage": [
+          {
+            "text": "Lipitor (Atorvastatin) 40mg QD (降血脂，劑量調高)"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "MedicationStatement/med-pt-test-001-03"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "med-pt-test-001-04",
+        "status": "active",
+        "medicationCodeableConcept": {
+          "text": "Norvasc (Amlodipine) 5mg QD (降血壓)"
+        },
+        "subject": {
+          "reference": "Patient/pt-test-001",
+          "display": "王大明"
+        },
+        "effectiveDateTime": "2026-01-15T14:30:00+08:00",
+        "derivedFrom": [
+          {
+            "reference": "Composition/comp-test-001"
+          }
+        ],
+        "dosage": [
+          {
+            "text": "Norvasc (Amlodipine) 5mg QD (降血壓)"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "MedicationStatement/med-pt-test-001-04"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "med-pt-test-001-05",
+        "status": "active",
+        "medicationCodeableConcept": {
+          "text": "Metformin 500mg BID (降血糖)"
+        },
+        "subject": {
+          "reference": "Patient/pt-test-001",
+          "display": "王大明"
+        },
+        "effectiveDateTime": "2026-01-15T14:30:00+08:00",
+        "derivedFrom": [
+          {
+            "reference": "Composition/comp-test-001"
+          }
+        ],
+        "dosage": [
+          {
+            "text": "Metformin 500mg BID (降血糖)"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "MedicationStatement/med-pt-test-001-05"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "med-pt-test-001-06",
+        "status": "active",
+        "medicationCodeableConcept": {
+          "text": "Pantoloc (Pantoprazole) 40mg QD (胃藥保護)"
+        },
+        "subject": {
+          "reference": "Patient/pt-test-001",
+          "display": "王大明"
+        },
+        "effectiveDateTime": "2026-01-15T14:30:00+08:00",
+        "derivedFrom": [
+          {
+            "reference": "Composition/comp-test-001"
+          }
+        ],
+        "dosage": [
+          {
+            "text": "Pantoloc (Pantoprazole) 40mg QD (胃藥保護)"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "MedicationStatement/med-pt-test-001-06"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "med-pt-test-002-01",
+        "status": "active",
+        "medicationCodeableConcept": {
+          "text": "Eliquis (Apixaban) 5mg BID (抗凝血劑，預防再次中風，非常重要請務必規則服用)"
+        },
+        "subject": {
+          "reference": "Patient/pt-test-002",
+          "display": "李美華"
+        },
+        "effectiveDateTime": "2026-01-18T10:00:00+08:00",
+        "derivedFrom": [
+          {
+            "reference": "Composition/comp-test-002"
+          }
+        ],
+        "dosage": [
+          {
+            "text": "Eliquis (Apixaban) 5mg BID (抗凝血劑，預防再次中風，非常重要請務必規則服用)"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "MedicationStatement/med-pt-test-002-01"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "med-pt-test-002-02",
+        "status": "active",
+        "medicationCodeableConcept": {
+          "text": "Diovan (Valsartan) 80mg QD (降血壓)"
+        },
+        "subject": {
+          "reference": "Patient/pt-test-002",
+          "display": "李美華"
+        },
+        "effectiveDateTime": "2026-01-18T10:00:00+08:00",
+        "derivedFrom": [
+          {
+            "reference": "Composition/comp-test-002"
+          }
+        ],
+        "dosage": [
+          {
+            "text": "Diovan (Valsartan) 80mg QD (降血壓)"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "MedicationStatement/med-pt-test-002-02"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "med-pt-test-002-03",
+        "status": "active",
+        "medicationCodeableConcept": {
+          "text": "Lipitor (Atorvastatin) 20mg QD (降血脂)"
+        },
+        "subject": {
+          "reference": "Patient/pt-test-002",
+          "display": "李美華"
+        },
+        "effectiveDateTime": "2026-01-18T10:00:00+08:00",
+        "derivedFrom": [
+          {
+            "reference": "Composition/comp-test-002"
+          }
+        ],
+        "dosage": [
+          {
+            "text": "Lipitor (Atorvastatin) 20mg QD (降血脂)"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "MedicationStatement/med-pt-test-002-03"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "med-pt-test-002-04",
+        "status": "active",
+        "medicationCodeableConcept": {
+          "text": "Concor (Bisoprolol) 2.5mg QD (心率控制)"
+        },
+        "subject": {
+          "reference": "Patient/pt-test-002",
+          "display": "李美華"
+        },
+        "effectiveDateTime": "2026-01-18T10:00:00+08:00",
+        "derivedFrom": [
+          {
+            "reference": "Composition/comp-test-002"
+          }
+        ],
+        "dosage": [
+          {
+            "text": "Concor (Bisoprolol) 2.5mg QD (心率控制)"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "MedicationStatement/med-pt-test-002-04"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "med-pt-test-003-01",
+        "status": "active",
+        "medicationCodeableConcept": {
+          "text": "Cravit (Levofloxacin) 500mg QD x 5天 (抗生素，請完成療程)"
+        },
+        "subject": {
+          "reference": "Patient/pt-test-003",
+          "display": "張志強"
+        },
+        "effectiveDateTime": "2026-01-20T16:00:00+08:00",
+        "derivedFrom": [
+          {
+            "reference": "Composition/comp-test-003"
+          }
+        ],
+        "dosage": [
+          {
+            "text": "Cravit (Levofloxacin) 500mg QD x 5天 (抗生素，請完成療程)"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "MedicationStatement/med-pt-test-003-01"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "med-pt-test-003-02",
+        "status": "active",
+        "medicationCodeableConcept": {
+          "text": "Symbicort 160/4.5 inhaler BID (氣喘控制藥物，持續使用)"
+        },
+        "subject": {
+          "reference": "Patient/pt-test-003",
+          "display": "張志強"
+        },
+        "effectiveDateTime": "2026-01-20T16:00:00+08:00",
+        "derivedFrom": [
+          {
+            "reference": "Composition/comp-test-003"
+          }
+        ],
+        "dosage": [
+          {
+            "text": "Symbicort 160/4.5 inhaler BID (氣喘控制藥物，持續使用)"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "MedicationStatement/med-pt-test-003-02"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "med-pt-test-003-03",
+        "status": "active",
+        "medicationCodeableConcept": {
+          "text": "Ventolin inhaler PRN (急救用，呼吸喘時使用)"
+        },
+        "subject": {
+          "reference": "Patient/pt-test-003",
+          "display": "張志強"
+        },
+        "effectiveDateTime": "2026-01-20T16:00:00+08:00",
+        "derivedFrom": [
+          {
+            "reference": "Composition/comp-test-003"
+          }
+        ],
+        "dosage": [
+          {
+            "text": "Ventolin inhaler PRN (急救用，呼吸喘時使用)"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "MedicationStatement/med-pt-test-003-03"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "med-pt-test-003-04",
+        "status": "active",
+        "medicationCodeableConcept": {
+          "text": "Mucosolvan (Ambroxol) 30mg TID x 7天 (化痰)"
+        },
+        "subject": {
+          "reference": "Patient/pt-test-003",
+          "display": "張志強"
+        },
+        "effectiveDateTime": "2026-01-20T16:00:00+08:00",
+        "derivedFrom": [
+          {
+            "reference": "Composition/comp-test-003"
+          }
+        ],
+        "dosage": [
+          {
+            "text": "Mucosolvan (Ambroxol) 30mg TID x 7天 (化痰)"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "MedicationStatement/med-pt-test-003-04"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "med-pt-test-004-01",
+        "status": "active",
+        "medicationCodeableConcept": {
+          "text": "Baktar (TMP-SMX) 1# BID x 14天 (抗生素，完成療程)"
+        },
+        "subject": {
+          "reference": "Patient/pt-test-004",
+          "display": "陳淑芬"
+        },
+        "effectiveDateTime": "2026-01-22T11:00:00+08:00",
+        "derivedFrom": [
+          {
+            "reference": "Composition/comp-test-004"
+          }
+        ],
+        "dosage": [
+          {
+            "text": "Baktar (TMP-SMX) 1# BID x 14天 (抗生素，完成療程)"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "MedicationStatement/med-pt-test-004-01"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "med-pt-test-004-02",
+        "status": "active",
+        "medicationCodeableConcept": {
+          "text": "Lantus (Insulin glargine) 20U QD睡前 (長效胰島素)"
+        },
+        "subject": {
+          "reference": "Patient/pt-test-004",
+          "display": "陳淑芬"
+        },
+        "effectiveDateTime": "2026-01-22T11:00:00+08:00",
+        "derivedFrom": [
+          {
+            "reference": "Composition/comp-test-004"
+          }
+        ],
+        "dosage": [
+          {
+            "text": "Lantus (Insulin glargine) 20U QD睡前 (長效胰島素)"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "MedicationStatement/med-pt-test-004-02"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "med-pt-test-004-03",
+        "status": "active",
+        "medicationCodeableConcept": {
+          "text": "Novorapid (Insulin aspart) 三餐前依血糖調整 (速效胰島素)"
+        },
+        "subject": {
+          "reference": "Patient/pt-test-004",
+          "display": "陳淑芬"
+        },
+        "effectiveDateTime": "2026-01-22T11:00:00+08:00",
+        "derivedFrom": [
+          {
+            "reference": "Composition/comp-test-004"
+          }
+        ],
+        "dosage": [
+          {
+            "text": "Novorapid (Insulin aspart) 三餐前依血糖調整 (速效胰島素)"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "MedicationStatement/med-pt-test-004-03"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "med-pt-test-004-04",
+        "status": "active",
+        "medicationCodeableConcept": {
+          "text": "Norvasc 5mg QD (降血壓)"
+        },
+        "subject": {
+          "reference": "Patient/pt-test-004",
+          "display": "陳淑芬"
+        },
+        "effectiveDateTime": "2026-01-22T11:00:00+08:00",
+        "derivedFrom": [
+          {
+            "reference": "Composition/comp-test-004"
+          }
+        ],
+        "dosage": [
+          {
+            "text": "Norvasc 5mg QD (降血壓)"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "MedicationStatement/med-pt-test-004-04"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "med-pt-test-004-05",
+        "status": "active",
+        "medicationCodeableConcept": {
+          "text": "傷口換藥：每日一次，使用Aquacel Ag"
+        },
+        "subject": {
+          "reference": "Patient/pt-test-004",
+          "display": "陳淑芬"
+        },
+        "effectiveDateTime": "2026-01-22T11:00:00+08:00",
+        "derivedFrom": [
+          {
+            "reference": "Composition/comp-test-004"
+          }
+        ],
+        "dosage": [
+          {
+            "text": "傷口換藥：每日一次，使用Aquacel Ag"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "MedicationStatement/med-pt-test-004-05"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "med-pt-test-006-01",
+        "status": "active",
+        "medicationCodeableConcept": {
+          "text": "Celebrex 200mg BID x 5天 (止痛)"
+        },
+        "subject": {
+          "reference": "Patient/pt-test-006",
+          "display": "黃雅琪"
+        },
+        "effectiveDateTime": "2026-01-10T14:00:00+08:00",
+        "derivedFrom": [
+          {
+            "reference": "Composition/comp-test-006"
+          }
+        ],
+        "dosage": [
+          {
+            "text": "Celebrex 200mg BID x 5天 (止痛)"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "MedicationStatement/med-pt-test-006-01"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "med-pt-test-006-02",
+        "status": "active",
+        "medicationCodeableConcept": {
+          "text": "Ultracet 1# QID PRN (止痛)"
+        },
+        "subject": {
+          "reference": "Patient/pt-test-006",
+          "display": "黃雅琪"
+        },
+        "effectiveDateTime": "2026-01-10T14:00:00+08:00",
+        "derivedFrom": [
+          {
+            "reference": "Composition/comp-test-006"
+          }
+        ],
+        "dosage": [
+          {
+            "text": "Ultracet 1# QID PRN (止痛)"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "MedicationStatement/med-pt-test-006-02"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "med-pt-test-006-03",
+        "status": "active",
+        "medicationCodeableConcept": {
+          "text": "後續門診將開始荷爾蒙治療（Tamoxifen）"
+        },
+        "subject": {
+          "reference": "Patient/pt-test-006",
+          "display": "黃雅琪"
+        },
+        "effectiveDateTime": "2026-01-10T14:00:00+08:00",
+        "derivedFrom": [
+          {
+            "reference": "Composition/comp-test-006"
+          }
+        ],
+        "dosage": [
+          {
+            "text": "後續門診將開始荷爾蒙治療（Tamoxifen）"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "MedicationStatement/med-pt-test-006-03"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "med-pt-test-008-01",
+        "status": "active",
+        "medicationCodeableConcept": {
+          "text": "Acetaminophen 500mg QID PRN (止痛，勿空腹服用)"
+        },
+        "subject": {
+          "reference": "Patient/pt-test-008",
+          "display": "周秀蘭"
+        },
+        "effectiveDateTime": "2026-01-08T15:00:00+08:00",
+        "derivedFrom": [
+          {
+            "reference": "Composition/comp-test-008"
+          }
+        ],
+        "dosage": [
+          {
+            "text": "Acetaminophen 500mg QID PRN (止痛，勿空腹服用)"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "MedicationStatement/med-pt-test-008-01"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "med-pt-test-008-02",
+        "status": "active",
+        "medicationCodeableConcept": {
+          "text": "Primperan 10mg TID AC (止吐，飯前服用)"
+        },
+        "subject": {
+          "reference": "Patient/pt-test-008",
+          "display": "周秀蘭"
+        },
+        "effectiveDateTime": "2026-01-08T15:00:00+08:00",
+        "derivedFrom": [
+          {
+            "reference": "Composition/comp-test-008"
+          }
+        ],
+        "dosage": [
+          {
+            "text": "Primperan 10mg TID AC (止吐，飯前服用)"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "MedicationStatement/med-pt-test-008-02"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "med-pt-test-008-03",
+        "status": "active",
+        "medicationCodeableConcept": {
+          "text": "傷口照護：保持乾燥，術後7天回診拆線"
+        },
+        "subject": {
+          "reference": "Patient/pt-test-008",
+          "display": "周秀蘭"
+        },
+        "effectiveDateTime": "2026-01-08T15:00:00+08:00",
+        "derivedFrom": [
+          {
+            "reference": "Composition/comp-test-008"
+          }
+        ],
+        "dosage": [
+          {
+            "text": "傷口照護：保持乾燥，術後7天回診拆線"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "MedicationStatement/med-pt-test-008-03"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "med-pt-test-009-01",
+        "status": "active",
+        "medicationCodeableConcept": {
+          "text": "Viread (Tenofovir) 300mg QD (抗B肝病毒)"
+        },
+        "subject": {
+          "reference": "Patient/pt-test-009",
+          "display": "鄭文傑"
+        },
+        "effectiveDateTime": "2026-01-16T11:30:00+08:00",
+        "derivedFrom": [
+          {
+            "reference": "Composition/comp-test-009"
+          }
+        ],
+        "dosage": [
+          {
+            "text": "Viread (Tenofovir) 300mg QD (抗B肝病毒)"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "MedicationStatement/med-pt-test-009-01"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "med-pt-test-009-02",
+        "status": "active",
+        "medicationCodeableConcept": {
+          "text": "Aldactone (Spironolactone) 100mg QD (利尿劑)"
+        },
+        "subject": {
+          "reference": "Patient/pt-test-009",
+          "display": "鄭文傑"
+        },
+        "effectiveDateTime": "2026-01-16T11:30:00+08:00",
+        "derivedFrom": [
+          {
+            "reference": "Composition/comp-test-009"
+          }
+        ],
+        "dosage": [
+          {
+            "text": "Aldactone (Spironolactone) 100mg QD (利尿劑)"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "MedicationStatement/med-pt-test-009-02"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "med-pt-test-009-03",
+        "status": "active",
+        "medicationCodeableConcept": {
+          "text": "Lasix (Furosemide) 40mg QD (利尿劑)"
+        },
+        "subject": {
+          "reference": "Patient/pt-test-009",
+          "display": "鄭文傑"
+        },
+        "effectiveDateTime": "2026-01-16T11:30:00+08:00",
+        "derivedFrom": [
+          {
+            "reference": "Composition/comp-test-009"
+          }
+        ],
+        "dosage": [
+          {
+            "text": "Lasix (Furosemide) 40mg QD (利尿劑)"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "MedicationStatement/med-pt-test-009-03"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "med-pt-test-009-04",
+        "status": "active",
+        "medicationCodeableConcept": {
+          "text": "Propranolol 10mg BID (預防靜脈曲張出血)"
+        },
+        "subject": {
+          "reference": "Patient/pt-test-009",
+          "display": "鄭文傑"
+        },
+        "effectiveDateTime": "2026-01-16T11:30:00+08:00",
+        "derivedFrom": [
+          {
+            "reference": "Composition/comp-test-009"
+          }
+        ],
+        "dosage": [
+          {
+            "text": "Propranolol 10mg BID (預防靜脈曲張出血)"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "MedicationStatement/med-pt-test-009-04"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "med-pt-test-009-05",
+        "status": "active",
+        "medicationCodeableConcept": {
+          "text": "Lactulose 30mL BID (預防肝腦病變)"
+        },
+        "subject": {
+          "reference": "Patient/pt-test-009",
+          "display": "鄭文傑"
+        },
+        "effectiveDateTime": "2026-01-16T11:30:00+08:00",
+        "derivedFrom": [
+          {
+            "reference": "Composition/comp-test-009"
+          }
+        ],
+        "dosage": [
+          {
+            "text": "Lactulose 30mL BID (預防肝腦病變)"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "MedicationStatement/med-pt-test-009-05"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "med-pt-test-010-01",
+        "status": "active",
+        "medicationCodeableConcept": {
+          "text": "Augmentin 1g BID x 5天 (抗生素)"
+        },
+        "subject": {
+          "reference": "Patient/pt-test-010",
+          "display": "許淑惠"
+        },
+        "effectiveDateTime": "2026-01-19T16:30:00+08:00",
+        "derivedFrom": [
+          {
+            "reference": "Composition/comp-test-010"
+          }
+        ],
+        "dosage": [
+          {
+            "text": "Augmentin 1g BID x 5天 (抗生素)"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "MedicationStatement/med-pt-test-010-01"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "med-pt-test-010-02",
+        "status": "active",
+        "medicationCodeableConcept": {
+          "text": "Acetaminophen 500mg QID PRN (止痛)"
+        },
+        "subject": {
+          "reference": "Patient/pt-test-010",
+          "display": "許淑惠"
+        },
+        "effectiveDateTime": "2026-01-19T16:30:00+08:00",
+        "derivedFrom": [
+          {
+            "reference": "Composition/comp-test-010"
+          }
+        ],
+        "dosage": [
+          {
+            "text": "Acetaminophen 500mg QID PRN (止痛)"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "MedicationStatement/med-pt-test-010-02"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "med-pt-test-010-03",
+        "status": "active",
+        "medicationCodeableConcept": {
+          "text": "傷口保持乾燥，術後7天回診"
+        },
+        "subject": {
+          "reference": "Patient/pt-test-010",
+          "display": "許淑惠"
+        },
+        "effectiveDateTime": "2026-01-19T16:30:00+08:00",
+        "derivedFrom": [
+          {
+            "reference": "Composition/comp-test-010"
+          }
+        ],
+        "dosage": [
+          {
+            "text": "傷口保持乾燥，術後7天回診"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "MedicationStatement/med-pt-test-010-03"
+      }
+    }
+  ]
+}
