@@ -77,10 +77,12 @@
         const DEFAULT_SANDBOX = "https://launch.smarthealthit.org/v/r4/fhir";
 
         // Configuration
+        // Get the base URL dynamically for GitHub Pages compatibility
+        const baseUrl = window.location.href.substring(0, window.location.href.lastIndexOf('/') + 1);
         const config = {
             clientId: "chari-app",
             scope: "launch patient/*.read openid fhirUser",
-            redirectUri: "./index.html"
+            redirectUri: baseUrl + "index.html"
         };
 
         // If no ISS provided, we can either error out or default to a public sandbox for testing
