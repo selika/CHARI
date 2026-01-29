@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CHARI Launch</title>
+    <!-- Use CDN for launch to avoid build complexity for this static entry point -->
+    <script src="https://cdn.jsdelivr.net/npm/fhirclient/build/fhir-client.min.js"></script>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #fca5a5; /* Light red to indicate transient state/loading */
+        }
+        .loading {
+            text-align: center;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="loading">
+        <h2>Launching CHARI...</h2>
+        <p>Connecting to secure health record system...</p>
+    </div>
+    <script>
+        FHIR.oauth2.authorize({
+            clientId: "chari-app",
+            scope: "launch patient/*.read openid fhirUser",
+            redirectUri: "./index.html"
+        });
+    </script>
+</body>
+</html>
