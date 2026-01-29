@@ -1,0 +1,26 @@
+# 敏感資訊
+.env
+*.env
+
+# 開發用資料夾（不公開）
+plan/
+.agent/
+AGENTS.md
+git_publish/
+
+# OS 生成檔案
+.DS_Store
+Thumbs.db
+nul
+
+# IDE
+.vscode/
+.idea/
+
+# Node.js
+node_modules/
+dist/
+build/
+
+# Logs
+*.log
