@@ -5,7 +5,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CHARI Launch</title>
-    <!-- Use CDN for launch to avoid build complexity for this static entry point -->
     <script src="https://cdn.jsdelivr.net/npm/fhirclient/build/fhir-client.min.js"></script>
     <style>
         body {
@@ -15,8 +14,7 @@
             align-items: center;
             min-height: 100vh;
             margin: 0;
-            background-color: #fca5a5;
-            /* Light red to indicate transient state/loading */
+            background: linear-gradient(135deg, #0066CC 0%, #004499 100%);
             color: #333;
         }
 
@@ -24,82 +22,198 @@
             text-align: center;
             padding: 2rem;
             background: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-            max-width: 400px;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            max-width: 450px;
+            width: 90%;
+        }
+
+        h2 {
+            color: #0066CC;
+            margin-bottom: 0.5rem;
         }
 
         .error {
             color: #ef4444;
             font-size: 0.875rem;
             margin-top: 1rem;
-            padding: 0.5rem;
+            padding: 0.75rem;
             background: #fef2f2;
-            border-radius: 4px;
+            border-radius: 6px;
             display: none;
+            border: 1px solid #fecaca;
         }
 
         .spinner {
             width: 40px;
             height: 40px;
-            border: 4px solid #f3f3f3;
-            border-top: 4px solid #0ea5e9;
+            border: 4px solid #e5e7eb;
+            border-top: 4px solid #0066CC;
             border-radius: 50%;
             margin: 0 auto 1rem;
             animation: spin 1s linear infinite;
         }
 
         @keyframes spin {
-            0% {
-                transform: rotate(0deg);
-            }
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
 
-            100% {
-                transform: rotate(360deg);
-            }
+        .sandbox-options {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .sandbox-options h3 {
+            font-size: 0.9rem;
+            color: #64748b;
+            margin-bottom: 1rem;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 0.75rem 1rem;
+            margin-bottom: 0.75rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: #0066CC;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #0055aa;
+        }
+
+        .btn-secondary {
+            background: #f1f5f9;
+            color: #475569;
+            border: 1px solid #e2e8f0;
+        }
+
+        .btn-secondary:hover {
+            background: #e2e8f0;
+        }
+
+        .status-text {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        #launch-mode {
+            display: none;
+        }
+
+        #select-mode {
+            display: block;
         }
     </style>
 </head>
 
 <body>
     <div class="container">
-        <div id="spinner" class="spinner"></div>
-        <h2>Launching CHARI...</h2>
-        <p id="status">Connecting to secure health record system...</p>
-        <div id="error" class="error"></div>
+        <!-- Launch Mode (when iss is provided) -->
+        <div id="launch-mode">
+            <div class="spinner"></div>
+            <h2>CHARI</h2>
+            <p class="status-text" id="status">Connecting to FHIR Server...</p>
+            <div id="error" class="error"></div>
+        </div>
+
+        <!-- Select Mode (no iss, let user choose sandbox) -->
+        <div id="select-mode">
+            <h2>🏥 CHARI</h2>
+            <p class="status-text">Cross-Hospital Admission Record Integration</p>
+
+            <div class="sandbox-options">
+                <h3>Select a test environment:</h3>
+
+                <a id="btn-smarthealthit" class="btn btn-primary" href="#">
+                    Smart Health IT Sandbox (Recommended)
+                </a>
+
+                <a id="btn-mohw" class="btn btn-secondary" href="#">
+                    衛福部 THAS Sandbox
+                </a>
+            </div>
+        </div>
     </div>
+
     <script>
-        // Check for 'iss' or 'launch' parameters
         const params = new URLSearchParams(window.location.search);
         const iss = params.get('iss');
+        const launch = params.get('launch');
 
-        // Example Public Sandbox (Smart Health IT R4) for standalone testing
-        const DEFAULT_SANDBOX = "https://launch.smarthealthit.org/v/r4/fhir";
+        // Get base URL for redirect
+        const baseUrl = window.location.href.split('?')[0];
+        const redirectUri = baseUrl.replace('launch.html', 'index.html');
 
-        // Configuration
-        // Get the base URL dynamically for GitHub Pages compatibility
-        const baseUrl = window.location.href.substring(0, window.location.href.lastIndexOf('/') + 1);
-        const config = {
-            clientId: "chari-app",
-            scope: "launch patient/*.read openid fhirUser",
-            redirectUri: baseUrl + "index.html"
-        };
+        // Smart Health IT Launcher URL
+        const SMARTHEALTHIT_LAUNCHER = 'https://launch.smarthealthit.org/?' + new URLSearchParams({
+            launch_url: baseUrl,
+            fhir_version: 'r4',
+            sim_ehr: 'true',
+            scope: 'launch patient/*.read openid fhirUser',
+            client_id: 'chari-app',
+            redirect_uri: redirectUri
+        }).toString();
 
-        // If no ISS provided, we can either error out or default to a public sandbox for testing
-        if (!iss && !params.get('launch')) {
-            console.warn("No ISS provided. Defaulting to Public Sandbox for testing.");
-            document.getElementById('status').innerText = "Redirecting to Public Sandbox (Test Mode)...";
-            config.iss = DEFAULT_SANDBOX;
+        // 衛福部 THAS Sandbox (direct FHIR endpoint for standalone)
+        const MOHW_ISS = 'https://thas.mohw.gov.tw/v/r4/fhir';
+
+        // Setup button links
+        document.getElementById('btn-smarthealthit').href = SMARTHEALTHIT_LAUNCHER;
+        document.getElementById('btn-mohw').addEventListener('click', function(e) {
+            e.preventDefault();
+            // For MOHW, try standalone launch
+            launchWithIss(MOHW_ISS);
+        });
+
+        // If iss is provided, proceed with SMART launch
+        if (iss) {
+            document.getElementById('select-mode').style.display = 'none';
+            document.getElementById('launch-mode').style.display = 'block';
+
+            document.getElementById('status').innerText = 'Authenticating with ' + new URL(iss).hostname + '...';
+
+            const config = {
+                clientId: 'chari-app',
+                scope: 'launch patient/*.read openid fhirUser',
+                redirectUri: redirectUri
+            };
+
+            FHIR.oauth2.authorize(config)
+                .catch(showError);
         }
 
-        FHIR.oauth2.authorize(config)
-            .catch(err => {
-                document.getElementById('spinner').style.display = 'none';
-                document.getElementById('status').innerText = "Launch Failed";
-                const errDiv = document.getElementById('error');
-                errDiv.style.display = 'block';
-                errDiv.innerText = err.stack || err;
-            });
+        function launchWithIss(issUrl) {
+            document.getElementById('select-mode').style.display = 'none';
+            document.getElementById('launch-mode').style.display = 'block';
+            document.getElementById('status').innerText = 'Connecting to ' + new URL(issUrl).hostname + '...';
+
+            FHIR.oauth2.authorize({
+                iss: issUrl,
+                clientId: 'chari-app',
+                scope: 'patient/*.read openid fhirUser',
+                redirectUri: redirectUri
+            }).catch(showError);
+        }
+
+        function showError(err) {
+            document.querySelector('.spinner').style.display = 'none';
+            document.getElementById('status').innerText = 'Launch Failed';
+            const errDiv = document.getElementById('error');
+            errDiv.style.display = 'block';
+            errDiv.innerText = err.message || err.toString();
+        }
     </script>
 </body>
 
