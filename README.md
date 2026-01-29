@@ -125,7 +125,9 @@ sequenceDiagram
 
 ## 測試資料
 
-本專案提供 10 筆測試用出院病摘，已上傳至衛福部 THAS 沙盒：
+本專案提供 10 筆測試用出院病摘，已上傳至衛福部 THAS 沙盒。
+
+詳見 [test-data/README.md](test-data/README.md)
 
 | 病人 | 診斷 | 來源醫院 |
 |------|------|----------|
@@ -134,7 +136,6 @@ sequenceDiagram
 | 張志強 | 肺炎 | 臺北榮民總醫院 |
 | 黃雅琪 | 乳癌術後 | 臺灣大學醫學院附設醫院 |
 | 周秀蘭 | 膽囊切除 | 林口長庚紀念醫院 |
-| ... | ... | ... |
 
 **查詢範例**：
 ```bash
@@ -163,7 +164,7 @@ curl "https://thas.mohw.gov.tw/v/r4/fhir/Composition?subject=Patient/pt-test-001
 |------|-----|
 | FHIR Server | `https://thas.mohw.gov.tw/v/r4/fhir` |
 | Patient Browser | `https://thas.mohw.gov.tw/patient-browser/` |
-| Launch URL | `https://selika.github.io/CHARI/launch.html` |
+| Launch URL | `https://selika.github.io/CHARI/client/launch.html` |
 
 ---
 
@@ -171,20 +172,31 @@ curl "https://thas.mohw.gov.tw/v/r4/fhir/Composition?subject=Patient/pt-test-001
 
 ```
 CHARI/
-├── README.md           # 本文件
-├── LICENSE             # Apache 2.0
-├── launch.html         # SMART Launch 頁面
-├── index.html          # 主應用程式
-├── css/
-│   └── style.css
-├── js/
-│   ├── app.js          # 主程式邏輯
-│   ├── fhir-queries.js # FHIR 查詢
-│   └── ui-components.js
-└── docs/
-    ├── INSTALL.md      # 安裝說明
-    └── FHIR_SPEC.md    # FHIR 規格
+├── README.md              # 本文件
+├── LICENSE                # Apache 2.0
+├── client/                # SMART on FHIR App（開發中）
+│   ├── launch.html        # SMART Launch
+│   ├── app.html           # 主應用程式
+│   └── src/
+├── test-data/             # 測試資料
+│   ├── README.md          # 測試資料說明
+│   ├── patients.json
+│   ├── compositions.json
+│   └── ...
+└── docs/                  # 文件（規劃中）
+    ├── INSTALL.md
+    └── FHIR_SPEC.md
 ```
+
+---
+
+## 開發進度
+
+| 階段 | 狀態 |
+|------|------|
+| Phase 1: Client App（醫師端） | 🚧 開發中 |
+| Phase 2: Admin Dashboard（管理端） | 📋 規劃中 |
+| Phase 3: 正式上線 | 📋 規劃中 |
 
 ---
 
