@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0284c7"/>
+      <stop offset="100%" style="stop-color:#0ea5e9"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="512" height="512" rx="108" fill="url(#bg)"/>
+
+  <!-- Left building -->
+  <rect x="80" y="140" width="140" height="220" rx="12" fill="white"/>
+  <rect x="125" y="110" width="50" height="40" rx="8" fill="white"/>
+  <rect x="133" y="185" width="40" height="14" rx="3" fill="#0284c7"/>
+  <rect x="145" y="173" width="14" height="40" rx="3" fill="#0284c7"/>
+
+  <!-- Right building -->
+  <rect x="292" y="140" width="140" height="220" rx="12" fill="white"/>
+  <rect x="337" y="110" width="50" height="40" rx="8" fill="white"/>
+  <rect x="345" y="185" width="40" height="14" rx="3" fill="#0284c7"/>
+  <rect x="357" y="173" width="14" height="40" rx="3" fill="#0284c7"/>
+
+  <!-- Bidirectional arrows -->
+  <polygon points="230,230 280,255 230,280" fill="white"/>
+  <polygon points="282,290 232,265 282,240" fill="white" opacity="0.8"/>
+</svg>
