@@ -1,34 +1,78 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { FileText, ArrowLeft, Calendar, Building, Download, ChevronDown, ChevronUp, AlertCircle, Code, X, ArrowRightLeft } from 'lucide-react';
-import { searchCompositions, LOINC_DISCHARGE_SUMMARY, LOINC_TRANSFER_SUMMARY } from '../services/fhirQueries';
+import { FileText, ArrowLeft, Calendar, Building, Download, ChevronDown, ChevronUp, AlertCircle, Code, X, ArrowRightLeft, Stethoscope, Pill } from 'lucide-react';
+import { searchCompositions, searchEncounters, searchMedicationsByEncounter, LOINC_DISCHARGE_SUMMARY, LOINC_TRANSFER_SUMMARY } from '../services/fhirQueries';
 
 export default function CompositionList({ client }) {
     const { patientId } = useParams();
     const navigate = useNavigate();
     const [compositions, setCompositions] = useState([]);
+    const [outpatientEncounters, setOutpatientEncounters] = useState([]);
+    const [timelineItems, setTimelineItems] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [expandedId, setExpandedId] = useState(null);
     const [detailData, setDetailData] = useState({});
     const [linkedResources, setLinkedResources] = useState({});
+    const [encounterMedications, setEncounterMedications] = useState({});
     const [showJsonModal, setShowJsonModal] = useState(null);
 
     useEffect(() => {
         if (client && patientId) {
             setLoading(true);
-            searchCompositions(client, patientId)
-                .then(response => {
-                    const entries = response.entry || [];
-                    // 按日期排序（最新在前），顯示出院病摘和轉院病摘
-                    const sorted = entries
+
+            // 同時查詢 Compositions 和 Encounters
+            Promise.all([
+                searchCompositions(client, patientId),
+                searchEncounters(client, patientId)
+            ])
+                .then(([compResponse, encResponse]) => {
+                    // 處理 Compositions
+                    const compEntries = compResponse?.entry || [];
+                    const comps = compEntries
                         .map(e => e.resource)
                         .filter(r => {
                             const code = r.type?.coding?.[0]?.code;
                             return code === LOINC_DISCHARGE_SUMMARY || code === LOINC_TRANSFER_SUMMARY;
-                        })
-                        .sort((a, b) => new Date(b.date) - new Date(a.date));
-                    setCompositions(sorted);
+                        });
+                    setCompositions(comps);
+
+                    // 處理 Encounters - 只取門診 (AMB = ambulatory/outpatient)
+                    const encEntries = encResponse?.entry || [];
+                    const outpatient = encEntries
+                        .map(e => e.resource)
+                        .filter(r => r.class?.code === 'AMB');
+                    setOutpatientEncounters(outpatient);
+
+                    // 建立統一時間軸
+                    const timeline = [];
+
+                    // 加入出院/轉院病摘
+                    comps.forEach(comp => {
+                        timeline.push({
+                            type: 'composition',
+                            date: new Date(comp.date),
+                            data: comp,
+                            id: `comp-${comp.id}`
+                        });
+                    });
+
+                    // 加入門診記錄
+                    outpatient.forEach(enc => {
+                        const encDate = enc.period?.start || enc.period?.end;
+                        if (encDate) {
+                            timeline.push({
+                                type: 'outpatient',
+                                date: new Date(encDate),
+                                data: enc,
+                                id: `enc-${enc.id}`
+                            });
+                        }
+                    });
+
+                    // 按日期排序（最新在前）
+                    timeline.sort((a, b) => b.date - a.date);
+                    setTimelineItems(timeline);
                     setLoading(false);
                 })
                 .catch(err => {
@@ -85,6 +129,26 @@ export default function CompositionList({ client }) {
         }
     };
 
+    // 載入門診就診的用藥記錄
+    const loadEncounterMedications = async (encounterId) => {
+        const key = `enc-${encounterId}`;
+        if (encounterMedications[encounterId]) {
+            setExpandedId(expandedId === key ? null : key);
+            return;
+        }
+
+        try {
+            const response = await searchMedicationsByEncounter(client, encounterId);
+            const meds = (response?.entry || []).map(e => e.resource);
+            setEncounterMedications(prev => ({ ...prev, [encounterId]: meds }));
+            setExpandedId(key);
+        } catch (err) {
+            console.error('Error loading encounter medications:', err);
+            setEncounterMedications(prev => ({ ...prev, [encounterId]: [] }));
+            setExpandedId(key);
+        }
+    };
+
     // 解析 section 並分組
     const parseSections = (composition) => {
         const sections = composition.section || [];
@@ -93,6 +157,7 @@ export default function CompositionList({ client }) {
             medications: [],
             allergies: [],
             procedures: [],
+            labs: [],
             others: []
         };
 
@@ -101,7 +166,7 @@ export default function CompositionList({ client }) {
             const title = section.title || '';
             const text = section.text?.div?.replace(/<[^>]*>/g, '') || '';
 
-            const item = { title, text, code, entries: section.entry || [] };
+            const item = { title, text, code, entries: section.entry || [], rawHtml: section.text?.div };
 
             if (code === '48765-2' || title.includes('過敏')) {
                 grouped.allergies.push(item);
@@ -111,6 +176,8 @@ export default function CompositionList({ client }) {
                 grouped.diagnosis.push(item);
             } else if (code === '47519-4' || code === '8724-7' || title.includes('手術') || title.includes('Procedure')) {
                 grouped.procedures.push(item);
+            } else if (code === '30954-2' || title.includes('檢驗')) {
+                grouped.labs.push(item);
             } else {
                 grouped.others.push(item);
             }
@@ -123,13 +190,13 @@ export default function CompositionList({ client }) {
         return (
             <div className="max-w-5xl mx-auto p-8 text-center">
                 <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-medical-primary mx-auto mb-4"></div>
-                <p className="text-slate-500">載入出院病摘中...</p>
+                <p className="text-slate-500">載入病歷資料中...</p>
             </div>
         );
     }
 
-    const latestComposition = compositions[0];
-    const historyCompositions = compositions.slice(1);
+    const latestItem = timelineItems[0];
+    const historyItems = timelineItems.slice(1);
 
     return (
         <div className="max-w-5xl mx-auto space-y-6">
@@ -153,142 +220,74 @@ export default function CompositionList({ client }) {
                 </div>
             )}
 
-            {compositions.length === 0 && !error ? (
+            {timelineItems.length === 0 && !error ? (
                 <div className="p-12 text-center bg-white rounded-lg border border-slate-200 shadow-sm">
                     <FileText className="h-12 w-12 text-slate-300 mx-auto mb-3" />
                     <h3 className="text-lg font-medium text-slate-900">查無資料</h3>
-                    <p className="text-slate-500 mt-1">此病人無出院病摘記錄</p>
+                    <p className="text-slate-500 mt-1">此病人無病歷記錄</p>
                 </div>
             ) : (
                 <>
-                    {/* 最新病摘 */}
-                    {latestComposition && (
-                        <div className={`bg-white rounded-lg shadow-md border-2 overflow-hidden ${isTransferSummary(latestComposition) ? 'border-orange-500' : 'border-medical-primary'}`}>
-                            <div className={`text-white px-6 py-3 flex items-center justify-between ${isTransferSummary(latestComposition) ? 'bg-orange-500' : 'bg-medical-primary'}`}>
-                                <div className="flex items-center gap-2">
-                                    {isTransferSummary(latestComposition) ? <ArrowRightLeft className="h-5 w-5" /> : <FileText className="h-5 w-5" />}
-                                    <span className="font-bold">最新{getCompositionTypeLabel(latestComposition)}</span>
-                                    {isTransferSummary(latestComposition) && (
-                                        <span className="text-xs bg-white/20 px-2 py-0.5 rounded">住院中轉院</span>
-                                    )}
-                                </div>
-                                <span className="text-sm opacity-90">
-                                    {new Date(latestComposition.date).toLocaleDateString('zh-TW')}
-                                </span>
-                            </div>
-
-                            <div className="p-6">
-                                <div className="flex items-start justify-between mb-4">
-                                    <div>
-                                        <h3 className="text-xl font-bold text-slate-800 mb-2">
-                                            {latestComposition.title || getCompositionTypeLabel(latestComposition)}
-                                        </h3>
-                                        <div className="flex items-center gap-4 text-sm text-slate-600">
-                                            <span className="flex items-center gap-1">
-                                                <Building className="h-4 w-4" />
-                                                {latestComposition.custodian?.display || '未知醫院'}
-                                            </span>
-                                            <span className="flex items-center gap-1">
-                                                <Calendar className="h-4 w-4" />
-                                                {new Date(latestComposition.date).toLocaleDateString('zh-TW')}
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <button
-                                        onClick={() => navigate(`/composition/${latestComposition.id}`)}
-                                        className="px-4 py-2 bg-medical-primary text-white rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-2"
-                                    >
-                                        <Download className="h-4 w-4" />
-                                        導入病歷
-                                    </button>
-                                </div>
-
-                                <button
-                                    onClick={() => loadDetail(latestComposition.id)}
-                                    className="w-full text-left text-sm text-medical-primary hover:underline flex items-center gap-1"
-                                >
-                                    {expandedId === latestComposition.id ? (
-                                        <><ChevronUp className="h-4 w-4" /> 收合詳細內容</>
-                                    ) : (
-                                        <><ChevronDown className="h-4 w-4" /> 展開詳細內容</>
-                                    )}
-                                </button>
-
-                                {expandedId === latestComposition.id && detailData[latestComposition.id] && (
-                                    <div className="mt-4 grid grid-cols-1 lg:grid-cols-2 gap-4">
-                                        {/* 左側：分組內容 */}
-                                        <div>
-                                            <SectionGroups
-                                                composition={detailData[latestComposition.id]}
-                                                parseSections={parseSections}
-                                            />
-                                        </div>
-                                        {/* 右側：可導入的 JSON 項目 */}
-                                        <div>
-                                            <ImportableResources
-                                                resources={linkedResources[latestComposition.id] || []}
-                                                onShowJson={setShowJsonModal}
-                                            />
-                                        </div>
-                                    </div>
-                                )}
-                            </div>
-                        </div>
+                    {/* 最新記錄 */}
+                    {latestItem && latestItem.type === 'composition' && (
+                        <CompositionCard
+                            composition={latestItem.data}
+                            isLatest={true}
+                            isTransferSummary={isTransferSummary}
+                            getCompositionTypeLabel={getCompositionTypeLabel}
+                            expandedId={expandedId}
+                            detailData={detailData}
+                            linkedResources={linkedResources}
+                            loadDetail={loadDetail}
+                            parseSections={parseSections}
+                            setShowJsonModal={setShowJsonModal}
+                            navigate={navigate}
+                        />
                     )}
 
-                    {/* 歷史記錄 */}
-                    {historyCompositions.length > 0 && (
+                    {latestItem && latestItem.type === 'outpatient' && (
+                        <OutpatientCard
+                            encounter={latestItem.data}
+                            isLatest={true}
+                            expandedId={expandedId}
+                            encounterMedications={encounterMedications}
+                            loadEncounterMedications={loadEncounterMedications}
+                            setShowJsonModal={setShowJsonModal}
+                        />
+                    )}
+
+                    {/* 歷史記錄時間軸 */}
+                    {historyItems.length > 0 && (
                         <div className="bg-white rounded-lg shadow-sm border border-slate-200">
                             <div className="px-6 py-3 border-b border-slate-200">
-                                <h3 className="font-bold text-slate-700">歷史病摘 ({historyCompositions.length})</h3>
+                                <h3 className="font-bold text-slate-700">病歷時間軸 ({historyItems.length})</h3>
                             </div>
                             <div className="divide-y divide-slate-100">
-                                {historyCompositions.map((comp) => (
-                                    <div key={comp.id} className={`p-4 hover:bg-slate-50 ${isTransferSummary(comp) ? 'border-l-4 border-l-orange-400' : ''}`}>
-                                        <div className="flex items-center justify-between">
-                                            <div className="flex-1">
-                                                <div className="flex items-center gap-3">
-                                                    <span className="text-sm font-medium text-slate-800">
-                                                        {comp.title || getCompositionTypeLabel(comp)}
-                                                    </span>
-                                                    {isTransferSummary(comp) && (
-                                                        <span className="text-xs bg-orange-100 text-orange-700 px-2 py-0.5 rounded">轉院</span>
-                                                    )}
-                                                    <span className="text-xs text-slate-500 flex items-center gap-1">
-                                                        <Building className="h-3 w-3" />
-                                                        {comp.custodian?.display || '未知醫院'}
-                                                    </span>
-                                                </div>
-                                                <div className="text-xs text-slate-400 mt-1">
-                                                    {new Date(comp.date).toLocaleDateString('zh-TW')}
-                                                </div>
-                                            </div>
-                                            <div className="flex items-center gap-2">
-                                                <button
-                                                    onClick={() => loadDetail(comp.id)}
-                                                    className="text-xs text-medical-primary hover:underline"
-                                                >
-                                                    {expandedId === comp.id ? '收合' : '查看'}
-                                                </button>
-                                                <button
-                                                    onClick={() => navigate(`/composition/${comp.id}`)}
-                                                    className="px-3 py-1 text-xs bg-slate-100 text-slate-600 rounded hover:bg-slate-200"
-                                                >
-                                                    導入
-                                                </button>
-                                            </div>
-                                        </div>
-
-                                        {expandedId === comp.id && detailData[comp.id] && (
-                                            <div className="mt-4 grid grid-cols-1 lg:grid-cols-2 gap-4">
-                                                <SectionGroups composition={detailData[comp.id]} parseSections={parseSections} />
-                                                <ImportableResources
-                                                    resources={linkedResources[comp.id] || []}
-                                                    onShowJson={setShowJsonModal}
-                                                />
-                                            </div>
-                                        )}
-                                    </div>
+                                {historyItems.map((item) => (
+                                    item.type === 'composition' ? (
+                                        <CompositionRow
+                                            key={item.id}
+                                            composition={item.data}
+                                            isTransferSummary={isTransferSummary}
+                                            getCompositionTypeLabel={getCompositionTypeLabel}
+                                            expandedId={expandedId}
+                                            detailData={detailData}
+                                            linkedResources={linkedResources}
+                                            loadDetail={loadDetail}
+                                            parseSections={parseSections}
+                                            setShowJsonModal={setShowJsonModal}
+                                            navigate={navigate}
+                                        />
+                                    ) : (
+                                        <OutpatientRow
+                                            key={item.id}
+                                            encounter={item.data}
+                                            expandedId={expandedId}
+                                            encounterMedications={encounterMedications}
+                                            loadEncounterMedications={loadEncounterMedications}
+                                            setShowJsonModal={setShowJsonModal}
+                                        />
+                                    )
                                 ))}
                             </div>
                         </div>
@@ -320,6 +319,174 @@ export default function CompositionList({ client }) {
                     </div>
                 </div>
             )}
+        </div>
+    );
+}
+
+// 出院/轉院病摘大卡片（最新）
+function CompositionCard({ composition, isLatest, isTransferSummary, getCompositionTypeLabel, expandedId, detailData, linkedResources, loadDetail, parseSections, setShowJsonModal, navigate }) {
+    const isTransfer = isTransferSummary(composition);
+    return (
+        <div className={`bg-white rounded-lg shadow-md border-2 overflow-hidden ${isTransfer ? 'border-orange-500' : 'border-medical-primary'}`}>
+            <div className={`text-white px-6 py-3 flex items-center justify-between ${isTransfer ? 'bg-orange-500' : 'bg-medical-primary'}`}>
+                <div className="flex items-center gap-2">
+                    {isTransfer ? <ArrowRightLeft className="h-5 w-5" /> : <FileText className="h-5 w-5" />}
+                    <span className="font-bold">{isLatest ? '最新' : ''}{getCompositionTypeLabel(composition)}</span>
+                    {isTransfer && <span className="text-xs bg-white/20 px-2 py-0.5 rounded">住院中轉院</span>}
+                </div>
+                <span className="text-sm opacity-90">{new Date(composition.date).toLocaleDateString('zh-TW')}</span>
+            </div>
+            <div className="p-6">
+                <div className="flex items-start justify-between mb-4">
+                    <div>
+                        <h3 className="text-xl font-bold text-slate-800 mb-2">{composition.title || getCompositionTypeLabel(composition)}</h3>
+                        <div className="flex items-center gap-4 text-sm text-slate-600">
+                            <span className="flex items-center gap-1"><Building className="h-4 w-4" />{composition.custodian?.display || '未知醫院'}</span>
+                            <span className="flex items-center gap-1"><Calendar className="h-4 w-4" />{new Date(composition.date).toLocaleDateString('zh-TW')}</span>
+                        </div>
+                    </div>
+                    <button onClick={() => navigate(`/composition/${composition.id}`)} className="px-4 py-2 bg-medical-primary text-white rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-2">
+                        <Download className="h-4 w-4" />導入病歷
+                    </button>
+                </div>
+                <button onClick={() => loadDetail(composition.id)} className="w-full text-left text-sm text-medical-primary hover:underline flex items-center gap-1">
+                    {expandedId === composition.id ? <><ChevronUp className="h-4 w-4" /> 收合詳細內容</> : <><ChevronDown className="h-4 w-4" /> 展開詳細內容</>}
+                </button>
+                {expandedId === composition.id && detailData[composition.id] && (
+                    <div className="mt-4 grid grid-cols-1 lg:grid-cols-2 gap-4">
+                        <SectionGroups composition={detailData[composition.id]} parseSections={parseSections} />
+                        <ImportableResources resources={linkedResources[composition.id] || []} onShowJson={setShowJsonModal} />
+                    </div>
+                )}
+            </div>
+        </div>
+    );
+}
+
+// 出院/轉院病摘列表行
+function CompositionRow({ composition, isTransferSummary, getCompositionTypeLabel, expandedId, detailData, linkedResources, loadDetail, parseSections, setShowJsonModal, navigate }) {
+    const isTransfer = isTransferSummary(composition);
+    return (
+        <div className={`p-4 hover:bg-slate-50 ${isTransfer ? 'border-l-4 border-l-orange-400' : 'border-l-4 border-l-blue-400'}`}>
+            <div className="flex items-center justify-between">
+                <div className="flex-1">
+                    <div className="flex items-center gap-3">
+                        <FileText className="h-4 w-4 text-blue-500" />
+                        <span className="text-sm font-medium text-slate-800">{composition.title || getCompositionTypeLabel(composition)}</span>
+                        {isTransfer && <span className="text-xs bg-orange-100 text-orange-700 px-2 py-0.5 rounded">轉院</span>}
+                        <span className="text-xs text-slate-500 flex items-center gap-1"><Building className="h-3 w-3" />{composition.custodian?.display || '未知醫院'}</span>
+                    </div>
+                    <div className="text-xs text-slate-400 mt-1 ml-7">{new Date(composition.date).toLocaleDateString('zh-TW')}</div>
+                </div>
+                <div className="flex items-center gap-2">
+                    <button onClick={() => loadDetail(composition.id)} className="text-xs text-medical-primary hover:underline">{expandedId === composition.id ? '收合' : '查看'}</button>
+                    <button onClick={() => navigate(`/composition/${composition.id}`)} className="px-3 py-1 text-xs bg-slate-100 text-slate-600 rounded hover:bg-slate-200">導入</button>
+                </div>
+            </div>
+            {expandedId === composition.id && detailData[composition.id] && (
+                <div className="mt-4 grid grid-cols-1 lg:grid-cols-2 gap-4">
+                    <SectionGroups composition={detailData[composition.id]} parseSections={parseSections} />
+                    <ImportableResources resources={linkedResources[composition.id] || []} onShowJson={setShowJsonModal} />
+                </div>
+            )}
+        </div>
+    );
+}
+
+// 門診記錄大卡片（最新）
+function OutpatientCard({ encounter, isLatest, expandedId, encounterMedications, loadEncounterMedications, setShowJsonModal }) {
+    const key = `enc-${encounter.id}`;
+    const meds = encounterMedications[encounter.id] || [];
+    const encDate = encounter.period?.start || encounter.period?.end;
+    const serviceType = encounter.serviceType?.coding?.[0]?.display || encounter.type?.[0]?.coding?.[0]?.display || '門診';
+
+    return (
+        <div className="bg-white rounded-lg shadow-md border-2 border-emerald-500 overflow-hidden">
+            <div className="bg-emerald-500 text-white px-6 py-3 flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                    <Stethoscope className="h-5 w-5" />
+                    <span className="font-bold">{isLatest ? '最新' : ''}門診記錄</span>
+                    <span className="text-xs bg-white/20 px-2 py-0.5 rounded">{serviceType}</span>
+                </div>
+                <span className="text-sm opacity-90">{encDate ? new Date(encDate).toLocaleDateString('zh-TW') : '未知日期'}</span>
+            </div>
+            <div className="p-6">
+                <div className="flex items-start justify-between mb-4">
+                    <div>
+                        <h3 className="text-xl font-bold text-slate-800 mb-2">{serviceType}</h3>
+                        <div className="flex items-center gap-4 text-sm text-slate-600">
+                            <span className="flex items-center gap-1"><Building className="h-4 w-4" />{encounter.serviceProvider?.display || '未知醫院'}</span>
+                            <span className="flex items-center gap-1"><Calendar className="h-4 w-4" />{encDate ? new Date(encDate).toLocaleDateString('zh-TW') : '未知'}</span>
+                        </div>
+                    </div>
+                </div>
+                <button onClick={() => loadEncounterMedications(encounter.id)} className="w-full text-left text-sm text-emerald-600 hover:underline flex items-center gap-1">
+                    {expandedId === key ? <><ChevronUp className="h-4 w-4" /> 收合用藥記錄</> : <><ChevronDown className="h-4 w-4" /> 查看門診用藥</>}
+                </button>
+                {expandedId === key && (
+                    <div className="mt-4">
+                        <MedicationList medications={meds} onShowJson={setShowJsonModal} />
+                    </div>
+                )}
+            </div>
+        </div>
+    );
+}
+
+// 門診記錄列表行
+function OutpatientRow({ encounter, expandedId, encounterMedications, loadEncounterMedications, setShowJsonModal }) {
+    const key = `enc-${encounter.id}`;
+    const meds = encounterMedications[encounter.id] || [];
+    const encDate = encounter.period?.start || encounter.period?.end;
+    const serviceType = encounter.serviceType?.coding?.[0]?.display || encounter.type?.[0]?.coding?.[0]?.display || '門診';
+
+    return (
+        <div className="p-4 hover:bg-slate-50 border-l-4 border-l-emerald-400">
+            <div className="flex items-center justify-between">
+                <div className="flex-1">
+                    <div className="flex items-center gap-3">
+                        <Stethoscope className="h-4 w-4 text-emerald-500" />
+                        <span className="text-sm font-medium text-slate-800">{serviceType}</span>
+                        <span className="text-xs bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded">門診</span>
+                        <span className="text-xs text-slate-500 flex items-center gap-1"><Building className="h-3 w-3" />{encounter.serviceProvider?.display || '未知醫院'}</span>
+                    </div>
+                    <div className="text-xs text-slate-400 mt-1 ml-7">{encDate ? new Date(encDate).toLocaleDateString('zh-TW') : '未知日期'}</div>
+                </div>
+                <button onClick={() => loadEncounterMedications(encounter.id)} className="text-xs text-emerald-600 hover:underline">{expandedId === key ? '收合' : '用藥'}</button>
+            </div>
+            {expandedId === key && (
+                <div className="mt-4">
+                    <MedicationList medications={meds} onShowJson={setShowJsonModal} />
+                </div>
+            )}
+        </div>
+    );
+}
+
+// 門診用藥列表
+function MedicationList({ medications, onShowJson }) {
+    if (medications.length === 0) {
+        return <div className="text-sm text-slate-500 bg-slate-50 p-4 rounded">此次門診無用藥記錄或資料載入中...</div>;
+    }
+    return (
+        <div className="bg-emerald-50 border border-emerald-200 rounded-lg p-4">
+            <h4 className="font-bold text-emerald-700 flex items-center gap-2 mb-3">
+                <Pill className="h-4 w-4" />
+                門診用藥 ({medications.length})
+            </h4>
+            <div className="space-y-2">
+                {medications.map((med, i) => {
+                    const medName = med.medicationCodeableConcept?.text || med.medicationCodeableConcept?.coding?.[0]?.display || 'Unknown';
+                    const dosage = med.dosage?.[0]?.text || '';
+                    const startDate = med.effectivePeriod?.start || med.effectiveDateTime;
+                    return (
+                        <button key={i} onClick={() => onShowJson(med)} className="w-full text-left px-3 py-2 rounded border bg-white border-emerald-200 text-sm hover:bg-emerald-100 transition-colors">
+                            <div className="font-medium text-emerald-800">{medName}</div>
+                            <div className="text-xs text-emerald-600">{dosage} {startDate && `• ${new Date(startDate).toLocaleDateString('zh-TW')}`}</div>
+                        </button>
+                    );
+                })}
+            </div>
         </div>
     );
 }
@@ -448,7 +615,14 @@ function SectionGroups({ composition, parseSections }) {
                 <div className="bg-green-50 border border-green-200 rounded-lg p-3">
                     <h4 className="font-bold text-green-700 mb-1 text-sm">出院用藥</h4>
                     {grouped.medications.map((item, i) => (
-                        <div key={i} className="text-sm text-green-800 whitespace-pre-wrap">{item.text}</div>
+                        <div key={i} className="text-sm text-green-800">
+                            {item.rawHtml ? (
+                                <div className="overflow-x-auto [&_table]:w-full [&_table]:text-sm [&_th]:text-left [&_th]:px-2 [&_th]:py-1 [&_th]:bg-green-100 [&_td]:px-2 [&_td]:py-1 [&_td]:border-t [&_td]:border-green-200"
+                                     dangerouslySetInnerHTML={{ __html: item.rawHtml }} />
+                            ) : (
+                                <div className="whitespace-pre-wrap">{item.text}</div>
+                            )}
+                        </div>
                     ))}
                 </div>
             )}
@@ -458,6 +632,17 @@ function SectionGroups({ composition, parseSections }) {
                     <h4 className="font-bold text-purple-700 mb-1 text-sm">手術/處置</h4>
                     {grouped.procedures.map((item, i) => (
                         <div key={i} className="text-sm text-purple-800 whitespace-pre-wrap">{item.text}</div>
+                    ))}
+                </div>
+            )}
+
+            {grouped.labs.length > 0 && (
+                <div className="bg-green-50 border border-green-200 rounded-lg p-3">
+                    <h4 className="font-bold text-green-700 mb-2 text-sm">檢驗結果</h4>
+                    {grouped.labs.map((item, i) => (
+                        <div key={i}>
+                            <LabResultsDisplay entries={item.entries} rawHtml={item.rawHtml} />
+                        </div>
                     ))}
                 </div>
             )}
@@ -475,4 +660,67 @@ function SectionGroups({ composition, parseSections }) {
             )}
         </div>
     );
+}
+
+// 檢驗結果顯示元件 - 每行一個項目
+function LabResultsDisplay({ entries, rawHtml }) {
+    // 優先從 HTML 解析表格資料（包含完整數值）
+    if (rawHtml) {
+        // 解析 HTML 中的表格行
+        const rows = rawHtml.match(/<tr[^>]*>[\s\S]*?<\/tr>/gi) || [];
+        const dataRows = rows.filter(row => row.includes('<td'));
+
+        if (dataRows.length > 0) {
+            return (
+                <div className="space-y-1">
+                    {dataRows.map((row, i) => {
+                        // 提取 td 內容並解碼 HTML entities
+                        const cells = row.match(/<td[^>]*>([\s\S]*?)<\/td>/gi) || [];
+                        const decodeHtml = (html) => {
+                            const txt = document.createElement('textarea');
+                            txt.innerHTML = html;
+                            return txt.value;
+                        };
+                        const cellTexts = cells.map(cell =>
+                            decodeHtml(cell.replace(/<[^>]*>/g, '')).trim()
+                        ).filter(t => t);
+
+                        if (cellTexts.length >= 2) {
+                            // 只有獨立的 H/L 標記才標為異常（排除名稱如 HGB, ALT 等）
+                            const valueText = cellTexts.slice(1).join(' ');
+                            const isAbnormal = /\s[HL]\s*$|\([HL]\)|⬆|⬇/.test(valueText);
+                            return (
+                                <div key={i} className={`text-sm py-0.5 border-b border-green-100 last:border-0 flex justify-between ${isAbnormal ? 'text-red-600 font-medium' : 'text-green-800'}`}>
+                                    <span>{cellTexts[0]}</span>
+                                    <span>{cellTexts.slice(1).join(' ')}</span>
+                                </div>
+                            );
+                        }
+                        return null;
+                    })}
+                </div>
+            );
+        }
+    }
+
+    // 如果沒有 HTML，從 entries 顯示參考名稱
+    if (entries && entries.length > 0) {
+        return (
+            <div className="space-y-1">
+                {entries.map((entry, i) => {
+                    const ref = entry.reference || '';
+                    const parts = ref.split('/');
+                    const id = parts[parts.length - 1] || ref;
+                    const namePart = id.split('-').slice(-2, -1)[0] || id;
+                    return (
+                        <div key={i} className="text-sm text-green-800 py-0.5 border-b border-green-100 last:border-0">
+                            {namePart.toUpperCase()}
+                        </div>
+                    );
+                })}
+            </div>
+        );
+    }
+
+    return <div className="text-sm text-slate-500">無檢驗資料</div>;
 }

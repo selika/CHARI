@@ -5,12 +5,15 @@
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 [![FHIR](https://img.shields.io/badge/FHIR-R4-orange.svg)](https://hl7.org/fhir/R4/)
 [![Platform](https://img.shields.io/badge/Platform-衛福部%20SMART-green.svg)](https://thas.mohw.gov.tw/)
+[![Demo](https://img.shields.io/badge/Demo-Live-brightgreen.svg)](https://selika.github.io/CHARI/)
 
 ---
 
 ## 專案簡介
 
 **CHARI** (Cross-Hospital Admission Record Integration) 是一個 SMART on FHIR App，用於解決跨院轉診時的病歷整合問題。讓接收醫院能快速查閱轉出醫院的病摘，並選擇性導入至本院病歷系統。
+
+**Live Demo**: https://selika.github.io/CHARI/
 
 ### 解決的問題
 
@@ -24,127 +27,66 @@
 
 ## 系統架構
 
-```mermaid
-flowchart LR
-    subgraph HospitalA["🏥 A 醫院（轉出端）"]
-        HIS_A[HIS] --> CHARI_A[CHARI App]
-    end
-
-    subgraph MOHW["☁️ 衛福部 FHIR Server"]
-        FHIR[(Composition\nBundle)]
-    end
-
-    subgraph HospitalB["🏥 B 醫院（接收端）"]
-        CHARI_B[CHARI App] --> HIS_B[HIS]
-    end
-
-    CHARI_A -->|POST 出院/轉院病摘| FHIR
-    FHIR -->|GET 病摘| CHARI_B
-
-    style HospitalA fill:#e3f2fd
-    style HospitalB fill:#e8f5e9
-    style MOHW fill:#fff3e0
 ```
-
----
-
-## 使用流程
-
-### 接收端（轉入）流程
-
-```mermaid
-flowchart LR
-    A[🖥️ HIS 住院作業] --> B[👆 點擊外院病摘]
-    B --> C[🚀 App 啟動]
-    C --> D[🔍 查詢結果]
-    D --> E[✅ 審核內容]
-    E --> F[📥 導入病歷]
-
-    style A fill:#e3f2fd
-    style F fill:#c8e6c9
-```
-
-### 傳送端（轉出）流程
-
-```mermaid
-flowchart LR
-    A[📝 完成病摘撰寫] --> B[👆 點擊上傳病摘]
-    B --> C[🚀 App 啟動]
-    C --> D[👁️ 確認內容]
-    D --> E[☁️ 上傳 FHIR Server]
-
-    style A fill:#e8f5e9
-    style E fill:#c8e6c9
-```
-
----
-
-## SMART on FHIR Launch 流程
-
-```mermaid
-sequenceDiagram
-    participant User as 使用者/HIS
-    participant App as CHARI App
-    participant Auth as Authorization Server
-    participant FHIR as FHIR Server
-
-    User->>App: 1. 點擊啟動 (iss, launch)
-    App->>FHIR: 2. GET /.well-known/smart-configuration
-    FHIR-->>App: 3. 回傳授權端點
-    App->>Auth: 4. 導向授權頁面
-    User->>Auth: 5. 登入並授權
-    Auth-->>App: 6. 回傳 Authorization Code
-    App->>Auth: 7. 交換 Access Token
-    Auth-->>App: 8. 回傳 Token
-    App->>FHIR: 9. API 請求 (Bearer Token)
-    FHIR-->>App: 10. 回傳 FHIR Resources
+┌─────────────────┐     ┌─────────────────────┐     ┌─────────────────┐
+│  A 醫院（轉出端） │     │  衛福部 FHIR Server  │     │  B 醫院（接收端） │
+│                 │     │                     │     │                 │
+│  ┌───────────┐  │     │  ┌───────────────┐  │     │  ┌───────────┐  │
+│  │    HIS    │  │     │  │  Composition  │  │     │  │    HIS    │  │
+│  └─────┬─────┘  │     │  │    Bundle     │  │     │  └─────┬─────┘  │
+│        │        │     │  └───────────────┘  │     │        │        │
+│  ┌─────▼─────┐  │     │                     │     │  ┌─────▼─────┐  │
+│  │ CHARI App │──┼────►│  POST 出院/轉院病摘  │     │  │ CHARI App │  │
+│  └───────────┘  │     │                     │◄────┼──│ GET 病摘   │  │
+└─────────────────┘     └─────────────────────┘     └─────────────────┘
 ```
 
 ---
 
 ## 核心功能
 
-| 模組 | 功能 | FHIR 操作 |
-|------|------|-----------|
-| **外院病摘查詢** | 依病人 ID 查詢衛福部 FHIR Server | `GET Composition` |
-| **病摘內容審核** | 顯示診斷、用藥、過敏等段落 | Parse `Bundle` |
-| **住院病歷導入** | 選擇性導入至本院 | `POST Condition/MedicationStatement` |
-| **病摘上傳** | 將本院病摘上傳至 FHIR Server | `POST Bundle` |
+### Encounter-Based Timeline（就診時間軸）
+
+以「就診紀錄 (Encounter)」為主軸，整合顯示：
+- 出院病摘（藍色主題）
+- 轉院病摘（橘色主題，標註「住院中轉院」）
+- 門診記錄（綠色主題）
+
+### 病摘導入功能
+
+| 項目 | 說明 |
+|------|------|
+| 過敏註記 | 預設導入，高風險過敏紅色警示 |
+| 主訴 / 現病史 | 可選擇導入，以 FHIR DocumentReference 格式 |
+| 診斷 | Condition 資源，含 ICD 代碼 |
+| 用藥記錄 | MedicationStatement，區分住院用藥/出院帶回 |
+| 手術處置 | Procedure 資源 |
+| 檢驗報告 | Observation 資源，異常值紅字標示 |
 
 ### 支援的 FHIR Resources
 
 - `Composition` - 出院/轉院病摘
+- `Encounter` - 就醫紀錄（住院/門診）
 - `Condition` - 診斷
 - `MedicationStatement` - 用藥紀錄
 - `AllergyIntolerance` - 過敏史
 - `Procedure` - 手術/處置
-- `CarePlan` - 照護計畫
-- `Encounter` - 就醫紀錄
+- `Observation` - 檢驗數據
+- `DiagnosticReport` - 影像/EKG 報告
 
 ---
 
-## 測試資料
+## 測試案例
 
-本專案提供 10 筆測試用出院病摘，已上傳至衛福部 THAS 沙盒。
+本專案提供 AI 生成符合臨床實務的 3 位測試病人：
 
-詳見 [test-data/README.md](test-data/README.md)
+| 病人 | 診斷 | 情境 | 來源醫院 |
+|------|------|------|----------|
+| 林小萱 | SLE 紅斑性狼瘡 | 出院後轉院 | 臺北榮民總醫院 |
+| 王美華 | Severe AS s/p TAVI | 出院後轉院 | 臺北榮民總醫院 |
+| 陳志明 | NSTEMI 三支血管疾病 | 住院中轉院 | 高雄長庚醫院 |
 
-| 病人 | 診斷 | 來源醫院 |
-|------|------|----------|
-| 王大明 | 急性心肌梗塞 | 臺北榮民總醫院 |
-| 李美華 | 腦中風 | 臺北榮民總醫院 |
-| 張志強 | 肺炎 | 臺北榮民總醫院 |
-| 黃雅琪 | 乳癌術後 | 臺灣大學醫學院附設醫院 |
-| 周秀蘭 | 膽囊切除 | 林口長庚紀念醫院 |
-
-**查詢範例**：
-```bash
-# 用身分證查詢病人
-curl "https://thas.mohw.gov.tw/v/r4/fhir/Patient?identifier=urn:oid:2.16.886.103|A123456789"
-
-# 查詢病人的出院病摘
-curl "https://thas.mohw.gov.tw/v/r4/fhir/Composition?subject=Patient/pt-test-001"
-```
+**FHIR Server**: `https://thas.mohw.gov.tw/v/r4/fhir`
 
 ---
 
@@ -155,16 +97,18 @@ curl "https://thas.mohw.gov.tw/v/r4/fhir/Composition?subject=Patient/pt-test-001
 | FHIR 版本 | R4 |
 | Profile | TW Core IG |
 | 認證方式 | OAuth 2.0 (SMART App Launch) |
-| 前端框架 | React + fhirclient.js |
+| 前端框架 | React 18 + Vite |
+| FHIR Client | fhirclient.js |
+| UI 框架 | Tailwind CSS + Lucide Icons |
 | 部署方式 | GitHub Pages |
 
 ### 環境設定
 
 | 環境 | URL |
 |------|-----|
+| Demo | `https://selika.github.io/CHARI/` |
 | FHIR Server | `https://thas.mohw.gov.tw/v/r4/fhir` |
 | Patient Browser | `https://thas.mohw.gov.tw/patient-browser/` |
-| Launch URL | `https://selika.github.io/CHARI/client/launch.html` |
 
 ---
 
@@ -172,20 +116,46 @@ curl "https://thas.mohw.gov.tw/v/r4/fhir/Composition?subject=Patient/pt-test-001
 
 ```
 CHARI/
-├── README.md              # 本文件
-├── LICENSE                # Apache 2.0
-├── client/                # SMART on FHIR App（開發中）
-│   ├── launch.html        # SMART Launch
-│   ├── app.html           # 主應用程式
-│   └── src/
-├── test-data/             # 測試資料
-│   ├── README.md          # 測試資料說明
-│   ├── patients.json
-│   ├── compositions.json
-│   └── ...
-└── docs/                  # 文件（規劃中）
-    ├── INSTALL.md
-    └── FHIR_SPEC.md
+├── README.md                 # 本文件
+├── LICENSE                   # Apache 2.0
+├── package.json              # 專案設定
+├── vite.config.js            # Vite 設定
+├── src/
+│   ├── App.jsx               # 主應用程式
+│   ├── main.jsx              # 進入點
+│   ├── components/
+│   │   ├── PatientSearch.jsx     # 病人查詢
+│   │   ├── CompositionList.jsx   # 病摘時間軸
+│   │   ├── CompositionDetail.jsx # 病摘導入
+│   │   └── Layout.jsx            # 頁面布局
+│   └── services/
+│       └── fhirQueries.js        # FHIR 查詢封裝
+├── test-data/
+│   ├── TESTA-01/             # 林小萱測試資料
+│   ├── TESTA-02/             # 王美華測試資料
+│   └── TESTA-03/             # 陳志明測試資料
+├── scripts/
+│   └── upload-*.cjs          # 資料上傳腳本
+└── plan/
+    └── 提案大綱_CHARI_完整版.md  # 專案提案書
+```
+
+---
+
+## 開發與部署
+
+```bash
+# 安裝依賴
+npm install
+
+# 本地開發
+npm run dev
+
+# 建置
+npm run build
+
+# 部署至 GitHub Pages
+npm run deploy
 ```
 
 ---
@@ -194,9 +164,9 @@ CHARI/
 
 | 階段 | 狀態 |
 |------|------|
-| Phase 1: Client App（醫師端） | 🚧 開發中 |
-| Phase 2: Admin Dashboard（管理端） | 📋 規劃中 |
-| Phase 3: 正式上線 | 📋 規劃中 |
+| Phase 1: 病摘查詢與時間軸 | ✅ 完成 |
+| Phase 2: 病摘導入功能 | ✅ 完成 |
+| Phase 3: 測試資料建立 | ✅ 完成 |
 
 ---
 

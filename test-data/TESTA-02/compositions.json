@@ -20,7 +20,7 @@
         },
         "subject": {
             "reference": "Patient/pt-testa-02",
-            "display": "TESTA-02"
+            "display": "王美華"
         },
         "encounter": {
             "reference": "Encounter/enc-testa02-01"
@@ -36,7 +36,7 @@
                 "display": "陳效宏（住院醫師）"
             }
         ],
-        "title": "出院病歷摘要 - Pre-TAVI Evaluation",
+        "title": "出院病歷摘要 - TAVI 術前評估",
         "custodian": {
             "reference": "Organization/org-vghtpe",
             "display": "臺北榮民總醫院"
@@ -55,7 +55,7 @@
                 },
                 "text": {
                     "status": "generated",
-                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><strong>[Active]</strong></p><ol><li>Severe aortic stenosis (Echo: AVA 0.78 cm2, mean PG 34.3mmHg)</li><li>Heart failure with reduced ejection fraction (LVEF 32.9%)</li></ol><p><strong>[Underlying disease]</strong></p><ul><li>ESRD on HD via left AV fistula TIW</li><li>CAD s/p PCI with DES and BMS 2025/7/30</li><li>Diabetes mellitus</li><li>Hepatitis B carrier (inactive)</li></ul></div>"
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><strong>【Active Problem】</strong></p><ol><li>嚴重主動脈瓣狹窄（心臟超音波：瓣膜面積 0.78 cm²，平均壓差 34.3mmHg）</li><li>射出分率降低之心臟衰竭（左心室射出分率 32.9%）</li></ol><p><strong>【Inactive Problem】</strong></p><ul><li>末期腎病，經左側動靜脈廔管血液透析，每週三次</li><li>冠狀動脈疾病，2025/7/30 接受經皮冠狀動脈介入治療置放藥物塗層及金屬支架</li><li>糖尿病</li><li>B 型肝炎帶原（不活動期）</li></ul></div>"
                 },
                 "entry": [
                     {
@@ -79,7 +79,23 @@
                 },
                 "text": {
                     "status": "generated",
-                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Dyspnea and chest tightness for 2 weeks. Aortic stenosis was told at local hospital.</p></div>"
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>呼吸困難及胸悶約兩週，外院告知有主動脈瓣狹窄</p></div>"
+                }
+            },
+            {
+                "title": "現病史",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "10164-2",
+                            "display": "History of present illness"
+                        }
+                    ]
+                },
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>病人為 67 歲女性，過去病史如上述。近兩週出現活動時呼吸困難及胸悶症狀，至外院就醫發現主動脈瓣狹窄，轉介至本院心臟血管外科進一步評估是否適合經導管主動脈瓣膜置換術（TAVI）。</p></div>"
                 }
             },
             {
@@ -95,7 +111,7 @@
                 },
                 "text": {
                     "status": "generated",
-                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Serial pre-operative surveys were arranged. Dopscan showed multifocal plaques with mild luminal narrowing in bilateral common carotid arteries. 2D cardiac echo showed calcified aortic valve with mild AR, severe valvular aortic stenosis. Chest CT showed pulmonary trunk diameter 3.4cm, atherosclerotic changes. Tooth extraction was done on 2025/08/19 for pre-TAVI clearance.</p></div>"
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>安排系列術前檢查。頸動脈超音波顯示雙側總頸動脈有多發性斑塊伴輕度管腔狹窄。二維心臟超音波顯示鈣化的主動脈瓣伴輕度逆流、嚴重瓣膜性主動脈狹窄。胸部電腦斷層顯示肺動脈主幹直徑 3.4 公分、動脈粥樣硬化變化。2025/08/19 進行拔牙作為 TAVI 術前準備。</p></div>"
                 },
                 "entry": [
                     {
@@ -122,7 +138,7 @@
                 },
                 "text": {
                     "status": "generated",
-                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>No known food or drug allergy (NKDA)</p></div>"
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>No known drug allergies (NKDA)</p></div>"
                 },
                 "emptyReason": {
                     "coding": [
@@ -147,11 +163,14 @@
                 },
                 "text": {
                     "status": "generated",
-                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table><tr><td>Acetylcysteine granules 600mg</td><td>BID</td></tr><tr><td>Medicon-A cap</td><td>TID</td></tr><tr><td>Aspirin (Espin) 100mg</td><td>QD</td></tr><tr><td>Clopidogrel (Plavix) 75mg</td><td>QD</td></tr><tr><td>Atorvastatin (Lipitor) 40mg</td><td>QD</td></tr><tr><td>Bisoprolol (Concor) 1.25mg</td><td>BID</td></tr><tr><td>Amlodipine (Norvasc) 5mg</td><td>QD</td></tr></table></div>"
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table><tr><td>Acetylcysteine 顆粒 600mg</td><td>BID</td></tr><tr><td>Medicon-A 膠囊（止咳）</td><td>TID</td></tr><tr><td>Aspirin (Espin) 100mg</td><td>QD</td></tr><tr><td>Clopidogrel (Plavix) 75mg</td><td>QD</td></tr><tr><td>Atorvastatin (Lipitor) 40mg</td><td>QD</td></tr><tr><td>Bisoprolol (Concor) 1.25mg</td><td>BID</td></tr><tr><td>Amlodipine (Norvasc) 5mg</td><td>QD</td></tr></table></div>"
                 },
                 "entry": [
                     {
                         "reference": "MedicationStatement/medstmt-testa02-acetylcysteine"
+                    },
+                    {
+                        "reference": "MedicationStatement/medstmt-testa02-medicon"
                     },
                     {
                         "reference": "MedicationStatement/medstmt-testa02-aspirin"
@@ -183,7 +202,7 @@
                 },
                 "text": {
                     "status": "generated",
-                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h4>血液常規 (2025-08-15)</h4><table><tr><td>WBC</td><td>8000 /cumm</td></tr><tr><td>RBC</td><td>3.56 m/cumm</td><td>⬇️ L</td></tr><tr><td>HGB</td><td>10.9 g/dL</td></tr><tr><td>Platelet</td><td>222000 /cumm</td></tr></table><h4>生化 (2025-08-15)</h4><table><tr><td>BUN</td><td>73 mg/dL</td><td>⬆️ H</td></tr><tr><td>Creatinine</td><td>7.92 mg/dL</td><td>⬆️ H</td></tr><tr><td>Glucose</td><td>116 mg/dL</td><td>⬆️ H</td></tr><tr><td>Na</td><td>134 mmol/L</td><td>⬇️ L</td></tr><tr><td>K</td><td>4.2 mmol/L</td></tr></table></div>"
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h4>血液常規 (2025-08-15)</h4><table><tr><td>白血球</td><td>8000 /cumm</td></tr><tr><td>紅血球</td><td>3.56 m/cumm</td><td>L</td></tr><tr><td>血紅素</td><td>10.9 g/dL</td></tr><tr><td>血小板</td><td>222000 /cumm</td></tr></table><h4>生化 (2025-08-15)</h4><table><tr><td>尿素氮</td><td>73 mg/dL</td><td>H</td></tr><tr><td>肌酸酐</td><td>7.92 mg/dL</td><td>H</td></tr><tr><td>血糖</td><td>116 mg/dL</td><td>H</td></tr><tr><td>鈉</td><td>134 mmol/L</td><td>L</td></tr><tr><td>鉀</td><td>4.2 mmol/L</td></tr></table></div>"
                 },
                 "entry": [
                     {
@@ -228,7 +247,7 @@
                 },
                 "text": {
                     "status": "generated",
-                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>出院後繼續來本院門診追蹤，安排TAVI手術</p></div>"
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>出院後繼續於本院門診追蹤，安排 TAVI 手術</p></div>"
                 }
             }
         ]
@@ -254,7 +273,7 @@
         },
         "subject": {
             "reference": "Patient/pt-testa-02",
-            "display": "TESTA-02"
+            "display": "王美華"
         },
         "encounter": {
             "reference": "Encounter/enc-testa02-02"
@@ -270,7 +289,7 @@
                 "display": "鄭光翔（住院醫師）"
             }
         ],
-        "title": "出院病歷摘要 - TAVI Procedure",
+        "title": "出院病歷摘要 - TAVI 術後",
         "custodian": {
             "reference": "Organization/org-vghtpe",
             "display": "臺北榮民總醫院"
@@ -289,7 +308,7 @@
                 },
                 "text": {
                     "status": "generated",
-                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><strong>[Active]</strong></p><ol><li>Severe aortic stenosis - <strong>s/p TAVI on 2025/9/23 (24.5mm MyVAL)</strong></li><li>Heart failure with reduced ejection fraction</li></ol><p><strong>[Underlying disease]</strong></p><ul><li>ESRD on HD</li><li>CAD s/p PCI 2025/7/30</li><li>Diabetes mellitus</li><li>Hepatitis B carrier</li></ul></div>"
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><strong>【Active Problem】</strong></p><ol><li>嚴重主動脈瓣狹窄 - <strong>2025/9/23 接受 TAVI（24.5mm MyVAL 瓣膜）</strong></li><li>射出分率降低之心臟衰竭</li></ol><p><strong>【Inactive Problem】</strong></p><ul><li>末期腎病，血液透析中</li><li>冠狀動脈疾病，2025/7/30 接受經皮冠狀動脈介入治療</li><li>糖尿病</li><li>B 型肝炎帶原</li></ul></div>"
                 },
                 "entry": [
                     {
@@ -299,6 +318,22 @@
                         "reference": "Condition/cond-testa02-hf"
                     }
                 ]
+            },
+            {
+                "title": "主訴",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "10154-3",
+                            "display": "Chief complaint"
+                        }
+                    ]
+                },
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>入院接受經導管主動脈瓣膜置換術（TAVI）</p></div>"
+                }
             },
             {
                 "title": "手術方法及日期",
@@ -313,7 +348,7 @@
                 },
                 "text": {
                     "status": "generated",
-                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><strong>2025-09-23</strong>: TAVI (transcatheter aortic valve implantation) with 24.5mm MyVAL valve</p></div>"
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><strong>2025-09-23</strong>：經導管主動脈瓣膜置換術（TAVI），置入 24.5mm MyVAL 瓣膜</p></div>"
                 },
                 "entry": [
                     {
@@ -334,7 +369,7 @@
                 },
                 "text": {
                     "status": "generated",
-                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Pre-operative survey done. Family meeting held on 9/22. TAVI performed on 2025/9/23. Patient tolerated procedure well. Post-op transferred to CVS-A ICU for close monitoring. Transferred back to general ward on 9/24. Patient stable and discharged for OPD follow up.</p></div>"
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>完成術前檢查。9/22 與家屬進行術前說明會議。2025/9/23 進行 TAVI 手術。病人手術過程順利。術後轉至心臟血管外科加護病房密切監測。9/24 轉回普通病房。病人狀況穩定，出院門診追蹤。</p></div>"
                 }
             },
             {
@@ -350,13 +385,38 @@
                 },
                 "text": {
                     "status": "generated",
-                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><strong>2025-09-21</strong>: Sinus rhythm. LVH with secondary repolarization abnormality. T wave inversion in lead V1-6, I, aVL.</p></div>"
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><strong>2025-09-21</strong>：竇性心律。左心室肥厚伴續發性再極化異常。V1-6、I、aVL 導程 T 波倒置。</p></div>"
                 },
                 "entry": [
                     {
                         "reference": "DiagnosticReport/dr-testa02-ekg-01"
                     }
                 ]
+            },
+            {
+                "title": "過敏史",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "48765-2",
+                            "display": "Allergies and adverse reactions"
+                        }
+                    ]
+                },
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>No known drug allergies (NKDA)</p></div>"
+                },
+                "emptyReason": {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/list-empty-reason",
+                            "code": "nilknown",
+                            "display": "Nil Known"
+                        }
+                    ]
+                }
             },
             {
                 "title": "出院用藥",
@@ -371,7 +431,7 @@
                 },
                 "text": {
                     "status": "generated",
-                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table><tr><td>Traceton FC tab</td><td>TID PRN</td></tr></table></div>"
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table><tr><td>Traceton 膜衣錠（止咳）</td><td>TID PRN</td></tr></table></div>"
                 },
                 "entry": [
                     {
@@ -392,7 +452,7 @@
                 },
                 "text": {
                     "status": "generated",
-                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h4>血液常規 (2025-09-22)</h4><table><tr><td>WBC</td><td>5930 /cumm</td></tr><tr><td>HGB</td><td>10.2 g/dL</td><td>⬇️ L</td></tr><tr><td>Platelet</td><td>136000 /cumm</td><td>⬇️ L</td></tr></table><h4>生化</h4><table><tr><td>Creatinine</td><td>9.65 mg/dL</td><td>⬆️ H</td></tr><tr><td>HS-CRP (9/24)</td><td>3.57 mg/dL</td><td>⬆️ H</td></tr></table></div>"
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h4>血液常規 (2025-09-22)</h4><table><tr><td>白血球</td><td>5930 /cumm</td></tr><tr><td>血紅素</td><td>10.2 g/dL</td><td>L</td></tr><tr><td>血小板</td><td>136000 /cumm</td><td>L</td></tr></table><h4>生化</h4><table><tr><td>肌酸酐</td><td>9.65 mg/dL</td><td>H</td></tr><tr><td>高敏感度 CRP (9/24)</td><td>3.57 mg/dL</td><td>H</td></tr></table></div>"
                 },
                 "entry": [
                     {
@@ -425,7 +485,7 @@
                 },
                 "text": {
                     "status": "generated",
-                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>出院後繼續來本院門診追蹤</p></div>"
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>出院後繼續於本院門診追蹤</p></div>"
                 }
             }
         ]

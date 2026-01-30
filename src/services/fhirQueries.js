@@ -39,3 +39,27 @@ export async function searchCompositions(client, patientId) {
     const url = `Composition?subject=Patient/${patientId}&_sort=-date`;
     return client.request(url);
 }
+
+/**
+ * Search Encounters for a patient (all types: inpatient, outpatient, emergency)
+ * 查詢病人的所有就診記錄
+ * @param {Object} client FHIR Client
+ * @param {string} patientId Patient Reference ID
+ */
+export async function searchEncounters(client, patientId) {
+    if (!client || !patientId) return null;
+    const url = `Encounter?subject=Patient/${patientId}&_sort=-date`;
+    return client.request(url);
+}
+
+/**
+ * Search MedicationStatements for a specific Encounter
+ * 查詢特定就診的用藥記錄
+ * @param {Object} client FHIR Client
+ * @param {string} encounterId Encounter ID
+ */
+export async function searchMedicationsByEncounter(client, encounterId) {
+    if (!client || !encounterId) return null;
+    const url = `MedicationStatement?context=Encounter/${encounterId}`;
+    return client.request(url);
+}

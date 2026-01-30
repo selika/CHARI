@@ -31,7 +31,7 @@
         ],
         "subject": {
             "reference": "Patient/pt-testa-01",
-            "display": "TESTA-01"
+            "display": "林小萱"
         },
         "encounter": {
             "reference": "Encounter/enc-testa01-01"
@@ -66,7 +66,7 @@
                 },
                 "text": {
                     "status": "generated",
-                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><strong>[Active disease]</strong></p><ol><li>Multiple joint swelling and pain, compatible with Systemic lupus erythematosus-related</li></ol><p>*EULAR 2019 criteria: 16 points (Joint involvement +6, elevated dsDNA +6, low C3/C4+4)</p><p>*Antinuclear antibody 1:2560 (homogeneous, AC-1)</p><p>-s/p Belimumab 2024/07/23-2025/10/17</p><p>-s/p Anifrolumab 2025/02-05 (arthritis recurred)</p><p>-currently under Myfortic 1#BID</p><p><strong>[Chronic disease]</strong></p><ol><li>Elevated liver enzymes, cause to be determined (resolved)</li></ol></div>"
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><strong>【Active Problem】</strong></p><ol><li>多處關節腫脹疼痛，符合全身性紅斑狼瘡相關表現</li></ol><p>*EULAR 2019 診斷標準：16 分（關節侵犯 +6、dsDNA 抗體升高 +6、C3/C4 低下 +4）</p><p>*抗核抗體 1:2560（均質型，AC-1）</p><p>-曾使用 Belimumab 2024/07/23-2025/10/17</p><p>-曾使用 Anifrolumab 2025/02-05（關節炎復發）</p><p>-目前使用 Myfortic 1# BID</p><p><strong>【Inactive Problem】</strong></p><ol><li>肝功能指數上升，原因待查（已改善）</li></ol></div>"
                 },
                 "entry": [
                     {
@@ -87,7 +87,7 @@
                 },
                 "text": {
                     "status": "generated",
-                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Arthralgia over left elbow and bilateral knees for two weeks</p></div>"
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>左手肘及雙側膝蓋關節疼痛約兩週</p></div>"
                 }
             },
             {
@@ -103,7 +103,7 @@
                 },
                 "text": {
                     "status": "generated",
-                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>This 15-year-old student had underlying disease mentioned below. She had been well until 2023/10, when arthralgia developed. She had pain along with joint swelling at bilateral interphalangeal joints and left knee. She also complained about single oral ulcer which recovered spontaneously. She then visited our rheumatologist's clinic to seek medical attention. She was found to have elevated anti-dsDNA antibody, elevated antinuclear antibody, low C3, low C4, and elevated ESR. Her antinuclear antibody was 1:2560 in homogeneous pattern. There was no proteinuria or malar rash was found. After discussing with her parents, she started to receive Belimumab infusion since 2024/07/23.</p><p>After last discharge, she had no fever, chills, loss of body weight, poor appetite, dizziness, headache, chest pain, chest tightness, dyspnea or urinary discomfort, but mild pain over bilateral wrist and knee were still mentioned. This time, she was admitted for further management.</p></div>"
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>病人為 15 歲女性學生，過去病史如上述。2023 年 10 月開始出現關節疼痛症狀，雙側指間關節及左膝出現疼痛伴隨腫脹。另有單一口腔潰瘍，後自行痊癒。至本院風濕免疫科門診就醫，發現 anti-dsDNA 抗體升高、抗核抗體升高、C3 及 C4 低下、紅血球沉降速率升高。抗核抗體為 1:2560，呈均質型。無蛋白尿或蝶形紅斑。與家屬討論後，自 2024/07/23 起開始接受 Belimumab 注射治療。</p><p>上次出院後，無發燒、畏寒、體重減輕、食慾不振、頭暈、頭痛、胸痛、胸悶、呼吸困難或排尿不適，但仍有輕微雙側手腕及膝蓋疼痛。此次入院進一步處理。</p></div>"
                 }
             },
             {
@@ -119,7 +119,7 @@
                 },
                 "text": {
                     "status": "generated",
-                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>According to her mother, the patient developed arthralgia approximately one week prior to admission. Analgesics were used only rarely, primarily for headaches. No contraindications to belimumab were identified, and a 480 mg dose was administered as scheduled. The patient remained clinically stable and was discharged on 2025/11/22.</p></div>"
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>據母親表示，病人於入院前約一週出現關節疼痛。止痛藥使用頻率不高，主要用於頭痛。評估無 Belimumab 使用禁忌，依排程給予 480mg 治療。病人住院期間穩定，於 2025/11/22 出院。</p></div>"
                 },
                 "entry": [
                     {
@@ -140,7 +140,7 @@
                 },
                 "text": {
                     "status": "generated",
-                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><strong>[Active disease]</strong></p><ol><li>Multiple joint swelling and pain, compatible with Systemic lupus erythematosus-related</li></ol><p>*EULAR 2019 criteria: 16 points</p><p>*s/p Belimumab on 2025/11/21</p><p><strong>[Chronic disease]</strong></p><ol><li>Elevated liver enzymes (resolved)</li></ol></div>"
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><strong>【Active Problem】</strong></p><ol><li>多處關節腫脹疼痛，符合全身性紅斑狼瘡相關表現</li></ol><p>*EULAR 2019 診斷標準：16 分</p><p>*2025/11/21 接受 Belimumab 治療</p><p><strong>【Inactive Problem】</strong></p><ol><li>肝功能指數上升（已改善）</li></ol></div>"
                 },
                 "entry": [
                     {
@@ -164,7 +164,7 @@
                 },
                 "text": {
                     "status": "generated",
-                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Allergy to food or drugs: denied (NKDA)</p></div>"
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>No known drug allergies (NKDA)</p></div>"
                 },
                 "emptyReason": {
                     "coding": [
@@ -174,7 +174,7 @@
                             "display": "Nil Known"
                         }
                     ],
-                    "text": "No known drug allergies"
+                    "text": "無已知藥物過敏"
                 }
             },
             {
@@ -190,7 +190,7 @@
                 },
                 "text": {
                     "status": "generated",
-                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table><thead><tr><th>藥品名稱</th><th>劑量</th><th>頻次</th><th>途徑</th><th>數量</th></tr></thead><tbody><tr><td>Myfortic tab 180mg (Mycophenolic acid)</td><td>180mg</td><td>BID</td><td>PO</td><td>60</td></tr></tbody></table></div>"
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table><thead><tr><th>藥品名稱</th><th>劑量</th><th>頻次</th><th>途徑</th><th>數量</th></tr></thead><tbody><tr><td>Myfortic tab 180mg（麥考酚酸）</td><td>180mg</td><td>BID</td><td>PO</td><td>60</td></tr></tbody></table></div>"
                 },
                 "entry": [
                     {
@@ -211,7 +211,7 @@
                 },
                 "text": {
                     "status": "generated",
-                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h4>血液常規 (2025-11-20)</h4><table><tr><td>WBC</td><td>8230 /cumm</td></tr><tr><td>RBC</td><td>5.00 m/cumm</td></tr><tr><td>HGB</td><td>14.5 g/dL</td></tr><tr><td>HCT</td><td>43.9%</td></tr><tr><td>MCV</td><td>87.8 fL</td></tr><tr><td>Platelet</td><td>313000 /cumm</td></tr><tr><td>ESR</td><td>2 mm/h</td></tr></table><h4>生化 (2025-11-20)</h4><table><tr><td>BUN</td><td>11 mg/dL</td></tr><tr><td>Creatinine</td><td>0.50 mg/dL</td></tr><tr><td>T.Bil</td><td>0.48 mg/dL</td></tr><tr><td>ALT</td><td>9 U/L</td></tr><tr><td>Na</td><td>143 mmol/L</td></tr><tr><td>K</td><td>4.0 mmol/L</td></tr><tr><td>CRP</td><td>&lt;0.06 mg/dL</td></tr></table><h4>免疫 (2025-11-21)</h4><table><tr><td>C3</td><td>97.8 mg/dL</td></tr><tr><td>C4</td><td>15.0 mg/dL</td></tr></table></div>"
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h4>血液常規 (2025-11-20)</h4><table><tr><td>白血球</td><td>8230 /cumm</td></tr><tr><td>紅血球</td><td>5.00 m/cumm</td></tr><tr><td>血紅素</td><td>14.5 g/dL</td></tr><tr><td>血比容</td><td>43.9%</td></tr><tr><td>平均紅血球容積</td><td>87.8 fL</td></tr><tr><td>血小板</td><td>313000 /cumm</td></tr><tr><td>紅血球沉降速率</td><td>2 mm/h</td></tr></table><h4>生化 (2025-11-20)</h4><table><tr><td>尿素氮</td><td>11 mg/dL</td></tr><tr><td>肌酸酐</td><td>0.50 mg/dL</td></tr><tr><td>總膽紅素</td><td>0.48 mg/dL</td></tr><tr><td>ALT</td><td>9 U/L</td></tr><tr><td>鈉</td><td>143 mmol/L</td></tr><tr><td>鉀</td><td>4.0 mmol/L</td></tr><tr><td>CRP</td><td>&lt;0.06 mg/dL</td></tr></table><h4>免疫 (2025-11-21)</h4><table><tr><td>C3 補體</td><td>97.8 mg/dL</td></tr><tr><td>C4 補體</td><td>15.0 mg/dL</td></tr></table></div>"
                 },
                 "entry": [
                     {
@@ -277,7 +277,7 @@
                 },
                 "text": {
                     "status": "generated",
-                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>出院後繼續來本院門診追蹤</p></div>"
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>出院後繼續於本院門診追蹤</p></div>"
                 }
             }
         ]
@@ -314,7 +314,7 @@
         ],
         "subject": {
             "reference": "Patient/pt-testa-01",
-            "display": "TESTA-01"
+            "display": "林小萱"
         },
         "encounter": {
             "reference": "Encounter/enc-testa01-02"
@@ -349,7 +349,7 @@
                 },
                 "text": {
                     "status": "generated",
-                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><strong>[Active disease]</strong></p><ol><li>Multiple joint swelling and pain, compatible with Systemic lupus erythematosus-related</li></ol><p>*EULAR 2019 criteria: 16 points (Joint involvement +6, elevated dsDNA +6, low C3/C4+4)</p><p>*Antinuclear antibody 1:2560 (homogeneous, AC-1)</p><p>-s/p Belimumab 2024/07/23-2025/11/21</p><p>-s/p Anifrolumab 2025/02-05 (arthritis recurred)</p><p>-currently under Myfortic 1#BID</p><p><strong>[Chronic disease]</strong></p><ol><li>Elevated liver enzymes, cause to be determined (resolved)</li></ol></div>"
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><strong>【Active Problem】</strong></p><ol><li>多處關節腫脹疼痛，符合全身性紅斑狼瘡相關表現</li></ol><p>*EULAR 2019 診斷標準：16 分（關節侵犯 +6、dsDNA 抗體升高 +6、C3/C4 低下 +4）</p><p>*抗核抗體 1:2560（均質型，AC-1）</p><p>-曾使用 Belimumab 2024/07/23-2025/11/21</p><p>-曾使用 Anifrolumab 2025/02-05（關節炎復發）</p><p>-目前使用 Myfortic 1# BID</p><p><strong>【Inactive Problem】</strong></p><ol><li>肝功能指數上升，原因待查（已改善）</li></ol></div>"
                 },
                 "entry": [
                     {
@@ -370,7 +370,7 @@
                 },
                 "text": {
                     "status": "generated",
-                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Arthralgia over left elbow and bilateral knees for two weeks, worsen for days and daily life involvement</p></div>"
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>左手肘及雙側膝蓋關節疼痛約兩週，近日加劇影響日常生活</p></div>"
                 }
             },
             {
@@ -386,7 +386,7 @@
                 },
                 "text": {
                     "status": "generated",
-                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>This 15-year-old student had underlying disease mentioned below. She had been well until 2023/10, when arthralgia developed. She had pain along with joint swelling at bilateral interphalangeal joints and left knee. She also complained about single oral ulcer which recovered spontaneously. She then visited our rheumatologist's clinic to seek medical attention. She was found to have elevated anti-dsDNA antibody, elevated antinuclear antibody, low C3, low C4, and elevated ESR. Her antinuclear antibody was 1:2560 in homogeneous pattern. There was no proteinuria or malar rash was found. After discussing with her parents, she started to receive Belimumab infusion since 2024/07/23.</p><p>After last discharge, she had mild pain over bilateral wrist and knee. This time, she was admitted for further management.</p></div>"
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>病人為 15 歲女性學生，過去病史如上述。2023 年 10 月開始出現關節疼痛症狀，雙側指間關節及左膝出現疼痛伴隨腫脹。另有單一口腔潰瘍，後自行痊癒。至本院風濕免疫科門診就醫，發現 anti-dsDNA 抗體升高、抗核抗體升高、C3 及 C4 低下、紅血球沉降速率升高。抗核抗體為 1:2560，呈均質型。無蛋白尿或蝶形紅斑。與家屬討論後，自 2024/07/23 起開始接受 Belimumab 注射治療。</p><p>上次出院後，仍有輕微雙側手腕及膝蓋疼痛。此次入院進一步處理。</p></div>"
                 }
             },
             {
@@ -402,7 +402,7 @@
                 },
                 "text": {
                     "status": "generated",
-                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>According to the patient's mother, the patient developed arthralgia approximately one week prior to admission. Analgesics were used infrequently and primarily for headache relief. No contraindications to belimumab were identified, and a 480-mg dose was administered as scheduled. The patient remained clinically stable throughout hospitalization and was discharged on January 3, 2026.</p></div>"
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>據母親表示，病人於入院前約一週出現關節疼痛。止痛藥使用頻率不高，主要用於頭痛。評估無 Belimumab 使用禁忌，依排程給予 480mg 治療。病人住院期間穩定，於 2026 年 1 月 3 日出院。</p></div>"
                 },
                 "entry": [
                     {
@@ -423,7 +423,7 @@
                 },
                 "text": {
                     "status": "generated",
-                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><strong>[Active disease]</strong></p><ol><li>Multiple joint swelling and pain, compatible with Systemic lupus erythematosus-related</li></ol><p>*EULAR 2019 criteria: 16 points</p><p>*s/p Belimumab on 2026/01/02</p><p><strong>[Chronic disease]</strong></p><ol><li>Elevated liver enzymes (resolved)</li></ol></div>"
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><strong>【Active Problem】</strong></p><ol><li>多處關節腫脹疼痛，符合全身性紅斑狼瘡相關表現</li></ol><p>*EULAR 2019 診斷標準：16 分</p><p>*2026/01/02 接受 Belimumab 治療</p><p><strong>【Inactive Problem】</strong></p><ol><li>肝功能指數上升（已改善）</li></ol></div>"
                 },
                 "entry": [
                     {
@@ -447,7 +447,7 @@
                 },
                 "text": {
                     "status": "generated",
-                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Allergy to food or drugs: denied (NKDA)</p></div>"
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>No known drug allergies (NKDA)</p></div>"
                 },
                 "emptyReason": {
                     "coding": [
@@ -457,7 +457,7 @@
                             "display": "Nil Known"
                         }
                     ],
-                    "text": "No known drug allergies"
+                    "text": "無已知藥物過敏"
                 }
             },
             {
@@ -473,7 +473,7 @@
                 },
                 "text": {
                     "status": "generated",
-                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table><thead><tr><th>藥品名稱</th><th>劑量</th><th>頻次</th><th>途徑</th><th>數量</th></tr></thead><tbody><tr><td>Myfortic tab 180mg (Mycophenolic acid)</td><td>180mg</td><td>Q12H</td><td>PO</td><td>60</td></tr></tbody></table></div>"
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table><thead><tr><th>藥品名稱</th><th>劑量</th><th>頻次</th><th>途徑</th><th>數量</th></tr></thead><tbody><tr><td>Myfortic tab 180mg（麥考酚酸）</td><td>180mg</td><td>Q12H</td><td>PO</td><td>60</td></tr></tbody></table></div>"
                 },
                 "entry": [
                     {
@@ -494,7 +494,7 @@
                 },
                 "text": {
                     "status": "generated",
-                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h4>血液常規 (2026-01-02)</h4><table><tr><td>WBC</td><td>9980 /cumm</td><td>⬆️ H</td></tr><tr><td>HGB</td><td>14.3 g/dL</td><td></td></tr><tr><td>Platelet</td><td>398000 /cumm</td><td>⬆️ H</td></tr></table><h4>生化 (2026-01-02)</h4><table><tr><td>BUN</td><td>13 mg/dL</td><td></td></tr><tr><td>Creatinine</td><td>0.45 mg/dL</td><td>⬇️ L</td></tr><tr><td>ALT</td><td>9 U/L</td><td></td></tr><tr><td>Na</td><td>139 mmol/L</td><td></td></tr><tr><td>K</td><td>3.7 mmol/L</td><td></td></tr><tr><td>CRP</td><td>&lt;0.06 mg/dL</td><td></td></tr></table><h4>免疫 (2026-01-02)</h4><table><tr><td>C3</td><td>116.3 mg/dL</td><td></td></tr><tr><td>C4</td><td>20.3 mg/dL</td><td></td></tr><tr><td>IgG</td><td>1023 mg/dL</td><td></td></tr></table></div>"
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h4>血液常規 (2026-01-02)</h4><table><tr><td>白血球</td><td>9980 /cumm</td><td>H</td></tr><tr><td>血紅素</td><td>14.3 g/dL</td><td></td></tr><tr><td>血小板</td><td>398000 /cumm</td><td>H</td></tr></table><h4>生化 (2026-01-02)</h4><table><tr><td>尿素氮</td><td>13 mg/dL</td><td></td></tr><tr><td>肌酸酐</td><td>0.45 mg/dL</td><td>L</td></tr><tr><td>ALT</td><td>9 U/L</td><td></td></tr><tr><td>鈉</td><td>139 mmol/L</td><td></td></tr><tr><td>鉀</td><td>3.7 mmol/L</td><td></td></tr><tr><td>CRP</td><td>&lt;0.06 mg/dL</td><td></td></tr></table><h4>免疫 (2026-01-02)</h4><table><tr><td>C3 補體</td><td>116.3 mg/dL</td><td></td></tr><tr><td>C4 補體</td><td>20.3 mg/dL</td><td></td></tr><tr><td>IgG</td><td>1023 mg/dL</td><td></td></tr></table></div>"
                 },
                 "entry": [
                     {
@@ -548,7 +548,7 @@
                 },
                 "text": {
                     "status": "generated",
-                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>出院後繼續來本院門診追蹤</p></div>"
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>出院後繼續於本院門診追蹤</p></div>"
                 }
             }
         ]

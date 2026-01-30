@@ -26,12 +26,14 @@ const SECTION_CODES = {
 const IMPORT_SECTIONS = [
     { key: 'allergies', label: '過敏註記', icon: '⚠️', resourceTypes: ['AllergyIntolerance'], bgColor: 'bg-red-50', borderColor: 'border-red-200' },
     { key: 'diagnosis', label: '主要診斷', icon: '📋', resourceTypes: ['Condition'], bgColor: 'bg-blue-50', borderColor: 'border-blue-200' },
-    { key: 'history', label: '過去病史', icon: '📝', resourceTypes: [], bgColor: 'bg-slate-50', borderColor: 'border-slate-200', textOnly: true },
+    { key: 'chiefComplaint', label: '主訴', icon: '💬', resourceTypes: [], bgColor: 'bg-cyan-50', borderColor: 'border-cyan-200', textOnly: true, sectionCode: '10154-3' },
+    { key: 'hpi', label: '現病史', icon: '📖', resourceTypes: [], bgColor: 'bg-violet-50', borderColor: 'border-violet-200', textOnly: true, sectionCode: '10164-2' },
+    { key: 'history', label: '過去病史', icon: '📝', resourceTypes: [], bgColor: 'bg-slate-50', borderColor: 'border-slate-200', textOnly: true, sectionCode: '11348-0' },
     { key: 'procedures', label: '手術/處置史', icon: '🔧', resourceTypes: ['Procedure'], bgColor: 'bg-purple-50', borderColor: 'border-purple-200' },
     { key: 'labs', label: '檢驗報告', icon: '🔬', resourceTypes: ['Observation'], bgColor: 'bg-green-50', borderColor: 'border-green-200' },
     { key: 'imaging', label: '影像/EKG 報告', icon: '📊', resourceTypes: ['DiagnosticReport'], bgColor: 'bg-amber-50', borderColor: 'border-amber-200' },
     { key: 'medications', label: '用藥記錄', icon: '💊', resourceTypes: ['MedicationStatement', 'MedicationRequest'], bgColor: 'bg-teal-50', borderColor: 'border-teal-200' },
-    { key: 'plan', label: '出院/轉院計畫', icon: '📅', resourceTypes: ['CarePlan'], bgColor: 'bg-indigo-50', borderColor: 'border-indigo-200', textOnly: true }
+    { key: 'plan', label: '出院/轉院計畫', icon: '📅', resourceTypes: ['CarePlan'], bgColor: 'bg-indigo-50', borderColor: 'border-indigo-200', textOnly: true, sectionCode: '18776-5' }
 ];
 
 export default function CompositionDetail({ client }) {
@@ -45,6 +47,9 @@ export default function CompositionDetail({ client }) {
 
     // Selection State for Import
     const [selectedIds, setSelectedIds] = useState({});
+
+    // Text Section Selection State
+    const [selectedTextSections, setSelectedTextSections] = useState({});
 
     // Import Result Display
     const [importResult, setImportResult] = useState(null);
@@ -84,6 +89,10 @@ export default function CompositionDetail({ client }) {
 
                     setAllResources(resources);
                     setSelectedIds(initialSelected);
+
+                    // 初始化文字區段選擇（主訴、現病史不預設選中）
+                    setSelectedTextSections({});
+
                     setLoading(false);
                 })
                 .catch(err => {
@@ -98,6 +107,13 @@ export default function CompositionDetail({ client }) {
         setSelectedIds(prev => ({
             ...prev,
             [id]: !prev[id]
+        }));
+    };
+
+    const toggleTextSection = (code) => {
+        setSelectedTextSections(prev => ({
+            ...prev,
+            [code]: !prev[code]
         }));
     };
 
@@ -127,12 +143,62 @@ export default function CompositionDetail({ client }) {
             grouped[sec.key] = itemsToImport.filter(r => sec.resourceTypes.includes(r.resourceType));
         });
 
-        // 加入純文字區段
+        // 加入選中的純文字區段（以 FHIR DocumentReference 格式）
         if (composition?.section) {
+            // 主訴（只有選中才加入）
+            if (selectedTextSections['10154-3']) {
+                const chiefComplaintSection = composition.section.find(s => s.code?.coding?.[0]?.code === '10154-3');
+                if (chiefComplaintSection?.text?.div) {
+                    grouped.chiefComplaint = [{
+                        resourceType: 'DocumentReference',
+                        id: `docref-${composition.id}-chief-complaint`,
+                        status: 'current',
+                        type: {
+                            coding: [{ system: 'http://loinc.org', code: '10154-3', display: 'Chief complaint' }],
+                            text: '主訴'
+                        },
+                        subject: composition.subject,
+                        date: composition.date,
+                        content: [{
+                            attachment: {
+                                contentType: 'text/html',
+                                data: btoa(unescape(encodeURIComponent(chiefComplaintSection.text.div)))
+                            }
+                        }],
+                        _sourceText: chiefComplaintSection.text.div.replace(/<[^>]*>/g, '')
+                    }];
+                }
+            }
+            // 現病史（只有選中才加入）
+            if (selectedTextSections['10164-2']) {
+                const hpiSection = composition.section.find(s => s.code?.coding?.[0]?.code === '10164-2');
+                if (hpiSection?.text?.div) {
+                    grouped.hpi = [{
+                        resourceType: 'DocumentReference',
+                        id: `docref-${composition.id}-hpi`,
+                        status: 'current',
+                        type: {
+                            coding: [{ system: 'http://loinc.org', code: '10164-2', display: 'History of present illness' }],
+                            text: '現病史'
+                        },
+                        subject: composition.subject,
+                        date: composition.date,
+                        content: [{
+                            attachment: {
+                                contentType: 'text/html',
+                                data: btoa(unescape(encodeURIComponent(hpiSection.text.div)))
+                            }
+                        }],
+                        _sourceText: hpiSection.text.div.replace(/<[^>]*>/g, '')
+                    }];
+                }
+            }
+            // 過去病史
             const historySection = composition.section.find(s => s.code?.coding?.[0]?.code === '11348-0');
             if (historySection?.text?.div) {
                 grouped.history = [{ _textOnly: true, html: historySection.text.div }];
             }
+            // 出院/轉院計畫
             const planSection = composition.section.find(s =>
                 s.code?.coding?.[0]?.code === '18776-5' || s.code?.coding?.[0]?.code === '42349-1'
             );
@@ -141,7 +207,9 @@ export default function CompositionDetail({ client }) {
             }
         }
 
-        setImportResult({ grouped, total: idsToImport.length });
+        // 計算總數：資源數 + 選中的文字區段數
+        const textSectionCount = Object.values(selectedTextSections).filter(Boolean).length;
+        setImportResult({ grouped, total: idsToImport.length + textSectionCount });
     };
 
     const closeImportResult = () => {
@@ -261,16 +329,14 @@ export default function CompositionDetail({ client }) {
         return (
             <div
                 key={resource.id}
-                className={`flex items-start gap-3 p-3 rounded-md border mb-2 cursor-pointer transition-colors ${
-                    selectedIds[resource.id]
-                        ? 'bg-sky-50 border-medical-primary'
-                        : 'bg-white border-slate-200 hover:border-slate-300'
-                } ${isHighRisk ? 'border-red-300' : ''}`}
+                className={`flex items-start gap-3 p-3 rounded-md border mb-2 cursor-pointer transition-colors ${selectedIds[resource.id]
+                    ? 'bg-sky-50 border-medical-primary'
+                    : 'bg-white border-slate-200 hover:border-slate-300'
+                    } ${isHighRisk ? 'border-red-300' : ''}`}
                 onClick={() => toggleSelection(resource.id)}
             >
-                <div className={`mt-0.5 h-5 w-5 rounded border flex items-center justify-center transition-colors ${
-                    selectedIds[resource.id] ? 'bg-medical-primary border-medical-primary text-white' : 'border-slate-300 bg-white'
-                }`}>
+                <div className={`mt-0.5 h-5 w-5 rounded border flex items-center justify-center transition-colors ${selectedIds[resource.id] ? 'bg-medical-primary border-medical-primary text-white' : 'border-slate-300 bg-white'
+                    }`}>
                     {selectedIds[resource.id] && <Check className="h-3 w-3" />}
                 </div>
                 <div className="flex-1 text-sm">
@@ -304,193 +370,320 @@ export default function CompositionDetail({ client }) {
 
     return (
         <div className="max-w-5xl mx-auto space-y-6 pb-20">
-            {/* Import Result Panel */}
+            {/* Import Result Panel - Full Screen Modal */}
             {importResult && (
-                <div className="bg-white rounded-lg shadow-lg border-2 border-medical-primary overflow-hidden sticky top-0 z-10">
-                    <div className="bg-medical-primary text-white px-6 py-3 flex items-center justify-between">
-                        <div className="flex items-center gap-2">
-                            <Download className="h-5 w-5" />
-                            <span className="font-bold">導入預覽 - 共 {importResult.total} 筆資料</span>
+                <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-[60] flex items-center justify-center p-6 animate-in fade-in duration-300">
+                    <div className="bg-white rounded-[2.5rem] shadow-2xl w-full max-w-6xl max-h-[90vh] flex flex-col overflow-hidden animate-in zoom-in-95 duration-300 border border-white/20">
+                        <div className="bg-premium-gradient text-white px-10 py-8 flex items-center justify-between flex-shrink-0">
+                            <div className="flex items-center gap-4">
+                                <div className="bg-white/20 p-3 rounded-2xl backdrop-blur-md">
+                                    <Download className="h-7 w-7" />
+                                </div>
+                                <div>
+                                    <span className="font-black text-2xl tracking-tight">導入預覽</span>
+                                    <p className="text-sky-100 text-xs font-bold tracking-widest uppercase mt-0.5 opacity-80">
+                                        Total {importResult.total} Structured Resources Detected
+                                    </p>
+                                </div>
+                            </div>
+                            <button
+                                onClick={closeImportResult}
+                                className="hover:bg-white/10 p-3 rounded-2xl transition-all hover:rotate-90 duration-300"
+                            >
+                                <X className="h-8 w-8" />
+                            </button>
                         </div>
-                        <button onClick={closeImportResult} className="hover:bg-white/20 p-1 rounded">
-                            <X className="h-5 w-5" />
-                        </button>
-                    </div>
-                    <div className="p-4 max-h-96 overflow-y-auto">
-                        <p className="text-xs text-slate-500 mb-4">※ 過敏註記為預設導入</p>
-                        <div className="space-y-4">
-                            {IMPORT_SECTIONS.map(sec => {
-                                const items = importResult.grouped[sec.key] || [];
-                                if (items.length === 0) return null;
-                                return (
-                                    <div key={sec.key} className={`${sec.bgColor} ${sec.borderColor} border rounded-lg p-4`}>
-                                        <h4 className="font-bold text-slate-700 mb-2">{sec.icon} {sec.label}</h4>
-                                        <div className="space-y-2">
-                                            {items.map((item, idx) => (
-                                                <div key={idx} className="bg-white rounded p-2 text-sm border border-slate-100">
-                                                    {item._textOnly ? (
-                                                        <div className="prose prose-sm" dangerouslySetInnerHTML={{ __html: item.html }} />
-                                                    ) : (
-                                                        <div>
-                                                            <div className="text-xs text-slate-400 mb-1">{item.resourceType}/{item.id}</div>
-                                                            <pre className="text-xs bg-slate-50 p-2 rounded overflow-x-auto max-h-32">
-                                                                {JSON.stringify(item, null, 2)}
-                                                            </pre>
-                                                        </div>
-                                                    )}
-                                                </div>
-                                            ))}
+                        <div className="p-10 overflow-y-auto flex-1 space-y-8 bg-slate-50/50">
+                            <div className="bg-amber-50/50 border border-amber-200/50 rounded-2xl p-6 flex items-start gap-4 animate-in slide-in-from-top-4 duration-500">
+                                <div className="bg-amber-500 p-1.5 rounded-lg shrink-0">
+                                    <AlertTriangle className="h-5 w-5 text-white" />
+                                </div>
+                                <div className="space-y-1">
+                                    <p className="text-amber-800 font-bold text-sm">臨床數據導入規範</p>
+                                    <p className="text-amber-700/70 text-xs leading-relaxed">
+                                        以下為系統解析之結構化資料。過敏註記為「高優先度」預設導入項目。
+                                        點擊資源對應標籤可查看 FHIR JSON 原始格式。確認無誤後將同步寫入本院伺服器。
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                                {IMPORT_SECTIONS.map((sec, idx) => {
+                                    const items = importResult.grouped[sec.key] || [];
+                                    if (items.length === 0) return null;
+                                    return (
+                                        <div
+                                            key={sec.key}
+                                            className={`${sec.bgColor} ${sec.borderColor} border-2 rounded-[2rem] p-8 space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500`}
+                                            style={{ animationDelay: `${idx * 100}ms` }}
+                                        >
+                                            <div className="flex items-center justify-between">
+                                                <h4 className="font-black text-slate-800 text-xl tracking-tight flex items-center gap-3">
+                                                    <span className="text-2xl">{sec.icon}</span>
+                                                    {sec.label}
+                                                </h4>
+                                                <span className={`px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest ${sec.bgColor} border ${sec.borderColor}`}>
+                                                    {items.length} Items
+                                                </span>
+                                            </div>
+
+                                            <div className="space-y-4 max-h-[400px] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-slate-200">
+                                                {items.map((item, idx) => (
+                                                    <div key={idx} className="bg-white/70 backdrop-blur-sm rounded-2xl p-5 text-sm border border-white shadow-sm hover:shadow-md transition-shadow">
+                                                        {item._textOnly ? (
+                                                            <div className="prose prose-sm max-w-none text-slate-700 leading-relaxed" dangerouslySetInnerHTML={{ __html: item.html }} />
+                                                        ) : (
+                                                            <div className="space-y-3">
+                                                                <div className="flex items-center justify-between">
+                                                                    <span className="text-[10px] font-bold font-mono bg-slate-100 px-2 py-1 rounded-lg text-slate-500">
+                                                                        {item.resourceType} / {item.id}
+                                                                    </span>
+                                                                </div>
+                                                                <pre className="text-[10px] leading-tight bg-slate-900 text-emerald-400 p-5 rounded-xl overflow-x-auto max-h-48 font-mono scrollbar-thin scrollbar-thumb-slate-700 border border-slate-800">
+                                                                    {JSON.stringify(item, null, 2)}
+                                                                </pre>
+                                                            </div>
+                                                        )}
+                                                    </div>
+                                                ))}
+                                            </div>
                                         </div>
-                                    </div>
-                                );
-                            })}
+                                    );
+                                })}
+                            </div>
+                        </div>
+                        <div className="bg-white px-10 py-6 border-t border-slate-100 flex justify-between items-center flex-shrink-0">
+                            <div className="flex items-center gap-3 opacity-50">
+                                <div className="h-2 w-2 rounded-full bg-emerald-500"></div>
+                                <span className="text-xs font-bold text-slate-400 uppercase tracking-widest leading-none">Ready for Integration</span>
+                            </div>
+                            <button
+                                onClick={closeImportResult}
+                                className="px-10 py-4 bg-slate-900 text-white hover:bg-slate-800 rounded-2xl font-bold transition-all transform active:scale-95 shadow-xl"
+                            >
+                                確認並關閉
+                            </button>
                         </div>
                     </div>
                 </div>
             )}
 
             {/* Header */}
-            <div className="flex items-center justify-between">
-                <div className="flex items-center gap-4">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+                <div className="flex items-center gap-6">
                     <button
                         onClick={() => navigate(-1)}
-                        className="p-2 hover:bg-slate-100 rounded-full transition-colors text-slate-500"
+                        className="p-4 bg-white hover:bg-slate-50 border border-slate-100 rounded-2xl shadow-sm text-slate-500 hover:text-medical-primary transition-all active:scale-90"
                     >
                         <ArrowLeft className="h-6 w-6" />
                     </button>
-                    <div>
-                        <h1 className="text-2xl font-bold text-slate-800">{composition.title}</h1>
-                        <p className="text-slate-500">
-                            {new Date(composition.date).toLocaleDateString('zh-TW')} • {composition.custodian?.display || '未知醫院'}
+                    <div className="space-y-1">
+                        <div className="flex items-center gap-2">
+                            <div className="bg-sky-100 px-2 py-0.5 rounded-lg text-[10px] font-bold text-sky-600 uppercase tracking-widest border border-sky-200">
+                                Clinical Document
+                            </div>
+                        </div>
+                        <h1 className="text-3xl font-black text-slate-800 tracking-tight">{composition.title}</h1>
+                        <p className="text-slate-400 font-medium flex items-center gap-3 text-sm">
+                            <span className="flex items-center gap-1"><Calendar className="h-4 w-4" /> {new Date(composition.date).toLocaleDateString('zh-TW')}</span>
+                            <span className="text-slate-300">•</span>
+                            <span className="flex items-center gap-1 font-bold text-slate-500"><Building className="h-4 w-4" /> {composition.custodian?.display || '未知醫院'}</span>
                         </p>
                     </div>
                 </div>
 
                 <button
                     onClick={handleImport}
-                    disabled={Object.values(selectedIds).filter(Boolean).length === 0}
-                    className={`flex items-center gap-2 px-4 py-2 rounded-md font-medium text-white transition-colors shadow-sm ${
-                        Object.values(selectedIds).filter(Boolean).length > 0
-                            ? 'bg-medical-primary hover:bg-sky-600'
-                            : 'bg-slate-300 cursor-not-allowed'
-                    }`}
+                    disabled={Object.values(selectedIds).filter(Boolean).length === 0 && Object.values(selectedTextSections).filter(Boolean).length === 0}
+                    className={`flex items-center gap-3 px-8 py-5 rounded-[2rem] font-black text-white transition-all transform active:scale-95 shadow-2xl ${(Object.values(selectedIds).filter(Boolean).length > 0 || Object.values(selectedTextSections).filter(Boolean).length > 0)
+                        ? 'bg-premium-gradient hover:shadow-premium-hover hover:-translate-y-1'
+                        : 'bg-slate-300 cursor-not-allowed opacity-50'
+                        }`}
                 >
-                    <Download className="h-4 w-4" />
-                    Import ({Object.values(selectedIds).filter(Boolean).length})
+                    <Download className="h-6 w-6" />
+                    <span className="text-lg">導入結構化資料 ({Object.values(selectedIds).filter(Boolean).length + Object.values(selectedTextSections).filter(Boolean).length})</span>
                 </button>
             </div>
 
             {/* Resource Sections by Type */}
-            <div className="space-y-6">
-                {/* Allergies Section - Always First */}
-                {resourcesByType['AllergyIntolerance']?.length > 0 && (
-                    <div className="bg-white rounded-lg shadow-sm border-2 border-red-200 overflow-hidden">
-                        <div className="bg-red-50 px-6 py-3 border-b border-red-200 flex items-center justify-between">
-                            <h3 className="font-bold text-red-700 flex items-center gap-2">
-                                <AlertTriangle className="h-5 w-5" />
-                                ⚠️ 過敏史 ({resourcesByType['AllergyIntolerance'].length})
+            <div className="space-y-10">
+                {/* Allergies Section */}
+                {(() => {
+                    const allergies = resourcesByType['AllergyIntolerance'] || [];
+                    const hasRealAllergy = allergies.some(a => {
+                        const text = (a.code?.text || a.code?.coding?.[0]?.display || '').toLowerCase();
+                        return !text.includes('nkda') && !text.includes('no known');
+                    });
+                    if (allergies.length > 0 && hasRealAllergy) {
+                        return (
+                            <div className="glass-card rounded-[2.5rem] border-2 border-red-200 overflow-hidden relative">
+                                <div className="absolute top-0 right-0 w-32 h-32 bg-red-100/50 blur-[50px] -mr-16 -mt-16 rounded-full pointer-events-none"></div>
+                                <div className="bg-red-50/50 px-8 py-5 border-b border-red-200 flex items-center justify-between relative z-10">
+                                    <div className="flex items-center gap-3">
+                                        <div className="bg-red-500 p-2 rounded-xl shadow-lg shadow-red-200">
+                                            <AlertTriangle className="h-5 w-5 text-white" />
+                                        </div>
+                                        <h3 className="font-black text-red-700 tracking-tight text-xl">⚠️ 過敏史記錄 ({allergies.length})</h3>
+                                    </div>
+                                    <span className="text-[10px] font-black text-red-500 uppercase tracking-[0.2em] bg-white px-3 py-1 rounded-full border border-red-100 shadow-sm animate-pulse">Critical Priority</span>
+                                </div>
+                                <div className="p-8 relative z-10 grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    {allergies.map(renderResource)}
+                                </div>
+                            </div>
+                        );
+                    }
+                    return null;
+                })()}
+
+                {/* Conditions & Procedures Grid */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                    {/* Conditions */}
+                    {resourcesByType['Condition']?.length > 0 && (
+                        <div className="glass-card rounded-[2.5rem] overflow-hidden">
+                            <div className="bg-blue-50/50 px-8 py-5 border-b border-blue-200 flex items-center justify-between">
+                                <h3 className="font-black text-blue-700 tracking-tight text-xl flex items-center gap-3">
+                                    <span className="bg-blue-100 p-2 rounded-xl"><FileText className="h-5 w-5 text-blue-600" /></span>
+                                    臨床診斷 ({resourcesByType['Condition'].length})
+                                </h3>
+                                <div className="flex gap-4">
+                                    <button onClick={() => selectAll('Condition')} className="text-xs font-bold text-blue-600 hover:underline tracking-tighter uppercase">Select All</button>
+                                    <button onClick={() => deselectAll('Condition')} className="text-xs font-bold text-slate-400 hover:underline tracking-tighter uppercase">Clear</button>
+                                </div>
+                            </div>
+                            <div className="p-8 space-y-2">
+                                {resourcesByType['Condition'].map(renderResource)}
+                            </div>
+                        </div>
+                    )}
+
+                    {/* Procedures */}
+                    {resourcesByType['Procedure']?.length > 0 && (
+                        <div className="glass-card rounded-[2.5rem] overflow-hidden">
+                            <div className="bg-purple-50/50 px-8 py-5 border-b border-purple-200 flex items-center justify-between">
+                                <h3 className="font-black text-purple-700 tracking-tight text-xl flex items-center gap-3">
+                                    <span className="bg-purple-100 p-2 rounded-xl"><Check className="h-5 w-5 text-purple-600" /></span>
+                                    手術／處置 ({resourcesByType['Procedure'].length})
+                                </h3>
+                                <div className="flex gap-4">
+                                    <button onClick={() => selectAll('Procedure')} className="text-xs font-bold text-purple-600 hover:underline tracking-tighter uppercase">Select All</button>
+                                    <button onClick={() => deselectAll('Procedure')} className="text-xs font-bold text-slate-400 hover:underline tracking-tighter uppercase">Clear</button>
+                                </div>
+                            </div>
+                            <div className="p-8 space-y-2">
+                                {resourcesByType['Procedure'].map(renderResource)}
+                            </div>
+                        </div>
+                    )}
+                </div>
+
+                {/* 主訴 / 現病史 (Text Sections) */}
+                {composition.section?.some(s => ['10154-3', '10164-2'].includes(s.code?.coding?.[0]?.code)) && (
+                    <div className="glass-card rounded-[2.5rem] overflow-hidden">
+                        <div className="bg-cyan-50/50 px-8 py-5 border-b border-cyan-200">
+                            <h3 className="font-black text-cyan-700 tracking-tight text-xl flex items-center gap-3">
+                                <span className="bg-cyan-100 p-2 rounded-xl"><FileText className="h-5 w-5 text-cyan-600" /></span>
+                                臨床文本 (Textual Insight)
                             </h3>
-                            <span className="text-xs text-red-500">※ 預設導入</span>
                         </div>
-                        <div className="p-4">
-                            {resourcesByType['AllergyIntolerance'].map(renderResource)}
+                        <div className="p-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+                            {composition.section?.filter(s => s.code?.coding?.[0]?.code === '10154-3').map((section, idx) => (
+                                <div
+                                    key={`cc-${idx}`}
+                                    className={`group flex items-start gap-4 p-6 rounded-[2rem] border-2 cursor-pointer transition-all duration-300 ${selectedTextSections['10154-3']
+                                        ? 'bg-cyan-50 border-cyan-400 shadow-xl shadow-cyan-100 scale-[1.02]'
+                                        : 'bg-white border-slate-100 hover:border-cyan-200'
+                                        }`}
+                                    onClick={() => toggleTextSection('10154-3')}
+                                >
+                                    <div className={`shrink-0 mt-1 h-6 w-6 rounded-lg border-2 flex items-center justify-center transition-all ${selectedTextSections['10154-3'] ? 'bg-cyan-500 border-cyan-500 text-white rotate-0' : 'border-slate-200 bg-white rotate-45'
+                                        }`}>
+                                        {selectedTextSections['10154-3'] && <Check className="h-4 w-4 stroke-[3]" />}
+                                    </div>
+                                    <div className="flex-1 space-y-3">
+                                        <div className="flex items-center justify-between">
+                                            <div className="text-xs font-black text-cyan-600 uppercase tracking-[0.2em]">Chief Complaint</div>
+                                            <div className="bg-cyan-100 h-1.5 w-1.5 rounded-full"></div>
+                                        </div>
+                                        <div className="prose prose-sm max-w-none text-slate-700 leading-relaxed font-medium" dangerouslySetInnerHTML={{ __html: section.text?.div }} />
+                                    </div>
+                                </div>
+                            ))}
+                            {composition.section?.filter(s => s.code?.coding?.[0]?.code === '10164-2').map((section, idx) => (
+                                <div
+                                    key={`hpi-${idx}`}
+                                    className={`group flex items-start gap-4 p-6 rounded-[2rem] border-2 cursor-pointer transition-all duration-300 ${selectedTextSections['10164-2']
+                                        ? 'bg-violet-50 border-violet-400 shadow-xl shadow-violet-100 scale-[1.02]'
+                                        : 'bg-white border-slate-100 hover:border-violet-200'
+                                        }`}
+                                    onClick={() => toggleTextSection('10164-2')}
+                                >
+                                    <div className={`shrink-0 mt-1 h-6 w-6 rounded-lg border-2 flex items-center justify-center transition-all ${selectedTextSections['10164-2'] ? 'bg-violet-500 border-violet-500 text-white rotate-0' : 'border-slate-200 bg-white rotate-45'
+                                        }`}>
+                                        {selectedTextSections['10164-2'] && <Check className="h-4 w-4 stroke-[3]" />}
+                                    </div>
+                                    <div className="flex-1 space-y-3">
+                                        <div className="flex items-center justify-between">
+                                            <div className="text-xs font-black text-violet-600 uppercase tracking-[0.2em]">Medical History</div>
+                                            <div className="bg-violet-100 h-1.5 w-1.5 rounded-full"></div>
+                                        </div>
+                                        <div className="prose prose-sm max-w-none text-slate-700 leading-relaxed font-medium" dangerouslySetInnerHTML={{ __html: section.text?.div }} />
+                                    </div>
+                                </div>
+                            ))}
                         </div>
                     </div>
                 )}
 
-                {/* Conditions */}
-                {resourcesByType['Condition']?.length > 0 && (
-                    <div className="bg-white rounded-lg shadow-sm border border-slate-200 overflow-hidden">
-                        <div className="bg-blue-50 px-6 py-3 border-b border-blue-200 flex items-center justify-between">
-                            <h3 className="font-bold text-blue-700">📋 診斷 ({resourcesByType['Condition'].length})</h3>
-                            <div className="flex gap-2">
-                                <button onClick={() => selectAll('Condition')} className="text-xs text-blue-600 hover:underline">全選</button>
-                                <button onClick={() => deselectAll('Condition')} className="text-xs text-slate-500 hover:underline">取消</button>
-                            </div>
-                        </div>
-                        <div className="p-4">
-                            {resourcesByType['Condition'].map(renderResource)}
-                        </div>
-                    </div>
-                )}
-
-                {/* Procedures */}
-                {resourcesByType['Procedure']?.length > 0 && (
-                    <div className="bg-white rounded-lg shadow-sm border border-slate-200 overflow-hidden">
-                        <div className="bg-purple-50 px-6 py-3 border-b border-purple-200 flex items-center justify-between">
-                            <h3 className="font-bold text-purple-700">🔧 手術/處置 ({resourcesByType['Procedure'].length})</h3>
-                            <div className="flex gap-2">
-                                <button onClick={() => selectAll('Procedure')} className="text-xs text-purple-600 hover:underline">全選</button>
-                                <button onClick={() => deselectAll('Procedure')} className="text-xs text-slate-500 hover:underline">取消</button>
-                            </div>
-                        </div>
-                        <div className="p-4">
-                            {resourcesByType['Procedure'].map(renderResource)}
-                        </div>
-                    </div>
-                )}
-
-                {/* Observations (Labs) */}
+                {/* Laboratory Observations */}
                 {resourcesByType['Observation']?.length > 0 && (
-                    <div className="bg-white rounded-lg shadow-sm border border-slate-200 overflow-hidden">
-                        <div className="bg-green-50 px-6 py-3 border-b border-green-200 flex items-center justify-between">
-                            <h3 className="font-bold text-green-700">🔬 檢驗數據 ({resourcesByType['Observation'].length})</h3>
-                            <div className="flex gap-2">
-                                <button onClick={() => selectAll('Observation')} className="text-xs text-green-600 hover:underline">全選</button>
-                                <button onClick={() => deselectAll('Observation')} className="text-xs text-slate-500 hover:underline">取消</button>
-                            </div>
+                    <div className="glass-card rounded-[2.5rem] overflow-hidden">
+                        <div className="bg-emerald-50/50 px-8 py-5 border-b border-emerald-200 flex items-center justify-between">
+                            <h3 className="font-black text-emerald-700 tracking-tight text-xl flex items-center gap-3">
+                                <span className="bg-emerald-100 p-2 rounded-xl"><div className="h-5 w-5 bg-emerald-600 rounded-sm"></div></span>
+                                檢驗數據 (Clinical Labs)
+                            </h3>
+                            <button onClick={() => selectAll('Observation')} className="text-xs font-bold text-emerald-600 hover:underline tracking-tighter uppercase">Select All Items</button>
                         </div>
-                        <div className="p-4">
+                        <div className="p-8 grid grid-cols-1 md:grid-cols-2 gap-4">
                             {resourcesByType['Observation'].map(renderResource)}
-                        </div>
-                    </div>
-                )}
-
-                {/* DiagnosticReports (Imaging/EKG) */}
-                {resourcesByType['DiagnosticReport']?.length > 0 && (
-                    <div className="bg-white rounded-lg shadow-sm border border-slate-200 overflow-hidden">
-                        <div className="bg-amber-50 px-6 py-3 border-b border-amber-200 flex items-center justify-between">
-                            <h3 className="font-bold text-amber-700">📊 影像/EKG 報告 ({resourcesByType['DiagnosticReport'].length})</h3>
-                            <div className="flex gap-2">
-                                <button onClick={() => selectAll('DiagnosticReport')} className="text-xs text-amber-600 hover:underline">全選</button>
-                                <button onClick={() => deselectAll('DiagnosticReport')} className="text-xs text-slate-500 hover:underline">取消</button>
-                            </div>
-                        </div>
-                        <div className="p-4">
-                            {resourcesByType['DiagnosticReport'].map(renderResource)}
                         </div>
                     </div>
                 )}
 
                 {/* Medications */}
                 {(resourcesByType['MedicationStatement']?.length > 0 || resourcesByType['MedicationRequest']?.length > 0) && (
-                    <div className="bg-white rounded-lg shadow-sm border border-slate-200 overflow-hidden">
-                        <div className="bg-teal-50 px-6 py-3 border-b border-teal-200 flex items-center justify-between">
-                            <h3 className="font-bold text-teal-700">
-                                💊 用藥記錄 ({(resourcesByType['MedicationStatement']?.length || 0) + (resourcesByType['MedicationRequest']?.length || 0)})
+                    <div className="glass-card rounded-[2.5rem] overflow-hidden bg-white">
+                        <div className="bg-teal-50/50 px-8 py-5 border-b border-teal-200 flex items-center justify-between">
+                            <h3 className="font-black text-teal-700 tracking-tight text-xl flex items-center gap-3">
+                                <span className="bg-teal-100 p-2 rounded-xl"><div className="h-5 w-5 bg-teal-600 rounded-full"></div></span>
+                                藥物處方明細 (Medications)
                             </h3>
-                            <div className="flex gap-2">
-                                <button onClick={() => selectAll('MedicationStatement', 'MedicationRequest')} className="text-xs text-teal-600 hover:underline">全選</button>
-                                <button onClick={() => deselectAll('MedicationStatement', 'MedicationRequest')} className="text-xs text-slate-500 hover:underline">取消</button>
-                            </div>
+                            <button onClick={() => selectAll('MedicationStatement', 'MedicationRequest')} className="text-xs font-bold text-teal-600 hover:underline tracking-tighter uppercase">Sync All Prescriptions</button>
                         </div>
-                        <div className="p-4">
+                        <div className="p-8 grid grid-cols-1 xl:grid-cols-2 gap-4">
                             {resourcesByType['MedicationStatement']?.map(renderResource)}
                             {resourcesByType['MedicationRequest']?.map(renderResource)}
                         </div>
                     </div>
                 )}
 
-                {/* Text Sections from Composition */}
-                {composition.section?.filter(s => s.text?.div && !s.entry?.length).map((section, idx) => {
+                {/* Other Textual Insight Sections */}
+                {composition.section?.filter(s => {
+                    const code = s.code?.coding?.[0]?.code;
+                    return s.text?.div && !s.entry?.length && code !== '10154-3' && code !== '10164-2';
+                }).map((section, idx) => {
                     const code = section.code?.coding?.[0]?.code;
-                    const title = SECTION_CODES[code] || section.title || '其他';
+                    const title = SECTION_CODES[code] || section.title || '其他臨床紀錄';
                     return (
-                        <div key={idx} className="bg-white rounded-lg shadow-sm border border-slate-200 overflow-hidden">
-                            <div className="bg-slate-50 px-6 py-3 border-b border-slate-200">
-                                <h3 className="font-bold text-slate-700">{title}</h3>
+                        <div key={idx} className="glass-card rounded-[2.5rem] overflow-hidden animate-in fade-in duration-700">
+                            <div className="bg-slate-50/50 px-8 py-4 border-b border-slate-100">
+                                <h3 className="font-bold text-slate-800 tracking-tight flex items-center gap-3">
+                                    <div className="h-2 w-2 rounded-full bg-slate-300"></div>
+                                    {title}
+                                </h3>
                             </div>
-                            <div className="p-6 prose prose-sm max-w-none" dangerouslySetInnerHTML={{ __html: section.text.div }} />
+                            <div className="p-10 prose prose-sm max-w-none text-slate-600 leading-relaxed font-medium" dangerouslySetInnerHTML={{ __html: section.text.div }} />
                         </div>
                     );
                 })}

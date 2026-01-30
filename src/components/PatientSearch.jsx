@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { Search, User, AlertCircle, ChevronDown } from 'lucide-react';
+import { Search, User, AlertCircle, ChevronDown, Github, ExternalLink } from 'lucide-react';
 import { searchPatientById, searchPatientByNHI } from '../services/fhirQueries';
 
 // 測試案例資料
 const TEST_PATIENTS = [
     {
         id: 'pt-testa-01',
-        name: 'TESTA-01',
+        name: '林小萱',
         nationalId: 'F232727969',
         nhiCard: '900000000101',
         diagnosis: 'SLE 紅斑性狼瘡',
@@ -16,7 +16,7 @@ const TEST_PATIENTS = [
     },
     {
         id: 'pt-testa-02',
-        name: 'TESTA-02',
+        name: '王美華',
         nationalId: 'H201340546',
         nhiCard: '900000000202',
         diagnosis: 'Severe AS s/p TAVI',
@@ -41,11 +41,9 @@ export default function PatientSearch({ client, onPatientSelect }) {
     const [selectedTestCase, setSelectedTestCase] = useState('');
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
-    const [patient, setPatient] = useState(null);
 
     const handleTestCaseChange = (e) => {
         setSelectedTestCase(e.target.value);
-        setPatient(null);
         setError(null);
     };
 
@@ -58,7 +56,6 @@ export default function PatientSearch({ client, onPatientSelect }) {
 
         setLoading(true);
         setError(null);
-        setPatient(null);
 
         try {
             // 優先用健保卡號查詢
@@ -70,7 +67,8 @@ export default function PatientSearch({ client, onPatientSelect }) {
             }
 
             if (response && response.entry && response.entry.length > 0) {
-                setPatient(response.entry[0].resource);
+                // 直接跳轉到病摘頁面
+                onPatientSelect(response.entry[0].resource);
             } else {
                 setError(`找不到病人 ${testPatient.name}，請確認測試資料已上傳至沙盒。`);
             }
@@ -82,128 +80,170 @@ export default function PatientSearch({ client, onPatientSelect }) {
         }
     };
 
-    const getPatientName = (p) => {
-        if (!p || !p.name || p.name.length === 0) return 'Unknown';
-        const name = p.name[0];
-        return name.text || `${name.family || ''} ${name.given ? name.given.join(' ') : ''}`;
-    };
-
     const selectedTestPatient = TEST_PATIENTS.find(p => p.id === selectedTestCase);
 
     return (
-        <div className="max-w-2xl mx-auto space-y-6">
-            <div className="bg-white p-6 rounded-lg shadow-sm border border-slate-200">
-                <h2 className="text-lg font-bold text-slate-800 mb-4 flex items-center gap-2">
-                    <Search className="h-5 w-5 text-medical-primary" />
-                    病人查詢
-                </h2>
+        <div className="max-w-4xl mx-auto space-y-10 animate-in fade-in slide-in-from-bottom-8 duration-1000">
+            {/* 專案資訊 Hero Section */}
+            <div className="relative overflow-hidden bg-medical-navy rounded-[2.5rem] p-10 shadow-2xl group">
+                {/* Background decorative elements */}
+                <div className="absolute top-0 right-0 -mr-20 -mt-20 w-80 h-80 bg-medical-primary opacity-20 blur-[100px] rounded-full group-hover:opacity-30 transition-opacity duration-700"></div>
+                <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 bg-medical-accent opacity-10 blur-[100px] rounded-full group-hover:opacity-20 transition-opacity duration-700"></div>
 
-                {/* 測試案例選擇 */}
-                <form onSubmit={handleSearch} className="space-y-4">
-                    <div>
-                        <label className="block text-sm font-medium text-slate-700 mb-2">
-                            選擇測試案例
-                        </label>
-                        <div className="relative">
-                            <select
-                                value={selectedTestCase}
-                                onChange={handleTestCaseChange}
-                                className="block w-full pl-3 pr-10 py-3 text-base border border-slate-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-medical-primary focus:border-medical-primary appearance-none cursor-pointer"
+                <div className="relative z-10 flex flex-col md:flex-row items-center gap-10">
+                    <div className="flex-1 space-y-6 text-center md:text-left">
+                        <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/10">
+                            <span className="relative flex h-2 w-2">
+                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-medical-accent opacity-75"></span>
+                                <span className="relative inline-flex rounded-full h-2 w-2 bg-medical-accent"></span>
+                            </span>
+                            <span className="text-sky-200 text-xs font-bold tracking-widest uppercase">SMART on FHIR v1.2</span>
+                        </div>
+                        <h1 className="text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
+                            跨院病歷 <span className="text-transparent bg-clip-text bg-premium-gradient">整合系統</span>
+                        </h1>
+                        <p className="text-slate-400 text-lg leading-relaxed max-w-xl">
+                            CHARI (Cross-Hospital Admission Record Integration) 旨在整合跨院出院、轉院病摘及用藥記錄，
+                            協助醫療人員透過 TW Core IG 標準格式掌握完整醫療資訊。
+                        </p>
+                        <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 pt-2">
+                            <a
+                                href="https://github.com/selika/CHARI"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-3 bg-white text-medical-navy hover:bg-sky-50 px-6 py-3 rounded-2xl font-bold transition-all transform active:scale-95 shadow-lg group"
                             >
-                                <option value="">-- 請選擇測試病人 --</option>
-                                {TEST_PATIENTS.map((tp) => (
-                                    <option key={tp.id} value={tp.id}>
-                                        {tp.name} - {tp.diagnosis} ({tp.scenario})
-                                    </option>
-                                ))}
-                            </select>
-                            <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-                                <ChevronDown className="h-5 w-5 text-slate-400" />
-                            </div>
+                                <Github className="h-5 w-5" />
+                                GitHub Repo
+                                <ExternalLink className="h-4 w-4 text-slate-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                            </a>
                         </div>
-                    </div>
-
-                    {/* 選中案例的詳細資訊 */}
-                    {selectedTestPatient && (
-                        <div className="bg-slate-50 rounded-lg p-4 text-sm space-y-2">
-                            <div className="grid grid-cols-2 gap-x-4 gap-y-1">
-                                <div className="text-slate-500">身分證號</div>
-                                <div className="font-mono text-slate-700">{selectedTestPatient.nationalId}</div>
-                                <div className="text-slate-500">健保卡號</div>
-                                <div className="font-mono text-slate-700">{selectedTestPatient.nhiCard}</div>
-                                <div className="text-slate-500">情境類型</div>
-                                <div className="text-slate-700">
-                                    {selectedTestPatient.scenario === '住院中轉院' ? (
-                                        <span className="inline-flex items-center gap-1">
-                                            <span className="w-2 h-2 bg-orange-500 rounded-full"></span>
-                                            {selectedTestPatient.scenario}
-                                        </span>
-                                    ) : (
-                                        selectedTestPatient.scenario
-                                    )}
-                                </div>
-                            </div>
-                            {selectedTestPatient.hasAllergy && (
-                                <div className="flex items-center gap-1 text-red-600 mt-2">
-                                    <AlertCircle className="h-4 w-4" />
-                                    <span>此病人有藥物過敏記錄</span>
-                                </div>
-                            )}
-                        </div>
-                    )}
-
-                    <button
-                        type="submit"
-                        disabled={loading || !selectedTestCase}
-                        className={`w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-lg text-white ${loading || !selectedTestCase ? 'bg-slate-400 cursor-not-allowed' : 'bg-medical-primary hover:bg-sky-600 shadow-sm'} transition-colors`}
-                    >
-                        {loading ? '查詢中...' : '查詢病人'}
-                    </button>
-                </form>
-
-                {/* 附註說明 */}
-                <p className="mt-4 text-xs text-slate-400 text-center">
-                    ※ 為方便測試，使用下拉選單。系統介接時可直接對接身分證或健保卡號。
-                </p>
-
-                {/* Error Message */}
-                {error && (
-                    <div className="mt-4 p-3 bg-red-50 text-red-700 text-sm rounded-md flex items-start gap-2">
-                        <AlertCircle className="h-5 w-5 flex-shrink-0" />
-                        <span>{error}</span>
-                    </div>
-                )}
-            </div>
-
-            {/* Result Card */}
-            {patient && (
-                <div className="bg-white p-6 rounded-lg shadow-sm border border-slate-200 animate-in fade-in slide-in-from-bottom-4 duration-500">
-                    <h3 className="text-md font-semibold text-slate-500 uppercase tracking-wider mb-4">查詢結果</h3>
-
-                    <div className="flex items-start justify-between">
-                        <div className="flex gap-4">
-                            <div className="h-12 w-12 bg-medical-bg rounded-full flex items-center justify-center text-medical-primary font-bold text-xl">
-                                {getPatientName(patient).charAt(0)}
-                            </div>
-                            <div>
-                                <h4 className="text-xl font-bold text-slate-900">{getPatientName(patient)}</h4>
-                                <div className="text-sm text-slate-600 mt-1">
-                                    <p>性別: {patient.gender === 'male' ? '男' : patient.gender === 'female' ? '女' : '未知'}</p>
-                                    <p>生日: {patient.birthDate || '未知'}</p>
-                                    <p>Patient ID: <span className="font-mono text-xs">{patient.id}</span></p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <button
-                            onClick={() => onPatientSelect(patient)}
-                            className="px-4 py-2 bg-medical-primary text-white rounded-lg text-sm font-medium hover:bg-sky-600 transition-colors"
-                        >
-                            查看病摘
-                        </button>
                     </div>
                 </div>
-            )}
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+                <div className="lg:col-span-12">
+                    <div className="glass-card rounded-[2.5rem] p-10 border-slate-200/50 shadow-2xl relative overflow-hidden bg-white/40 backdrop-blur-xl">
+                        <h2 className="text-2xl font-bold text-slate-800 mb-8 flex items-center gap-4">
+                            <div className="bg-sky-100 p-3 rounded-2xl">
+                                <Search className="h-6 w-6 text-medical-primary" />
+                            </div>
+                            快速病人查詢
+                        </h2>
+
+                        {/* 測試案例選擇 */}
+                        <form onSubmit={handleSearch} className="space-y-8">
+                            <div className="space-y-4">
+                                <label className="block text-sm font-bold text-slate-500 uppercase tracking-widest ml-1">
+                                    選擇測試情境
+                                </label>
+                                <div className="relative group">
+                                    <select
+                                        value={selectedTestCase}
+                                        onChange={handleTestCaseChange}
+                                        className="block w-full pl-6 pr-12 py-5 text-lg font-medium border-2 border-slate-100 rounded-3xl bg-slate-50/50 focus:outline-none focus:ring-4 focus:ring-sky-500/10 focus:border-medical-primary appearance-none cursor-pointer transition-all hover:bg-white hover:border-sky-100"
+                                    >
+                                        <option value="">-- 請選擇測試案例 --</option>
+                                        {TEST_PATIENTS.map((tp) => (
+                                            <option key={tp.id} value={tp.id}>
+                                                {tp.name} - {tp.diagnosis} ({tp.scenario})
+                                            </option>
+                                        ))}
+                                    </select>
+                                    <div className="absolute inset-y-0 right-0 flex items-center pr-6 pointer-events-none text-slate-400 group-focus-within:text-medical-primary transition-colors">
+                                        <ChevronDown className="h-6 w-6" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* 選中案例的詳細資訊 */}
+                            {selectedTestPatient && (
+                                <div className="bg-sky-50/50 rounded-3xl p-8 border border-sky-100/50 animate-in zoom-in-95 duration-500">
+                                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                                        <div className="space-y-1">
+                                            <div className="text-[10px] font-bold text-sky-600 uppercase tracking-widest flex items-center gap-1.5">
+                                                <User className="h-3 w-3" /> 基本資訊
+                                            </div>
+                                            <div className="text-lg font-bold text-slate-800">{selectedTestPatient.name}</div>
+                                            <div className="text-sm text-slate-500 font-medium">
+                                                {selectedTestPatient.gender === 'male' ? '男性' : '女性'} • {selectedTestPatient.birthDate}
+                                            </div>
+                                        </div>
+                                        <div className="space-y-1">
+                                            <div className="text-[10px] font-bold text-sky-600 uppercase tracking-widest">識別號碼</div>
+                                            <div className="font-mono text-slate-700 font-semibold">{selectedTestPatient.nationalId}</div>
+                                            <div className="font-mono text-slate-400 text-xs">{selectedTestPatient.nhiCard}</div>
+                                        </div>
+                                        <div className="space-y-1">
+                                            <div className="text-[10px] font-bold text-sky-600 uppercase tracking-widest">情境分類</div>
+                                            <div className="flex items-center gap-2">
+                                                <span className={`px-3 py-1 rounded-full text-xs font-bold ${selectedTestPatient.scenario === '住院中轉院'
+                                                        ? 'bg-orange-100 text-orange-700 border border-orange-200'
+                                                        : 'bg-emerald-100 text-emerald-700 border border-emerald-200'
+                                                    }`}>
+                                                    {selectedTestPatient.scenario}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {selectedTestPatient.hasAllergy && (
+                                        <div className="flex items-center gap-2 text-red-600 mt-6 bg-red-50 p-4 rounded-2xl border border-red-100">
+                                            <div className="bg-red-500 p-1.5 rounded-full">
+                                                <AlertCircle className="h-4 w-4 text-white" />
+                                            </div>
+                                            <span className="font-bold text-sm italic">此病人有已知的藥物過敏記錄 (NKDA 排除)</span>
+                                        </div>
+                                    )}
+                                </div>
+                            )}
+
+                            <button
+                                type="submit"
+                                disabled={loading || !selectedTestCase}
+                                className={`w-full flex justify-center items-center gap-3 py-5 px-8 text-lg font-bold rounded-3xl text-white shadow-xl transition-all active:scale-95 ${loading || !selectedTestCase
+                                        ? 'bg-slate-300 cursor-not-allowed opacity-50'
+                                        : 'bg-premium-gradient hover:shadow-premium-hover hover:-translate-y-1'
+                                    }`}
+                            >
+                                {loading ? (
+                                    <>
+                                        <div className="animate-spin rounded-full h-6 w-6 border-2 border-white/30 border-t-white"></div>
+                                        正在介接 FHIR Server...
+                                    </>
+                                ) : (
+                                    <>
+                                        <Search className="h-6 w-6" />
+                                        開始臨床調閱
+                                    </>
+                                )}
+                            </button>
+                        </form>
+
+                        <div className="mt-10 flex items-center justify-center gap-3 py-4 border-t border-slate-100 grayscale opacity-50">
+                            {[1, 2, 3, 4].map(i => (
+                                <div key={i} className="h-8 w-24 bg-slate-200 rounded-lg"></div>
+                            ))}
+                        </div>
+                        <p className="mt-6 text-xs text-slate-400 text-center font-medium">
+                            ※ 測試版介面：快速切換測試案例以模擬不同臨床轉院情境。系統介接時將依權限自動介接後端 Server。
+                        </p>
+
+                        {/* Error Message */}
+                        {error && (
+                            <div className="mt-8 p-6 bg-red-50 border border-red-100 text-red-700 rounded-3xl flex items-start gap-4 animate-in shake duration-500">
+                                <div className="bg-red-500 p-2 rounded-xl">
+                                    <AlertCircle className="h-6 w-6 text-white" />
+                                </div>
+                                <div className="space-y-1 pt-1">
+                                    <h4 className="font-bold">查詢失敗</h4>
+                                    <p className="text-sm opacity-90">{error}</p>
+                                </div>
+                            </div>
+                        )}
+                    </div>
+                </div>
+            </div>
         </div>
     );
 }
