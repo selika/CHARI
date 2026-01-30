@@ -1,0 +1,74 @@
+[
+    {
+        "resourceType": "Practitioner",
+        "id": "prac-doc5383b",
+        "meta": {
+            "profile": [
+                "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Practitioner-twcore"
+            ]
+        },
+        "identifier": [
+            {
+                "use": "official",
+                "system": "https://www.vghtpe.gov.tw/practitioner",
+                "value": "DOC5383B"
+            }
+        ],
+        "name": [
+            {
+                "use": "official",
+                "text": "林妘奕"
+            }
+        ],
+        "qualification": [
+            {
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/v2-0360",
+                            "code": "MD",
+                            "display": "Doctor of Medicine"
+                        }
+                    ],
+                    "text": "主治醫師"
+                }
+            }
+        ]
+    },
+    {
+        "resourceType": "Practitioner",
+        "id": "prac-cardio-kdgh",
+        "meta": {
+            "profile": [
+                "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Practitioner-twcore"
+            ]
+        },
+        "identifier": [
+            {
+                "use": "official",
+                "system": "https://www.vghtpe.gov.tw/kuandu/practitioner",
+                "value": "DOC-CARDIO-01"
+            }
+        ],
+        "name": [
+            {
+                "use": "official",
+                "text": "王心臟"
+            }
+        ],
+        "qualification": [
+            {
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/v2-0360",
+                            "code": "MD",
+                            "display": "Doctor of Medicine"
+                        }
+                    ],
+                    "text": "心臟內科主治醫師"
+                }
+            }
+        ]
+    }
+]

@@ -1,0 +1,203 @@
+[
+    {
+        "resourceType": "Procedure",
+        "id": "proc-testa01-belimumab-01",
+        "meta": {
+            "profile": [
+                "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Procedure-twcore"
+            ]
+        },
+        "status": "completed",
+        "category": {
+            "coding": [
+                {
+                    "system": "http://snomed.info/sct",
+                    "code": "18629005",
+                    "display": "Administration of drug or medicament"
+                }
+            ],
+            "text": "生物製劑治療"
+        },
+        "code": {
+            "coding": [
+                {
+                    "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                    "code": "1116635",
+                    "display": "belimumab Injectable Product"
+                },
+                {
+                    "system": "http://snomed.info/sct",
+                    "code": "430127000",
+                    "display": "Administration of biologic response modifier"
+                }
+            ],
+            "text": "Belimumab 480mg IV infusion"
+        },
+        "subject": {
+            "reference": "Patient/pt-testa-01",
+            "display": "TESTA-01"
+        },
+        "encounter": {
+            "reference": "Encounter/enc-testa01-01"
+        },
+        "performedDateTime": "2025-11-21",
+        "performer": [
+            {
+                "actor": {
+                    "reference": "Practitioner/prac-doc3311g",
+                    "display": "陳光翰"
+                }
+            }
+        ],
+        "reasonReference": [
+            {
+                "reference": "Condition/cond-testa01-sle",
+                "display": "Systemic lupus erythematosus"
+            }
+        ],
+        "note": [
+            {
+                "text": "Benlysta 480mg IV infusion. Previous doses: 2024/07/23, 2024/08/30, 2024/09/29, 2024/10/26, 2024/11/30, 2025/01/05, 2025/06/15, 2025/07/18, 2025/08/19, 2025/09/16, 2025/10/17."
+            }
+        ]
+    },
+    {
+        "resourceType": "Procedure",
+        "id": "proc-testa01-belimumab-02",
+        "meta": {
+            "profile": [
+                "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Procedure-twcore"
+            ]
+        },
+        "status": "completed",
+        "category": {
+            "coding": [
+                {
+                    "system": "http://snomed.info/sct",
+                    "code": "18629005",
+                    "display": "Administration of drug or medicament"
+                }
+            ],
+            "text": "生物製劑治療"
+        },
+        "code": {
+            "coding": [
+                {
+                    "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                    "code": "1116635",
+                    "display": "belimumab Injectable Product"
+                },
+                {
+                    "system": "http://snomed.info/sct",
+                    "code": "430127000",
+                    "display": "Administration of biologic response modifier"
+                }
+            ],
+            "text": "Belimumab 480mg IV infusion"
+        },
+        "subject": {
+            "reference": "Patient/pt-testa-01",
+            "display": "TESTA-01"
+        },
+        "encounter": {
+            "reference": "Encounter/enc-testa01-02"
+        },
+        "performedDateTime": "2026-01-02",
+        "performer": [
+            {
+                "actor": {
+                    "reference": "Practitioner/prac-doc3311g",
+                    "display": "陳光翰"
+                }
+            }
+        ],
+        "reasonReference": [
+            {
+                "reference": "Condition/cond-testa01-sle",
+                "display": "Systemic lupus erythematosus"
+            }
+        ],
+        "note": [
+            {
+                "text": "Benlysta 480mg IV infusion. This is the 13th cycle."
+            }
+        ]
+    },
+    {
+        "resourceType": "Procedure",
+        "id": "proc-testa01-anifrolumab",
+        "meta": {
+            "profile": [
+                "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Procedure-twcore"
+            ]
+        },
+        "status": "stopped",
+        "statusReason": {
+            "coding": [
+                {
+                    "system": "http://snomed.info/sct",
+                    "code": "58848006",
+                    "display": "Lack of drug action"
+                }
+            ],
+            "text": "Arthritis recurred despite treatment"
+        },
+        "category": {
+            "coding": [
+                {
+                    "system": "http://snomed.info/sct",
+                    "code": "18629005",
+                    "display": "Administration of drug or medicament"
+                }
+            ],
+            "text": "生物製劑治療"
+        },
+        "code": {
+            "coding": [
+                {
+                    "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                    "code": "2472872",
+                    "display": "anifrolumab Injectable Product"
+                }
+            ],
+            "text": "Anifrolumab IV infusion (self-paid)"
+        },
+        "subject": {
+            "reference": "Patient/pt-testa-01",
+            "display": "TESTA-01"
+        },
+        "performedPeriod": {
+            "start": "2025-02-02",
+            "end": "2025-05-18"
+        },
+        "performer": [
+            {
+                "actor": {
+                    "reference": "Practitioner/prac-doc3311g",
+                    "display": "陳光翰"
+                }
+            }
+        ],
+        "reasonReference": [
+            {
+                "reference": "Condition/cond-testa01-sle",
+                "display": "Systemic lupus erythematosus"
+            }
+        ],
+        "outcome": {
+            "coding": [
+                {
+                    "system": "http://snomed.info/sct",
+                    "code": "385671000",
+                    "display": "Unsuccessful"
+                }
+            ],
+            "text": "Arthritis recurred after 4 cycles"
+        },
+        "note": [
+            {
+                "text": "Received self-paid Anifrolumab on 2025/02/02, 2025/03/01, 2025/04/12, 2025/05/18 but symptoms seemed refractory. Switched back to Belimumab."
+            }
+        ]
+    }
+]

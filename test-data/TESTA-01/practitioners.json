@@ -1,0 +1,110 @@
+[
+    {
+        "resourceType": "Practitioner",
+        "id": "prac-doc3311g",
+        "meta": {
+            "profile": [
+                "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Practitioner-twcore"
+            ]
+        },
+        "identifier": [
+            {
+                "system": "https://www.vghtpe.gov.tw/practitioner",
+                "value": "DOC3311G"
+            }
+        ],
+        "active": true,
+        "name": [
+            {
+                "use": "official",
+                "text": "陳光翰"
+            }
+        ],
+        "qualification": [
+            {
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/v2-0360",
+                            "code": "MD",
+                            "display": "Doctor of Medicine"
+                        }
+                    ],
+                    "text": "主治醫師"
+                }
+            }
+        ]
+    },
+    {
+        "resourceType": "Practitioner",
+        "id": "prac-doc8330g",
+        "meta": {
+            "profile": [
+                "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Practitioner-twcore"
+            ]
+        },
+        "identifier": [
+            {
+                "system": "https://www.vghtpe.gov.tw/practitioner",
+                "value": "DOC8330G"
+            }
+        ],
+        "active": true,
+        "name": [
+            {
+                "use": "official",
+                "text": "陳曜瑋"
+            }
+        ],
+        "qualification": [
+            {
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/v2-0360",
+                            "code": "MD",
+                            "display": "Doctor of Medicine"
+                        }
+                    ],
+                    "text": "住院醫師"
+                }
+            }
+        ]
+    },
+    {
+        "resourceType": "Practitioner",
+        "id": "prac-doc8434l",
+        "meta": {
+            "profile": [
+                "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Practitioner-twcore"
+            ]
+        },
+        "identifier": [
+            {
+                "system": "https://www.vghtpe.gov.tw/practitioner",
+                "value": "DOC8434L"
+            }
+        ],
+        "active": true,
+        "name": [
+            {
+                "use": "official",
+                "text": "曾心宜"
+            }
+        ],
+        "qualification": [
+            {
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/v2-0360",
+                            "code": "MD",
+                            "display": "Doctor of Medicine"
+                        }
+                    ],
+                    "text": "住院醫師"
+                }
+            }
+        ]
+    }
+]

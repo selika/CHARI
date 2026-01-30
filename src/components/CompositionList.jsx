@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { FileText, ArrowLeft, Calendar, Building, Download, ChevronDown, ChevronUp, AlertCircle, Code, X } from 'lucide-react';
-import { searchCompositions } from '../services/fhirQueries';
+import { FileText, ArrowLeft, Calendar, Building, Download, ChevronDown, ChevronUp, AlertCircle, Code, X, ArrowRightLeft } from 'lucide-react';
+import { searchCompositions, LOINC_DISCHARGE_SUMMARY, LOINC_TRANSFER_SUMMARY } from '../services/fhirQueries';
 
 export default function CompositionList({ client }) {
     const { patientId } = useParams();
@@ -20,10 +20,13 @@ export default function CompositionList({ client }) {
             searchCompositions(client, patientId)
                 .then(response => {
                     const entries = response.entry || [];
-                    // 按日期排序（最新在前）並過濾只顯示出院病摘
+                    // 按日期排序（最新在前），顯示出院病摘和轉院病摘
                     const sorted = entries
                         .map(e => e.resource)
-                        .filter(r => r.type?.coding?.[0]?.code === '18842-5')
+                        .filter(r => {
+                            const code = r.type?.coding?.[0]?.code;
+                            return code === LOINC_DISCHARGE_SUMMARY || code === LOINC_TRANSFER_SUMMARY;
+                        })
                         .sort((a, b) => new Date(b.date) - new Date(a.date));
                     setCompositions(sorted);
                     setLoading(false);
@@ -35,6 +38,16 @@ export default function CompositionList({ client }) {
                 });
         }
     }, [client, patientId]);
+
+    // 判斷是否為轉院病摘
+    const isTransferSummary = (composition) => {
+        return composition.type?.coding?.[0]?.code === LOINC_TRANSFER_SUMMARY;
+    };
+
+    // 取得病摘類型標籤
+    const getCompositionTypeLabel = (composition) => {
+        return isTransferSummary(composition) ? '轉院病摘' : '出院病摘';
+    };
 
     // 動態載入病摘詳細內容和關聯資源
     const loadDetail = async (compositionId) => {
@@ -148,13 +161,16 @@ export default function CompositionList({ client }) {
                 </div>
             ) : (
                 <>
-                    {/* 最新出院病摘 */}
+                    {/* 最新病摘 */}
                     {latestComposition && (
-                        <div className="bg-white rounded-lg shadow-md border-2 border-medical-primary overflow-hidden">
-                            <div className="bg-medical-primary text-white px-6 py-3 flex items-center justify-between">
+                        <div className={`bg-white rounded-lg shadow-md border-2 overflow-hidden ${isTransferSummary(latestComposition) ? 'border-orange-500' : 'border-medical-primary'}`}>
+                            <div className={`text-white px-6 py-3 flex items-center justify-between ${isTransferSummary(latestComposition) ? 'bg-orange-500' : 'bg-medical-primary'}`}>
                                 <div className="flex items-center gap-2">
-                                    <FileText className="h-5 w-5" />
-                                    <span className="font-bold">最新出院病摘</span>
+                                    {isTransferSummary(latestComposition) ? <ArrowRightLeft className="h-5 w-5" /> : <FileText className="h-5 w-5" />}
+                                    <span className="font-bold">最新{getCompositionTypeLabel(latestComposition)}</span>
+                                    {isTransferSummary(latestComposition) && (
+                                        <span className="text-xs bg-white/20 px-2 py-0.5 rounded">住院中轉院</span>
+                                    )}
                                 </div>
                                 <span className="text-sm opacity-90">
                                     {new Date(latestComposition.date).toLocaleDateString('zh-TW')}
@@ -165,7 +181,7 @@ export default function CompositionList({ client }) {
                                 <div className="flex items-start justify-between mb-4">
                                     <div>
                                         <h3 className="text-xl font-bold text-slate-800 mb-2">
-                                            {latestComposition.title || '出院病摘'}
+                                            {latestComposition.title || getCompositionTypeLabel(latestComposition)}
                                         </h3>
                                         <div className="flex items-center gap-4 text-sm text-slate-600">
                                             <span className="flex items-center gap-1">
@@ -224,17 +240,20 @@ export default function CompositionList({ client }) {
                     {historyCompositions.length > 0 && (
                         <div className="bg-white rounded-lg shadow-sm border border-slate-200">
                             <div className="px-6 py-3 border-b border-slate-200">
-                                <h3 className="font-bold text-slate-700">歷史出院病摘 ({historyCompositions.length})</h3>
+                                <h3 className="font-bold text-slate-700">歷史病摘 ({historyCompositions.length})</h3>
                             </div>
                             <div className="divide-y divide-slate-100">
                                 {historyCompositions.map((comp) => (
-                                    <div key={comp.id} className="p-4 hover:bg-slate-50">
+                                    <div key={comp.id} className={`p-4 hover:bg-slate-50 ${isTransferSummary(comp) ? 'border-l-4 border-l-orange-400' : ''}`}>
                                         <div className="flex items-center justify-between">
                                             <div className="flex-1">
                                                 <div className="flex items-center gap-3">
                                                     <span className="text-sm font-medium text-slate-800">
-                                                        {comp.title || '出院病摘'}
+                                                        {comp.title || getCompositionTypeLabel(comp)}
                                                     </span>
+                                                    {isTransferSummary(comp) && (
+                                                        <span className="text-xs bg-orange-100 text-orange-700 px-2 py-0.5 rounded">轉院</span>
+                                                    )}
                                                     <span className="text-xs text-slate-500 flex items-center gap-1">
                                                         <Building className="h-3 w-3" />
                                                         {comp.custodian?.display || '未知醫院'}

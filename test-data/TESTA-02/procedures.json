@@ -1,0 +1,155 @@
+[
+    {
+        "resourceType": "Procedure",
+        "id": "proc-testa02-tavi",
+        "meta": {
+            "profile": [
+                "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Procedure-twcore"
+            ]
+        },
+        "status": "completed",
+        "category": {
+            "coding": [
+                {
+                    "system": "http://snomed.info/sct",
+                    "code": "387713003",
+                    "display": "Surgical procedure"
+                }
+            ]
+        },
+        "code": {
+            "coding": [
+                {
+                    "system": "http://snomed.info/sct",
+                    "code": "418824004",
+                    "display": "Transcatheter aortic valve implantation"
+                }
+            ],
+            "text": "TAVI (transcatheter aortic valve implantation)"
+        },
+        "subject": {
+            "reference": "Patient/pt-testa-02",
+            "display": "TESTA-02"
+        },
+        "encounter": {
+            "reference": "Encounter/enc-testa02-02"
+        },
+        "performedDateTime": "2025-09-23",
+        "performer": [
+            {
+                "actor": {
+                    "reference": "Practitioner/prac-doc6817h",
+                    "display": "張奕煌"
+                }
+            }
+        ],
+        "reasonReference": [
+            {
+                "reference": "Condition/cond-testa02-as",
+                "display": "Severe aortic stenosis"
+            }
+        ],
+        "outcome": {
+            "coding": [
+                {
+                    "system": "http://snomed.info/sct",
+                    "code": "385669000",
+                    "display": "Successful"
+                }
+            ],
+            "text": "Patient tolerated procedure well"
+        },
+        "note": [
+            {
+                "text": "Implanted 24.5mm MyVAL valve. Patient transferred to CVS-A ICU post-procedure for close monitoring, then transferred back to general ward on 9/24."
+            }
+        ]
+    },
+    {
+        "resourceType": "Procedure",
+        "id": "proc-testa02-pci",
+        "meta": {
+            "profile": [
+                "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Procedure-twcore"
+            ]
+        },
+        "status": "completed",
+        "category": {
+            "coding": [
+                {
+                    "system": "http://snomed.info/sct",
+                    "code": "103693007",
+                    "display": "Diagnostic procedure"
+                }
+            ]
+        },
+        "code": {
+            "coding": [
+                {
+                    "system": "http://snomed.info/sct",
+                    "code": "415070008",
+                    "display": "Percutaneous coronary intervention"
+                }
+            ],
+            "text": "PCI with DES and BMS over LAD"
+        },
+        "subject": {
+            "reference": "Patient/pt-testa-02",
+            "display": "TESTA-02"
+        },
+        "performedDateTime": "2025-07-30",
+        "reasonReference": [
+            {
+                "reference": "Condition/cond-testa02-cad",
+                "display": "Coronary artery disease"
+            }
+        ],
+        "note": [
+            {
+                "text": "Performed at CGMH. DES over LAD-ostial to proximal and BMS over LAD-M. Currently under dual-antiplatelet therapy."
+            }
+        ]
+    },
+    {
+        "resourceType": "Procedure",
+        "id": "proc-testa02-tooth",
+        "meta": {
+            "profile": [
+                "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Procedure-twcore"
+            ]
+        },
+        "status": "completed",
+        "category": {
+            "coding": [
+                {
+                    "system": "http://snomed.info/sct",
+                    "code": "387713003",
+                    "display": "Surgical procedure"
+                }
+            ]
+        },
+        "code": {
+            "coding": [
+                {
+                    "system": "http://snomed.info/sct",
+                    "code": "173155008",
+                    "display": "Extraction of tooth"
+                }
+            ],
+            "text": "Tooth extraction"
+        },
+        "subject": {
+            "reference": "Patient/pt-testa-02",
+            "display": "TESTA-02"
+        },
+        "encounter": {
+            "reference": "Encounter/enc-testa02-01"
+        },
+        "performedDateTime": "2025-08-19",
+        "note": [
+            {
+                "text": "Pre-TAVI dental clearance"
+            }
+        ]
+    }
+]

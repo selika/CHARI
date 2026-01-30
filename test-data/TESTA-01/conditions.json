@@ -1,0 +1,148 @@
+[
+    {
+        "resourceType": "Condition",
+        "id": "cond-testa01-sle",
+        "meta": {
+            "profile": [
+                "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Condition-twcore"
+            ]
+        },
+        "clinicalStatus": {
+            "coding": [
+                {
+                    "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                    "code": "active",
+                    "display": "Active"
+                }
+            ]
+        },
+        "verificationStatus": {
+            "coding": [
+                {
+                    "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                    "code": "confirmed",
+                    "display": "Confirmed"
+                }
+            ]
+        },
+        "category": [
+            {
+                "coding": [
+                    {
+                        "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                        "code": "encounter-diagnosis",
+                        "display": "Encounter Diagnosis"
+                    }
+                ]
+            }
+        ],
+        "severity": {
+            "coding": [
+                {
+                    "system": "http://snomed.info/sct",
+                    "code": "6736007",
+                    "display": "Moderate"
+                }
+            ]
+        },
+        "code": {
+            "coding": [
+                {
+                    "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                    "code": "M32.19",
+                    "display": "Other organ or system involvement in systemic lupus erythematosus"
+                },
+                {
+                    "system": "http://snomed.info/sct",
+                    "code": "55464009",
+                    "display": "Systemic lupus erythematosus"
+                }
+            ],
+            "text": "Multiple joint swelling and pain, compatible with Systemic lupus erythematosus-related"
+        },
+        "bodySite": [
+            {
+                "coding": [
+                    {
+                        "system": "http://snomed.info/sct",
+                        "code": "39352004",
+                        "display": "Joint structure"
+                    }
+                ],
+                "text": "Multiple joints (bilateral interphalangeal joints, left knee, wrist)"
+            }
+        ],
+        "subject": {
+            "reference": "Patient/pt-testa-01",
+            "display": "TESTA-01"
+        },
+        "encounter": {
+            "reference": "Encounter/enc-testa01-02"
+        },
+        "onsetDateTime": "2023-10-01",
+        "recordedDate": "2024-07-23",
+        "note": [
+            {
+                "text": "EULAR 2019 criteria: 16 points (Joint involvement +6, elevated dsDNA +6, low C3/C4+4). Antinuclear antibody 1:2560 (homogeneous, AC-1). s/p Belimumab since 2024/07/23, s/p Anifrolumab 2025/02-05 but arthritis recurred. Currently under Myfortic 1#BID. MSUS 2025/07/18: mild arthritis at Rt 2nd MCP, calcification at enthesis of the Lt 3rd central slip."
+            }
+        ]
+    },
+    {
+        "resourceType": "Condition",
+        "id": "cond-testa01-liver",
+        "meta": {
+            "profile": [
+                "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Condition-twcore"
+            ]
+        },
+        "clinicalStatus": {
+            "coding": [
+                {
+                    "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                    "code": "resolved",
+                    "display": "Resolved"
+                }
+            ]
+        },
+        "verificationStatus": {
+            "coding": [
+                {
+                    "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                    "code": "confirmed",
+                    "display": "Confirmed"
+                }
+            ]
+        },
+        "category": [
+            {
+                "coding": [
+                    {
+                        "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                        "code": "problem-list-item",
+                        "display": "Problem List Item"
+                    }
+                ]
+            }
+        ],
+        "code": {
+            "coding": [
+                {
+                    "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                    "code": "R74.01",
+                    "display": "Elevation of levels of liver transaminase levels"
+                }
+            ],
+            "text": "Elevated liver enzymes, cause to be determined (resolved)"
+        },
+        "subject": {
+            "reference": "Patient/pt-testa-01",
+            "display": "TESTA-01"
+        },
+        "recordedDate": "2024-05-14",
+        "note": [
+            {
+                "text": "HBsAg (-), anti-HCV (-), anti-HBs (-) on 2024/05/14. Abdominal sonogram 2024/07/22: no remarkable finding in liver, gallbladder, pancreas, spleen, kidneys, abdominal aorta, and urinary bladder."
+            }
+        ]
+    }
+]

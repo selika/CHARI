@@ -1,0 +1,113 @@
+[
+    {
+        "resourceType": "Procedure",
+        "id": "proc-testa03-pci-lad",
+        "meta": {
+            "profile": [
+                "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Procedure-twcore"
+            ]
+        },
+        "status": "completed",
+        "category": {
+            "coding": [
+                {
+                    "system": "http://snomed.info/sct",
+                    "code": "387713003",
+                    "display": "Surgical procedure"
+                }
+            ]
+        },
+        "code": {
+            "coding": [
+                {
+                    "system": "http://snomed.info/sct",
+                    "code": "415070008",
+                    "display": "Percutaneous coronary intervention"
+                }
+            ],
+            "text": "PCI with DES over LAD"
+        },
+        "subject": {
+            "reference": "Patient/pt-testa-03",
+            "display": "陳志明"
+        },
+        "encounter": {
+            "reference": "Encounter/enc-testa03-01"
+        },
+        "performedDateTime": "2025-07-26",
+        "performer": [
+            {
+                "actor": {
+                    "reference": "Practitioner/prac-cardio-kdgh",
+                    "display": "王心臟"
+                }
+            }
+        ],
+        "reasonReference": [
+            {
+                "reference": "Condition/cond-testa03-nstemi",
+                "display": "NSTEMI"
+            }
+        ],
+        "outcome": {
+            "coding": [
+                {
+                    "system": "http://snomed.info/sct",
+                    "code": "385669000",
+                    "display": "Successful"
+                }
+            ],
+            "text": "成功置放 DES 一枚於 LAD 中段"
+        },
+        "note": [
+            {
+                "text": "心導管檢查發現 LAD 中段狹窄約 85%，成功置放藥物塗層支架 (DES) 一枚。"
+            }
+        ]
+    },
+    {
+        "resourceType": "Procedure",
+        "id": "proc-testa03-cag-2",
+        "meta": {
+            "profile": [
+                "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Procedure-twcore"
+            ]
+        },
+        "status": "completed",
+        "category": {
+            "coding": [
+                {
+                    "system": "http://snomed.info/sct",
+                    "code": "103693007",
+                    "display": "Diagnostic procedure"
+                }
+            ]
+        },
+        "code": {
+            "coding": [
+                {
+                    "system": "http://snomed.info/sct",
+                    "code": "41976001",
+                    "display": "Cardiac catheterization"
+                }
+            ],
+            "text": "心導管檢查"
+        },
+        "subject": {
+            "reference": "Patient/pt-testa-03",
+            "display": "陳志明"
+        },
+        "encounter": {
+            "reference": "Encounter/enc-testa03-02"
+        },
+        "performedDateTime": "2025-12-24",
+        "outcome": {
+            "text": "三支血管疾病，建議 CABG"
+        },
+        "note": [
+            {
+                "text": "發現：LAD 支架內再狹窄 70%、LCX 近端 80%、RCA 中段 75%。診斷三支血管疾病，不適合再做 PCI，建議 CABG。"
+            }
+        ]
+    }
+]

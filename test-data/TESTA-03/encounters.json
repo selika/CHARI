@@ -1,0 +1,215 @@
+[
+    {
+        "resourceType": "Encounter",
+        "id": "enc-testa03-01",
+        "meta": {
+            "profile": [
+                "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Encounter-twcore"
+            ]
+        },
+        "status": "finished",
+        "class": {
+            "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+            "code": "IMP",
+            "display": "inpatient encounter"
+        },
+        "type": [
+            {
+                "coding": [
+                    {
+                        "system": "http://snomed.info/sct",
+                        "code": "183452005",
+                        "display": "Emergency hospital admission"
+                    }
+                ],
+                "text": "NSTEMI 急診入院"
+            }
+        ],
+        "subject": {
+            "reference": "Patient/pt-testa-03",
+            "display": "陳志明"
+        },
+        "participant": [
+            {
+                "type": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                                "code": "ATND",
+                                "display": "attender"
+                            }
+                        ]
+                    }
+                ],
+                "individual": {
+                    "reference": "Practitioner/prac-cardio-kdgh",
+                    "display": "王心臟（心臟內科主治醫師）"
+                }
+            }
+        ],
+        "period": {
+            "start": "2025-07-25",
+            "end": "2025-08-04"
+        },
+        "length": {
+            "value": 10,
+            "unit": "days",
+            "system": "http://unitsofmeasure.org",
+            "code": "d"
+        },
+        "reasonCode": [
+            {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                        "code": "I21.4",
+                        "display": "Non-ST elevation (NSTEMI) myocardial infarction"
+                    }
+                ],
+                "text": "NSTEMI 非ST段上升型心肌梗塞"
+            }
+        ],
+        "hospitalization": {
+            "admitSource": {
+                "coding": [
+                    {
+                        "system": "http://terminology.hl7.org/CodeSystem/admit-source",
+                        "code": "emd",
+                        "display": "From accident/emergency department"
+                    }
+                ]
+            },
+            "dischargeDisposition": {
+                "coding": [
+                    {
+                        "system": "http://terminology.hl7.org/CodeSystem/discharge-disposition",
+                        "code": "home",
+                        "display": "Home"
+                    }
+                ],
+                "text": "病情穩定出院，門診追蹤"
+            }
+        },
+        "location": [
+            {
+                "location": {
+                    "display": "心臟內科病房"
+                },
+                "status": "completed"
+            }
+        ],
+        "serviceProvider": {
+            "reference": "Organization/org-kdgh",
+            "display": "臺北榮民總醫院關渡分院"
+        }
+    },
+    {
+        "resourceType": "Encounter",
+        "id": "enc-testa03-02",
+        "meta": {
+            "profile": [
+                "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Encounter-twcore"
+            ]
+        },
+        "status": "in-progress",
+        "class": {
+            "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+            "code": "IMP",
+            "display": "inpatient encounter"
+        },
+        "type": [
+            {
+                "coding": [
+                    {
+                        "system": "http://snomed.info/sct",
+                        "code": "183452005",
+                        "display": "Emergency hospital admission"
+                    }
+                ],
+                "text": "心臟衰竭入院，準備轉院手術"
+            }
+        ],
+        "subject": {
+            "reference": "Patient/pt-testa-03",
+            "display": "陳志明"
+        },
+        "participant": [
+            {
+                "type": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                                "code": "ATND",
+                                "display": "attender"
+                            }
+                        ]
+                    }
+                ],
+                "individual": {
+                    "reference": "Practitioner/prac-cardio-kdgh",
+                    "display": "王心臟（心臟內科主治醫師）"
+                }
+            }
+        ],
+        "period": {
+            "start": "2025-12-22T10:00:00+08:00"
+        },
+        "reasonCode": [
+            {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                        "code": "I25.10",
+                        "display": "Atherosclerotic heart disease of native coronary artery without angina pectoris"
+                    }
+                ],
+                "text": "三支血管疾病，需安排 CABG 手術"
+            },
+            {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                        "code": "I50.9",
+                        "display": "Heart failure, unspecified"
+                    }
+                ],
+                "text": "心臟衰竭 LVEF 45%"
+            }
+        ],
+        "hospitalization": {
+            "admitSource": {
+                "coding": [
+                    {
+                        "system": "http://terminology.hl7.org/CodeSystem/admit-source",
+                        "code": "outp",
+                        "display": "From outpatient department"
+                    }
+                ]
+            },
+            "dischargeDisposition": {
+                "coding": [
+                    {
+                        "system": "http://terminology.hl7.org/CodeSystem/discharge-disposition",
+                        "code": "other-hcf",
+                        "display": "Other healthcare facility"
+                    }
+                ],
+                "text": "住院中轉院至臺北榮民總醫院心臟血管外科"
+            }
+        },
+        "location": [
+            {
+                "location": {
+                    "display": "心臟內科病房"
+                },
+                "status": "active"
+            }
+        ],
+        "serviceProvider": {
+            "reference": "Organization/org-kdgh",
+            "display": "臺北榮民總醫院關渡分院"
+        }
+    }
+]

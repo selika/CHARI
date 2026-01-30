@@ -1,0 +1,274 @@
+[
+    {
+        "resourceType": "Encounter",
+        "id": "enc-testa02-01",
+        "meta": {
+            "profile": [
+                "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Encounter-twcore"
+            ]
+        },
+        "status": "finished",
+        "class": {
+            "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+            "code": "IMP",
+            "display": "inpatient encounter"
+        },
+        "type": [
+            {
+                "coding": [
+                    {
+                        "system": "http://terminology.hl7.org/CodeSystem/encounter-type",
+                        "code": "ADMS",
+                        "display": "Annual diabetes mellitus screening"
+                    }
+                ],
+                "text": "Pre-TAVI evaluation"
+            }
+        ],
+        "subject": {
+            "reference": "Patient/pt-testa-02",
+            "display": "TESTA-02"
+        },
+        "participant": [
+            {
+                "type": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                                "code": "ATND",
+                                "display": "attender"
+                            }
+                        ]
+                    }
+                ],
+                "individual": {
+                    "reference": "Practitioner/prac-doc6817h",
+                    "display": "張奕煌（主治醫師）"
+                }
+            },
+            {
+                "type": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                                "code": "PPRF",
+                                "display": "primary performer"
+                            }
+                        ]
+                    }
+                ],
+                "individual": {
+                    "reference": "Practitioner/prac-doc9625k",
+                    "display": "陳效宏（住院醫師）"
+                }
+            }
+        ],
+        "period": {
+            "start": "2025-08-14",
+            "end": "2025-08-19"
+        },
+        "length": {
+            "value": 5,
+            "unit": "days",
+            "system": "http://unitsofmeasure.org",
+            "code": "d"
+        },
+        "reasonCode": [
+            {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                        "code": "I35.0",
+                        "display": "Aortic (valve) stenosis"
+                    }
+                ],
+                "text": "Severe aortic stenosis, pre-TAVI evaluation"
+            }
+        ],
+        "hospitalization": {
+            "admitSource": {
+                "coding": [
+                    {
+                        "system": "http://terminology.hl7.org/CodeSystem/admit-source",
+                        "code": "outp",
+                        "display": "From outpatient department"
+                    }
+                ]
+            },
+            "dischargeDisposition": {
+                "coding": [
+                    {
+                        "system": "http://terminology.hl7.org/CodeSystem/discharge-disposition",
+                        "code": "home",
+                        "display": "Home"
+                    }
+                ],
+                "text": "出院後繼續來本院門診"
+            }
+        },
+        "location": [
+            {
+                "location": {
+                    "display": "B107-20 心臟外科病房"
+                },
+                "status": "completed",
+                "period": {
+                    "start": "2025-08-14",
+                    "end": "2025-08-19"
+                }
+            }
+        ],
+        "serviceProvider": {
+            "reference": "Organization/org-vghtpe",
+            "display": "臺北榮民總醫院"
+        }
+    },
+    {
+        "resourceType": "Encounter",
+        "id": "enc-testa02-02",
+        "meta": {
+            "profile": [
+                "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Encounter-twcore"
+            ]
+        },
+        "status": "finished",
+        "class": {
+            "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+            "code": "IMP",
+            "display": "inpatient encounter"
+        },
+        "type": [
+            {
+                "coding": [
+                    {
+                        "system": "http://snomed.info/sct",
+                        "code": "387713003",
+                        "display": "Surgical procedure"
+                    }
+                ],
+                "text": "TAVI procedure"
+            }
+        ],
+        "subject": {
+            "reference": "Patient/pt-testa-02",
+            "display": "TESTA-02"
+        },
+        "participant": [
+            {
+                "type": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                                "code": "ATND",
+                                "display": "attender"
+                            }
+                        ]
+                    }
+                ],
+                "individual": {
+                    "reference": "Practitioner/prac-doc6817h",
+                    "display": "張奕煌（主治醫師）"
+                }
+            },
+            {
+                "type": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                                "code": "PPRF",
+                                "display": "primary performer"
+                            }
+                        ]
+                    }
+                ],
+                "individual": {
+                    "reference": "Practitioner/prac-doc5426c",
+                    "display": "鄭光翔（住院醫師）"
+                }
+            }
+        ],
+        "period": {
+            "start": "2025-09-21",
+            "end": "2025-09-27"
+        },
+        "length": {
+            "value": 6,
+            "unit": "days",
+            "system": "http://unitsofmeasure.org",
+            "code": "d"
+        },
+        "reasonCode": [
+            {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                        "code": "I35.0",
+                        "display": "Aortic (valve) stenosis"
+                    }
+                ],
+                "text": "Severe aortic stenosis, for TAVI"
+            }
+        ],
+        "hospitalization": {
+            "admitSource": {
+                "coding": [
+                    {
+                        "system": "http://terminology.hl7.org/CodeSystem/admit-source",
+                        "code": "outp",
+                        "display": "From outpatient department"
+                    }
+                ]
+            },
+            "dischargeDisposition": {
+                "coding": [
+                    {
+                        "system": "http://terminology.hl7.org/CodeSystem/discharge-disposition",
+                        "code": "home",
+                        "display": "Home"
+                    }
+                ],
+                "text": "出院後繼續來本院門診"
+            }
+        },
+        "location": [
+            {
+                "location": {
+                    "display": "B107-46 CVS Ward"
+                },
+                "status": "completed",
+                "period": {
+                    "start": "2025-09-21",
+                    "end": "2025-09-23"
+                }
+            },
+            {
+                "location": {
+                    "display": "CVSA-5 ICU"
+                },
+                "status": "completed",
+                "period": {
+                    "start": "2025-09-23",
+                    "end": "2025-09-24"
+                }
+            },
+            {
+                "location": {
+                    "display": "B107-24 CVS Ward"
+                },
+                "status": "completed",
+                "period": {
+                    "start": "2025-09-24",
+                    "end": "2025-09-27"
+                }
+            }
+        ],
+        "serviceProvider": {
+            "reference": "Organization/org-vghtpe",
+            "display": "臺北榮民總醫院"
+        }
+    }
+]

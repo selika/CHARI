@@ -1,0 +1,162 @@
+[
+    {
+        "resourceType": "DiagnosticReport",
+        "id": "dr-testa02-ekg-01",
+        "meta": {
+            "profile": [
+                "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/DiagnosticReport-twcore"
+            ]
+        },
+        "status": "final",
+        "category": [
+            {
+                "coding": [
+                    {
+                        "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                        "code": "EC",
+                        "display": "Electrocardiac"
+                    }
+                ]
+            }
+        ],
+        "code": {
+            "coding": [
+                {
+                    "system": "http://loinc.org",
+                    "code": "11524-6",
+                    "display": "EKG study"
+                }
+            ],
+            "text": "ECG (EKG)"
+        },
+        "subject": {
+            "reference": "Patient/pt-testa-02",
+            "display": "TESTA-02"
+        },
+        "encounter": {
+            "reference": "Encounter/enc-testa02-02"
+        },
+        "effectiveDateTime": "2025-09-21",
+        "conclusion": "Sinus rhythm. LVH with secondary repolarization abnormality. T wave inversion in lead V1-6, I, aVL."
+    },
+    {
+        "resourceType": "DiagnosticReport",
+        "id": "dr-testa02-cxr-01",
+        "meta": {
+            "profile": [
+                "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/DiagnosticReport-twcore"
+            ]
+        },
+        "status": "final",
+        "category": [
+            {
+                "coding": [
+                    {
+                        "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                        "code": "RAD",
+                        "display": "Radiology"
+                    }
+                ]
+            }
+        ],
+        "code": {
+            "coding": [
+                {
+                    "system": "http://loinc.org",
+                    "code": "36643-5",
+                    "display": "XR Chest 2 Views"
+                }
+            ],
+            "text": "Chest PA + Lateral"
+        },
+        "subject": {
+            "reference": "Patient/pt-testa-02",
+            "display": "TESTA-02"
+        },
+        "encounter": {
+            "reference": "Encounter/enc-testa02-01"
+        },
+        "effectiveDateTime": "2025-08-14",
+        "conclusion": "Borderline heart size. Preserved bilateral CP angle. Tortuosity of thoracic aorta with aortic knob wall calcification. Increased opacity at right paratracheal space. Multiple nodular opacities noted over bilateral hilar regions, probably vascular shadow en face. Increased pulmonary infiltrates at both lung regions."
+    },
+    {
+        "resourceType": "DiagnosticReport",
+        "id": "dr-testa02-ct-01",
+        "meta": {
+            "profile": [
+                "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/DiagnosticReport-twcore"
+            ]
+        },
+        "status": "final",
+        "category": [
+            {
+                "coding": [
+                    {
+                        "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                        "code": "RAD",
+                        "display": "Radiology"
+                    }
+                ]
+            }
+        ],
+        "code": {
+            "coding": [
+                {
+                    "system": "http://loinc.org",
+                    "code": "24627-2",
+                    "display": "CT Chest"
+                }
+            ],
+            "text": "CT Scan Chest"
+        },
+        "subject": {
+            "reference": "Patient/pt-testa-02",
+            "display": "TESTA-02"
+        },
+        "encounter": {
+            "reference": "Encounter/enc-testa02-01"
+        },
+        "effectiveDateTime": "2025-08-18",
+        "conclusion": "Pulmonary trunk diameter about 3.4 cm, pulmonary hypertension cannot be ruled out. Atherosclerotic vascular change with mural calcification at coronary arteries and aorta with risk of CAD. Aortic valve and mitral valve calcification. Cardiomegaly. Smaller size with thinning cortex of bilateral kidneys, chronic parenchymal disease considered."
+    },
+    {
+        "resourceType": "DiagnosticReport",
+        "id": "dr-testa02-doppler-01",
+        "meta": {
+            "profile": [
+                "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/DiagnosticReport-twcore"
+            ]
+        },
+        "status": "final",
+        "category": [
+            {
+                "coding": [
+                    {
+                        "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                        "code": "RAD",
+                        "display": "Radiology"
+                    }
+                ]
+            }
+        ],
+        "code": {
+            "coding": [
+                {
+                    "system": "http://loinc.org",
+                    "code": "30800-7",
+                    "display": "US Doppler Carotid vessels"
+                }
+            ],
+            "text": "DopScan Carotid"
+        },
+        "subject": {
+            "reference": "Patient/pt-testa-02",
+            "display": "TESTA-02"
+        },
+        "encounter": {
+            "reference": "Encounter/enc-testa02-01"
+        },
+        "effectiveDateTime": "2025-08-15",
+        "conclusion": "Multifocal plaques with mild luminal narrowing in the bifurcation of bilateral common carotid arteries. Doppler study showed no significant stenosis in cervical portion of bilateral internal carotid arteries, bilateral external carotid arteries and bilateral vertebral arteries."
+    }
+]

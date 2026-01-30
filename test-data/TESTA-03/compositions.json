@@ -1,0 +1,382 @@
+[
+    {
+        "resourceType": "Composition",
+        "id": "comp-testa03-discharge-01",
+        "meta": {
+            "profile": [
+                "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Composition-twcore"
+            ]
+        },
+        "status": "final",
+        "type": {
+            "coding": [
+                {
+                    "system": "http://loinc.org",
+                    "code": "18842-5",
+                    "display": "Discharge summary"
+                }
+            ],
+            "text": "出院病摘"
+        },
+        "subject": {
+            "reference": "Patient/pt-testa-03",
+            "display": "陳志明"
+        },
+        "encounter": {
+            "reference": "Encounter/enc-testa03-01"
+        },
+        "date": "2025-08-04T15:00:00+08:00",
+        "author": [
+            {
+                "reference": "Practitioner/prac-cardio-kdgh",
+                "display": "王心臟（心臟內科主治醫師）"
+            }
+        ],
+        "title": "出院病歷摘要 - NSTEMI s/p PCI with DES",
+        "custodian": {
+            "reference": "Organization/org-kdgh",
+            "display": "臺北榮民總醫院關渡分院"
+        },
+        "section": [
+            {
+                "title": "入院診斷",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "46241-6",
+                            "display": "Hospital admission diagnosis"
+                        }
+                    ]
+                },
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><ol><li>非ST段上升型心肌梗塞 (NSTEMI) (I21.4)</li><li>冠狀動脈粥狀硬化性心臟病 (I25.10)</li><li>高血壓 (I10)</li><li>第二型糖尿病 (E11.9)</li></ol></div>"
+                },
+                "entry": [
+                    {
+                        "reference": "Condition/cond-testa03-nstemi"
+                    }
+                ]
+            },
+            {
+                "title": "主訴",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "10154-3",
+                            "display": "Chief complaint"
+                        }
+                    ]
+                },
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>胸悶、冒冷汗 2 小時</p></div>"
+                }
+            },
+            {
+                "title": "住院經過",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "8648-8",
+                            "display": "Hospital course"
+                        }
+                    ]
+                },
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>病人於 7/25 因胸悶、冒冷汗至急診就醫。ECG 顯示 ST 段壓低於 V4-V6，Troponin-I 升高至 2.8 ng/mL，診斷 NSTEMI。</p><p>7/26 安排心導管檢查，發現 LAD 中段狹窄約 85%，成功置放藥物塗層支架 (DES) 一枚。術後恢復良好，8/4 病情穩定出院。</p></div>"
+                },
+                "entry": [
+                    {
+                        "reference": "Procedure/proc-testa03-pci-lad"
+                    }
+                ]
+            },
+            {
+                "title": "過敏史",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "48765-2",
+                            "display": "Allergies and adverse reactions"
+                        }
+                    ]
+                },
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><ul><li><strong>Penicillin</strong>：皮疹</li><li><strong>Arcoxia (Etoricoxib)</strong>：濕疹</li></ul></div>"
+                },
+                "entry": [
+                    {
+                        "reference": "AllergyIntolerance/allergy-testa03-penicillin"
+                    },
+                    {
+                        "reference": "AllergyIntolerance/allergy-testa03-arcoxia"
+                    }
+                ]
+            },
+            {
+                "title": "出院用藥",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "10183-2",
+                            "display": "Hospital discharge medications"
+                        }
+                    ]
+                },
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table><tr><th>藥品</th><th>劑量</th><th>頻次</th><th>說明</th></tr><tr><td>Aspirin</td><td>100mg</td><td>QD</td><td>抗血小板</td></tr><tr><td>Clopidogrel</td><td>75mg</td><td>QD</td><td>雙抗治療</td></tr><tr><td>Atorvastatin</td><td>40mg</td><td>HS</td><td>降血脂</td></tr><tr><td>Metoprolol</td><td>25mg</td><td>BID</td><td>β-阻斷劑</td></tr><tr><td>Ramipril</td><td>5mg</td><td>QD</td><td>ACEI</td></tr><tr><td>Metformin</td><td>500mg</td><td>BID</td><td>降血糖</td></tr></table></div>"
+                }
+            },
+            {
+                "title": "出院計畫",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "18776-5",
+                            "display": "Plan of care"
+                        }
+                    ]
+                },
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>病情穩定出院，門診持續追蹤。規則服藥，避免 Penicillin 及 Arcoxia 類藥物。</p></div>"
+                }
+            }
+        ]
+    },
+    {
+        "resourceType": "Composition",
+        "id": "comp-testa03-transfer-01",
+        "meta": {
+            "profile": [
+                "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Composition-twcore"
+            ]
+        },
+        "status": "preliminary",
+        "type": {
+            "coding": [
+                {
+                    "system": "http://loinc.org",
+                    "code": "18761-7",
+                    "display": "Transfer summary note"
+                }
+            ],
+            "text": "轉診/轉院病摘"
+        },
+        "subject": {
+            "reference": "Patient/pt-testa-03",
+            "display": "陳志明"
+        },
+        "encounter": {
+            "reference": "Encounter/enc-testa03-02"
+        },
+        "date": "2025-12-27T10:00:00+08:00",
+        "author": [
+            {
+                "reference": "Practitioner/prac-cardio-kdgh",
+                "display": "王心臟（心臟內科主治醫師）"
+            }
+        ],
+        "title": "住院中轉院病摘 - 冠狀動脈三支血管疾病，需 CABG 手術",
+        "custodian": {
+            "reference": "Organization/org-kdgh",
+            "display": "臺北榮民總醫院關渡分院"
+        },
+        "section": [
+            {
+                "title": "轉院原因",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "42349-1",
+                            "display": "Reason for referral"
+                        }
+                    ]
+                },
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><strong>轉院原因</strong>：病人為冠狀動脈三支血管疾病合併支架內再狹窄，不適合再做 PCI，需接受冠狀動脈繞道手術 (CABG)。關渡醫院為區域醫院，無心臟外科能量，需轉至臺北榮民總醫院心臟血管外科手術。</p><p><strong>轉往醫院</strong>：臺北榮民總醫院心臟血管外科</p></div>"
+                }
+            },
+            {
+                "title": "目前診斷",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "11535-2",
+                            "display": "Hospital discharge diagnosis"
+                        }
+                    ]
+                },
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><ol><li>冠狀動脈三支血管疾病 (I25.10)</li><li>LAD 支架內再狹窄 (T82.855A)</li><li>心臟衰竭，LVEF 45% (I50.9)</li><li>NSTEMI 病史 (I25.2)</li><li>高血壓 (I10)</li><li>第二型糖尿病 (E11.9)</li><li>高血脂症 (E78.5)</li></ol></div>"
+                },
+                "entry": [
+                    {
+                        "reference": "Condition/cond-testa03-cad-tvd"
+                    },
+                    {
+                        "reference": "Condition/cond-testa03-isr"
+                    },
+                    {
+                        "reference": "Condition/cond-testa03-hf"
+                    },
+                    {
+                        "reference": "Condition/cond-testa03-htn"
+                    },
+                    {
+                        "reference": "Condition/cond-testa03-dm"
+                    },
+                    {
+                        "reference": "Condition/cond-testa03-hyperlipidemia"
+                    }
+                ]
+            },
+            {
+                "title": "本次住院經過",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "8648-8",
+                            "display": "Hospital course"
+                        }
+                    ]
+                },
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>病人於 12/22 因胸悶加劇、活動時呼吸困難 2 週入院。ECG 顯示 V4-V6 T 波倒置，Echo: LVEF 45%（較前次 55% 下降），BNP 856 pg/mL。</p><p><strong>12/24 心導管結果</strong>：</p><ul><li>LAD 支架內再狹窄 70%</li><li>LCX 近端 80%</li><li>RCA 中段 75%</li></ul><p>診斷三支血管疾病，建議 CABG 手術。目前心衰竭藥物治療中，症狀穩定，準備轉院手術。</p></div>"
+                },
+                "entry": [
+                    {
+                        "reference": "Procedure/proc-testa03-cag-2"
+                    }
+                ]
+            },
+            {
+                "title": "過敏史",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "48765-2",
+                            "display": "Allergies and adverse reactions"
+                        }
+                    ]
+                },
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>⚠️ <strong>藥物過敏</strong>：</p><ul><li><strong>Penicillin</strong>：皮疹（嚴重）</li><li><strong>Arcoxia (Etoricoxib)</strong>：濕疹（輕度）</li></ul></div>"
+                },
+                "entry": [
+                    {
+                        "reference": "AllergyIntolerance/allergy-testa03-penicillin"
+                    },
+                    {
+                        "reference": "AllergyIntolerance/allergy-testa03-arcoxia"
+                    }
+                ]
+            },
+            {
+                "title": "目前用藥",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "10160-0",
+                            "display": "History of medication use"
+                        }
+                    ]
+                },
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table><tr><th>藥品</th><th>劑量</th><th>頻次</th><th>途徑</th></tr><tr><td>Aspirin</td><td>100mg</td><td>QD</td><td>PO</td></tr><tr><td>Clopidogrel</td><td>75mg</td><td>QD</td><td>PO</td></tr><tr><td>Atorvastatin</td><td>40mg</td><td>HS</td><td>PO</td></tr><tr><td>Metoprolol</td><td>25mg</td><td>BID</td><td>PO</td></tr><tr><td>Ramipril</td><td>5mg</td><td>QD</td><td>PO</td></tr><tr><td>Furosemide</td><td>20mg</td><td>QD</td><td>PO</td></tr><tr><td>Metformin</td><td>500mg</td><td>BID</td><td>PO</td></tr><tr><td>Heparin</td><td>1000 U/hr</td><td>continuous</td><td>IV</td></tr></table></div>"
+                },
+                "entry": [
+                    {
+                        "reference": "MedicationStatement/medstmt-testa03-aspirin"
+                    },
+                    {
+                        "reference": "MedicationStatement/medstmt-testa03-clopidogrel"
+                    },
+                    {
+                        "reference": "MedicationStatement/medstmt-testa03-atorvastatin"
+                    },
+                    {
+                        "reference": "MedicationStatement/medstmt-testa03-metoprolol"
+                    },
+                    {
+                        "reference": "MedicationStatement/medstmt-testa03-ramipril"
+                    },
+                    {
+                        "reference": "MedicationStatement/medstmt-testa03-furosemide"
+                    },
+                    {
+                        "reference": "MedicationStatement/medstmt-testa03-metformin"
+                    },
+                    {
+                        "reference": "MedicationStatement/medstmt-testa03-heparin"
+                    }
+                ]
+            },
+            {
+                "title": "最新檢驗數據",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "30954-2",
+                            "display": "Relevant diagnostic tests/laboratory data"
+                        }
+                    ]
+                },
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h4>血液常規 (2025/12/26)</h4><table><tr><td>WBC</td><td>7,800 /μL</td><td>正常</td></tr><tr><td>Hb</td><td>13.2 g/dL</td><td>⬇️ 輕度貧血</td></tr><tr><td>Platelet</td><td>225,000 /μL</td><td>正常</td></tr></table><h4>生化</h4><table><tr><td>Creatinine</td><td>1.2 mg/dL</td><td>正常</td></tr><tr><td>eGFR</td><td>62 mL/min</td><td>臨界</td></tr><tr><td>HbA1c</td><td>7.4%</td><td>⬆️ 略高</td></tr><tr><td>LDL-C</td><td>88 mg/dL</td><td>⬆️ 未達標</td></tr></table><h4>心臟指標</h4><table><tr><td>Troponin-I</td><td>0.08 ng/mL</td><td>⬆️ 輕度升高</td></tr><tr><td>BNP</td><td>856 pg/mL</td><td>⬆️ 心衰竭</td></tr></table></div>"
+                },
+                "entry": [
+                    {
+                        "reference": "Observation/obs-testa03-wbc"
+                    },
+                    {
+                        "reference": "Observation/obs-testa03-hgb"
+                    },
+                    {
+                        "reference": "Observation/obs-testa03-plt"
+                    },
+                    {
+                        "reference": "Observation/obs-testa03-creatinine"
+                    },
+                    {
+                        "reference": "Observation/obs-testa03-egfr"
+                    },
+                    {
+                        "reference": "Observation/obs-testa03-hba1c"
+                    },
+                    {
+                        "reference": "Observation/obs-testa03-troponin"
+                    },
+                    {
+                        "reference": "Observation/obs-testa03-bnp"
+                    },
+                    {
+                        "reference": "Observation/obs-testa03-ldl"
+                    }
+                ]
+            }
+        ]
+    }
+]

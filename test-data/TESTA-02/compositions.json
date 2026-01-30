@@ -1,0 +1,433 @@
+[
+    {
+        "resourceType": "Composition",
+        "id": "comp-testa02-discharge-01",
+        "meta": {
+            "profile": [
+                "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Composition-twcore"
+            ]
+        },
+        "status": "final",
+        "type": {
+            "coding": [
+                {
+                    "system": "http://loinc.org",
+                    "code": "18842-5",
+                    "display": "Discharge summary"
+                }
+            ],
+            "text": "出院病摘"
+        },
+        "subject": {
+            "reference": "Patient/pt-testa-02",
+            "display": "TESTA-02"
+        },
+        "encounter": {
+            "reference": "Encounter/enc-testa02-01"
+        },
+        "date": "2025-08-19T15:00:00+08:00",
+        "author": [
+            {
+                "reference": "Practitioner/prac-doc6817h",
+                "display": "張奕煌（主治醫師）"
+            },
+            {
+                "reference": "Practitioner/prac-doc9625k",
+                "display": "陳效宏（住院醫師）"
+            }
+        ],
+        "title": "出院病歷摘要 - Pre-TAVI Evaluation",
+        "custodian": {
+            "reference": "Organization/org-vghtpe",
+            "display": "臺北榮民總醫院"
+        },
+        "section": [
+            {
+                "title": "入院診斷",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "46241-6",
+                            "display": "Hospital admission diagnosis"
+                        }
+                    ]
+                },
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><strong>[Active]</strong></p><ol><li>Severe aortic stenosis (Echo: AVA 0.78 cm2, mean PG 34.3mmHg)</li><li>Heart failure with reduced ejection fraction (LVEF 32.9%)</li></ol><p><strong>[Underlying disease]</strong></p><ul><li>ESRD on HD via left AV fistula TIW</li><li>CAD s/p PCI with DES and BMS 2025/7/30</li><li>Diabetes mellitus</li><li>Hepatitis B carrier (inactive)</li></ul></div>"
+                },
+                "entry": [
+                    {
+                        "reference": "Condition/cond-testa02-as"
+                    },
+                    {
+                        "reference": "Condition/cond-testa02-hf"
+                    }
+                ]
+            },
+            {
+                "title": "主訴",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "10154-3",
+                            "display": "Chief complaint"
+                        }
+                    ]
+                },
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Dyspnea and chest tightness for 2 weeks. Aortic stenosis was told at local hospital.</p></div>"
+                }
+            },
+            {
+                "title": "住院經過",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "8648-8",
+                            "display": "Hospital course"
+                        }
+                    ]
+                },
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Serial pre-operative surveys were arranged. Dopscan showed multifocal plaques with mild luminal narrowing in bilateral common carotid arteries. 2D cardiac echo showed calcified aortic valve with mild AR, severe valvular aortic stenosis. Chest CT showed pulmonary trunk diameter 3.4cm, atherosclerotic changes. Tooth extraction was done on 2025/08/19 for pre-TAVI clearance.</p></div>"
+                },
+                "entry": [
+                    {
+                        "reference": "Procedure/proc-testa02-tooth"
+                    },
+                    {
+                        "reference": "DiagnosticReport/dr-testa02-doppler-01"
+                    },
+                    {
+                        "reference": "DiagnosticReport/dr-testa02-ct-01"
+                    }
+                ]
+            },
+            {
+                "title": "過敏史",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "48765-2",
+                            "display": "Allergies and adverse reactions"
+                        }
+                    ]
+                },
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>No known food or drug allergy (NKDA)</p></div>"
+                },
+                "emptyReason": {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/list-empty-reason",
+                            "code": "nilknown",
+                            "display": "Nil Known"
+                        }
+                    ]
+                }
+            },
+            {
+                "title": "出院用藥",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "10183-2",
+                            "display": "Hospital discharge medications"
+                        }
+                    ]
+                },
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table><tr><td>Acetylcysteine granules 600mg</td><td>BID</td></tr><tr><td>Medicon-A cap</td><td>TID</td></tr><tr><td>Aspirin (Espin) 100mg</td><td>QD</td></tr><tr><td>Clopidogrel (Plavix) 75mg</td><td>QD</td></tr><tr><td>Atorvastatin (Lipitor) 40mg</td><td>QD</td></tr><tr><td>Bisoprolol (Concor) 1.25mg</td><td>BID</td></tr><tr><td>Amlodipine (Norvasc) 5mg</td><td>QD</td></tr></table></div>"
+                },
+                "entry": [
+                    {
+                        "reference": "MedicationStatement/medstmt-testa02-acetylcysteine"
+                    },
+                    {
+                        "reference": "MedicationStatement/medstmt-testa02-aspirin"
+                    },
+                    {
+                        "reference": "MedicationStatement/medstmt-testa02-clopidogrel"
+                    },
+                    {
+                        "reference": "MedicationStatement/medstmt-testa02-atorvastatin"
+                    },
+                    {
+                        "reference": "MedicationStatement/medstmt-testa02-bisoprolol"
+                    },
+                    {
+                        "reference": "MedicationStatement/medstmt-testa02-amlodipine"
+                    }
+                ]
+            },
+            {
+                "title": "檢驗結果",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "30954-2",
+                            "display": "Relevant diagnostic tests/laboratory data"
+                        }
+                    ]
+                },
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h4>血液常規 (2025-08-15)</h4><table><tr><td>WBC</td><td>8000 /cumm</td></tr><tr><td>RBC</td><td>3.56 m/cumm</td><td>⬇️ L</td></tr><tr><td>HGB</td><td>10.9 g/dL</td></tr><tr><td>Platelet</td><td>222000 /cumm</td></tr></table><h4>生化 (2025-08-15)</h4><table><tr><td>BUN</td><td>73 mg/dL</td><td>⬆️ H</td></tr><tr><td>Creatinine</td><td>7.92 mg/dL</td><td>⬆️ H</td></tr><tr><td>Glucose</td><td>116 mg/dL</td><td>⬆️ H</td></tr><tr><td>Na</td><td>134 mmol/L</td><td>⬇️ L</td></tr><tr><td>K</td><td>4.2 mmol/L</td></tr></table></div>"
+                },
+                "entry": [
+                    {
+                        "reference": "Observation/obs-testa02-wbc-01"
+                    },
+                    {
+                        "reference": "Observation/obs-testa02-rbc-01"
+                    },
+                    {
+                        "reference": "Observation/obs-testa02-hgb-01"
+                    },
+                    {
+                        "reference": "Observation/obs-testa02-plt-01"
+                    },
+                    {
+                        "reference": "Observation/obs-testa02-bun-01"
+                    },
+                    {
+                        "reference": "Observation/obs-testa02-crea-01"
+                    },
+                    {
+                        "reference": "Observation/obs-testa02-glu-01"
+                    },
+                    {
+                        "reference": "Observation/obs-testa02-na-01"
+                    },
+                    {
+                        "reference": "Observation/obs-testa02-k-01"
+                    }
+                ]
+            },
+            {
+                "title": "出院計畫",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "18776-5",
+                            "display": "Plan of care"
+                        }
+                    ]
+                },
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>出院後繼續來本院門診追蹤，安排TAVI手術</p></div>"
+                }
+            }
+        ]
+    },
+    {
+        "resourceType": "Composition",
+        "id": "comp-testa02-discharge-02",
+        "meta": {
+            "profile": [
+                "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Composition-twcore"
+            ]
+        },
+        "status": "final",
+        "type": {
+            "coding": [
+                {
+                    "system": "http://loinc.org",
+                    "code": "18842-5",
+                    "display": "Discharge summary"
+                }
+            ],
+            "text": "出院病摘"
+        },
+        "subject": {
+            "reference": "Patient/pt-testa-02",
+            "display": "TESTA-02"
+        },
+        "encounter": {
+            "reference": "Encounter/enc-testa02-02"
+        },
+        "date": "2025-09-27T15:00:00+08:00",
+        "author": [
+            {
+                "reference": "Practitioner/prac-doc6817h",
+                "display": "張奕煌（主治醫師）"
+            },
+            {
+                "reference": "Practitioner/prac-doc5426c",
+                "display": "鄭光翔（住院醫師）"
+            }
+        ],
+        "title": "出院病歷摘要 - TAVI Procedure",
+        "custodian": {
+            "reference": "Organization/org-vghtpe",
+            "display": "臺北榮民總醫院"
+        },
+        "section": [
+            {
+                "title": "出院診斷",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "11535-2",
+                            "display": "Hospital discharge diagnosis"
+                        }
+                    ]
+                },
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><strong>[Active]</strong></p><ol><li>Severe aortic stenosis - <strong>s/p TAVI on 2025/9/23 (24.5mm MyVAL)</strong></li><li>Heart failure with reduced ejection fraction</li></ol><p><strong>[Underlying disease]</strong></p><ul><li>ESRD on HD</li><li>CAD s/p PCI 2025/7/30</li><li>Diabetes mellitus</li><li>Hepatitis B carrier</li></ul></div>"
+                },
+                "entry": [
+                    {
+                        "reference": "Condition/cond-testa02-as"
+                    },
+                    {
+                        "reference": "Condition/cond-testa02-hf"
+                    }
+                ]
+            },
+            {
+                "title": "手術方法及日期",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "10223-6",
+                            "display": "Operation note"
+                        }
+                    ]
+                },
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><strong>2025-09-23</strong>: TAVI (transcatheter aortic valve implantation) with 24.5mm MyVAL valve</p></div>"
+                },
+                "entry": [
+                    {
+                        "reference": "Procedure/proc-testa02-tavi"
+                    }
+                ]
+            },
+            {
+                "title": "住院經過",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "8648-8",
+                            "display": "Hospital course"
+                        }
+                    ]
+                },
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Pre-operative survey done. Family meeting held on 9/22. TAVI performed on 2025/9/23. Patient tolerated procedure well. Post-op transferred to CVS-A ICU for close monitoring. Transferred back to general ward on 9/24. Patient stable and discharged for OPD follow up.</p></div>"
+                }
+            },
+            {
+                "title": "心電圖",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "11524-6",
+                            "display": "EKG study"
+                        }
+                    ]
+                },
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><strong>2025-09-21</strong>: Sinus rhythm. LVH with secondary repolarization abnormality. T wave inversion in lead V1-6, I, aVL.</p></div>"
+                },
+                "entry": [
+                    {
+                        "reference": "DiagnosticReport/dr-testa02-ekg-01"
+                    }
+                ]
+            },
+            {
+                "title": "出院用藥",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "10183-2",
+                            "display": "Hospital discharge medications"
+                        }
+                    ]
+                },
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table><tr><td>Traceton FC tab</td><td>TID PRN</td></tr></table></div>"
+                },
+                "entry": [
+                    {
+                        "reference": "MedicationStatement/medstmt-testa02-traceton"
+                    }
+                ]
+            },
+            {
+                "title": "檢驗結果",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "30954-2",
+                            "display": "Relevant diagnostic tests/laboratory data"
+                        }
+                    ]
+                },
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h4>血液常規 (2025-09-22)</h4><table><tr><td>WBC</td><td>5930 /cumm</td></tr><tr><td>HGB</td><td>10.2 g/dL</td><td>⬇️ L</td></tr><tr><td>Platelet</td><td>136000 /cumm</td><td>⬇️ L</td></tr></table><h4>生化</h4><table><tr><td>Creatinine</td><td>9.65 mg/dL</td><td>⬆️ H</td></tr><tr><td>HS-CRP (9/24)</td><td>3.57 mg/dL</td><td>⬆️ H</td></tr></table></div>"
+                },
+                "entry": [
+                    {
+                        "reference": "Observation/obs-testa02-wbc-02"
+                    },
+                    {
+                        "reference": "Observation/obs-testa02-hgb-02"
+                    },
+                    {
+                        "reference": "Observation/obs-testa02-plt-02"
+                    },
+                    {
+                        "reference": "Observation/obs-testa02-crea-02"
+                    },
+                    {
+                        "reference": "Observation/obs-testa02-hscrp-02"
+                    }
+                ]
+            },
+            {
+                "title": "出院計畫",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "18776-5",
+                            "display": "Plan of care"
+                        }
+                    ]
+                },
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>出院後繼續來本院門診追蹤</p></div>"
+                }
+            }
+        ]
+    }
+]

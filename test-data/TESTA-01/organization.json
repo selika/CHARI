@@ -1,0 +1,54 @@
+{
+    "resourceType": "Organization",
+    "id": "org-vghtpe",
+    "meta": {
+        "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Organization-twcore"
+        ]
+    },
+    "identifier": [
+        {
+            "system": "https://thas.mohw.gov.tw/orggov",
+            "value": "0601160016"
+        }
+    ],
+    "active": true,
+    "type": [
+        {
+            "coding": [
+                {
+                    "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                    "code": "prov",
+                    "display": "Healthcare Provider"
+                }
+            ]
+        }
+    ],
+    "name": "臺北榮民總醫院",
+    "alias": [
+        "Taipei Veterans General Hospital",
+        "VGHTPE",
+        "北榮"
+    ],
+    "telecom": [
+        {
+            "system": "phone",
+            "value": "+886-2-28712121"
+        },
+        {
+            "system": "url",
+            "value": "https://www.vghtpe.gov.tw/"
+        }
+    ],
+    "address": [
+        {
+            "use": "work",
+            "type": "physical",
+            "text": "台北市北投區石牌路二段201號",
+            "city": "台北市",
+            "district": "北投區",
+            "postalCode": "112",
+            "country": "TW"
+        }
+    ]
+}

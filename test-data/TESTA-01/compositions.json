@@ -1,0 +1,556 @@
+[
+    {
+        "resourceType": "Composition",
+        "id": "comp-testa01-discharge-01",
+        "meta": {
+            "profile": [
+                "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Composition-twcore"
+            ]
+        },
+        "status": "final",
+        "type": {
+            "coding": [
+                {
+                    "system": "http://loinc.org",
+                    "code": "18842-5",
+                    "display": "Discharge summary"
+                }
+            ],
+            "text": "出院病摘"
+        },
+        "category": [
+            {
+                "coding": [
+                    {
+                        "system": "http://loinc.org",
+                        "code": "11490-0",
+                        "display": "Physician Discharge summary"
+                    }
+                ]
+            }
+        ],
+        "subject": {
+            "reference": "Patient/pt-testa-01",
+            "display": "TESTA-01"
+        },
+        "encounter": {
+            "reference": "Encounter/enc-testa01-01"
+        },
+        "date": "2025-11-22T15:00:00+08:00",
+        "author": [
+            {
+                "reference": "Practitioner/prac-doc3311g",
+                "display": "陳光翰（主治醫師）"
+            },
+            {
+                "reference": "Practitioner/prac-doc8330g",
+                "display": "陳曜瑋（住院醫師）"
+            }
+        ],
+        "title": "出院病歷摘要",
+        "custodian": {
+            "reference": "Organization/org-vghtpe",
+            "display": "臺北榮民總醫院"
+        },
+        "section": [
+            {
+                "title": "入院診斷",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "46241-6",
+                            "display": "Hospital admission diagnosis"
+                        }
+                    ]
+                },
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><strong>[Active disease]</strong></p><ol><li>Multiple joint swelling and pain, compatible with Systemic lupus erythematosus-related</li></ol><p>*EULAR 2019 criteria: 16 points (Joint involvement +6, elevated dsDNA +6, low C3/C4+4)</p><p>*Antinuclear antibody 1:2560 (homogeneous, AC-1)</p><p>-s/p Belimumab 2024/07/23-2025/10/17</p><p>-s/p Anifrolumab 2025/02-05 (arthritis recurred)</p><p>-currently under Myfortic 1#BID</p><p><strong>[Chronic disease]</strong></p><ol><li>Elevated liver enzymes, cause to be determined (resolved)</li></ol></div>"
+                },
+                "entry": [
+                    {
+                        "reference": "Condition/cond-testa01-sle"
+                    }
+                ]
+            },
+            {
+                "title": "主訴",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "10154-3",
+                            "display": "Chief complaint"
+                        }
+                    ]
+                },
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Arthralgia over left elbow and bilateral knees for two weeks</p></div>"
+                }
+            },
+            {
+                "title": "現病史",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "10164-2",
+                            "display": "History of present illness"
+                        }
+                    ]
+                },
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>This 15-year-old student had underlying disease mentioned below. She had been well until 2023/10, when arthralgia developed. She had pain along with joint swelling at bilateral interphalangeal joints and left knee. She also complained about single oral ulcer which recovered spontaneously. She then visited our rheumatologist's clinic to seek medical attention. She was found to have elevated anti-dsDNA antibody, elevated antinuclear antibody, low C3, low C4, and elevated ESR. Her antinuclear antibody was 1:2560 in homogeneous pattern. There was no proteinuria or malar rash was found. After discussing with her parents, she started to receive Belimumab infusion since 2024/07/23.</p><p>After last discharge, she had no fever, chills, loss of body weight, poor appetite, dizziness, headache, chest pain, chest tightness, dyspnea or urinary discomfort, but mild pain over bilateral wrist and knee were still mentioned. This time, she was admitted for further management.</p></div>"
+                }
+            },
+            {
+                "title": "住院經過",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "8648-8",
+                            "display": "Hospital course"
+                        }
+                    ]
+                },
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>According to her mother, the patient developed arthralgia approximately one week prior to admission. Analgesics were used only rarely, primarily for headaches. No contraindications to belimumab were identified, and a 480 mg dose was administered as scheduled. The patient remained clinically stable and was discharged on 2025/11/22.</p></div>"
+                },
+                "entry": [
+                    {
+                        "reference": "Procedure/proc-testa01-belimumab-01"
+                    }
+                ]
+            },
+            {
+                "title": "出院診斷",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "11535-2",
+                            "display": "Hospital discharge diagnosis"
+                        }
+                    ]
+                },
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><strong>[Active disease]</strong></p><ol><li>Multiple joint swelling and pain, compatible with Systemic lupus erythematosus-related</li></ol><p>*EULAR 2019 criteria: 16 points</p><p>*s/p Belimumab on 2025/11/21</p><p><strong>[Chronic disease]</strong></p><ol><li>Elevated liver enzymes (resolved)</li></ol></div>"
+                },
+                "entry": [
+                    {
+                        "reference": "Condition/cond-testa01-sle"
+                    },
+                    {
+                        "reference": "Condition/cond-testa01-liver"
+                    }
+                ]
+            },
+            {
+                "title": "過敏史",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "48765-2",
+                            "display": "Allergies and adverse reactions"
+                        }
+                    ]
+                },
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Allergy to food or drugs: denied (NKDA)</p></div>"
+                },
+                "emptyReason": {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/list-empty-reason",
+                            "code": "nilknown",
+                            "display": "Nil Known"
+                        }
+                    ],
+                    "text": "No known drug allergies"
+                }
+            },
+            {
+                "title": "出院用藥",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "10183-2",
+                            "display": "Hospital discharge medications"
+                        }
+                    ]
+                },
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table><thead><tr><th>藥品名稱</th><th>劑量</th><th>頻次</th><th>途徑</th><th>數量</th></tr></thead><tbody><tr><td>Myfortic tab 180mg (Mycophenolic acid)</td><td>180mg</td><td>BID</td><td>PO</td><td>60</td></tr></tbody></table></div>"
+                },
+                "entry": [
+                    {
+                        "reference": "MedicationStatement/medstmt-testa01-myfortic-01"
+                    }
+                ]
+            },
+            {
+                "title": "檢驗結果",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "30954-2",
+                            "display": "Relevant diagnostic tests/laboratory data"
+                        }
+                    ]
+                },
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h4>血液常規 (2025-11-20)</h4><table><tr><td>WBC</td><td>8230 /cumm</td></tr><tr><td>RBC</td><td>5.00 m/cumm</td></tr><tr><td>HGB</td><td>14.5 g/dL</td></tr><tr><td>HCT</td><td>43.9%</td></tr><tr><td>MCV</td><td>87.8 fL</td></tr><tr><td>Platelet</td><td>313000 /cumm</td></tr><tr><td>ESR</td><td>2 mm/h</td></tr></table><h4>生化 (2025-11-20)</h4><table><tr><td>BUN</td><td>11 mg/dL</td></tr><tr><td>Creatinine</td><td>0.50 mg/dL</td></tr><tr><td>T.Bil</td><td>0.48 mg/dL</td></tr><tr><td>ALT</td><td>9 U/L</td></tr><tr><td>Na</td><td>143 mmol/L</td></tr><tr><td>K</td><td>4.0 mmol/L</td></tr><tr><td>CRP</td><td>&lt;0.06 mg/dL</td></tr></table><h4>免疫 (2025-11-21)</h4><table><tr><td>C3</td><td>97.8 mg/dL</td></tr><tr><td>C4</td><td>15.0 mg/dL</td></tr></table></div>"
+                },
+                "entry": [
+                    {
+                        "reference": "Observation/obs-testa01-wbc-01"
+                    },
+                    {
+                        "reference": "Observation/obs-testa01-rbc-01"
+                    },
+                    {
+                        "reference": "Observation/obs-testa01-hgb-01"
+                    },
+                    {
+                        "reference": "Observation/obs-testa01-hct-01"
+                    },
+                    {
+                        "reference": "Observation/obs-testa01-mcv-01"
+                    },
+                    {
+                        "reference": "Observation/obs-testa01-plt-01"
+                    },
+                    {
+                        "reference": "Observation/obs-testa01-esr-01"
+                    },
+                    {
+                        "reference": "Observation/obs-testa01-bun-01"
+                    },
+                    {
+                        "reference": "Observation/obs-testa01-crea-01"
+                    },
+                    {
+                        "reference": "Observation/obs-testa01-tbil-01"
+                    },
+                    {
+                        "reference": "Observation/obs-testa01-alt-01"
+                    },
+                    {
+                        "reference": "Observation/obs-testa01-na-01"
+                    },
+                    {
+                        "reference": "Observation/obs-testa01-k-01"
+                    },
+                    {
+                        "reference": "Observation/obs-testa01-crp-01"
+                    },
+                    {
+                        "reference": "Observation/obs-testa01-c3-01"
+                    },
+                    {
+                        "reference": "Observation/obs-testa01-c4-01"
+                    }
+                ]
+            },
+            {
+                "title": "出院計畫",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "18776-5",
+                            "display": "Plan of care"
+                        }
+                    ]
+                },
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>出院後繼續來本院門診追蹤</p></div>"
+                }
+            }
+        ]
+    },
+    {
+        "resourceType": "Composition",
+        "id": "comp-testa01-discharge-02",
+        "meta": {
+            "profile": [
+                "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Composition-twcore"
+            ]
+        },
+        "status": "final",
+        "type": {
+            "coding": [
+                {
+                    "system": "http://loinc.org",
+                    "code": "18842-5",
+                    "display": "Discharge summary"
+                }
+            ],
+            "text": "出院病摘"
+        },
+        "category": [
+            {
+                "coding": [
+                    {
+                        "system": "http://loinc.org",
+                        "code": "11490-0",
+                        "display": "Physician Discharge summary"
+                    }
+                ]
+            }
+        ],
+        "subject": {
+            "reference": "Patient/pt-testa-01",
+            "display": "TESTA-01"
+        },
+        "encounter": {
+            "reference": "Encounter/enc-testa01-02"
+        },
+        "date": "2026-01-03T15:00:00+08:00",
+        "author": [
+            {
+                "reference": "Practitioner/prac-doc3311g",
+                "display": "陳光翰（主治醫師）"
+            },
+            {
+                "reference": "Practitioner/prac-doc8434l",
+                "display": "曾心宜（住院醫師）"
+            }
+        ],
+        "title": "出院病歷摘要",
+        "custodian": {
+            "reference": "Organization/org-vghtpe",
+            "display": "臺北榮民總醫院"
+        },
+        "section": [
+            {
+                "title": "入院診斷",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "46241-6",
+                            "display": "Hospital admission diagnosis"
+                        }
+                    ]
+                },
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><strong>[Active disease]</strong></p><ol><li>Multiple joint swelling and pain, compatible with Systemic lupus erythematosus-related</li></ol><p>*EULAR 2019 criteria: 16 points (Joint involvement +6, elevated dsDNA +6, low C3/C4+4)</p><p>*Antinuclear antibody 1:2560 (homogeneous, AC-1)</p><p>-s/p Belimumab 2024/07/23-2025/11/21</p><p>-s/p Anifrolumab 2025/02-05 (arthritis recurred)</p><p>-currently under Myfortic 1#BID</p><p><strong>[Chronic disease]</strong></p><ol><li>Elevated liver enzymes, cause to be determined (resolved)</li></ol></div>"
+                },
+                "entry": [
+                    {
+                        "reference": "Condition/cond-testa01-sle"
+                    }
+                ]
+            },
+            {
+                "title": "主訴",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "10154-3",
+                            "display": "Chief complaint"
+                        }
+                    ]
+                },
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Arthralgia over left elbow and bilateral knees for two weeks, worsen for days and daily life involvement</p></div>"
+                }
+            },
+            {
+                "title": "現病史",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "10164-2",
+                            "display": "History of present illness"
+                        }
+                    ]
+                },
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>This 15-year-old student had underlying disease mentioned below. She had been well until 2023/10, when arthralgia developed. She had pain along with joint swelling at bilateral interphalangeal joints and left knee. She also complained about single oral ulcer which recovered spontaneously. She then visited our rheumatologist's clinic to seek medical attention. She was found to have elevated anti-dsDNA antibody, elevated antinuclear antibody, low C3, low C4, and elevated ESR. Her antinuclear antibody was 1:2560 in homogeneous pattern. There was no proteinuria or malar rash was found. After discussing with her parents, she started to receive Belimumab infusion since 2024/07/23.</p><p>After last discharge, she had mild pain over bilateral wrist and knee. This time, she was admitted for further management.</p></div>"
+                }
+            },
+            {
+                "title": "住院經過",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "8648-8",
+                            "display": "Hospital course"
+                        }
+                    ]
+                },
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>According to the patient's mother, the patient developed arthralgia approximately one week prior to admission. Analgesics were used infrequently and primarily for headache relief. No contraindications to belimumab were identified, and a 480-mg dose was administered as scheduled. The patient remained clinically stable throughout hospitalization and was discharged on January 3, 2026.</p></div>"
+                },
+                "entry": [
+                    {
+                        "reference": "Procedure/proc-testa01-belimumab-02"
+                    }
+                ]
+            },
+            {
+                "title": "出院診斷",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "11535-2",
+                            "display": "Hospital discharge diagnosis"
+                        }
+                    ]
+                },
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><strong>[Active disease]</strong></p><ol><li>Multiple joint swelling and pain, compatible with Systemic lupus erythematosus-related</li></ol><p>*EULAR 2019 criteria: 16 points</p><p>*s/p Belimumab on 2026/01/02</p><p><strong>[Chronic disease]</strong></p><ol><li>Elevated liver enzymes (resolved)</li></ol></div>"
+                },
+                "entry": [
+                    {
+                        "reference": "Condition/cond-testa01-sle"
+                    },
+                    {
+                        "reference": "Condition/cond-testa01-liver"
+                    }
+                ]
+            },
+            {
+                "title": "過敏史",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "48765-2",
+                            "display": "Allergies and adverse reactions"
+                        }
+                    ]
+                },
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Allergy to food or drugs: denied (NKDA)</p></div>"
+                },
+                "emptyReason": {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/list-empty-reason",
+                            "code": "nilknown",
+                            "display": "Nil Known"
+                        }
+                    ],
+                    "text": "No known drug allergies"
+                }
+            },
+            {
+                "title": "出院用藥",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "10183-2",
+                            "display": "Hospital discharge medications"
+                        }
+                    ]
+                },
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table><thead><tr><th>藥品名稱</th><th>劑量</th><th>頻次</th><th>途徑</th><th>數量</th></tr></thead><tbody><tr><td>Myfortic tab 180mg (Mycophenolic acid)</td><td>180mg</td><td>Q12H</td><td>PO</td><td>60</td></tr></tbody></table></div>"
+                },
+                "entry": [
+                    {
+                        "reference": "MedicationStatement/medstmt-testa01-myfortic-02"
+                    }
+                ]
+            },
+            {
+                "title": "檢驗結果",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "30954-2",
+                            "display": "Relevant diagnostic tests/laboratory data"
+                        }
+                    ]
+                },
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h4>血液常規 (2026-01-02)</h4><table><tr><td>WBC</td><td>9980 /cumm</td><td>⬆️ H</td></tr><tr><td>HGB</td><td>14.3 g/dL</td><td></td></tr><tr><td>Platelet</td><td>398000 /cumm</td><td>⬆️ H</td></tr></table><h4>生化 (2026-01-02)</h4><table><tr><td>BUN</td><td>13 mg/dL</td><td></td></tr><tr><td>Creatinine</td><td>0.45 mg/dL</td><td>⬇️ L</td></tr><tr><td>ALT</td><td>9 U/L</td><td></td></tr><tr><td>Na</td><td>139 mmol/L</td><td></td></tr><tr><td>K</td><td>3.7 mmol/L</td><td></td></tr><tr><td>CRP</td><td>&lt;0.06 mg/dL</td><td></td></tr></table><h4>免疫 (2026-01-02)</h4><table><tr><td>C3</td><td>116.3 mg/dL</td><td></td></tr><tr><td>C4</td><td>20.3 mg/dL</td><td></td></tr><tr><td>IgG</td><td>1023 mg/dL</td><td></td></tr></table></div>"
+                },
+                "entry": [
+                    {
+                        "reference": "Observation/obs-testa01-wbc-02"
+                    },
+                    {
+                        "reference": "Observation/obs-testa01-hgb-02"
+                    },
+                    {
+                        "reference": "Observation/obs-testa01-plt-02"
+                    },
+                    {
+                        "reference": "Observation/obs-testa01-bun-02"
+                    },
+                    {
+                        "reference": "Observation/obs-testa01-crea-02"
+                    },
+                    {
+                        "reference": "Observation/obs-testa01-alt-02"
+                    },
+                    {
+                        "reference": "Observation/obs-testa01-na-02"
+                    },
+                    {
+                        "reference": "Observation/obs-testa01-k-02"
+                    },
+                    {
+                        "reference": "Observation/obs-testa01-crp-02"
+                    },
+                    {
+                        "reference": "Observation/obs-testa01-c3-02"
+                    },
+                    {
+                        "reference": "Observation/obs-testa01-c4-02"
+                    },
+                    {
+                        "reference": "Observation/obs-testa01-igg-02"
+                    }
+                ]
+            },
+            {
+                "title": "出院計畫",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "18776-5",
+                            "display": "Plan of care"
+                        }
+                    ]
+                },
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>出院後繼續來本院門診追蹤</p></div>"
+                }
+            }
+        ]
+    }
+]

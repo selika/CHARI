@@ -1,0 +1,432 @@
+[
+    {
+        "resourceType": "Condition",
+        "id": "cond-testa03-nstemi",
+        "meta": {
+            "profile": [
+                "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Condition-twcore"
+            ]
+        },
+        "clinicalStatus": {
+            "coding": [
+                {
+                    "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                    "code": "resolved",
+                    "display": "Resolved"
+                }
+            ]
+        },
+        "verificationStatus": {
+            "coding": [
+                {
+                    "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                    "code": "confirmed",
+                    "display": "Confirmed"
+                }
+            ]
+        },
+        "category": [
+            {
+                "coding": [
+                    {
+                        "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                        "code": "encounter-diagnosis",
+                        "display": "Encounter Diagnosis"
+                    }
+                ]
+            }
+        ],
+        "code": {
+            "coding": [
+                {
+                    "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                    "code": "I21.4",
+                    "display": "Non-ST elevation (NSTEMI) myocardial infarction"
+                }
+            ],
+            "text": "非ST段上升型心肌梗塞 (NSTEMI)"
+        },
+        "subject": {
+            "reference": "Patient/pt-testa-03",
+            "display": "陳志明"
+        },
+        "encounter": {
+            "reference": "Encounter/enc-testa03-01"
+        },
+        "onsetDateTime": "2025-07-25",
+        "recordedDate": "2025-07-25",
+        "note": [
+            {
+                "text": "ECG 顯示 ST 段壓低於 V4-V6，Troponin-I 2.8 ng/mL。成功置放 LAD 支架後病情穩定。"
+            }
+        ]
+    },
+    {
+        "resourceType": "Condition",
+        "id": "cond-testa03-cad-tvd",
+        "meta": {
+            "profile": [
+                "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Condition-twcore"
+            ]
+        },
+        "clinicalStatus": {
+            "coding": [
+                {
+                    "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                    "code": "active",
+                    "display": "Active"
+                }
+            ]
+        },
+        "verificationStatus": {
+            "coding": [
+                {
+                    "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                    "code": "confirmed",
+                    "display": "Confirmed"
+                }
+            ]
+        },
+        "category": [
+            {
+                "coding": [
+                    {
+                        "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                        "code": "encounter-diagnosis",
+                        "display": "Encounter Diagnosis"
+                    }
+                ]
+            }
+        ],
+        "severity": {
+            "coding": [
+                {
+                    "system": "http://snomed.info/sct",
+                    "code": "24484000",
+                    "display": "Severe"
+                }
+            ]
+        },
+        "code": {
+            "coding": [
+                {
+                    "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                    "code": "I25.10",
+                    "display": "Atherosclerotic heart disease of native coronary artery without angina pectoris"
+                }
+            ],
+            "text": "冠狀動脈三支血管疾病 (Triple vessel disease)"
+        },
+        "subject": {
+            "reference": "Patient/pt-testa-03",
+            "display": "陳志明"
+        },
+        "encounter": {
+            "reference": "Encounter/enc-testa03-02"
+        },
+        "onsetDateTime": "2025-12-24",
+        "recordedDate": "2025-12-24",
+        "note": [
+            {
+                "text": "心導管 (2025/12/24): LAD 支架內再狹窄 70%、LCX 近端 80%、RCA 中段 75%。需 CABG 手術。"
+            }
+        ]
+    },
+    {
+        "resourceType": "Condition",
+        "id": "cond-testa03-isr",
+        "meta": {
+            "profile": [
+                "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Condition-twcore"
+            ]
+        },
+        "clinicalStatus": {
+            "coding": [
+                {
+                    "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                    "code": "active",
+                    "display": "Active"
+                }
+            ]
+        },
+        "verificationStatus": {
+            "coding": [
+                {
+                    "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                    "code": "confirmed",
+                    "display": "Confirmed"
+                }
+            ]
+        },
+        "category": [
+            {
+                "coding": [
+                    {
+                        "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                        "code": "encounter-diagnosis",
+                        "display": "Encounter Diagnosis"
+                    }
+                ]
+            }
+        ],
+        "code": {
+            "coding": [
+                {
+                    "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                    "code": "T82.855A",
+                    "display": "Stenosis of coronary artery stent, initial encounter"
+                }
+            ],
+            "text": "LAD 支架內再狹窄 (In-stent restenosis)"
+        },
+        "subject": {
+            "reference": "Patient/pt-testa-03",
+            "display": "陳志明"
+        },
+        "encounter": {
+            "reference": "Encounter/enc-testa03-02"
+        },
+        "onsetDateTime": "2025-12-24",
+        "recordedDate": "2025-12-24",
+        "note": [
+            {
+                "text": "原 2025/7/30 置放之 LAD DES 支架處，狹窄約 70%"
+            }
+        ]
+    },
+    {
+        "resourceType": "Condition",
+        "id": "cond-testa03-hf",
+        "meta": {
+            "profile": [
+                "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Condition-twcore"
+            ]
+        },
+        "clinicalStatus": {
+            "coding": [
+                {
+                    "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                    "code": "active",
+                    "display": "Active"
+                }
+            ]
+        },
+        "verificationStatus": {
+            "coding": [
+                {
+                    "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                    "code": "confirmed",
+                    "display": "Confirmed"
+                }
+            ]
+        },
+        "category": [
+            {
+                "coding": [
+                    {
+                        "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                        "code": "encounter-diagnosis",
+                        "display": "Encounter Diagnosis"
+                    }
+                ]
+            }
+        ],
+        "code": {
+            "coding": [
+                {
+                    "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                    "code": "I50.9",
+                    "display": "Heart failure, unspecified"
+                }
+            ],
+            "text": "心臟衰竭"
+        },
+        "subject": {
+            "reference": "Patient/pt-testa-03",
+            "display": "陳志明"
+        },
+        "encounter": {
+            "reference": "Encounter/enc-testa03-02"
+        },
+        "recordedDate": "2025-12-22",
+        "note": [
+            {
+                "text": "心臟超音波: LVEF 45%（較前次 55% 下降），前壁運動減弱，輕度二尖瓣閉鎖不全。BNP 856 pg/mL。"
+            }
+        ]
+    },
+    {
+        "resourceType": "Condition",
+        "id": "cond-testa03-htn",
+        "meta": {
+            "profile": [
+                "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Condition-twcore"
+            ]
+        },
+        "clinicalStatus": {
+            "coding": [
+                {
+                    "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                    "code": "active",
+                    "display": "Active"
+                }
+            ]
+        },
+        "verificationStatus": {
+            "coding": [
+                {
+                    "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                    "code": "confirmed",
+                    "display": "Confirmed"
+                }
+            ]
+        },
+        "category": [
+            {
+                "coding": [
+                    {
+                        "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                        "code": "problem-list-item",
+                        "display": "Problem List Item"
+                    }
+                ]
+            }
+        ],
+        "code": {
+            "coding": [
+                {
+                    "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                    "code": "I10",
+                    "display": "Essential (primary) hypertension"
+                }
+            ],
+            "text": "高血壓"
+        },
+        "subject": {
+            "reference": "Patient/pt-testa-03",
+            "display": "陳志明"
+        },
+        "onsetDateTime": "2015-01-01",
+        "note": [
+            {
+                "text": "2015年起，規則服藥控制"
+            }
+        ]
+    },
+    {
+        "resourceType": "Condition",
+        "id": "cond-testa03-dm",
+        "meta": {
+            "profile": [
+                "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Condition-twcore"
+            ]
+        },
+        "clinicalStatus": {
+            "coding": [
+                {
+                    "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                    "code": "active",
+                    "display": "Active"
+                }
+            ]
+        },
+        "verificationStatus": {
+            "coding": [
+                {
+                    "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                    "code": "confirmed",
+                    "display": "Confirmed"
+                }
+            ]
+        },
+        "category": [
+            {
+                "coding": [
+                    {
+                        "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                        "code": "problem-list-item",
+                        "display": "Problem List Item"
+                    }
+                ]
+            }
+        ],
+        "code": {
+            "coding": [
+                {
+                    "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                    "code": "E11.9",
+                    "display": "Type 2 diabetes mellitus without complications"
+                }
+            ],
+            "text": "第二型糖尿病"
+        },
+        "subject": {
+            "reference": "Patient/pt-testa-03",
+            "display": "陳志明"
+        },
+        "onsetDateTime": "2018-01-01",
+        "note": [
+            {
+                "text": "2018年起，口服藥控制。HbA1c 7.4%"
+            }
+        ]
+    },
+    {
+        "resourceType": "Condition",
+        "id": "cond-testa03-hyperlipidemia",
+        "meta": {
+            "profile": [
+                "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Condition-twcore"
+            ]
+        },
+        "clinicalStatus": {
+            "coding": [
+                {
+                    "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                    "code": "active",
+                    "display": "Active"
+                }
+            ]
+        },
+        "verificationStatus": {
+            "coding": [
+                {
+                    "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                    "code": "confirmed",
+                    "display": "Confirmed"
+                }
+            ]
+        },
+        "category": [
+            {
+                "coding": [
+                    {
+                        "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                        "code": "problem-list-item",
+                        "display": "Problem List Item"
+                    }
+                ]
+            }
+        ],
+        "code": {
+            "coding": [
+                {
+                    "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                    "code": "E78.5",
+                    "display": "Hyperlipidemia, unspecified"
+                }
+            ],
+            "text": "高血脂症"
+        },
+        "subject": {
+            "reference": "Patient/pt-testa-03",
+            "display": "陳志明"
+        },
+        "onsetDateTime": "2016-01-01",
+        "note": [
+            {
+                "text": "2016年起，目前 LDL-C 88 mg/dL（未達標 <70）"
+            }
+        ]
+    }
+]

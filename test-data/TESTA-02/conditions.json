@@ -1,0 +1,348 @@
+[
+    {
+        "resourceType": "Condition",
+        "id": "cond-testa02-as",
+        "meta": {
+            "profile": [
+                "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Condition-twcore"
+            ]
+        },
+        "clinicalStatus": {
+            "coding": [
+                {
+                    "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                    "code": "resolved",
+                    "display": "Resolved"
+                }
+            ]
+        },
+        "verificationStatus": {
+            "coding": [
+                {
+                    "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                    "code": "confirmed",
+                    "display": "Confirmed"
+                }
+            ]
+        },
+        "category": [
+            {
+                "coding": [
+                    {
+                        "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                        "code": "encounter-diagnosis",
+                        "display": "Encounter Diagnosis"
+                    }
+                ]
+            }
+        ],
+        "severity": {
+            "coding": [
+                {
+                    "system": "http://snomed.info/sct",
+                    "code": "24484000",
+                    "display": "Severe"
+                }
+            ]
+        },
+        "code": {
+            "coding": [
+                {
+                    "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                    "code": "I35.0",
+                    "display": "Aortic (valve) stenosis"
+                }
+            ],
+            "text": "Severe aortic stenosis"
+        },
+        "subject": {
+            "reference": "Patient/pt-testa-02",
+            "display": "TESTA-02"
+        },
+        "onsetDateTime": "2025-07-29",
+        "recordedDate": "2025-08-14",
+        "note": [
+            {
+                "text": "Echocardiography (2025/7/29): AVA 0.78 cm2, mean PG 34.3 mmHg, jet velocity 3.68 m/s. s/p TAVI on 2025/9/23 with 24.5mm MyVAL valve."
+            }
+        ]
+    },
+    {
+        "resourceType": "Condition",
+        "id": "cond-testa02-hf",
+        "meta": {
+            "profile": [
+                "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Condition-twcore"
+            ]
+        },
+        "clinicalStatus": {
+            "coding": [
+                {
+                    "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                    "code": "active",
+                    "display": "Active"
+                }
+            ]
+        },
+        "verificationStatus": {
+            "coding": [
+                {
+                    "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                    "code": "confirmed",
+                    "display": "Confirmed"
+                }
+            ]
+        },
+        "category": [
+            {
+                "coding": [
+                    {
+                        "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                        "code": "encounter-diagnosis",
+                        "display": "Encounter Diagnosis"
+                    }
+                ]
+            }
+        ],
+        "code": {
+            "coding": [
+                {
+                    "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                    "code": "I50.20",
+                    "display": "Unspecified systolic (congestive) heart failure"
+                }
+            ],
+            "text": "Heart failure with reduced ejection fraction"
+        },
+        "subject": {
+            "reference": "Patient/pt-testa-02",
+            "display": "TESTA-02"
+        },
+        "onsetDateTime": "2025-07-29",
+        "recordedDate": "2025-08-14",
+        "note": [
+            {
+                "text": "Echocardiography (2025/7/29): LVEF 32.9%"
+            }
+        ]
+    },
+    {
+        "resourceType": "Condition",
+        "id": "cond-testa02-esrd",
+        "meta": {
+            "profile": [
+                "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Condition-twcore"
+            ]
+        },
+        "clinicalStatus": {
+            "coding": [
+                {
+                    "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                    "code": "active",
+                    "display": "Active"
+                }
+            ]
+        },
+        "verificationStatus": {
+            "coding": [
+                {
+                    "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                    "code": "confirmed",
+                    "display": "Confirmed"
+                }
+            ]
+        },
+        "category": [
+            {
+                "coding": [
+                    {
+                        "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                        "code": "problem-list-item",
+                        "display": "Problem List Item"
+                    }
+                ]
+            }
+        ],
+        "code": {
+            "coding": [
+                {
+                    "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                    "code": "N18.6",
+                    "display": "End stage renal disease"
+                }
+            ],
+            "text": "End stage renal disease"
+        },
+        "subject": {
+            "reference": "Patient/pt-testa-02",
+            "display": "TESTA-02"
+        },
+        "note": [
+            {
+                "text": "Under hemodialysis via left AV fistula TIW 135 for 20+ years"
+            }
+        ]
+    },
+    {
+        "resourceType": "Condition",
+        "id": "cond-testa02-cad",
+        "meta": {
+            "profile": [
+                "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Condition-twcore"
+            ]
+        },
+        "clinicalStatus": {
+            "coding": [
+                {
+                    "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                    "code": "active",
+                    "display": "Active"
+                }
+            ]
+        },
+        "verificationStatus": {
+            "coding": [
+                {
+                    "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                    "code": "confirmed",
+                    "display": "Confirmed"
+                }
+            ]
+        },
+        "category": [
+            {
+                "coding": [
+                    {
+                        "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                        "code": "problem-list-item",
+                        "display": "Problem List Item"
+                    }
+                ]
+            }
+        ],
+        "code": {
+            "coding": [
+                {
+                    "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                    "code": "I25.10",
+                    "display": "Atherosclerotic heart disease of native coronary artery without angina pectoris"
+                }
+            ],
+            "text": "Coronary artery disease, double vessel disease"
+        },
+        "subject": {
+            "reference": "Patient/pt-testa-02",
+            "display": "TESTA-02"
+        },
+        "onsetDateTime": "2025-07-24",
+        "note": [
+            {
+                "text": "Initial presented as NSTEMI. CAG on 2025/7/30: LAD 70% stenosis at ostium, 75% stenosis at middle part; LCX 60% stenosis at distal part. s/p DES over LAD-ostial to proximal and BMS over LAD-M on 2025/7/30. Currently under dual-antiplatelet with aspirin, plavix."
+            }
+        ]
+    },
+    {
+        "resourceType": "Condition",
+        "id": "cond-testa02-dm",
+        "meta": {
+            "profile": [
+                "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Condition-twcore"
+            ]
+        },
+        "clinicalStatus": {
+            "coding": [
+                {
+                    "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                    "code": "active",
+                    "display": "Active"
+                }
+            ]
+        },
+        "verificationStatus": {
+            "coding": [
+                {
+                    "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                    "code": "confirmed",
+                    "display": "Confirmed"
+                }
+            ]
+        },
+        "category": [
+            {
+                "coding": [
+                    {
+                        "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                        "code": "problem-list-item",
+                        "display": "Problem List Item"
+                    }
+                ]
+            }
+        ],
+        "code": {
+            "coding": [
+                {
+                    "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                    "code": "E11.9",
+                    "display": "Type 2 diabetes mellitus without complications"
+                }
+            ],
+            "text": "Diabetes mellitus"
+        },
+        "subject": {
+            "reference": "Patient/pt-testa-02",
+            "display": "TESTA-02"
+        }
+    },
+    {
+        "resourceType": "Condition",
+        "id": "cond-testa02-hbv",
+        "meta": {
+            "profile": [
+                "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Condition-twcore"
+            ]
+        },
+        "clinicalStatus": {
+            "coding": [
+                {
+                    "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                    "code": "inactive",
+                    "display": "Inactive"
+                }
+            ]
+        },
+        "verificationStatus": {
+            "coding": [
+                {
+                    "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                    "code": "confirmed",
+                    "display": "Confirmed"
+                }
+            ]
+        },
+        "category": [
+            {
+                "coding": [
+                    {
+                        "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                        "code": "problem-list-item",
+                        "display": "Problem List Item"
+                    }
+                ]
+            }
+        ],
+        "code": {
+            "coding": [
+                {
+                    "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                    "code": "B18.1",
+                    "display": "Chronic viral hepatitis B without delta-agent"
+                }
+            ],
+            "text": "Hepatitis B carrier, currently inactive"
+        },
+        "subject": {
+            "reference": "Patient/pt-testa-02",
+            "display": "TESTA-02"
+        }
+    }
+]
