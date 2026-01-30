@@ -7,12 +7,12 @@ const TEST_PATIENTS = [
     {
         id: 'pt-testa-01',
         name: '林小萱',
-        nationalId: 'F232727969',
+        nationalId: 'F73278868',
         nhiCard: '900000000101',
         diagnosis: 'SLE 紅斑性狼瘡',
         scenario: '出院後轉院',
         gender: 'female',
-        birthDate: '2010-12-14'
+        birthDate: '1991-03-15'
     },
     {
         id: 'pt-testa-02',
@@ -90,14 +90,14 @@ export default function PatientSearch({ client, onPatientSelect }) {
                 <div className="absolute top-0 right-0 -mr-20 -mt-20 w-80 h-80 bg-medical-primary opacity-20 blur-[100px] rounded-full group-hover:opacity-30 transition-opacity duration-700"></div>
                 <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 bg-medical-accent opacity-10 blur-[100px] rounded-full group-hover:opacity-20 transition-opacity duration-700"></div>
 
-                <div className="relative z-10 flex flex-col md:flex-row items-center gap-10">
-                    <div className="flex-1 space-y-6 text-center md:text-left">
+                <div className="relative z-10 flex flex-col lg:flex-row items-center gap-12">
+                    <div className="flex-1 space-y-6 text-center lg:text-left">
                         <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/10">
                             <span className="relative flex h-2 w-2">
                                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-medical-accent opacity-75"></span>
                                 <span className="relative inline-flex rounded-full h-2 w-2 bg-medical-accent"></span>
                             </span>
-                            <span className="text-sky-200 text-xs font-bold tracking-widest uppercase">SMART on FHIR v1.2</span>
+                            <span className="text-sky-200 text-xs font-bold tracking-widest uppercase">SMART on FHIR</span>
                         </div>
                         <h1 className="text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
                             跨院病歷 <span className="text-transparent bg-clip-text bg-premium-gradient">整合系統</span>
@@ -106,7 +106,7 @@ export default function PatientSearch({ client, onPatientSelect }) {
                             CHARI (Cross-Hospital Admission Record Integration) 旨在整合跨院出院、轉院病摘及用藥記錄，
                             協助醫療人員透過 TW Core IG 標準格式掌握完整醫療資訊。
                         </p>
-                        <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 pt-2">
+                        <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
                             <a
                                 href="https://github.com/selika/CHARI"
                                 target="_blank"
@@ -118,6 +118,20 @@ export default function PatientSearch({ client, onPatientSelect }) {
                                 <ExternalLink className="h-4 w-4 text-slate-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                             </a>
                         </div>
+                    </div>
+
+                    <div className="flex-1 relative w-full max-w-md lg:max-w-none">
+                        <div className="relative rounded-[2rem] overflow-hidden shadow-2xl border border-white/10 group-hover:border-white/20 transition-colors">
+                            <img
+                                src={`${import.meta.env.BASE_URL}transmission-concept.png`}
+                                alt="Medical Data Transmission Concept"
+                                className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-1000"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-medical-navy/60 to-transparent"></div>
+                        </div>
+                        {/* Decorative orbits */}
+                        <div className="absolute -top-6 -right-6 w-24 h-24 border-2 border-medical-accent/20 rounded-full animate-pulse"></div>
+                        <div className="absolute -bottom-10 -left-10 w-40 h-40 border-2 border-medical-primary/10 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
                     </div>
                 </div>
             </div>
@@ -179,8 +193,8 @@ export default function PatientSearch({ client, onPatientSelect }) {
                                             <div className="text-[10px] font-bold text-sky-600 uppercase tracking-widest">情境分類</div>
                                             <div className="flex items-center gap-2">
                                                 <span className={`px-3 py-1 rounded-full text-xs font-bold ${selectedTestPatient.scenario === '住院中轉院'
-                                                        ? 'bg-orange-100 text-orange-700 border border-orange-200'
-                                                        : 'bg-emerald-100 text-emerald-700 border border-emerald-200'
+                                                    ? 'bg-orange-100 text-orange-700 border border-orange-200'
+                                                    : 'bg-emerald-100 text-emerald-700 border border-emerald-200'
                                                     }`}>
                                                     {selectedTestPatient.scenario}
                                                 </span>
@@ -202,8 +216,8 @@ export default function PatientSearch({ client, onPatientSelect }) {
                                 type="submit"
                                 disabled={loading || !selectedTestCase}
                                 className={`w-full flex justify-center items-center gap-3 py-5 px-8 text-lg font-bold rounded-3xl text-white shadow-xl transition-all active:scale-95 ${loading || !selectedTestCase
-                                        ? 'bg-slate-300 cursor-not-allowed opacity-50'
-                                        : 'bg-premium-gradient hover:shadow-premium-hover hover:-translate-y-1'
+                                    ? 'bg-slate-300 cursor-not-allowed opacity-50'
+                                    : 'bg-premium-gradient hover:shadow-premium-hover hover:-translate-y-1'
                                     }`}
                             >
                                 {loading ? (

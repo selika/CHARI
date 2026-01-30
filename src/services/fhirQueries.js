@@ -10,7 +10,7 @@ export const LOINC_TRANSFER_SUMMARY = "18761-7";   // 轉院病摘
 /**
  * Search Patient by National ID (Person ID - 身分證)
  * @param {Object} client FHIR Client
- * @param {string} idNumber National ID (e.g. F232727969)
+ * @param {string} idNumber National ID (e.g. F73278868)
  */
 export async function searchPatientById(client, idNumber) {
     if (!client || !idNumber) return null;

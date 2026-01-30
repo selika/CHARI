@@ -103,7 +103,7 @@
                 },
                 "text": {
                     "status": "generated",
-                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>病人為 15 歲女性學生，過去病史如上述。2023 年 10 月開始出現關節疼痛症狀，雙側指間關節及左膝出現疼痛伴隨腫脹。另有單一口腔潰瘍，後自行痊癒。至本院風濕免疫科門診就醫，發現 anti-dsDNA 抗體升高、抗核抗體升高、C3 及 C4 低下、紅血球沉降速率升高。抗核抗體為 1:2560，呈均質型。無蛋白尿或蝶形紅斑。與家屬討論後，自 2024/07/23 起開始接受 Belimumab 注射治療。</p><p>上次出院後，無發燒、畏寒、體重減輕、食慾不振、頭暈、頭痛、胸痛、胸悶、呼吸困難或排尿不適，但仍有輕微雙側手腕及膝蓋疼痛。此次入院進一步處理。</p></div>"
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>病人為 35 歲女性，過去病史如上述。2023 年 10 月開始出現關節疼痛症狀，雙側指間關節及左膝出現疼痛伴隨腫脹。另有單一口腔潰瘍，後自行痊癒。至本院風濕免疫科門診就醫，發現 anti-dsDNA 抗體升高、抗核抗體升高、C3 及 C4 低下、紅血球沉降速率升高。抗核抗體為 1:2560，呈均質型。無蛋白尿或蝶形紅斑。與病人討論後，自 2024/07/23 起開始接受 Belimumab 注射治療。</p><p>上次出院後，無發燒、畏寒、體重減輕、食慾不振、頭暈、頭痛、胸痛、胸悶、呼吸困難或排尿不適，但仍有輕微雙側手腕及膝蓋疼痛。此次入院進一步處理。</p></div>"
                 }
             },
             {
@@ -119,7 +119,7 @@
                 },
                 "text": {
                     "status": "generated",
-                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>據母親表示，病人於入院前約一週出現關節疼痛。止痛藥使用頻率不高，主要用於頭痛。評估無 Belimumab 使用禁忌，依排程給予 480mg 治療。病人住院期間穩定，於 2025/11/22 出院。</p></div>"
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>病人自述於入院前約一週出現關節疼痛加劇。止痛藥使用頻率不高，主要用於頭痛。評估無 Belimumab 使用禁忌，依排程給予 480mg 治療。病人住院期間穩定，於 2025/11/22 出院。</p></div>"
                 },
                 "entry": [
                     {
@@ -319,7 +319,7 @@
         "encounter": {
             "reference": "Encounter/enc-testa01-02"
         },
-        "date": "2026-01-03T15:00:00+08:00",
+        "date": "2026-01-10T15:00:00+08:00",
         "author": [
             {
                 "reference": "Practitioner/prac-doc3311g",
@@ -386,7 +386,7 @@
                 },
                 "text": {
                     "status": "generated",
-                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>病人為 15 歲女性學生，過去病史如上述。2023 年 10 月開始出現關節疼痛症狀，雙側指間關節及左膝出現疼痛伴隨腫脹。另有單一口腔潰瘍，後自行痊癒。至本院風濕免疫科門診就醫，發現 anti-dsDNA 抗體升高、抗核抗體升高、C3 及 C4 低下、紅血球沉降速率升高。抗核抗體為 1:2560，呈均質型。無蛋白尿或蝶形紅斑。與家屬討論後，自 2024/07/23 起開始接受 Belimumab 注射治療。</p><p>上次出院後，仍有輕微雙側手腕及膝蓋疼痛。此次入院進一步處理。</p></div>"
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>病人為 35 歲女性，過去病史如上述。2023 年 10 月開始出現關節疼痛症狀，雙側指間關節及左膝出現疼痛伴隨腫脹。另有單一口腔潰瘍，後自行痊癒。至本院風濕免疫科門診就醫，發現 anti-dsDNA 抗體升高、抗核抗體升高、C3 及 C4 低下、紅血球沉降速率升高。抗核抗體為 1:2560，呈均質型。無蛋白尿或蝶形紅斑。與病人討論後，自 2024/07/23 起開始接受 Belimumab 注射治療。</p><p>上次出院後，仍有輕微雙側手腕及膝蓋疼痛。此次入院進一步處理。</p></div>"
                 }
             },
             {
@@ -402,7 +402,7 @@
                 },
                 "text": {
                     "status": "generated",
-                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>據母親表示，病人於入院前約一週出現關節疼痛。止痛藥使用頻率不高，主要用於頭痛。評估無 Belimumab 使用禁忌，依排程給予 480mg 治療。病人住院期間穩定，於 2026 年 1 月 3 日出院。</p></div>"
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>病人自述於入院前約一週出現關節疼痛加劇。止痛藥使用頻率不高，主要用於頭痛。評估無 Belimumab 使用禁忌，依排程給予 480mg 治療。病人住院期間穩定，於 2026 年 1 月 10 日出院。</p></div>"
                 },
                 "entry": [
                     {
@@ -423,7 +423,7 @@
                 },
                 "text": {
                     "status": "generated",
-                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><strong>【Active Problem】</strong></p><ol><li>多處關節腫脹疼痛，符合全身性紅斑狼瘡相關表現</li></ol><p>*EULAR 2019 診斷標準：16 分</p><p>*2026/01/02 接受 Belimumab 治療</p><p><strong>【Inactive Problem】</strong></p><ol><li>肝功能指數上升（已改善）</li></ol></div>"
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><strong>【Active Problem】</strong></p><ol><li>多處關節腫脹疼痛，符合全身性紅斑狼瘡相關表現</li></ol><p>*EULAR 2019 診斷標準：16 分</p><p>*2026/01/09 接受 Belimumab 治療</p><p><strong>【Inactive Problem】</strong></p><ol><li>肝功能指數上升（已改善）</li></ol></div>"
                 },
                 "entry": [
                     {
@@ -494,7 +494,7 @@
                 },
                 "text": {
                     "status": "generated",
-                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h4>血液常規 (2026-01-02)</h4><table><tr><td>白血球</td><td>9980 /cumm</td><td>H</td></tr><tr><td>血紅素</td><td>14.3 g/dL</td><td></td></tr><tr><td>血小板</td><td>398000 /cumm</td><td>H</td></tr></table><h4>生化 (2026-01-02)</h4><table><tr><td>尿素氮</td><td>13 mg/dL</td><td></td></tr><tr><td>肌酸酐</td><td>0.45 mg/dL</td><td>L</td></tr><tr><td>ALT</td><td>9 U/L</td><td></td></tr><tr><td>鈉</td><td>139 mmol/L</td><td></td></tr><tr><td>鉀</td><td>3.7 mmol/L</td><td></td></tr><tr><td>CRP</td><td>&lt;0.06 mg/dL</td><td></td></tr></table><h4>免疫 (2026-01-02)</h4><table><tr><td>C3 補體</td><td>116.3 mg/dL</td><td></td></tr><tr><td>C4 補體</td><td>20.3 mg/dL</td><td></td></tr><tr><td>IgG</td><td>1023 mg/dL</td><td></td></tr></table></div>"
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h4>血液常規 (2026-01-09)</h4><table><tr><td>白血球</td><td>9980 /cumm</td><td>H</td></tr><tr><td>血紅素</td><td>14.3 g/dL</td><td></td></tr><tr><td>血小板</td><td>398000 /cumm</td><td>H</td></tr></table><h4>生化 (2026-01-09)</h4><table><tr><td>尿素氮</td><td>13 mg/dL</td><td></td></tr><tr><td>肌酸酐</td><td>0.45 mg/dL</td><td>L</td></tr><tr><td>ALT</td><td>9 U/L</td><td></td></tr><tr><td>鈉</td><td>139 mmol/L</td><td></td></tr><tr><td>鉀</td><td>3.7 mmol/L</td><td></td></tr><tr><td>CRP</td><td>&lt;0.06 mg/dL</td><td></td></tr></table><h4>免疫 (2026-01-09)</h4><table><tr><td>C3 補體</td><td>116.3 mg/dL</td><td></td></tr><tr><td>C4 補體</td><td>20.3 mg/dL</td><td></td></tr><tr><td>IgG</td><td>1023 mg/dL</td><td></td></tr></table></div>"
                 },
                 "entry": [
                     {
