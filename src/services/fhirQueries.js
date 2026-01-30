@@ -29,20 +29,19 @@ export async function searchPatientByNHI(client, nhiNumber) {
 
 /**
  * Search Discharge and Transfer Summaries (Composition) for a patient
- * 同時查詢出院病摘 (18842-5) 和轉院病摘 (18761-7)
+ * 查詢病人的所有 Composition，前端再過濾出院/轉院病摘
  * @param {Object} client FHIR Client
  * @param {string} patientId Patient Reference ID
  */
 export async function searchCompositions(client, patientId) {
     if (!client || !patientId) return null;
-    // Query both Discharge Summary (18842-5) and Transfer Summary (18761-7)
+    // 不使用 type 過濾（THAS 沙盒不支援多值查詢），改在前端過濾
     return client.request({
         url: `Composition`,
         headers: { 'Cache-Control': 'no-cache' },
         method: 'GET',
         params: {
             subject: `Patient/${patientId}`,
-            type: `http://loinc.org|${LOINC_DISCHARGE_SUMMARY},http://loinc.org|${LOINC_TRANSFER_SUMMARY}`,
             _sort: '-date'
         }
     });
