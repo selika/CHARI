@@ -101,17 +101,17 @@ export default function CompositionDetail({ client }) {
         }));
     };
 
-    const selectAll = (resourceType) => {
+    const selectAll = (...resourceTypes) => {
         const newSelected = { ...selectedIds };
-        allResources.filter(r => r.resourceType === resourceType).forEach(r => {
+        allResources.filter(r => resourceTypes.includes(r.resourceType)).forEach(r => {
             newSelected[r.id] = true;
         });
         setSelectedIds(newSelected);
     };
 
-    const deselectAll = (resourceType) => {
+    const deselectAll = (...resourceTypes) => {
         const newSelected = { ...selectedIds };
-        allResources.filter(r => r.resourceType === resourceType).forEach(r => {
+        allResources.filter(r => resourceTypes.includes(r.resourceType)).forEach(r => {
             newSelected[r.id] = false;
         });
         setSelectedIds(newSelected);
@@ -166,14 +166,31 @@ export default function CompositionDetail({ client }) {
                 );
             case 'MedicationStatement':
             case 'MedicationRequest':
+                const medCategory = resource.category?.coding?.[0]?.code;
+                const isInpatient = medCategory === 'inpatient';
+                const startDate = resource.effectivePeriod?.start || resource.effectiveDateTime;
+                const endDate = resource.effectivePeriod?.end;
                 return (
                     <div>
-                        <span className="font-medium">
-                            {resource.medicationCodeableConcept?.text || resource.medicationCodeableConcept?.coding?.[0]?.display}
-                        </span>
-                        {resource.dosage?.[0]?.text && (
-                            <span className="ml-2 text-slate-600">{resource.dosage[0].text}</span>
-                        )}
+                        <div className="flex items-center gap-2">
+                            <span className="font-medium">
+                                {resource.medicationCodeableConcept?.text || resource.medicationCodeableConcept?.coding?.[0]?.display}
+                            </span>
+                            {medCategory && (
+                                <span className={`text-xs px-1.5 py-0.5 rounded ${isInpatient ? 'bg-orange-100 text-orange-700' : 'bg-blue-100 text-blue-700'}`}>
+                                    {isInpatient ? '住院用藥' : '出院帶回'}
+                                </span>
+                            )}
+                        </div>
+                        <div className="text-sm text-slate-500 mt-0.5">
+                            {resource.dosage?.[0]?.text && <span>{resource.dosage[0].text}</span>}
+                            {startDate && (
+                                <span className="ml-2">
+                                    {new Date(startDate).toLocaleDateString('zh-TW')}
+                                    {endDate && ` ~ ${new Date(endDate).toLocaleDateString('zh-TW')}`}
+                                </span>
+                            )}
+                        </div>
                     </div>
                 );
             case 'AllergyIntolerance':
@@ -453,8 +470,8 @@ export default function CompositionDetail({ client }) {
                                 💊 用藥記錄 ({(resourcesByType['MedicationStatement']?.length || 0) + (resourcesByType['MedicationRequest']?.length || 0)})
                             </h3>
                             <div className="flex gap-2">
-                                <button onClick={() => { selectAll('MedicationStatement'); selectAll('MedicationRequest'); }} className="text-xs text-teal-600 hover:underline">全選</button>
-                                <button onClick={() => { deselectAll('MedicationStatement'); deselectAll('MedicationRequest'); }} className="text-xs text-slate-500 hover:underline">取消</button>
+                                <button onClick={() => selectAll('MedicationStatement', 'MedicationRequest')} className="text-xs text-teal-600 hover:underline">全選</button>
+                                <button onClick={() => deselectAll('MedicationStatement', 'MedicationRequest')} className="text-xs text-slate-500 hover:underline">取消</button>
                             </div>
                         </div>
                         <div className="p-4">
