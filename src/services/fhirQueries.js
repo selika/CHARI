@@ -35,14 +35,7 @@ export async function searchPatientByNHI(client, nhiNumber) {
  */
 export async function searchCompositions(client, patientId) {
     if (!client || !patientId) return null;
-    // 不使用 type 過濾（THAS 沙盒不支援多值查詢），改在前端過濾
-    return client.request({
-        url: `Composition`,
-        headers: { 'Cache-Control': 'no-cache' },
-        method: 'GET',
-        params: {
-            subject: `Patient/${patientId}`,
-            _sort: '-date'
-        }
-    });
+    // 直接使用 URL 字串查詢（避免 params 格式問題）
+    const url = `Composition?subject=Patient/${patientId}&_sort=-date`;
+    return client.request(url);
 }
