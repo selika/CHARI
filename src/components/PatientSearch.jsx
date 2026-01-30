@@ -17,12 +17,12 @@ const TEST_PATIENTS = [
     {
         id: 'pt-testa-02',
         name: '王美華',
-        nationalId: 'H201340546',
+        nationalId: 'H405481546',
         nhiCard: '900000000202',
         diagnosis: 'Severe AS s/p TAVI',
         scenario: '出院後轉院',
         gender: 'female',
-        birthDate: '1958-01-09'
+        birthDate: '1958-05-13'
     },
     {
         id: 'pt-testa-03',
