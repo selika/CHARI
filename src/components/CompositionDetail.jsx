@@ -714,6 +714,25 @@ export default function CompositionDetail({ client }) {
                     </div>
                 )}
 
+                {/* Diagnostic Reports (CT, EKG, Imaging) */}
+                {resourcesByType['DiagnosticReport']?.length > 0 && (
+                    <div className="glass-card rounded-[2.5rem] overflow-hidden">
+                        <div className="bg-orange-50/50 px-8 py-5 border-b border-orange-200 flex items-center justify-between">
+                            <h3 className="font-black text-orange-700 tracking-tight text-xl flex items-center gap-3">
+                                <span className="bg-orange-100 p-2 rounded-xl"><div className="h-5 w-5 bg-orange-600 rounded-md"></div></span>
+                                影像／EKG 報告 (Diagnostic Reports)
+                            </h3>
+                            <div className="flex gap-4">
+                                <button onClick={() => selectAll('DiagnosticReport')} className="text-xs font-bold text-orange-600 hover:underline tracking-tighter uppercase">Select All</button>
+                                <button onClick={() => deselectAll('DiagnosticReport')} className="text-xs font-bold text-slate-400 hover:underline tracking-tighter uppercase">Clear</button>
+                            </div>
+                        </div>
+                        <div className="p-8 space-y-3">
+                            {resourcesByType['DiagnosticReport'].map(renderResource)}
+                        </div>
+                    </div>
+                )}
+
                 {/* Medications */}
                 {(resourcesByType['MedicationStatement']?.length > 0 || resourcesByType['MedicationRequest']?.length > 0) && (
                     <div className="glass-card rounded-[2.5rem] overflow-hidden bg-white">
