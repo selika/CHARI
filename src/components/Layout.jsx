@@ -132,12 +132,16 @@ export default function Layout({ children, client }) {
                         className="flex items-center gap-3 cursor-pointer group"
                         onClick={() => window.location.hash = '#/'}
                     >
-                        <div className="bg-premium-gradient p-2 rounded-xl shadow-lg group-hover:scale-110 transition-transform duration-300">
-                            <Activity className="h-6 w-6 text-white" />
+                        <div className="h-12 w-12 bg-white rounded-2xl shadow-premium group-hover:scale-110 transition-transform duration-300 overflow-hidden border border-slate-100 flex items-center justify-center">
+                            <img
+                                src={`${import.meta.env.BASE_URL}CHARI_App_Icon.png`}
+                                alt="CHARI Logo"
+                                className="h-full w-full object-cover"
+                            />
                         </div>
                         <div className="flex flex-col">
-                            <span className="text-medical-navy font-bold text-2xl tracking-tight leading-none">CHARI</span>
-                            <span className="text-[10px] text-slate-400 font-medium tracking-widest uppercase mt-0.5">Medical Grid</span>
+                            <span className="text-medical-navy font-black text-2xl tracking-tighter leading-none">CHARI</span>
+                            <span className="text-[10px] text-medical-primary font-bold tracking-[0.2em] uppercase mt-0.5 opacity-70">Medical Grid</span>
                         </div>
                     </div>
                     {pageContext !== 'home' && (
@@ -159,11 +163,15 @@ export default function Layout({ children, client }) {
             <footer className="bg-slate-900 py-12 mt-auto border-t border-slate-800">
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-                        <div className="flex items-center gap-3">
-                            <div className="bg-slate-800 p-2 rounded-lg">
-                                <Activity className="h-5 w-5 text-medical-primary-light" />
+                        <div className="flex items-center gap-4">
+                            <div className="h-10 w-10 bg-white rounded-xl overflow-hidden shadow-lg border border-slate-700/50">
+                                <img
+                                    src={`${import.meta.env.BASE_URL}CHARI_App_Icon.png`}
+                                    alt="CHARI Logo"
+                                    className="h-full w-full object-cover"
+                                />
                             </div>
-                            <span className="text-slate-300 font-bold text-lg">CHARI</span>
+                            <span className="text-white font-black text-xl tracking-tight">CHARI</span>
                         </div>
                         <div className="text-slate-500 text-sm text-center md:text-right max-w-md">
                             <p className="mb-1 font-medium text-slate-400">跨院病歷整合系統 - SMART on FHIR</p>
