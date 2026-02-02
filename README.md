@@ -152,14 +152,10 @@ CHARI/
 │   └── TESTA-03/                     # 陳志明（NSTEMI，住院中轉院）
 │       └── README.md
 │
-├── scripts/                          # 資料上傳腳本
-│   ├── upload-compositions.cjs
-│   ├── upload-outpatient.cjs
-│   └── upload-patients.cjs
-│
-└── plan/                             # 開發規劃文件
-    ├── 提案大綱_CHARI_完整版.md
-    └── CHARI_資料規格文件_完整版.md
+└── scripts/                          # 資料上傳腳本
+    ├── upload-compositions.cjs
+    ├── upload-outpatient.cjs
+    └── upload-patients.cjs
 ```
 
 ---
