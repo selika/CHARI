@@ -518,7 +518,9 @@ function ImportableResources({ resources, onShowJson }) {
         MedicationStatement: '用藥',
         AllergyIntolerance: '過敏',
         Procedure: '手術/處置',
-        CarePlan: '照護計畫'
+        CarePlan: '照護計畫',
+        Observation: '檢驗數據',
+        DiagnosticReport: '影像/EKG 報告'
     };
 
     const typeColors = {
@@ -526,7 +528,9 @@ function ImportableResources({ resources, onShowJson }) {
         MedicationStatement: 'bg-green-100 text-green-700 border-green-300',
         AllergyIntolerance: 'bg-red-100 text-red-700 border-red-300',
         Procedure: 'bg-purple-100 text-purple-700 border-purple-300',
-        CarePlan: 'bg-amber-100 text-amber-700 border-amber-300'
+        CarePlan: 'bg-amber-100 text-amber-700 border-amber-300',
+        Observation: 'bg-emerald-100 text-emerald-700 border-emerald-300',
+        DiagnosticReport: 'bg-orange-100 text-orange-700 border-orange-300'
     };
 
     return (
@@ -571,14 +575,24 @@ function getResourceDisplay(resource) {
             return resource.code?.text || resource.code?.coding?.[0]?.display || 'Condition';
         case 'MedicationStatement':
             return resource.medicationCodeableConcept?.text ||
-                   resource.medicationCodeableConcept?.coding?.[0]?.display ||
-                   'Medication';
+                resource.medicationCodeableConcept?.coding?.[0]?.display ||
+                'Medication';
         case 'AllergyIntolerance':
             return resource.code?.text || resource.code?.coding?.[0]?.display || 'Allergy';
         case 'Procedure':
             return resource.code?.text || resource.code?.coding?.[0]?.display || 'Procedure';
         case 'CarePlan':
             return resource.title || resource.description || 'Care Plan';
+        case 'Observation': {
+            const name = resource.code?.text || resource.code?.coding?.[0]?.display || 'Lab';
+            const value = resource.valueQuantity
+                ? `${resource.valueQuantity.value} ${resource.valueQuantity.unit || ''}`
+                : resource.valueString || '';
+            const interpretation = resource.interpretation?.[0]?.coding?.[0]?.code;
+            return `${name}: ${value}${interpretation ? ` (${interpretation})` : ''}`;
+        }
+        case 'DiagnosticReport':
+            return resource.code?.text || resource.code?.coding?.[0]?.display || 'Report';
         default:
             return resource.id || resource.resourceType;
     }
@@ -618,7 +632,7 @@ function SectionGroups({ composition, parseSections }) {
                         <div key={i} className="text-sm text-green-800">
                             {item.rawHtml ? (
                                 <div className="overflow-x-auto [&_table]:w-full [&_table]:text-sm [&_th]:text-left [&_th]:px-2 [&_th]:py-1 [&_th]:bg-green-100 [&_td]:px-2 [&_td]:py-1 [&_td]:border-t [&_td]:border-green-200"
-                                     dangerouslySetInnerHTML={{ __html: item.rawHtml }} />
+                                    dangerouslySetInnerHTML={{ __html: item.rawHtml }} />
                             ) : (
                                 <div className="whitespace-pre-wrap">{item.text}</div>
                             )}
