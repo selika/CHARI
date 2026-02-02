@@ -29,6 +29,7 @@ const IMPORT_SECTIONS = [
     { key: 'chiefComplaint', label: '主訴', icon: '💬', resourceTypes: [], bgColor: 'bg-cyan-50', borderColor: 'border-cyan-200', textOnly: true, sectionCode: '10154-3' },
     { key: 'hpi', label: '現病史', icon: '📖', resourceTypes: [], bgColor: 'bg-violet-50', borderColor: 'border-violet-200', textOnly: true, sectionCode: '10164-2' },
     { key: 'history', label: '過去病史', icon: '📝', resourceTypes: [], bgColor: 'bg-slate-50', borderColor: 'border-slate-200', textOnly: true, sectionCode: '11348-0' },
+    { key: 'hospitalCourse', label: '住院經過', icon: '🏥', resourceTypes: [], bgColor: 'bg-sky-50', borderColor: 'border-sky-200', textOnly: true, sectionCode: '8648-8' },
     { key: 'procedures', label: '手術/處置史', icon: '🔧', resourceTypes: ['Procedure'], bgColor: 'bg-purple-50', borderColor: 'border-purple-200' },
     { key: 'labs', label: '檢驗報告', icon: '🔬', resourceTypes: ['Observation'], bgColor: 'bg-green-50', borderColor: 'border-green-200' },
     { key: 'imaging', label: '影像/EKG 報告', icon: '📊', resourceTypes: ['DiagnosticReport'], bgColor: 'bg-amber-50', borderColor: 'border-amber-200' },
@@ -194,16 +195,78 @@ export default function CompositionDetail({ client }) {
                 }
             }
             // 過去病史
-            const historySection = composition.section.find(s => s.code?.coding?.[0]?.code === '11348-0');
-            if (historySection?.text?.div) {
-                grouped.history = [{ _textOnly: true, html: historySection.text.div }];
+            if (selectedTextSections['11348-0']) {
+                const historySection = composition.section.find(s => s.code?.coding?.[0]?.code === '11348-0');
+                if (historySection?.text?.div) {
+                    grouped.history = [{
+                        resourceType: 'DocumentReference',
+                        id: `docref-${composition.id}-history`,
+                        status: 'current',
+                        type: {
+                            coding: [{ system: 'http://loinc.org', code: '11348-0', display: 'History of Past illness' }],
+                            text: '過去病史'
+                        },
+                        subject: composition.subject,
+                        date: composition.date,
+                        content: [{
+                            attachment: {
+                                contentType: 'text/html',
+                                data: btoa(unescape(encodeURIComponent(historySection.text.div)))
+                            }
+                        }],
+                        _sourceText: historySection.text.div.replace(/<[^>]*>/g, '')
+                    }];
+                }
+            }
+            // 住院經過
+            if (selectedTextSections['8648-8']) {
+                const hospitalCourseSection = composition.section.find(s => s.code?.coding?.[0]?.code === '8648-8');
+                if (hospitalCourseSection?.text?.div) {
+                    grouped.hospitalCourse = [{
+                        resourceType: 'DocumentReference',
+                        id: `docref-${composition.id}-hospital-course`,
+                        status: 'current',
+                        type: {
+                            coding: [{ system: 'http://loinc.org', code: '8648-8', display: 'Hospital course' }],
+                            text: '住院經過'
+                        },
+                        subject: composition.subject,
+                        date: composition.date,
+                        content: [{
+                            attachment: {
+                                contentType: 'text/html',
+                                data: btoa(unescape(encodeURIComponent(hospitalCourseSection.text.div)))
+                            }
+                        }],
+                        _sourceText: hospitalCourseSection.text.div.replace(/<[^>]*>/g, '')
+                    }];
+                }
             }
             // 出院/轉院計畫
-            const planSection = composition.section.find(s =>
-                s.code?.coding?.[0]?.code === '18776-5' || s.code?.coding?.[0]?.code === '42349-1'
-            );
-            if (planSection?.text?.div) {
-                grouped.plan = [{ _textOnly: true, html: planSection.text.div }];
+            if (selectedTextSections['18776-5']) {
+                const planSection = composition.section.find(s =>
+                    s.code?.coding?.[0]?.code === '18776-5' || s.code?.coding?.[0]?.code === '42349-1'
+                );
+                if (planSection?.text?.div) {
+                    grouped.plan = [{
+                        resourceType: 'DocumentReference',
+                        id: `docref-${composition.id}-plan`,
+                        status: 'current',
+                        type: {
+                            coding: [{ system: 'http://loinc.org', code: '18776-5', display: 'Plan of care' }],
+                            text: '出院/轉院計畫'
+                        },
+                        subject: composition.subject,
+                        date: composition.date,
+                        content: [{
+                            attachment: {
+                                contentType: 'text/html',
+                                data: btoa(unescape(encodeURIComponent(planSection.text.div)))
+                            }
+                        }],
+                        _sourceText: planSection.text.div.replace(/<[^>]*>/g, '')
+                    }];
+                }
             }
         }
 
