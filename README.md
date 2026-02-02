@@ -116,29 +116,61 @@
 
 ```
 CHARI/
-├── README.md                 # 本文件
-├── LICENSE                   # Apache 2.0
-├── package.json              # 專案設定
-├── vite.config.js            # Vite 設定
-├── src/
-│   ├── App.jsx               # 主應用程式
-│   ├── main.jsx              # 進入點
+├── README.md                         # 本文件
+├── AGENTS.md                         # AI Coding Agent 指引
+├── LICENSE                           # Apache 2.0 授權
+├── package.json                      # 專案設定與依賴
+├── vite.config.js                    # Vite 建置設定
+│
+├── docs/                             # 📚 技術文件
+│   ├── CHARI_完整應用說明文件_v4.pdf  # 應用說明書（PDF）
+│   └── CHARI_資料規格文件_完整版.md   # FHIR 資料規格
+│
+├── public/                           # 靜態資源
+│   ├── CHARI_App_Icon.png            # App 圖標
+│   └── launch.html                   # SMART App 啟動頁
+│
+├── src/                              # 前端原始碼
+│   ├── App.jsx                       # 主應用程式
+│   ├── main.jsx                      # 進入點
 │   ├── components/
-│   │   ├── PatientSearch.jsx     # 病人查詢
-│   │   ├── CompositionList.jsx   # 病摘時間軸
-│   │   ├── CompositionDetail.jsx # 病摘導入
-│   │   └── Layout.jsx            # 頁面布局
+│   │   ├── PatientSearch.jsx         # 病人查詢
+│   │   ├── CompositionList.jsx       # 病摘時間軸
+│   │   ├── CompositionDetail.jsx     # 病摘導入
+│   │   └── Layout.jsx                # 頁面布局
+│   ├── hooks/
+│   │   └── useFhirClient.js          # FHIR Client Hook
 │   └── services/
-│       └── fhirQueries.js        # FHIR 查詢封裝
-├── test-data/
-│   ├── TESTA-01/             # 林小萱測試資料
-│   ├── TESTA-02/             # 王美華測試資料
-│   └── TESTA-03/             # 陳志明測試資料
-├── scripts/
-│   └── upload-*.cjs          # 資料上傳腳本
-└── plan/
-    └── 提案大綱_CHARI_完整版.md  # 專案提案書
+│       └── fhirQueries.js            # FHIR 查詢封裝
+│
+├── test-data/                        # 🧪 測試資料
+│   ├── README.md                     # 測試案例總覽
+│   ├── TESTA-01/                     # 林小萱（SLE，出院後轉院）
+│   │   └── README.md
+│   ├── TESTA-02/                     # 王美華（TAVI，出院後轉院）
+│   │   └── README.md
+│   └── TESTA-03/                     # 陳志明（NSTEMI，住院中轉院）
+│       └── README.md
+│
+├── scripts/                          # 資料上傳腳本
+│   ├── upload-compositions.cjs
+│   ├── upload-outpatient.cjs
+│   └── upload-patients.cjs
+│
+└── plan/                             # 開發規劃文件
+    ├── 提案大綱_CHARI_完整版.md
+    └── CHARI_資料規格文件_完整版.md
 ```
+
+---
+
+## 相關文件
+
+| 文件 | 說明 |
+|------|------|
+| [docs/CHARI_完整應用說明文件_v4.pdf](docs/CHARI_完整應用說明文件_v4.pdf) | 完整應用說明書（含截圖） |
+| [docs/CHARI_資料規格文件_完整版.md](docs/CHARI_資料規格文件_完整版.md) | FHIR 資源與資料規格定義 |
+| [test-data/README.md](test-data/README.md) | 測試案例總覽與使用說明 |
 
 ---
 
