@@ -499,8 +499,18 @@ FHIR 提供標準的 `category` 欄位，使用 `medication-statement-category` 
 
 ## 六、FHIR 查詢範例
 
+> ⚠️ **THAS 伺服器相容性注意事項**（2026-02-03 測試結果）
+>
+> 衛福部 THAS FHIR Server (`https://thas.mohw.gov.tw/v/r4/fhir`) 的搜尋參數支援有特殊限制：
+> - **`type` 參數**：只支援 `code` 格式，**不支援**完整的 `system|code` Token 格式
+> - **`category` 參數**：支援簡化格式（如 `laboratory`、`inpatient`、`RAD`）
+> - **多值查詢**：必須用**逗號分隔**（如 `type=18842-5,18761-7`），**不支援**重複參數格式（如 `type=18842-5&type=18761-7`）
+>
+> 以下範例提供 FHIR 標準語法與 THAS 相容語法兩種版本。
+
 ### 6.1 查詢病人的轉院病摘
 
+**FHIR 標準語法**（完整 Token 格式）：
 ```http
 GET [base]/Composition
     ?subject=Patient/{patient-id}
@@ -510,8 +520,17 @@ GET [base]/Composition
     &_include=Composition:custodian
 ```
 
+**THAS 相容語法**（簡化 code 格式）✅：
+```http
+GET [base]/Composition
+    ?subject=Patient/{patient-id}
+    &type=18761-7
+    &_sort=-date
+```
+
 ### 6.2 查詢病人的出院病摘
 
+**FHIR 標準語法**：
 ```http
 GET [base]/Composition
     ?subject=Patient/{patient-id}
@@ -519,8 +538,17 @@ GET [base]/Composition
     &_sort=-date
 ```
 
+**THAS 相容語法** ✅：
+```http
+GET [base]/Composition
+    ?subject=Patient/{patient-id}
+    &type=18842-5
+    &_sort=-date
+```
+
 ### 6.3 同時查詢出院及轉院病摘
 
+**FHIR 標準語法**：
 ```http
 GET [base]/Composition
     ?subject=Patient/{patient-id}
@@ -528,8 +556,17 @@ GET [base]/Composition
     &_sort=-date
 ```
 
+**THAS 相容語法** ✅：
+```http
+GET [base]/Composition
+    ?subject=Patient/{patient-id}
+    &type=18842-5,18761-7
+    &_sort=-date
+```
+
 ### 6.4 查詢住院中用藥（category = inpatient）
 
+**FHIR 標準語法**：
 ```http
 GET [base]/MedicationStatement
     ?subject=Patient/{patient-id}
@@ -537,8 +574,17 @@ GET [base]/MedicationStatement
     &status=active
 ```
 
+**THAS 相容語法** ✅：
+```http
+GET [base]/MedicationStatement
+    ?subject=Patient/{patient-id}
+    &category=inpatient
+    &status=active
+```
+
 ### 6.5 查詢最新檢驗結果
 
+**FHIR 標準/THAS 相容** ✅：
 ```http
 GET [base]/Observation
     ?subject=Patient/{patient-id}
@@ -549,12 +595,44 @@ GET [base]/Observation
 
 ### 6.6 查詢影像報告
 
+**FHIR 標準/THAS 相容** ✅：
 ```http
 GET [base]/DiagnosticReport
     ?subject=Patient/{patient-id}
     &category=RAD
     &_sort=-date
 ```
+
+### 6.7 THAS 伺服器搜尋參數測試結果（2026-02-03）
+
+#### 單一參數測試
+| 查詢範例 | 測試結果 | 說明 |
+|----------|:--------:|------|
+| `Composition?type=18842-5` | ✅ total: 6 | 簡化 code 格式有效 |
+| `Composition?type=18761-7` | ✅ total: 1 | 簡化 code 格式有效 |
+| `Composition?type=http://loinc.org\|18842-5` | ❌ total: 0 | 完整 Token 格式無效 |
+| `MedicationStatement?category=inpatient` | ✅ total: 8 | category 簡化格式有效 |
+| `DiagnosticReport?category=RAD` | ✅ 有資料 | category 簡化格式有效 |
+| `Observation?category=laboratory` | ✅ 有資料 | category 簡化格式有效 |
+
+#### 多值查詢測試（OR 條件）
+| 查詢範例 | 測試結果 | 說明 |
+|----------|:--------:|------|
+| `Composition?type=18842-5,18761-7` | ✅ total: 7 | 逗號分隔多值查詢有效 |
+| `Composition?type=18842-5&type=18761-7` | ❌ total: 0 | 重複參數格式無效 |
+
+#### 多參數組合查詢測試（AND 條件，使用 TESTA-01 資料）
+| 查詢範例 | 測試結果 | 說明 |
+|----------|:--------:|------|
+| `Composition?subject=Patient/pt-testa-01&type=18842-5` | ✅ 有資料 | **subject + type 組合有效** |
+| `Observation?subject=Patient/pt-testa-01&category=laboratory` | ✅ 有資料 | **subject + category 組合有效** |
+| `Composition?subject=Patient/pt-testa-01` | ✅ total: 2 | subject 單獨查詢有效 |
+
+> 💡 **CHARI 專案實作建議**：
+> - 由於 THAS 伺服器不支援完整 Token 格式查詢，CHARI 專案目前採用「**前端過濾**」策略
+> - 先以 `Composition?subject=Patient/{id}&_sort=-date` 取得所有 Composition
+> - 再於前端以 JavaScript filter 篩選 `type.coding[0].code` 為 `18842-5` 或 `18761-7`
+> - 這確保與各種 FHIR 伺服器的相容性
 
 ---
 
