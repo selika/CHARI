@@ -499,7 +499,7 @@ FHIR 提供標準的 `category` 欄位，使用 `medication-statement-category` 
 
 ## 六、FHIR 查詢範例
 
-> ⚠️ **THAS 伺服器相容性注意事項**（2026-02-03 測試結果）
+> ⚠️ **THAS 伺服器相容性注意事項**（2026-01-30 測試結果）
 >
 > 衛福部 THAS FHIR Server (`https://thas.mohw.gov.tw/v/r4/fhir`) 的搜尋參數支援有特殊限制：
 > - **`type` 參數**：只支援 `code` 格式，**不支援**完整的 `system|code` Token 格式
