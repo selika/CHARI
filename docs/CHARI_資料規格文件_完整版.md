@@ -499,15 +499,6 @@ FHIR 提供標準的 `category` 欄位，使用 `medication-statement-category` 
 
 ## 六、FHIR 查詢範例
 
-> ⚠️ **THAS 伺服器相容性注意事項**（2026-01-30 測試結果）
->
-> 衛福部 THAS FHIR Server (`https://thas.mohw.gov.tw/v/r4/fhir`) 的搜尋參數支援有特殊限制：
-> - **`type` 參數**：只支援 `code` 格式，**不支援**完整的 `system|code` Token 格式
-> - **`category` 參數**：支援簡化格式（如 `laboratory`、`inpatient`、`RAD`）
-> - **多值查詢**：必須用**逗號分隔**（如 `type=18842-5,18761-7`），**不支援**重複參數格式（如 `type=18842-5&type=18761-7`）
->
-> 以下範例提供 FHIR 標準語法與 THAS 相容語法兩種版本。
-
 ### 6.1 查詢病人的轉院病摘
 
 **FHIR 標準語法**（完整 Token 格式）：
@@ -604,22 +595,6 @@ GET [base]/DiagnosticReport
 ```
 
 ### 6.7 THAS 伺服器搜尋參數測試結果（2026-01-30）
-
-#### 單一參數測試
-| 查詢範例 | 測試結果 | 說明 |
-|----------|:--------:|------|
-| `Composition?type=18842-5` | ✅ total: 6 | 簡化 code 格式有效 |
-| `Composition?type=18761-7` | ✅ total: 1 | 簡化 code 格式有效 |
-| `Composition?type=http://loinc.org\|18842-5` | ❌ total: 0 | 完整 Token 格式無效 |
-| `MedicationStatement?category=inpatient` | ✅ total: 8 | category 簡化格式有效 |
-| `DiagnosticReport?category=RAD` | ✅ 有資料 | category 簡化格式有效 |
-| `Observation?category=laboratory` | ✅ 有資料 | category 簡化格式有效 |
-
-#### 多值查詢測試（OR 條件）
-| 查詢範例 | 測試結果 | 說明 |
-|----------|:--------:|------|
-| `Composition?type=18842-5,18761-7` | ✅ total: 7 | 逗號分隔多值查詢有效 |
-| `Composition?type=18842-5&type=18761-7` | ❌ total: 0 | 重複參數格式無效 |
 
 #### 多參數組合查詢測試（AND 條件，使用 TESTA-01 資料）
 | 查詢範例 | 測試結果 | 說明 |
