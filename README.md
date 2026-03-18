@@ -116,7 +116,8 @@
 
 ```
 CHARI/
-├── README.md                         # 本文件
+├── README.md                         # 中文 README
+├── README.en.md                      # English README
 ├── AGENTS.md                         # AI Coding Agent 指引
 ├── LICENSE                           # Apache 2.0 授權
 ├── package.json                      # 專案設定與依賴
