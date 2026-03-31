@@ -1,19 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { Search, User, AlertCircle, ChevronDown, Github, ExternalLink, KeyRound, Play, Trash2, Shield, AlertTriangle, Server, Zap } from 'lucide-react';
-import FHIR from 'fhirclient';
+import React, { useState } from 'react';
+import { Search, User, AlertCircle, ChevronDown, Github, ExternalLink, KeyRound } from 'lucide-react';
 import { searchPatientById, searchPatientByNHI } from '../services/fhirQueries';
-
-// sessionStorage key for EHR Launch credentials
-const SMART_STORAGE_KEY = 'CHARI_SMART_TEST';
-
-// 預設 FHIR Server 選項
-const FHIR_SERVERS = [
-    { label: 'SMART Health IT (R4)', url: 'https://launch.smarthealthit.org/v/r4/fhir' },
-    { label: 'THAS 衛福部', url: 'https://thas.mohw.gov.tw/v/r4/fhir' },
-    { label: 'THAS Sandbox', url: 'https://emr-smart.appx.com.tw/v/r4/fhir' },
-    { label: 'SMART Health IT (R3)', url: 'https://r3.smarthealthit.org' },
-    { label: '自訂', url: '' },
-];
 
 // 測試案例資料
 const TEST_PATIENTS = [
@@ -54,58 +41,6 @@ export default function PatientSearch({ client, onPatientSelect }) {
     const [selectedTestCase, setSelectedTestCase] = useState('');
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
-
-    // Demo tabs
-    const [demoTab, setDemoTab] = useState('sandbox');
-
-    // EHR Launch state
-    const [ehrClientId, setEhrClientId] = useState('');
-    const [ehrClientSecret, setEhrClientSecret] = useState('');
-    const [ehrFhirServer, setEhrFhirServer] = useState(FHIR_SERVERS[0].url);
-    const [ehrCustomServer, setEhrCustomServer] = useState('');
-    const [ehrScope, setEhrScope] = useState('launch/patient openid fhirUser patient/*.read');
-    const [showEhrSecret, setShowEhrSecret] = useState(false);
-
-    useEffect(() => {
-        const saved = sessionStorage.getItem(SMART_STORAGE_KEY);
-        if (saved) {
-            try {
-                const data = JSON.parse(saved);
-                setEhrClientId(data.clientId || '');
-                setEhrClientSecret(data.clientSecret || '');
-                setEhrFhirServer(data.fhirServer || FHIR_SERVERS[0].url);
-                setEhrCustomServer(data.customServer || '');
-                setEhrScope(data.scope || 'launch/patient openid fhirUser patient/*.read');
-            } catch { /* ignore */ }
-        }
-    }, []);
-
-    const getEhrActiveServer = () => ehrFhirServer || ehrCustomServer;
-    const isEhrCustomServer = !FHIR_SERVERS.some(s => s.url === ehrFhirServer && s.url !== '');
-
-    const handleEhrLaunch = () => {
-        const server = getEhrActiveServer();
-        if (!ehrClientId || !server) return;
-        sessionStorage.setItem(SMART_STORAGE_KEY, JSON.stringify({
-            clientId: ehrClientId, clientSecret: ehrClientSecret,
-            fhirServer: ehrFhirServer, customServer: ehrCustomServer, scope: ehrScope
-        }));
-        const params = {
-            clientId: ehrClientId,
-            scope: ehrScope,
-            redirectUri: window.location.origin + window.location.pathname,
-            iss: server,
-        };
-        if (ehrClientSecret) params.clientSecret = ehrClientSecret;
-        FHIR.oauth2.authorize(params);
-    };
-
-    const handleEhrClear = () => {
-        sessionStorage.removeItem(SMART_STORAGE_KEY);
-        setEhrClientId(''); setEhrClientSecret('');
-        setEhrFhirServer(FHIR_SERVERS[0].url); setEhrCustomServer('');
-        setEhrScope('launch/patient openid fhirUser patient/*.read');
-    };
 
     const handleTestCaseChange = (e) => {
         setSelectedTestCase(e.target.value);
@@ -182,16 +117,13 @@ export default function PatientSearch({ client, onPatientSelect }) {
                                 GitHub Repo
                                 <ExternalLink className="h-4 w-4 text-slate-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                             </a>
-                            <button
-                                onClick={() => {
-                                    setDemoTab('ehr');
-                                    document.getElementById('demo-section')?.scrollIntoView({ behavior: 'smooth' });
-                                }}
+                            <a
+                                href="#/smart-test"
                                 className="inline-flex items-center gap-3 bg-amber-400 text-medical-navy hover:bg-amber-300 px-6 py-3 rounded-2xl font-bold transition-all transform active:scale-95 shadow-lg group"
                             >
                                 <KeyRound className="h-5 w-5" />
                                 OAuth2 連線測試
-                            </button>
+                            </a>
                         </div>
                     </div>
 
@@ -309,6 +241,15 @@ export default function PatientSearch({ client, onPatientSelect }) {
                             </button>
                         </form>
 
+                        <div className="mt-10 flex items-center justify-center gap-3 py-4 border-t border-slate-100 grayscale opacity-50">
+                            {[1, 2, 3, 4].map(i => (
+                                <div key={i} className="h-8 w-24 bg-slate-200 rounded-lg"></div>
+                            ))}
+                        </div>
+                        <p className="mt-6 text-xs text-slate-400 text-center font-medium">
+                            ※ 測試版介面：快速切換測試案例以模擬不同臨床轉院情境。系統介接時將依權限自動介接後端 Server。
+                        </p>
+
                         {/* Error Message */}
                         {error && (
                             <div className="mt-8 p-6 bg-red-50 border border-red-100 text-red-700 rounded-3xl flex items-start gap-4 animate-in shake duration-500">
@@ -323,216 +264,6 @@ export default function PatientSearch({ client, onPatientSelect }) {
                         )}
                     </div>
                 </div>
-            </div>
-
-            {/* DEMO Section with Tabs */}
-            <div id="demo-section" className="glass-card rounded-[2.5rem] p-10 border-slate-200/50 shadow-2xl relative overflow-hidden bg-white/40 backdrop-blur-xl">
-                <h2 className="text-2xl font-bold text-slate-800 mb-6 flex items-center gap-4">
-                    <div className="bg-amber-100 p-3 rounded-2xl">
-                        <Zap className="h-6 w-6 text-amber-600" />
-                    </div>
-                    DEMO
-                </h2>
-
-                {/* Tab Buttons */}
-                <div className="flex gap-2 mb-8">
-                    <button
-                        onClick={() => setDemoTab('sandbox')}
-                        className={`flex items-center gap-2 px-6 py-3 rounded-2xl font-bold text-sm transition-all ${
-                            demoTab === 'sandbox'
-                                ? 'bg-medical-primary text-white shadow-lg'
-                                : 'bg-slate-100 text-slate-500 hover:bg-slate-200'
-                        }`}
-                    >
-                        <Server className="h-4 w-4" />
-                        Sandbox
-                    </button>
-                    <button
-                        onClick={() => setDemoTab('ehr')}
-                        className={`flex items-center gap-2 px-6 py-3 rounded-2xl font-bold text-sm transition-all ${
-                            demoTab === 'ehr'
-                                ? 'bg-amber-500 text-white shadow-lg'
-                                : 'bg-slate-100 text-slate-500 hover:bg-slate-200'
-                        }`}
-                    >
-                        <KeyRound className="h-4 w-4" />
-                        EHR Launch
-                    </button>
-                </div>
-
-                {/* Sandbox Tab */}
-                {demoTab === 'sandbox' && (
-                    <div className="space-y-6 animate-in fade-in duration-300">
-                        <div className="bg-sky-50/80 rounded-2xl p-6 border border-sky-100">
-                            <h3 className="font-bold text-slate-700 mb-2 flex items-center gap-2">
-                                <Server className="h-4 w-4 text-medical-primary" />
-                                直連沙盒模式
-                            </h3>
-                            <p className="text-sm text-slate-600 mb-4">
-                                無需 OAuth 授權，直接連接衛福部 THAS 開放沙盒。適合快速瀏覽測試資料與驗證 UI 介面。
-                            </p>
-                            <div className="bg-white rounded-xl p-4 border border-sky-100 space-y-3">
-                                <div className="flex items-center justify-between">
-                                    <span className="text-xs font-bold text-slate-500 uppercase tracking-widest">FHIR Server</span>
-                                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-emerald-100 text-emerald-700 rounded-full text-xs font-bold">
-                                        <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full"></span>
-                                        已連線
-                                    </span>
-                                </div>
-                                <code className="block text-sm font-mono text-slate-600 bg-slate-50 px-3 py-2 rounded-lg break-all">
-                                    https://thas.mohw.gov.tw/v/r4/fhir
-                                </code>
-                                <div className="flex items-center gap-4 text-xs text-slate-400">
-                                    <span>FHIR R4</span>
-                                    <span>TW Core IG</span>
-                                    <span>Open Access</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-4 flex items-start gap-3">
-                            <Shield className="h-5 w-5 text-emerald-500 mt-0.5 flex-shrink-0" />
-                            <div className="text-sm text-emerald-800">
-                                <p className="font-semibold">使用方式</p>
-                                <p>直接在上方「快速病人查詢」選擇測試案例即可。系統會自動連接 THAS 沙盒取得病患資料。</p>
-                            </div>
-                        </div>
-                    </div>
-                )}
-
-                {/* EHR Launch Tab */}
-                {demoTab === 'ehr' && (
-                    <div className="space-y-6 animate-in fade-in duration-300">
-                        {/* 安全提示 */}
-                        <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 flex items-start gap-3">
-                            <AlertTriangle className="h-5 w-5 text-amber-500 mt-0.5 flex-shrink-0" />
-                            <div className="text-sm text-amber-800">
-                                <p className="font-semibold">暫存模式</p>
-                                <p>憑證僅存於瀏覽器 Session，關閉分頁或瀏覽器後自動清除，不會儲存於伺服器。</p>
-                            </div>
-                        </div>
-
-                        <div className="space-y-5">
-                            {/* Client ID */}
-                            <div>
-                                <label className="block text-sm font-bold text-slate-700 mb-1.5">
-                                    Client ID <span className="text-red-400">*</span>
-                                </label>
-                                <input
-                                    type="text"
-                                    value={ehrClientId}
-                                    onChange={(e) => setEhrClientId(e.target.value)}
-                                    placeholder="e.g. cc344727-6f90-496c-94fd-c7829aa9a51d"
-                                    className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm font-mono focus:ring-2 focus:ring-medical-primary focus:border-medical-primary outline-none transition-all"
-                                />
-                            </div>
-
-                            {/* Client Secret */}
-                            <div>
-                                <label className="block text-sm font-bold text-slate-700 mb-1.5">
-                                    Client Secret
-                                    <span className="text-slate-400 font-normal ml-2">(Confidential Client)</span>
-                                </label>
-                                <div className="relative">
-                                    <input
-                                        type={showEhrSecret ? 'text' : 'password'}
-                                        value={ehrClientSecret}
-                                        onChange={(e) => setEhrClientSecret(e.target.value)}
-                                        placeholder="Leave empty for Public Client"
-                                        className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm font-mono focus:ring-2 focus:ring-medical-primary focus:border-medical-primary outline-none transition-all pr-20"
-                                    />
-                                    <button
-                                        type="button"
-                                        onClick={() => setShowEhrSecret(!showEhrSecret)}
-                                        className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-slate-400 hover:text-slate-600 font-semibold"
-                                    >
-                                        {showEhrSecret ? 'HIDE' : 'SHOW'}
-                                    </button>
-                                </div>
-                            </div>
-
-                            {/* FHIR Server */}
-                            <div>
-                                <label className="block text-sm font-bold text-slate-700 mb-1.5">
-                                    FHIR Server <span className="text-red-400">*</span>
-                                </label>
-                                <select
-                                    value={isEhrCustomServer ? '' : ehrFhirServer}
-                                    onChange={(e) => {
-                                        setEhrFhirServer(e.target.value);
-                                        if (e.target.value) setEhrCustomServer('');
-                                    }}
-                                    className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:ring-2 focus:ring-medical-primary focus:border-medical-primary outline-none transition-all bg-white"
-                                >
-                                    {FHIR_SERVERS.map((s) => (
-                                        <option key={s.label} value={s.url}>{s.label}{s.url ? ` — ${s.url}` : ''}</option>
-                                    ))}
-                                </select>
-                                {(isEhrCustomServer || ehrFhirServer === '') && (
-                                    <input
-                                        type="text"
-                                        value={ehrCustomServer}
-                                        onChange={(e) => { setEhrCustomServer(e.target.value); setEhrFhirServer(''); }}
-                                        placeholder="https://your-fhir-server/fhir"
-                                        className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm font-mono focus:ring-2 focus:ring-medical-primary focus:border-medical-primary outline-none transition-all mt-2"
-                                    />
-                                )}
-                            </div>
-
-                            {/* Scopes */}
-                            <div>
-                                <label className="block text-sm font-bold text-slate-700 mb-1.5">
-                                    Scopes
-                                </label>
-                                <input
-                                    type="text"
-                                    value={ehrScope}
-                                    onChange={(e) => setEhrScope(e.target.value)}
-                                    className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm font-mono focus:ring-2 focus:ring-medical-primary focus:border-medical-primary outline-none transition-all"
-                                />
-                                <p className="text-xs text-slate-400 mt-1">Space-separated. Standalone Launch uses <code>launch/patient</code> instead of <code>launch</code>.</p>
-                            </div>
-
-                            {/* Actions */}
-                            <div className="flex gap-3 pt-2">
-                                <button
-                                    onClick={handleEhrLaunch}
-                                    disabled={!ehrClientId || !getEhrActiveServer()}
-                                    className="flex-1 flex items-center justify-center gap-2 px-6 py-3.5 bg-amber-500 text-white font-bold rounded-xl hover:bg-amber-600 disabled:bg-slate-300 disabled:cursor-not-allowed transition-all transform active:scale-[0.98] shadow-lg"
-                                >
-                                    <Play className="h-5 w-5" />
-                                    Launch
-                                </button>
-                                <button
-                                    onClick={handleEhrClear}
-                                    className="flex items-center justify-center gap-2 px-5 py-3.5 bg-slate-100 text-slate-600 font-bold rounded-xl hover:bg-red-50 hover:text-red-600 transition-all"
-                                >
-                                    <Trash2 className="h-4 w-4" />
-                                    Clear
-                                </button>
-                            </div>
-                        </div>
-
-                        {/* 說明 */}
-                        <div className="bg-slate-50 rounded-xl p-5 border border-slate-100">
-                            <h3 className="font-bold text-slate-700 mb-3 flex items-center gap-2">
-                                <Shield className="h-4 w-4 text-medical-primary" />
-                                使用說明
-                            </h3>
-                            <ol className="text-sm text-slate-600 space-y-2 list-decimal list-inside">
-                                <li>填入評審或測試平台提供的 <strong>Client ID</strong> 和 <strong>Client Secret</strong></li>
-                                <li>選擇目標 <strong>FHIR Server</strong>（或輸入自訂 URL）</li>
-                                <li>點擊 <strong>Launch</strong> 啟動 Standalone Launch 授權流程</li>
-                                <li>在授權頁面選擇病人並同意授權</li>
-                                <li>授權成功後，CHARI 會以 OAuth Token 載入病患資料</li>
-                            </ol>
-                            <div className="mt-4 pt-4 border-t border-slate-200">
-                                <p className="text-xs text-slate-400">
-                                    Redirect URI: <code className="bg-white px-1.5 py-0.5 rounded border border-slate-200">{window.location.origin + window.location.pathname}</code>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                )}
             </div>
         </div>
     );
