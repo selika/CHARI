@@ -8,6 +8,7 @@
 [![FHIR](https://img.shields.io/badge/FHIR-R4-orange.svg)](https://hl7.org/fhir/R4/)
 [![Platform](https://img.shields.io/badge/Platform-衛福部%20SMART-green.svg)](https://thas.mohw.gov.tw/)
 [![Demo](https://img.shields.io/badge/Demo-Live-brightgreen.svg)](https://selika.github.io/CHARI/)
+[![English](https://img.shields.io/badge/Docs-English-blue)](README.en.md)
 
 ---
 
