@@ -2,6 +2,8 @@
 
 > **SMART on FHIR App** - A bidirectional discharge/transfer summary exchange platform for inter-hospital referrals
 
+[中文 README](README.md) | [Changelog](CHANGELOG.md)
+
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 [![FHIR](https://img.shields.io/badge/FHIR-R4-orange.svg)](https://hl7.org/fhir/R4/)
 [![Platform](https://img.shields.io/badge/Platform-MOHW%20SMART-green.svg)](https://thas.mohw.gov.tw/)

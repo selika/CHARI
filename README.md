@@ -2,6 +2,8 @@
 
 > **SMART on FHIR App** - 跨院病摘雙向交換平台
 
+[English README](README.en.md) | [Changelog](CHANGELOG.md)
+
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 [![FHIR](https://img.shields.io/badge/FHIR-R4-orange.svg)](https://hl7.org/fhir/R4/)
 [![Platform](https://img.shields.io/badge/Platform-衛福部%20SMART-green.svg)](https://thas.mohw.gov.tw/)
