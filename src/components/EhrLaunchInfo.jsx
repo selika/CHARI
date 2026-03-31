@@ -1,11 +1,32 @@
-import React from 'react';
-import { Shield, ArrowLeft, ExternalLink } from 'lucide-react';
+import React, { useState } from 'react';
+import { Shield, ArrowLeft, ExternalLink, Play, Lock, Server } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import FHIR from 'fhirclient';
+
+const FHIR_SERVERS = [
+    { label: 'SMART Health IT (R4)', url: 'https://launch.smarthealthit.org/v/r4/fhir' },
+    { label: 'THAS 衛福部', url: 'https://thas.mohw.gov.tw/v/r4/fhir' },
+    { label: 'THAS Sandbox (appx)', url: 'https://emr-smart.appx.com.tw/v/r4/fhir' },
+];
 
 export default function EhrLaunchInfo() {
     const navigate = useNavigate();
+    const [selectedServer, setSelectedServer] = useState(FHIR_SERVERS[0].url);
     const launchUrl = window.location.origin + window.location.pathname.replace(/\/$/, '') + '/launch.html';
     const redirectUri = window.location.origin + window.location.pathname;
+
+    const hasCredentials = !!(import.meta.env.VITE_SMART_CLIENT_ID);
+
+    const handleDirectLaunch = () => {
+        if (!selectedServer || !hasCredentials) return;
+        FHIR.oauth2.authorize({
+            clientId: import.meta.env.VITE_SMART_CLIENT_ID,
+            clientSecret: import.meta.env.VITE_SMART_CLIENT_SECRET || '',
+            scope: 'launch openid fhirUser patient/*.read',
+            redirectUri: redirectUri,
+            iss: selectedServer,
+        });
+    };
 
     return (
         <div className="max-w-3xl mx-auto space-y-8">
@@ -21,13 +42,63 @@ export default function EhrLaunchInfo() {
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-amber-400 to-orange-500 rounded-2xl shadow-lg mb-4">
                     <Shield className="h-8 w-8 text-white" />
                 </div>
-                <h1 className="text-2xl font-black text-medical-navy">EHR Launch 技術說明</h1>
-                <p className="text-slate-500 mt-2">CHARI 採用 EHR Launch 模式的原因與設定方式</p>
+                <h1 className="text-2xl font-black text-medical-navy">EHR Launch</h1>
+                <p className="text-slate-500 mt-2">使用衛福部 SMART on FHIR 測試憑證，啟動 OAuth 授權流程</p>
             </div>
 
-            {/* 為什麼選擇 EHR Launch */}
+            {/* 直接啟動 */}
             <div className="glass-card p-8 space-y-6">
-                <h2 className="text-lg font-bold text-slate-800">為什麼 CHARI 採用 EHR Launch？</h2>
+                <h2 className="text-lg font-bold text-slate-800 flex items-center gap-3">
+                    <Play className="h-5 w-5 text-amber-500" />
+                    啟動 EHR Launch
+                </h2>
+
+                <div className="space-y-4">
+                    <div>
+                        <label className="block text-sm font-bold text-slate-700 mb-1.5">
+                            <Server className="h-3.5 w-3.5 inline mr-1.5" />
+                            FHIR Server
+                        </label>
+                        <select
+                            value={selectedServer}
+                            onChange={(e) => setSelectedServer(e.target.value)}
+                            className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:ring-2 focus:ring-amber-400 focus:border-amber-400 outline-none transition-all bg-white"
+                        >
+                            {FHIR_SERVERS.map((s) => (
+                                <option key={s.url} value={s.url}>{s.label} — {s.url}</option>
+                            ))}
+                        </select>
+                    </div>
+
+                    <div className="bg-emerald-50 rounded-xl p-4 border border-emerald-200 flex items-start gap-3">
+                        <Lock className="h-4 w-4 text-emerald-600 mt-0.5 flex-shrink-0" />
+                        <div className="text-sm text-emerald-800">
+                            <p className="font-semibold">OAuth 憑證已預載</p>
+                            <p>Client ID 與 Client Secret 儲存於 GitHub Secrets，於建置時透過環境變數注入，不會出現在原始碼中。</p>
+                            {hasCredentials ? (
+                                <p className="mt-1 font-mono text-xs text-emerald-600">
+                                    Client ID: {import.meta.env.VITE_SMART_CLIENT_ID?.slice(0, 8)}...（已載入）
+                                </p>
+                            ) : (
+                                <p className="mt-1 text-red-600 font-semibold">未偵測到憑證，請確認 GitHub Secrets 已設定。</p>
+                            )}
+                        </div>
+                    </div>
+
+                    <button
+                        onClick={handleDirectLaunch}
+                        disabled={!hasCredentials || !selectedServer}
+                        className="w-full flex items-center justify-center gap-3 py-4 px-6 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-bold rounded-xl shadow-lg transition-all transform active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                        <Play className="h-5 w-5" />
+                        啟動 OAuth 授權
+                    </button>
+                </div>
+            </div>
+
+            {/* 技術說明 */}
+            <div className="glass-card p-8 space-y-6">
+                <h2 className="text-lg font-bold text-slate-800">技術說明：為什麼採用 EHR Launch？</h2>
 
                 <div className="space-y-4 text-sm text-slate-700 leading-relaxed">
                     <p>
@@ -78,13 +149,14 @@ export default function EhrLaunchInfo() {
                 </div>
             </div>
 
-            {/* 測試設定 */}
+            {/* 預設憑證與流程 */}
             <div className="glass-card p-8 space-y-6">
-                <h2 className="text-lg font-bold text-slate-800">EHR Launch 測試設定</h2>
+                <h2 className="text-lg font-bold text-slate-800">衛福部 SMART on FHIR 測試預設值</h2>
 
                 <div className="space-y-4">
                     <div className="bg-slate-50 rounded-xl p-5 border border-slate-200">
-                        <h3 className="font-bold text-slate-700 mb-3">評審端設定資訊</h3>
+                        <h3 className="font-bold text-slate-700 mb-3">系統預設參數</h3>
+                        <p className="text-xs text-slate-500 mb-3">以下為衛福部第二階段測試提供之預設值，已內建於系統中，無需手動輸入。</p>
                         <div className="space-y-3 text-sm">
                             <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3">
                                 <span className="font-semibold text-slate-500 w-28 flex-shrink-0">Launch URL</span>
@@ -104,16 +176,30 @@ export default function EhrLaunchInfo() {
                                     launch openid fhirUser patient/*.read
                                 </code>
                             </div>
+                            <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3">
+                                <span className="font-semibold text-slate-500 w-28 flex-shrink-0">Client ID</span>
+                                <span className="text-slate-500 text-xs flex items-center gap-1.5">
+                                    <Lock className="h-3 w-3" />
+                                    儲存於 GitHub Secrets（建置時注入）
+                                </span>
+                            </div>
+                            <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3">
+                                <span className="font-semibold text-slate-500 w-28 flex-shrink-0">Client Secret</span>
+                                <span className="text-slate-500 text-xs flex items-center gap-1.5">
+                                    <Lock className="h-3 w-3" />
+                                    儲存於 GitHub Secrets（建置時注入）
+                                </span>
+                            </div>
                         </div>
                     </div>
 
                     <div className="bg-amber-50 rounded-xl p-5 border border-amber-200">
-                        <h3 className="font-bold text-amber-800 mb-2">OAuth 流程</h3>
+                        <h3 className="font-bold text-amber-800 mb-2">OAuth 授權流程</h3>
                         <ol className="text-sm text-amber-900 space-y-2 list-decimal list-inside">
-                            <li>評審從 Launcher 輸入上方 Launch URL，帶入 <code>iss</code> 和 <code>launch</code> 參數</li>
-                            <li><code>launch.html</code> 將參數轉傳至 React App</li>
-                            <li>CHARI 偵測到 <code>iss</code> 參數，啟動 <code>FHIR.oauth2.authorize()</code></li>
-                            <li>使用者在授權頁面同意授權</li>
+                            <li>點擊上方「啟動 OAuth 授權」，或由外部 Launcher 帶入 <code>iss</code> 參數至 <code>launch.html</code></li>
+                            <li>CHARI 從 GitHub Secrets 載入 Client ID / Secret</li>
+                            <li>呼叫 <code>FHIR.oauth2.authorize()</code> 啟動 OAuth 授權</li>
+                            <li>使用者在授權頁面登入並同意授權</li>
                             <li>授權伺服器 redirect 回 CHARI，帶回 <code>code</code> + <code>state</code></li>
                             <li>CHARI 呼叫 <code>FHIR.oauth2.ready()</code> 完成 token 交換，載入病患資料</li>
                         </ol>
@@ -126,8 +212,8 @@ export default function EhrLaunchInfo() {
                 <h2 className="text-lg font-bold text-slate-800">其他測試方式</h2>
                 <div className="text-sm text-slate-700 space-y-3">
                     <p>
-                        除了 EHR Launch，CHARI 也支援 <strong>Standalone Launch</strong> 供評審自行測試 OAuth 流程。
-                        在 Standalone 模式下，使用者可自行輸入暫存的 OAuth 憑證並選擇病人。
+                        除了 EHR Launch，CHARI 也支援 <strong>Standalone Launch</strong> 模式。
+                        在 Standalone 模式下，使用者可自行輸入暫存的 OAuth 憑證（存於瀏覽器 Session，關閉即清除）並選擇病人。
                     </p>
                     <a
                         href="#/smart-test"
