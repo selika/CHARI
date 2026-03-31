@@ -1,30 +1,26 @@
-import React, { useState } from 'react';
-import { Shield, ArrowLeft, ExternalLink, Play, Lock, Server } from 'lucide-react';
+import React from 'react';
+import { Shield, ArrowLeft, ExternalLink, Play, Lock } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import FHIR from 'fhirclient';
 
-const FHIR_SERVERS = [
-    { label: 'SMART Health IT (R4)', url: 'https://launch.smarthealthit.org/v/r4/fhir' },
-    { label: 'THAS 衛福部', url: 'https://thas.mohw.gov.tw/v/r4/fhir' },
-    { label: 'THAS Sandbox (appx)', url: 'https://emr-smart.appx.com.tw/v/r4/fhir' },
-];
+// 衛福部第二階段測試提供的自測 FHIR Server（正式測試時由評審私人 Launcher 提供）
+const LAUNCH_SERVER = 'https://launch.smarthealthit.org/v/r4/fhir';
 
 export default function EhrLaunchInfo() {
     const navigate = useNavigate();
-    const [selectedServer, setSelectedServer] = useState(FHIR_SERVERS[0].url);
     const launchUrl = window.location.origin + window.location.pathname.replace(/\/$/, '') + '/launch.html';
     const redirectUri = window.location.origin + window.location.pathname;
 
     const hasCredentials = !!(import.meta.env.VITE_SMART_CLIENT_ID);
 
     const handleDirectLaunch = () => {
-        if (!selectedServer || !hasCredentials) return;
+        if (!hasCredentials) return;
         FHIR.oauth2.authorize({
             clientId: import.meta.env.VITE_SMART_CLIENT_ID,
             clientSecret: import.meta.env.VITE_SMART_CLIENT_SECRET || '',
             scope: 'launch openid fhirUser patient/*.read',
             redirectUri: redirectUri,
-            iss: selectedServer,
+            iss: LAUNCH_SERVER,
         });
     };
 
@@ -54,20 +50,12 @@ export default function EhrLaunchInfo() {
                 </h2>
 
                 <div className="space-y-4">
-                    <div>
-                        <label className="block text-sm font-bold text-slate-700 mb-1.5">
-                            <Server className="h-3.5 w-3.5 inline mr-1.5" />
-                            FHIR Server
-                        </label>
-                        <select
-                            value={selectedServer}
-                            onChange={(e) => setSelectedServer(e.target.value)}
-                            className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:ring-2 focus:ring-amber-400 focus:border-amber-400 outline-none transition-all bg-white"
-                        >
-                            {FHIR_SERVERS.map((s) => (
-                                <option key={s.url} value={s.url}>{s.label} — {s.url}</option>
-                            ))}
-                        </select>
+                    <div className="bg-slate-50 rounded-xl p-4 border border-slate-200">
+                        <p className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Launch Server（自測用）</p>
+                        <code className="block text-sm font-mono text-slate-700 bg-white px-3 py-2 rounded-lg border border-slate-200 break-all">
+                            {LAUNCH_SERVER}
+                        </code>
+                        <p className="text-xs text-slate-400 mt-2">正式測試時，由衛福部評審以私人 Launcher 提供 FHIR Server URL。</p>
                     </div>
 
                     <div className="bg-emerald-50 rounded-xl p-4 border border-emerald-200 flex items-start gap-3">
@@ -87,7 +75,7 @@ export default function EhrLaunchInfo() {
 
                     <button
                         onClick={handleDirectLaunch}
-                        disabled={!hasCredentials || !selectedServer}
+                        disabled={!hasCredentials}
                         className="w-full flex items-center justify-center gap-3 py-4 px-6 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-bold rounded-xl shadow-lg transition-all transform active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                         <Play className="h-5 w-5" />
