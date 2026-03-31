@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Search, User, AlertCircle, ChevronDown, Github, ExternalLink } from 'lucide-react';
+import { Search, User, AlertCircle, ChevronDown, Github, ExternalLink, KeyRound } from 'lucide-react';
 import { searchPatientById, searchPatientByNHI } from '../services/fhirQueries';
 
 // 測試案例資料
@@ -116,6 +116,13 @@ export default function PatientSearch({ client, onPatientSelect }) {
                                 <Github className="h-5 w-5" />
                                 GitHub Repo
                                 <ExternalLink className="h-4 w-4 text-slate-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                            </a>
+                            <a
+                                href="#/smart-test"
+                                className="inline-flex items-center gap-3 bg-amber-400 text-medical-navy hover:bg-amber-300 px-6 py-3 rounded-2xl font-bold transition-all transform active:scale-95 shadow-lg group"
+                            >
+                                <KeyRound className="h-5 w-5" />
+                                OAuth2 連線測試
                             </a>
                         </div>
                     </div>

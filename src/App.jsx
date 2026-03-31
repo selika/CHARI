@@ -5,6 +5,7 @@ import Layout from './components/Layout';
 import PatientSearch from './components/PatientSearch';
 import CompositionList from './components/CompositionList';
 import CompositionDetail from './components/CompositionDetail';
+import SmartLaunchTest from './components/SmartLaunchTest';
 
 // Wrapper to handle navigation logic for Search
 function SearchRoute({ client }) {
@@ -53,6 +54,7 @@ function App() {
                     <Route path="/" element={<SearchRoute client={client} />} />
                     <Route path="/patient/:patientId" element={<CompositionList client={client} />} />
                     <Route path="/composition/:compositionId" element={<CompositionDetail client={client} />} />
+                    <Route path="/smart-test" element={<SmartLaunchTest />} />
                 </Routes>
             </Layout>
         </HashRouter>
