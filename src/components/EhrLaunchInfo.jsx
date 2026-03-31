@@ -51,11 +51,10 @@ export default function EhrLaunchInfo() {
 
                 <div className="space-y-4">
                     <div className="bg-slate-50 rounded-xl p-4 border border-slate-200">
-                        <p className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Launch Server（自測用）</p>
+                        <p className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Launch Server (測試用)</p>
                         <code className="block text-sm font-mono text-slate-700 bg-white px-3 py-2 rounded-lg border border-slate-200 break-all">
                             {LAUNCH_SERVER}
                         </code>
-                        <p className="text-xs text-slate-400 mt-2">正式測試時，由衛福部評審以私人 Launcher 提供 FHIR Server URL。</p>
                     </div>
 
                     <div className="bg-emerald-50 rounded-xl p-4 border border-emerald-200 flex items-start gap-3">
