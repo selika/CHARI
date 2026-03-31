@@ -181,10 +181,9 @@ export default function Layout({ children, client }) {
                     <div className="mt-10 pt-6 border-t border-slate-800 text-center text-slate-600 text-xs">
                         &copy; {new Date().getFullYear()} CHARI Project. Strictly for medical research and verification.
                     </div>
-                    <div className="mt-3 text-center text-slate-600 text-xs space-x-4">
-                        <a href="#/smart-test" className="hover:text-slate-400 transition-colors underline underline-offset-2">OAuth Standalone Test</a>
-                        <span className="text-slate-700">|</span>
-                        <span>EHR Launch: <code className="text-slate-500">/launch.html</code></span>
+                    <div className="mt-4 flex items-center justify-center gap-4 text-xs">
+                        <a href="#/smart-test" className="px-3 py-1.5 bg-sky-600 hover:bg-sky-500 text-white rounded-lg font-semibold transition-colors">OAuth Standalone Test</a>
+                        <a href="#/ehr-launch-info" className="px-3 py-1.5 bg-amber-500 hover:bg-amber-400 text-white rounded-lg font-semibold transition-colors">EHR Launch</a>
                     </div>
                 </div>
             </footer>
