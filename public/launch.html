@@ -41,12 +41,20 @@
 <body>
     <div class="container">
         <div class="spinner"></div>
-        <h2>🏥 CHARI</h2>
-        <p>正在連接衛福部 FHIR Server...</p>
+        <h2>CHARI</h2>
+        <p>正在進行 SMART on FHIR 授權...</p>
     </div>
     <script>
-        // 直接導向主應用，使用衛福部沙盒
-        window.location.href = './index.html';
+        // SMART Launch Entry Point
+        // 將 SMART launch 參數 (iss, launch) 轉傳給 React app
+        // OAuth 授權邏輯在 React app 內處理（使用 Vite 環境變數保護憑證）
+        var search = window.location.search;
+        if (search) {
+            // 帶上原始參數導向 React app
+            window.location.replace('./index.html' + search);
+        } else {
+            window.location.replace('./index.html');
+        }
     </script>
 </body>
 </html>
