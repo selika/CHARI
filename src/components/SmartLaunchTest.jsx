@@ -209,7 +209,7 @@ export default function SmartLaunchTest() {
                     使用說明
                 </h3>
                 <ol className="text-sm text-slate-600 space-y-2 list-decimal list-inside">
-                    <li>填入評審或測試平台提供的 <strong>Client ID</strong> 和 <strong>Client Secret</strong></li>
+                    <li>填入應用平台提供的 <strong>Client ID</strong> 和 <strong>Client Secret</strong></li>
                     <li>選擇目標 <strong>FHIR Server</strong>（或輸入自訂 URL）</li>
                     <li>點擊 <strong>Launch</strong> 啟動 Standalone Launch 授權流程</li>
                     <li>在授權頁面選擇病人並同意授權</li>
