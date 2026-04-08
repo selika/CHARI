@@ -1,0 +1,2976 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:Organization/org-vghtpe",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "org-vghtpe",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Organization-twcore"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "https://thas.mohw.gov.tw/orggov",
+            "value": "0601160016"
+          }
+        ],
+        "active": true,
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "prov",
+                "display": "Healthcare Provider"
+              }
+            ]
+          }
+        ],
+        "name": "臺北榮民總醫院",
+        "alias": [
+          "Taipei Veterans General Hospital",
+          "VGHTPE",
+          "北榮"
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "+886-2-28712121"
+          },
+          {
+            "system": "url",
+            "value": "https://www.vghtpe.gov.tw/"
+          }
+        ],
+        "address": [
+          {
+            "use": "work",
+            "type": "physical",
+            "text": "台北市北投區石牌路二段201號",
+            "city": "台北市",
+            "district": "北投區",
+            "postalCode": "112",
+            "country": "TW"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Organization/org-vghtpe"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Organization/org-kdgh",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "org-kdgh",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Organization-twcore"
+          ]
+        },
+        "identifier": [
+          {
+            "use": "official",
+            "system": "https://www.nhi.gov.tw/hospital",
+            "value": "0131110010"
+          }
+        ],
+        "active": true,
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "prov",
+                "display": "Healthcare Provider"
+              }
+            ]
+          }
+        ],
+        "name": "臺北榮民總醫院關渡分院",
+        "alias": [
+          "關渡醫院",
+          "Kuandu Branch, TVGH"
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "+886-2-28587000",
+            "use": "work"
+          }
+        ],
+        "address": [
+          {
+            "use": "work",
+            "type": "physical",
+            "text": "臺北市北投區知行路332號",
+            "city": "北投區",
+            "district": "臺北市",
+            "postalCode": "112",
+            "country": "TW"
+          }
+        ],
+        "partOf": {
+          "reference": "Organization/org-vghtpe",
+          "display": "臺北榮民總醫院"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Organization/org-kdgh"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Patient/pt-testa-03",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "pt-testa-03",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Patient-twcore"
+          ]
+        },
+        "identifier": [
+          {
+            "use": "official",
+            "system": "urn:oid:2.16.886.103",
+            "value": "A123456789",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "NI",
+                  "display": "National unique individual identifier"
+                }
+              ],
+              "text": "身分證字號"
+            }
+          },
+          {
+            "use": "secondary",
+            "system": "urn:oid:2.16.886.101.100",
+            "value": "900000000303",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "NI",
+                  "display": "National unique individual identifier"
+                }
+              ],
+              "text": "健保卡號"
+            }
+          },
+          {
+            "use": "secondary",
+            "system": "https://www.vghtpe.gov.tw/kuandu/mrn",
+            "value": "4015714025",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "MR",
+                  "display": "Medical record number"
+                }
+              ],
+              "text": "病歷號（關渡醫院）"
+            }
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "text": "陳志明"
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "0912-345-678",
+            "use": "mobile"
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1957-03-15",
+        "address": [
+          {
+            "use": "home",
+            "text": "臺北市北投區",
+            "city": "北投區",
+            "district": "臺北市",
+            "country": "TW"
+          }
+        ],
+        "contact": [
+          {
+            "relationship": [
+              {
+                "coding": [
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/v2-0131",
+                    "code": "N",
+                    "display": "Next-of-Kin"
+                  }
+                ],
+                "text": "配偶"
+              }
+            ],
+            "name": {
+              "text": "陳美華"
+            },
+            "telecom": [
+              {
+                "system": "phone",
+                "value": "0922-333-444",
+                "use": "mobile"
+              }
+            ]
+          }
+        ],
+        "managingOrganization": {
+          "reference": "Organization/org-kdgh",
+          "display": "臺北榮民總醫院關渡分院"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Patient/pt-testa-03"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Practitioner/prac-doc5383b",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "prac-doc5383b",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Practitioner-twcore"
+          ]
+        },
+        "identifier": [
+          {
+            "use": "official",
+            "system": "https://www.vghtpe.gov.tw/practitioner",
+            "value": "DOC5383B"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "text": "林妘奕"
+          }
+        ],
+        "qualification": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0360",
+                  "code": "MD",
+                  "display": "Doctor of Medicine"
+                }
+              ],
+              "text": "主治醫師"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Practitioner/prac-doc5383b"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Practitioner/prac-cardio-kdgh",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "prac-cardio-kdgh",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Practitioner-twcore"
+          ]
+        },
+        "identifier": [
+          {
+            "use": "official",
+            "system": "https://www.vghtpe.gov.tw/kuandu/practitioner",
+            "value": "DOC-CARDIO-01"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "text": "王心臟"
+          }
+        ],
+        "qualification": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0360",
+                  "code": "MD",
+                  "display": "Doctor of Medicine"
+                }
+              ],
+              "text": "心臟內科主治醫師"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Practitioner/prac-cardio-kdgh"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:AllergyIntolerance/allergy-testa03-arcoxia",
+      "resource": {
+        "resourceType": "AllergyIntolerance",
+        "id": "allergy-testa03-arcoxia",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/AllergyIntolerance-twcore"
+          ]
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+              "code": "active",
+              "display": "Active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+              "code": "confirmed",
+              "display": "Confirmed"
+            }
+          ]
+        },
+        "type": "allergy",
+        "category": [
+          "medication"
+        ],
+        "criticality": "low",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "140587",
+              "display": "etoricoxib"
+            }
+          ],
+          "text": "Arcoxia Tablet 30mg (Etoricoxib)"
+        },
+        "patient": {
+          "reference": "Patient/pt-testa-03",
+          "display": "陳志明"
+        },
+        "recordedDate": "2024-06-20",
+        "recorder": {
+          "reference": "Practitioner/prac-doc5383b",
+          "display": "林妘奕"
+        },
+        "reaction": [
+          {
+            "substance": {
+              "coding": [
+                {
+                  "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                  "code": "140587",
+                  "display": "etoricoxib"
+                }
+              ],
+              "text": "Arcoxia (Etoricoxib)"
+            },
+            "manifestation": [
+              {
+                "coding": [
+                  {
+                    "system": "http://snomed.info/sct",
+                    "code": "43116000",
+                    "display": "Eczema"
+                  }
+                ],
+                "text": "Eczema"
+              }
+            ],
+            "severity": "mild",
+            "note": [
+              {
+                "text": "Skin and subcutaneous tissue disorders. Asymptomatic or mild symptoms; additional medical intervention over baseline not indicated."
+              }
+            ]
+          }
+        ],
+        "note": [
+          {
+            "text": "藥物過敏記錄。註記代碼: A13182LY。原始記錄序號: 12992054"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "AllergyIntolerance/allergy-testa03-arcoxia"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:AllergyIntolerance/allergy-testa03-penicillin",
+      "resource": {
+        "resourceType": "AllergyIntolerance",
+        "id": "allergy-testa03-penicillin",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/AllergyIntolerance-twcore"
+          ]
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+              "code": "active",
+              "display": "Active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+              "code": "confirmed",
+              "display": "Confirmed"
+            }
+          ]
+        },
+        "type": "allergy",
+        "category": [
+          "medication"
+        ],
+        "criticality": "high",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "7984",
+              "display": "Penicillin"
+            }
+          ],
+          "text": "Penicillin 類抗生素"
+        },
+        "patient": {
+          "reference": "Patient/pt-testa-03",
+          "display": "陳志明"
+        },
+        "reaction": [
+          {
+            "substance": {
+              "coding": [
+                {
+                  "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                  "code": "7984",
+                  "display": "Penicillin"
+                }
+              ]
+            },
+            "manifestation": [
+              {
+                "coding": [
+                  {
+                    "system": "http://snomed.info/sct",
+                    "code": "271807003",
+                    "display": "Skin rash"
+                  }
+                ],
+                "text": "皮疹"
+              }
+            ],
+            "severity": "moderate"
+          }
+        ],
+        "note": [
+          {
+            "text": "病人自述過敏史"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "AllergyIntolerance/allergy-testa03-penicillin"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Encounter/enc-testa03-01",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "enc-testa03-01",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Encounter-twcore"
+          ]
+        },
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "IMP",
+          "display": "inpatient encounter"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "183452005",
+                "display": "Emergency hospital admission"
+              }
+            ],
+            "text": "NSTEMI 急診入院"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/pt-testa-03",
+          "display": "陳志明"
+        },
+        "participant": [
+          {
+            "type": [
+              {
+                "coding": [
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                    "code": "ATND",
+                    "display": "attender"
+                  }
+                ]
+              }
+            ],
+            "individual": {
+              "reference": "Practitioner/prac-cardio-kdgh",
+              "display": "王心臟（心臟內科主治醫師）"
+            }
+          }
+        ],
+        "period": {
+          "start": "2025-07-25",
+          "end": "2025-08-04"
+        },
+        "length": {
+          "value": 10,
+          "unit": "days",
+          "system": "http://unitsofmeasure.org",
+          "code": "d"
+        },
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                "code": "I21.4",
+                "display": "Non-ST elevation (NSTEMI) myocardial infarction"
+              }
+            ],
+            "text": "NSTEMI 非ST段上升型心肌梗塞"
+          }
+        ],
+        "hospitalization": {
+          "admitSource": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/admit-source",
+                "code": "emd",
+                "display": "From accident/emergency department"
+              }
+            ]
+          },
+          "dischargeDisposition": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/discharge-disposition",
+                "code": "home",
+                "display": "Home"
+              }
+            ],
+            "text": "病情穩定出院，門診追蹤"
+          }
+        },
+        "location": [
+          {
+            "location": {
+              "display": "心臟內科病房"
+            },
+            "status": "completed"
+          }
+        ],
+        "serviceProvider": {
+          "reference": "Organization/org-kdgh",
+          "display": "臺北榮民總醫院關渡分院"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Encounter/enc-testa03-01"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Encounter/enc-testa03-02",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "enc-testa03-02",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Encounter-twcore"
+          ]
+        },
+        "status": "in-progress",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "IMP",
+          "display": "inpatient encounter"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "183452005",
+                "display": "Emergency hospital admission"
+              }
+            ],
+            "text": "心臟衰竭入院，準備轉院手術"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/pt-testa-03",
+          "display": "陳志明"
+        },
+        "participant": [
+          {
+            "type": [
+              {
+                "coding": [
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                    "code": "ATND",
+                    "display": "attender"
+                  }
+                ]
+              }
+            ],
+            "individual": {
+              "reference": "Practitioner/prac-cardio-kdgh",
+              "display": "王心臟（心臟內科主治醫師）"
+            }
+          }
+        ],
+        "period": {
+          "start": "2025-12-22T10:00:00+08:00"
+        },
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                "code": "I25.10",
+                "display": "Atherosclerotic heart disease of native coronary artery without angina pectoris"
+              }
+            ],
+            "text": "三支血管疾病，需安排 CABG 手術"
+          },
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                "code": "I50.9",
+                "display": "Heart failure, unspecified"
+              }
+            ],
+            "text": "心臟衰竭 LVEF 45%"
+          }
+        ],
+        "hospitalization": {
+          "admitSource": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/admit-source",
+                "code": "outp",
+                "display": "From outpatient department"
+              }
+            ]
+          },
+          "dischargeDisposition": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/discharge-disposition",
+                "code": "other-hcf",
+                "display": "Other healthcare facility"
+              }
+            ],
+            "text": "住院中轉院至臺北榮民總醫院心臟血管外科"
+          }
+        },
+        "location": [
+          {
+            "location": {
+              "display": "心臟內科病房"
+            },
+            "status": "active"
+          }
+        ],
+        "serviceProvider": {
+          "reference": "Organization/org-kdgh",
+          "display": "臺北榮民總醫院關渡分院"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Encounter/enc-testa03-02"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Condition/cond-testa03-nstemi",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "cond-testa03-nstemi",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Condition-twcore"
+          ]
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "resolved",
+              "display": "Resolved"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed",
+              "display": "Confirmed"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "encounter-diagnosis",
+                "display": "Encounter Diagnosis"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "I21.4",
+              "display": "Non-ST elevation (NSTEMI) myocardial infarction"
+            }
+          ],
+          "text": "非ST段上升型心肌梗塞 (NSTEMI)"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-03",
+          "display": "陳志明"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-testa03-01"
+        },
+        "onsetDateTime": "2025-07-25",
+        "recordedDate": "2025-07-25",
+        "note": [
+          {
+            "text": "ECG 顯示 ST 段壓低於 V4-V6，Troponin-I 2.8 ng/mL。成功置放 LAD 支架後病情穩定。"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Condition/cond-testa03-nstemi"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Condition/cond-testa03-cad-tvd",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "cond-testa03-cad-tvd",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Condition-twcore"
+          ]
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active",
+              "display": "Active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed",
+              "display": "Confirmed"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "encounter-diagnosis",
+                "display": "Encounter Diagnosis"
+              }
+            ]
+          }
+        ],
+        "severity": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "24484000",
+              "display": "Severe"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "I25.10",
+              "display": "Atherosclerotic heart disease of native coronary artery without angina pectoris"
+            }
+          ],
+          "text": "冠狀動脈三支血管疾病 (Triple vessel disease)"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-03",
+          "display": "陳志明"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-testa03-02"
+        },
+        "onsetDateTime": "2025-12-24",
+        "recordedDate": "2025-12-24",
+        "note": [
+          {
+            "text": "心導管 (2025/12/24): LAD 支架內再狹窄 70%、LCX 近端 80%、RCA 中段 75%。需 CABG 手術。"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Condition/cond-testa03-cad-tvd"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Condition/cond-testa03-isr",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "cond-testa03-isr",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Condition-twcore"
+          ]
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active",
+              "display": "Active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed",
+              "display": "Confirmed"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "encounter-diagnosis",
+                "display": "Encounter Diagnosis"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "T82.855A",
+              "display": "Stenosis of coronary artery stent, initial encounter"
+            }
+          ],
+          "text": "LAD 支架內再狹窄 (In-stent restenosis)"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-03",
+          "display": "陳志明"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-testa03-02"
+        },
+        "onsetDateTime": "2025-12-24",
+        "recordedDate": "2025-12-24",
+        "note": [
+          {
+            "text": "原 2025/7/30 置放之 LAD DES 支架處，狹窄約 70%"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Condition/cond-testa03-isr"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Condition/cond-testa03-hf",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "cond-testa03-hf",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Condition-twcore"
+          ]
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active",
+              "display": "Active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed",
+              "display": "Confirmed"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "encounter-diagnosis",
+                "display": "Encounter Diagnosis"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "I50.9",
+              "display": "Heart failure, unspecified"
+            }
+          ],
+          "text": "心臟衰竭"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-03",
+          "display": "陳志明"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-testa03-02"
+        },
+        "recordedDate": "2025-12-22",
+        "note": [
+          {
+            "text": "心臟超音波: LVEF 45%（較前次 55% 下降），前壁運動減弱，輕度二尖瓣閉鎖不全。BNP 856 pg/mL。"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Condition/cond-testa03-hf"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Condition/cond-testa03-htn",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "cond-testa03-htn",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Condition-twcore"
+          ]
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active",
+              "display": "Active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed",
+              "display": "Confirmed"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "problem-list-item",
+                "display": "Problem List Item"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "I10",
+              "display": "Essential (primary) hypertension"
+            }
+          ],
+          "text": "高血壓"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-03",
+          "display": "陳志明"
+        },
+        "onsetDateTime": "2015-01-01",
+        "note": [
+          {
+            "text": "2015年起，規則服藥控制"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Condition/cond-testa03-htn"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Condition/cond-testa03-dm",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "cond-testa03-dm",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Condition-twcore"
+          ]
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active",
+              "display": "Active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed",
+              "display": "Confirmed"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "problem-list-item",
+                "display": "Problem List Item"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "E11.9",
+              "display": "Type 2 diabetes mellitus without complications"
+            }
+          ],
+          "text": "第二型糖尿病"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-03",
+          "display": "陳志明"
+        },
+        "onsetDateTime": "2018-01-01",
+        "note": [
+          {
+            "text": "2018年起，口服藥控制。HbA1c 7.4%"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Condition/cond-testa03-dm"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Condition/cond-testa03-hyperlipidemia",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "cond-testa03-hyperlipidemia",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Condition-twcore"
+          ]
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active",
+              "display": "Active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed",
+              "display": "Confirmed"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "problem-list-item",
+                "display": "Problem List Item"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "E78.5",
+              "display": "Hyperlipidemia, unspecified"
+            }
+          ],
+          "text": "高血脂症"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-03",
+          "display": "陳志明"
+        },
+        "onsetDateTime": "2016-01-01",
+        "note": [
+          {
+            "text": "2016年起，目前 LDL-C 88 mg/dL（未達標 <70）"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Condition/cond-testa03-hyperlipidemia"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Procedure/proc-testa03-pci-lad",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "proc-testa03-pci-lad",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Procedure-twcore"
+          ]
+        },
+        "status": "completed",
+        "category": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "387713003",
+              "display": "Surgical procedure"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "415070008",
+              "display": "Percutaneous coronary intervention"
+            }
+          ],
+          "text": "PCI with DES over LAD"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-03",
+          "display": "陳志明"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-testa03-01"
+        },
+        "performedDateTime": "2025-07-26",
+        "performer": [
+          {
+            "actor": {
+              "reference": "Practitioner/prac-cardio-kdgh",
+              "display": "王心臟"
+            }
+          }
+        ],
+        "reasonReference": [
+          {
+            "reference": "Condition/cond-testa03-nstemi",
+            "display": "NSTEMI"
+          }
+        ],
+        "outcome": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "385669000",
+              "display": "Successful"
+            }
+          ],
+          "text": "成功置放 DES 一枚於 LAD 中段"
+        },
+        "note": [
+          {
+            "text": "心導管檢查發現 LAD 中段狹窄約 85%，成功置放藥物塗層支架 (DES) 一枚。"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Procedure/proc-testa03-pci-lad"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Procedure/proc-testa03-cag-2",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "proc-testa03-cag-2",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Procedure-twcore"
+          ]
+        },
+        "status": "completed",
+        "category": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "103693007",
+              "display": "Diagnostic procedure"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "41976001",
+              "display": "Cardiac catheterization"
+            }
+          ],
+          "text": "心導管檢查"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-03",
+          "display": "陳志明"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-testa03-02"
+        },
+        "performedDateTime": "2025-12-24",
+        "outcome": {
+          "text": "三支血管疾病，建議 CABG"
+        },
+        "note": [
+          {
+            "text": "發現：LAD 支架內再狹窄 70%、LCX 近端 80%、RCA 中段 75%。診斷三支血管疾病，不適合再做 PCI，建議 CABG。"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Procedure/proc-testa03-cag-2"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:MedicationStatement/medstmt-testa03-aspirin",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medstmt-testa03-aspirin",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/MedicationStatement-twcore"
+          ]
+        },
+        "status": "active",
+        "category": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/medication-statement-category",
+              "code": "inpatient",
+              "display": "Inpatient"
+            }
+          ],
+          "text": "住院用藥"
+        },
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "243670",
+              "display": "aspirin 100 MG Enteric Coated Tablet"
+            }
+          ],
+          "text": "Aspirin 100mg"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-03",
+          "display": "陳志明"
+        },
+        "context": {
+          "reference": "Encounter/enc-testa03-02"
+        },
+        "effectivePeriod": {
+          "start": "2025-12-22"
+        },
+        "reasonReference": [
+          {
+            "reference": "Condition/cond-testa03-cad-tvd",
+            "display": "冠狀動脈三支血管疾病"
+          }
+        ],
+        "dosage": [
+          {
+            "text": "100mg once daily",
+            "timing": {
+              "code": {
+                "text": "QD"
+              }
+            },
+            "route": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "26643006",
+                  "display": "Oral route"
+                }
+              ],
+              "text": "PO"
+            }
+          }
+        ],
+        "note": [
+          {
+            "text": "雙抗血小板治療"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "MedicationStatement/medstmt-testa03-aspirin"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:MedicationStatement/medstmt-testa03-clopidogrel",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medstmt-testa03-clopidogrel",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/MedicationStatement-twcore"
+          ]
+        },
+        "status": "active",
+        "category": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/medication-statement-category",
+              "code": "inpatient",
+              "display": "Inpatient"
+            }
+          ],
+          "text": "住院用藥"
+        },
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "309362",
+              "display": "clopidogrel 75 MG Oral Tablet"
+            }
+          ],
+          "text": "Clopidogrel 75mg"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-03",
+          "display": "陳志明"
+        },
+        "context": {
+          "reference": "Encounter/enc-testa03-02"
+        },
+        "effectivePeriod": {
+          "start": "2025-12-22"
+        },
+        "reasonReference": [
+          {
+            "reference": "Condition/cond-testa03-cad-tvd",
+            "display": "冠狀動脈三支血管疾病"
+          }
+        ],
+        "dosage": [
+          {
+            "text": "75mg once daily",
+            "timing": {
+              "code": {
+                "text": "QD"
+              }
+            },
+            "route": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "26643006",
+                  "display": "Oral route"
+                }
+              ],
+              "text": "PO"
+            }
+          }
+        ],
+        "note": [
+          {
+            "text": "雙抗血小板治療"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "MedicationStatement/medstmt-testa03-clopidogrel"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:MedicationStatement/medstmt-testa03-atorvastatin",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medstmt-testa03-atorvastatin",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/MedicationStatement-twcore"
+          ]
+        },
+        "status": "active",
+        "category": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/medication-statement-category",
+              "code": "inpatient",
+              "display": "Inpatient"
+            }
+          ],
+          "text": "住院用藥"
+        },
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "617314",
+              "display": "atorvastatin 40 MG Oral Tablet"
+            }
+          ],
+          "text": "Atorvastatin 40mg"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-03",
+          "display": "陳志明"
+        },
+        "context": {
+          "reference": "Encounter/enc-testa03-02"
+        },
+        "effectivePeriod": {
+          "start": "2025-12-22"
+        },
+        "reasonReference": [
+          {
+            "reference": "Condition/cond-testa03-hyperlipidemia",
+            "display": "高血脂症"
+          }
+        ],
+        "dosage": [
+          {
+            "text": "40mg at bedtime",
+            "timing": {
+              "code": {
+                "text": "HS"
+              }
+            },
+            "route": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "26643006",
+                  "display": "Oral route"
+                }
+              ],
+              "text": "PO"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "MedicationStatement/medstmt-testa03-atorvastatin"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:MedicationStatement/medstmt-testa03-metoprolol",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medstmt-testa03-metoprolol",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/MedicationStatement-twcore"
+          ]
+        },
+        "status": "active",
+        "category": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/medication-statement-category",
+              "code": "inpatient",
+              "display": "Inpatient"
+            }
+          ],
+          "text": "住院用藥"
+        },
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "866924",
+              "display": "metoprolol succinate 25 MG Extended Release Oral Tablet"
+            }
+          ],
+          "text": "Metoprolol 25mg"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-03",
+          "display": "陳志明"
+        },
+        "context": {
+          "reference": "Encounter/enc-testa03-02"
+        },
+        "effectivePeriod": {
+          "start": "2025-12-22"
+        },
+        "reasonReference": [
+          {
+            "reference": "Condition/cond-testa03-hf",
+            "display": "心臟衰竭"
+          }
+        ],
+        "dosage": [
+          {
+            "text": "25mg twice daily",
+            "timing": {
+              "code": {
+                "text": "BID"
+              }
+            },
+            "route": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "26643006",
+                  "display": "Oral route"
+                }
+              ],
+              "text": "PO"
+            }
+          }
+        ],
+        "note": [
+          {
+            "text": "β-阻斷劑"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "MedicationStatement/medstmt-testa03-metoprolol"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:MedicationStatement/medstmt-testa03-ramipril",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medstmt-testa03-ramipril",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/MedicationStatement-twcore"
+          ]
+        },
+        "status": "active",
+        "category": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/medication-statement-category",
+              "code": "inpatient",
+              "display": "Inpatient"
+            }
+          ],
+          "text": "住院用藥"
+        },
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "197884",
+              "display": "ramipril 5 MG Oral Capsule"
+            }
+          ],
+          "text": "Ramipril 5mg"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-03",
+          "display": "陳志明"
+        },
+        "context": {
+          "reference": "Encounter/enc-testa03-02"
+        },
+        "effectivePeriod": {
+          "start": "2025-12-22"
+        },
+        "reasonReference": [
+          {
+            "reference": "Condition/cond-testa03-htn",
+            "display": "高血壓"
+          },
+          {
+            "reference": "Condition/cond-testa03-hf",
+            "display": "心臟衰竭"
+          }
+        ],
+        "dosage": [
+          {
+            "text": "5mg once daily",
+            "timing": {
+              "code": {
+                "text": "QD"
+              }
+            },
+            "route": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "26643006",
+                  "display": "Oral route"
+                }
+              ],
+              "text": "PO"
+            }
+          }
+        ],
+        "note": [
+          {
+            "text": "ACEI"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "MedicationStatement/medstmt-testa03-ramipril"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:MedicationStatement/medstmt-testa03-furosemide",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medstmt-testa03-furosemide",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/MedicationStatement-twcore"
+          ]
+        },
+        "status": "active",
+        "category": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/medication-statement-category",
+              "code": "inpatient",
+              "display": "Inpatient"
+            }
+          ],
+          "text": "住院用藥"
+        },
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "197730",
+              "display": "furosemide 20 MG Oral Tablet"
+            }
+          ],
+          "text": "Furosemide 20mg"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-03",
+          "display": "陳志明"
+        },
+        "context": {
+          "reference": "Encounter/enc-testa03-02"
+        },
+        "effectivePeriod": {
+          "start": "2025-12-22"
+        },
+        "reasonReference": [
+          {
+            "reference": "Condition/cond-testa03-hf",
+            "display": "心臟衰竭"
+          }
+        ],
+        "dosage": [
+          {
+            "text": "20mg once daily",
+            "timing": {
+              "code": {
+                "text": "QD"
+              }
+            },
+            "route": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "26643006",
+                  "display": "Oral route"
+                }
+              ],
+              "text": "PO"
+            }
+          }
+        ],
+        "note": [
+          {
+            "text": "利尿劑（新加）"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "MedicationStatement/medstmt-testa03-furosemide"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:MedicationStatement/medstmt-testa03-metformin",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medstmt-testa03-metformin",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/MedicationStatement-twcore"
+          ]
+        },
+        "status": "active",
+        "category": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/medication-statement-category",
+              "code": "inpatient",
+              "display": "Inpatient"
+            }
+          ],
+          "text": "住院用藥"
+        },
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "316255",
+              "display": "metformin 500 MG Oral Tablet"
+            }
+          ],
+          "text": "Metformin 500mg"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-03",
+          "display": "陳志明"
+        },
+        "context": {
+          "reference": "Encounter/enc-testa03-02"
+        },
+        "effectivePeriod": {
+          "start": "2025-12-22"
+        },
+        "reasonReference": [
+          {
+            "reference": "Condition/cond-testa03-dm",
+            "display": "第二型糖尿病"
+          }
+        ],
+        "dosage": [
+          {
+            "text": "500mg twice daily",
+            "timing": {
+              "code": {
+                "text": "BID"
+              }
+            },
+            "route": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "26643006",
+                  "display": "Oral route"
+                }
+              ],
+              "text": "PO"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "MedicationStatement/medstmt-testa03-metformin"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:MedicationStatement/medstmt-testa03-heparin",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medstmt-testa03-heparin",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/MedicationStatement-twcore"
+          ]
+        },
+        "status": "active",
+        "category": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/medication-statement-category",
+              "code": "inpatient",
+              "display": "Inpatient"
+            }
+          ],
+          "text": "住院用藥"
+        },
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "235473",
+              "display": "heparin sodium, porcine 1000 UNT/ML Injectable Solution"
+            }
+          ],
+          "text": "Heparin 1000 U/hr"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-03",
+          "display": "陳志明"
+        },
+        "context": {
+          "reference": "Encounter/enc-testa03-02"
+        },
+        "effectivePeriod": {
+          "start": "2025-12-26"
+        },
+        "dosage": [
+          {
+            "text": "1000 U/hr continuous IV infusion",
+            "timing": {
+              "code": {
+                "text": "continuous"
+              }
+            },
+            "route": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "47625008",
+                  "display": "Intravenous route"
+                }
+              ],
+              "text": "IV"
+            }
+          }
+        ],
+        "note": [
+          {
+            "text": "抗凝血（術前準備）"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "MedicationStatement/medstmt-testa03-heparin"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Observation/obs-testa03-wbc",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-testa03-wbc",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Observation-laboratoryResult-twcore"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "6690-2",
+              "display": "Leukocytes [#/volume] in Blood by Automated count"
+            }
+          ],
+          "text": "WBC"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-03"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-testa03-02"
+        },
+        "effectiveDateTime": "2025-12-26",
+        "valueQuantity": {
+          "value": 7800,
+          "unit": "/μL",
+          "system": "http://unitsofmeasure.org",
+          "code": "/uL"
+        },
+        "referenceRange": [
+          {
+            "low": {
+              "value": 4000,
+              "unit": "/μL"
+            },
+            "high": {
+              "value": 10000,
+              "unit": "/μL"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/obs-testa03-wbc"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Observation/obs-testa03-hgb",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-testa03-hgb",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Observation-laboratoryResult-twcore"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "718-7",
+              "display": "Hemoglobin [Mass/volume] in Blood"
+            }
+          ],
+          "text": "Hemoglobin"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-03"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-testa03-02"
+        },
+        "effectiveDateTime": "2025-12-26",
+        "valueQuantity": {
+          "value": 13.2,
+          "unit": "g/dL",
+          "system": "http://unitsofmeasure.org",
+          "code": "g/dL"
+        },
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "L",
+                "display": "Low"
+              }
+            ]
+          }
+        ],
+        "referenceRange": [
+          {
+            "low": {
+              "value": 13.5,
+              "unit": "g/dL"
+            },
+            "high": {
+              "value": 17.5,
+              "unit": "g/dL"
+            }
+          }
+        ],
+        "note": [
+          {
+            "text": "輕度貧血"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/obs-testa03-hgb"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Observation/obs-testa03-plt",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-testa03-plt",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Observation-laboratoryResult-twcore"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "777-3",
+              "display": "Platelets [#/volume] in Blood by Automated count"
+            }
+          ],
+          "text": "Platelet"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-03"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-testa03-02"
+        },
+        "effectiveDateTime": "2025-12-26",
+        "valueQuantity": {
+          "value": 225000,
+          "unit": "/μL",
+          "system": "http://unitsofmeasure.org",
+          "code": "/uL"
+        },
+        "referenceRange": [
+          {
+            "low": {
+              "value": 150000,
+              "unit": "/μL"
+            },
+            "high": {
+              "value": 400000,
+              "unit": "/μL"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/obs-testa03-plt"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Observation/obs-testa03-creatinine",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-testa03-creatinine",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Observation-laboratoryResult-twcore"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "2160-0",
+              "display": "Creatinine [Mass/volume] in Serum or Plasma"
+            }
+          ],
+          "text": "Creatinine"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-03"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-testa03-02"
+        },
+        "effectiveDateTime": "2025-12-26",
+        "valueQuantity": {
+          "value": 1.2,
+          "unit": "mg/dL",
+          "system": "http://unitsofmeasure.org",
+          "code": "mg/dL"
+        },
+        "referenceRange": [
+          {
+            "low": {
+              "value": 0.7,
+              "unit": "mg/dL"
+            },
+            "high": {
+              "value": 1.3,
+              "unit": "mg/dL"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/obs-testa03-creatinine"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Observation/obs-testa03-egfr",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-testa03-egfr",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Observation-laboratoryResult-twcore"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "33914-3",
+              "display": "Glomerular filtration rate/1.73 sq M predicted"
+            }
+          ],
+          "text": "eGFR"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-03"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-testa03-02"
+        },
+        "effectiveDateTime": "2025-12-26",
+        "valueQuantity": {
+          "value": 62,
+          "unit": "mL/min/1.73m2",
+          "system": "http://unitsofmeasure.org",
+          "code": "mL/min/{1.73_m2}"
+        },
+        "note": [
+          {
+            "text": "臨界 (borderline)"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/obs-testa03-egfr"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Observation/obs-testa03-hba1c",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-testa03-hba1c",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Observation-laboratoryResult-twcore"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "4548-4",
+              "display": "Hemoglobin A1c/Hemoglobin.total in Blood"
+            }
+          ],
+          "text": "HbA1c"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-03"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-testa03-02"
+        },
+        "effectiveDateTime": "2025-12-26",
+        "valueQuantity": {
+          "value": 7.4,
+          "unit": "%",
+          "system": "http://unitsofmeasure.org",
+          "code": "%"
+        },
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "H",
+                "display": "High"
+              }
+            ]
+          }
+        ],
+        "referenceRange": [
+          {
+            "high": {
+              "value": 7,
+              "unit": "%"
+            },
+            "text": "<7.0%"
+          }
+        ],
+        "note": [
+          {
+            "text": "略高，糖尿病控制欠佳"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/obs-testa03-hba1c"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Observation/obs-testa03-troponin",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-testa03-troponin",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Observation-laboratoryResult-twcore"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "10839-9",
+              "display": "Troponin I.cardiac [Mass/volume] in Serum or Plasma"
+            }
+          ],
+          "text": "Troponin-I"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-03"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-testa03-02"
+        },
+        "effectiveDateTime": "2025-12-26",
+        "valueQuantity": {
+          "value": 0.08,
+          "unit": "ng/mL",
+          "system": "http://unitsofmeasure.org",
+          "code": "ng/mL"
+        },
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "H",
+                "display": "High"
+              }
+            ]
+          }
+        ],
+        "referenceRange": [
+          {
+            "high": {
+              "value": 0.04,
+              "unit": "ng/mL"
+            },
+            "text": "<0.04 ng/mL"
+          }
+        ],
+        "note": [
+          {
+            "text": "輕度升高"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/obs-testa03-troponin"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Observation/obs-testa03-bnp",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-testa03-bnp",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Observation-laboratoryResult-twcore"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "30934-4",
+              "display": "Natriuretic peptide B [Mass/volume] in Serum or Plasma"
+            }
+          ],
+          "text": "BNP"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-03"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-testa03-02"
+        },
+        "effectiveDateTime": "2025-12-26",
+        "valueQuantity": {
+          "value": 856,
+          "unit": "pg/mL",
+          "system": "http://unitsofmeasure.org",
+          "code": "pg/mL"
+        },
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "H",
+                "display": "High"
+              }
+            ]
+          }
+        ],
+        "referenceRange": [
+          {
+            "high": {
+              "value": 100,
+              "unit": "pg/mL"
+            },
+            "text": "<100 pg/mL"
+          }
+        ],
+        "note": [
+          {
+            "text": "升高（心衰竭指標）"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/obs-testa03-bnp"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Observation/obs-testa03-ldl",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-testa03-ldl",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Observation-laboratoryResult-twcore"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "13457-7",
+              "display": "Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation"
+            }
+          ],
+          "text": "LDL-C"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-03"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-testa03-02"
+        },
+        "effectiveDateTime": "2025-12-26",
+        "valueQuantity": {
+          "value": 88,
+          "unit": "mg/dL",
+          "system": "http://unitsofmeasure.org",
+          "code": "mg/dL"
+        },
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "H",
+                "display": "High"
+              }
+            ]
+          }
+        ],
+        "referenceRange": [
+          {
+            "high": {
+              "value": 70,
+              "unit": "mg/dL"
+            },
+            "text": "<70 mg/dL (CAD goal)"
+          }
+        ],
+        "note": [
+          {
+            "text": "未達心血管疾病目標值"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/obs-testa03-ldl"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Composition/comp-testa03-discharge-01",
+      "resource": {
+        "resourceType": "Composition",
+        "id": "comp-testa03-discharge-01",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Composition-twcore"
+          ]
+        },
+        "status": "final",
+        "type": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "18842-5",
+              "display": "Discharge summary"
+            }
+          ],
+          "text": "出院病摘"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-03",
+          "display": "陳志明"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-testa03-01"
+        },
+        "date": "2025-08-04T15:00:00+08:00",
+        "author": [
+          {
+            "reference": "Practitioner/prac-cardio-kdgh",
+            "display": "王心臟（心臟內科主治醫師）"
+          }
+        ],
+        "title": "出院病歷摘要 - NSTEMI s/p PCI with DES",
+        "custodian": {
+          "reference": "Organization/org-kdgh",
+          "display": "臺北榮民總醫院關渡分院"
+        },
+        "section": [
+          {
+            "title": "入院診斷",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "46241-6",
+                  "display": "Hospital admission diagnosis"
+                }
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><ol><li>非ST段上升型心肌梗塞 (NSTEMI) (I21.4)</li><li>冠狀動脈粥狀硬化性心臟病 (I25.10)</li><li>高血壓 (I10)</li><li>第二型糖尿病 (E11.9)</li></ol></div>"
+            },
+            "entry": [
+              {
+                "reference": "Condition/cond-testa03-nstemi"
+              }
+            ]
+          },
+          {
+            "title": "主訴",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "10154-3",
+                  "display": "Chief complaint"
+                }
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>胸悶、冒冷汗 2 小時</p></div>"
+            }
+          },
+          {
+            "title": "住院經過",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "8648-8",
+                  "display": "Hospital course"
+                }
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>病人於 7/25 因胸悶、冒冷汗至急診就醫。ECG 顯示 ST 段壓低於 V4-V6，Troponin-I 升高至 2.8 ng/mL，診斷 NSTEMI。</p><p>7/26 安排心導管檢查，發現 LAD 中段狹窄約 85%，成功置放藥物塗層支架 (DES) 一枚。術後恢復良好，8/4 病情穩定出院。</p></div>"
+            },
+            "entry": [
+              {
+                "reference": "Procedure/proc-testa03-pci-lad"
+              }
+            ]
+          },
+          {
+            "title": "過敏史",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "48765-2",
+                  "display": "Allergies and adverse reactions"
+                }
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><ul><li><strong>Penicillin</strong>：皮疹</li><li><strong>Arcoxia (Etoricoxib)</strong>：濕疹</li></ul></div>"
+            },
+            "entry": [
+              {
+                "reference": "AllergyIntolerance/allergy-testa03-penicillin"
+              },
+              {
+                "reference": "AllergyIntolerance/allergy-testa03-arcoxia"
+              }
+            ]
+          },
+          {
+            "title": "出院用藥",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "10183-2",
+                  "display": "Hospital discharge medications"
+                }
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table><tr><th>藥品</th><th>劑量</th><th>頻次</th><th>說明</th></tr><tr><td>Aspirin</td><td>100mg</td><td>QD</td><td>抗血小板</td></tr><tr><td>Clopidogrel</td><td>75mg</td><td>QD</td><td>雙抗治療</td></tr><tr><td>Atorvastatin</td><td>40mg</td><td>HS</td><td>降血脂</td></tr><tr><td>Metoprolol</td><td>25mg</td><td>BID</td><td>β-阻斷劑</td></tr><tr><td>Ramipril</td><td>5mg</td><td>QD</td><td>ACEI</td></tr><tr><td>Metformin</td><td>500mg</td><td>BID</td><td>降血糖</td></tr></table></div>"
+            }
+          },
+          {
+            "title": "出院計畫",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "18776-5",
+                  "display": "Plan of care"
+                }
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>病情穩定出院，門診持續追蹤。規則服藥，避免 Penicillin 及 Arcoxia 類藥物。</p></div>"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Composition/comp-testa03-discharge-01"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Composition/comp-testa03-transfer-01",
+      "resource": {
+        "resourceType": "Composition",
+        "id": "comp-testa03-transfer-01",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Composition-twcore"
+          ]
+        },
+        "status": "preliminary",
+        "type": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "18761-7",
+              "display": "Transfer summary note"
+            }
+          ],
+          "text": "轉診/轉院病摘"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-03",
+          "display": "陳志明"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-testa03-02"
+        },
+        "date": "2025-12-27T10:00:00+08:00",
+        "author": [
+          {
+            "reference": "Practitioner/prac-cardio-kdgh",
+            "display": "王心臟（心臟內科主治醫師）"
+          }
+        ],
+        "title": "住院中轉院病摘 - 冠狀動脈三支血管疾病，需 CABG 手術",
+        "custodian": {
+          "reference": "Organization/org-kdgh",
+          "display": "臺北榮民總醫院關渡分院"
+        },
+        "section": [
+          {
+            "title": "轉院原因",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "42349-1",
+                  "display": "Reason for referral"
+                }
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><strong>轉院原因</strong>：病人為冠狀動脈三支血管疾病合併支架內再狹窄，不適合再做 PCI，需接受冠狀動脈繞道手術 (CABG)。關渡醫院為區域醫院，無心臟外科能量，需轉至臺北榮民總醫院心臟血管外科手術。</p><p><strong>轉往醫院</strong>：臺北榮民總醫院心臟血管外科</p></div>"
+            }
+          },
+          {
+            "title": "目前診斷",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "11535-2",
+                  "display": "Hospital discharge diagnosis"
+                }
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><ol><li>冠狀動脈三支血管疾病 (I25.10)</li><li>LAD 支架內再狹窄 (T82.855A)</li><li>心臟衰竭，LVEF 45% (I50.9)</li><li>NSTEMI 病史 (I25.2)</li><li>高血壓 (I10)</li><li>第二型糖尿病 (E11.9)</li><li>高血脂症 (E78.5)</li></ol></div>"
+            },
+            "entry": [
+              {
+                "reference": "Condition/cond-testa03-cad-tvd"
+              },
+              {
+                "reference": "Condition/cond-testa03-isr"
+              },
+              {
+                "reference": "Condition/cond-testa03-hf"
+              },
+              {
+                "reference": "Condition/cond-testa03-htn"
+              },
+              {
+                "reference": "Condition/cond-testa03-dm"
+              },
+              {
+                "reference": "Condition/cond-testa03-hyperlipidemia"
+              }
+            ]
+          },
+          {
+            "title": "本次住院經過",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "8648-8",
+                  "display": "Hospital course"
+                }
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>病人於 12/22 因胸悶加劇、活動時呼吸困難 2 週入院。ECG 顯示 V4-V6 T 波倒置，Echo: LVEF 45%（較前次 55% 下降），BNP 856 pg/mL。</p><p><strong>12/24 心導管結果</strong>：</p><ul><li>LAD 支架內再狹窄 70%</li><li>LCX 近端 80%</li><li>RCA 中段 75%</li></ul><p>診斷三支血管疾病，建議 CABG 手術。目前心衰竭藥物治療中，症狀穩定，準備轉院手術。</p></div>"
+            },
+            "entry": [
+              {
+                "reference": "Procedure/proc-testa03-cag-2"
+              }
+            ]
+          },
+          {
+            "title": "過敏史",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "48765-2",
+                  "display": "Allergies and adverse reactions"
+                }
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>⚠️ <strong>藥物過敏</strong>：</p><ul><li><strong>Penicillin</strong>：皮疹（嚴重）</li><li><strong>Arcoxia (Etoricoxib)</strong>：濕疹（輕度）</li></ul></div>"
+            },
+            "entry": [
+              {
+                "reference": "AllergyIntolerance/allergy-testa03-penicillin"
+              },
+              {
+                "reference": "AllergyIntolerance/allergy-testa03-arcoxia"
+              }
+            ]
+          },
+          {
+            "title": "目前用藥",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "10160-0",
+                  "display": "History of medication use"
+                }
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table><tr><th>藥品</th><th>劑量</th><th>頻次</th><th>途徑</th></tr><tr><td>Aspirin</td><td>100mg</td><td>QD</td><td>PO</td></tr><tr><td>Clopidogrel</td><td>75mg</td><td>QD</td><td>PO</td></tr><tr><td>Atorvastatin</td><td>40mg</td><td>HS</td><td>PO</td></tr><tr><td>Metoprolol</td><td>25mg</td><td>BID</td><td>PO</td></tr><tr><td>Ramipril</td><td>5mg</td><td>QD</td><td>PO</td></tr><tr><td>Furosemide</td><td>20mg</td><td>QD</td><td>PO</td></tr><tr><td>Metformin</td><td>500mg</td><td>BID</td><td>PO</td></tr><tr><td>Heparin</td><td>1000 U/hr</td><td>continuous</td><td>IV</td></tr></table></div>"
+            },
+            "entry": [
+              {
+                "reference": "MedicationStatement/medstmt-testa03-aspirin"
+              },
+              {
+                "reference": "MedicationStatement/medstmt-testa03-clopidogrel"
+              },
+              {
+                "reference": "MedicationStatement/medstmt-testa03-atorvastatin"
+              },
+              {
+                "reference": "MedicationStatement/medstmt-testa03-metoprolol"
+              },
+              {
+                "reference": "MedicationStatement/medstmt-testa03-ramipril"
+              },
+              {
+                "reference": "MedicationStatement/medstmt-testa03-furosemide"
+              },
+              {
+                "reference": "MedicationStatement/medstmt-testa03-metformin"
+              },
+              {
+                "reference": "MedicationStatement/medstmt-testa03-heparin"
+              }
+            ]
+          },
+          {
+            "title": "最新檢驗數據",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "30954-2",
+                  "display": "Relevant diagnostic tests/laboratory data"
+                }
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h4>血液常規 (2025/12/26)</h4><table><tr><td>WBC</td><td>7,800 /μL</td><td>正常</td></tr><tr><td>Hb</td><td>13.2 g/dL</td><td>⬇️ 輕度貧血</td></tr><tr><td>Platelet</td><td>225,000 /μL</td><td>正常</td></tr></table><h4>生化</h4><table><tr><td>Creatinine</td><td>1.2 mg/dL</td><td>正常</td></tr><tr><td>eGFR</td><td>62 mL/min</td><td>臨界</td></tr><tr><td>HbA1c</td><td>7.4%</td><td>⬆️ 略高</td></tr><tr><td>LDL-C</td><td>88 mg/dL</td><td>⬆️ 未達標</td></tr></table><h4>心臟指標</h4><table><tr><td>Troponin-I</td><td>0.08 ng/mL</td><td>⬆️ 輕度升高</td></tr><tr><td>BNP</td><td>856 pg/mL</td><td>⬆️ 心衰竭</td></tr></table></div>"
+            },
+            "entry": [
+              {
+                "reference": "Observation/obs-testa03-wbc"
+              },
+              {
+                "reference": "Observation/obs-testa03-hgb"
+              },
+              {
+                "reference": "Observation/obs-testa03-plt"
+              },
+              {
+                "reference": "Observation/obs-testa03-creatinine"
+              },
+              {
+                "reference": "Observation/obs-testa03-egfr"
+              },
+              {
+                "reference": "Observation/obs-testa03-hba1c"
+              },
+              {
+                "reference": "Observation/obs-testa03-troponin"
+              },
+              {
+                "reference": "Observation/obs-testa03-bnp"
+              },
+              {
+                "reference": "Observation/obs-testa03-ldl"
+              }
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Composition/comp-testa03-transfer-01"
+      }
+    }
+  ]
+}

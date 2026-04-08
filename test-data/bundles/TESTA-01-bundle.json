@@ -1,0 +1,3722 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:Organization/org-vghtpe",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "org-vghtpe",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Organization-twcore"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "https://thas.mohw.gov.tw/orggov",
+            "value": "0601160016"
+          }
+        ],
+        "active": true,
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "prov",
+                "display": "Healthcare Provider"
+              }
+            ]
+          }
+        ],
+        "name": "臺北榮民總醫院",
+        "alias": [
+          "Taipei Veterans General Hospital",
+          "VGHTPE",
+          "北榮"
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "+886-2-28712121"
+          },
+          {
+            "system": "url",
+            "value": "https://www.vghtpe.gov.tw/"
+          }
+        ],
+        "address": [
+          {
+            "use": "work",
+            "type": "physical",
+            "text": "台北市北投區石牌路二段201號",
+            "city": "台北市",
+            "district": "北投區",
+            "postalCode": "112",
+            "country": "TW"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Organization/org-vghtpe"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Patient/pt-testa-01",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "pt-testa-01",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Patient-twcore"
+          ]
+        },
+        "identifier": [
+          {
+            "use": "official",
+            "system": "urn:oid:2.16.886.103",
+            "value": "F73278868",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "NI",
+                  "display": "National unique individual identifier"
+                }
+              ],
+              "text": "身分證字號"
+            }
+          },
+          {
+            "use": "secondary",
+            "system": "urn:oid:2.16.886.101.100",
+            "value": "900000000101",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "NI",
+                  "display": "National unique individual identifier"
+                }
+              ],
+              "text": "健保卡號"
+            }
+          },
+          {
+            "use": "secondary",
+            "system": "https://www.vghtpe.gov.tw/mrn",
+            "value": "5038295838",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "MR",
+                  "display": "Medical record number"
+                }
+              ],
+              "text": "病歷號碼"
+            }
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "use": "official",
+            "text": "林小萱"
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1991-03-15",
+        "address": [
+          {
+            "use": "home",
+            "type": "physical",
+            "text": "新北市北投區稻香路60號6樓",
+            "city": "新北市",
+            "district": "北投區",
+            "postalCode": "112"
+          }
+        ],
+        "managingOrganization": {
+          "reference": "Organization/org-vghtpe",
+          "display": "臺北榮民總醫院"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Patient/pt-testa-01"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Practitioner/prac-doc3311g",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "prac-doc3311g",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Practitioner-twcore"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "https://www.vghtpe.gov.tw/practitioner",
+            "value": "DOC3311G"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "use": "official",
+            "text": "陳光翰"
+          }
+        ],
+        "qualification": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0360",
+                  "code": "MD",
+                  "display": "Doctor of Medicine"
+                }
+              ],
+              "text": "主治醫師"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Practitioner/prac-doc3311g"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Practitioner/prac-doc8330g",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "prac-doc8330g",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Practitioner-twcore"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "https://www.vghtpe.gov.tw/practitioner",
+            "value": "DOC8330G"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "use": "official",
+            "text": "陳曜瑋"
+          }
+        ],
+        "qualification": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0360",
+                  "code": "MD",
+                  "display": "Doctor of Medicine"
+                }
+              ],
+              "text": "住院醫師"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Practitioner/prac-doc8330g"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Practitioner/prac-doc8434l",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "prac-doc8434l",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Practitioner-twcore"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "https://www.vghtpe.gov.tw/practitioner",
+            "value": "DOC8434L"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "use": "official",
+            "text": "曾心宜"
+          }
+        ],
+        "qualification": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0360",
+                  "code": "MD",
+                  "display": "Doctor of Medicine"
+                }
+              ],
+              "text": "住院醫師"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Practitioner/prac-doc8434l"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Encounter/enc-testa01-01",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "enc-testa01-01",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Encounter-twcore"
+          ]
+        },
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "IMP",
+          "display": "inpatient encounter"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/encounter-type",
+                "code": "ADMS",
+                "display": "Annual diabetes mellitus screening"
+              }
+            ],
+            "text": "住院"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/pt-testa-01",
+          "display": "TESTA-01"
+        },
+        "participant": [
+          {
+            "type": [
+              {
+                "coding": [
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                    "code": "ATND",
+                    "display": "attender"
+                  }
+                ]
+              }
+            ],
+            "individual": {
+              "reference": "Practitioner/prac-doc3311g",
+              "display": "陳光翰（主治醫師）"
+            }
+          },
+          {
+            "type": [
+              {
+                "coding": [
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                    "code": "ADM",
+                    "display": "admitter"
+                  }
+                ]
+              }
+            ],
+            "individual": {
+              "reference": "Practitioner/prac-doc8330g",
+              "display": "陳曜瑋（住院醫師）"
+            }
+          }
+        ],
+        "period": {
+          "start": "2025-11-20T19:57:00+08:00",
+          "end": "2025-11-22T15:00:00+08:00"
+        },
+        "length": {
+          "value": 2,
+          "unit": "days",
+          "system": "http://unitsofmeasure.org",
+          "code": "d"
+        },
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                "code": "M32.19",
+                "display": "Other organ or system involvement in systemic lupus erythematosus"
+              }
+            ],
+            "text": "Multiple joint swelling and pain, compatible with Systemic lupus erythematosus-related"
+          }
+        ],
+        "hospitalization": {
+          "dischargeDisposition": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/discharge-disposition",
+                "code": "home",
+                "display": "Home"
+              }
+            ],
+            "text": "出院後繼續來本院門診"
+          }
+        },
+        "location": [
+          {
+            "location": {
+              "display": "C089-49 過敏免疫風濕科病房"
+            },
+            "status": "completed"
+          }
+        ],
+        "serviceProvider": {
+          "reference": "Organization/org-vghtpe",
+          "display": "臺北榮民總醫院"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Encounter/enc-testa01-01"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Encounter/enc-testa01-02",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "enc-testa01-02",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Encounter-twcore"
+          ]
+        },
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "IMP",
+          "display": "inpatient encounter"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/encounter-type",
+                "code": "ADMS",
+                "display": "Annual diabetes mellitus screening"
+              }
+            ],
+            "text": "住院"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/pt-testa-01",
+          "display": "TESTA-01"
+        },
+        "participant": [
+          {
+            "type": [
+              {
+                "coding": [
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                    "code": "ATND",
+                    "display": "attender"
+                  }
+                ]
+              }
+            ],
+            "individual": {
+              "reference": "Practitioner/prac-doc3311g",
+              "display": "陳光翰（主治醫師）"
+            }
+          },
+          {
+            "type": [
+              {
+                "coding": [
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                    "code": "ADM",
+                    "display": "admitter"
+                  }
+                ]
+              }
+            ],
+            "individual": {
+              "reference": "Practitioner/prac-doc8434l",
+              "display": "曾心宜（住院醫師）"
+            }
+          }
+        ],
+        "period": {
+          "start": "2026-01-01T19:08:00+08:00",
+          "end": "2026-01-03T15:00:00+08:00"
+        },
+        "length": {
+          "value": 2,
+          "unit": "days",
+          "system": "http://unitsofmeasure.org",
+          "code": "d"
+        },
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                "code": "M32.19",
+                "display": "Other organ or system involvement in systemic lupus erythematosus"
+              }
+            ],
+            "text": "Multiple joint swelling and pain, compatible with Systemic lupus erythematosus-related"
+          }
+        ],
+        "hospitalization": {
+          "dischargeDisposition": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/discharge-disposition",
+                "code": "home",
+                "display": "Home"
+              }
+            ],
+            "text": "出院後繼續來本院門診"
+          }
+        },
+        "location": [
+          {
+            "location": {
+              "display": "C089-8 過敏免疫風濕科病房"
+            },
+            "status": "completed"
+          }
+        ],
+        "serviceProvider": {
+          "reference": "Organization/org-vghtpe",
+          "display": "臺北榮民總醫院"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Encounter/enc-testa01-02"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Encounter/enc-testa01-opd-01",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "enc-testa01-opd-01",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Encounter-twcore"
+          ]
+        },
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "AMB",
+          "display": "ambulatory"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                "code": "AMB",
+                "display": "Ambulatory"
+              }
+            ],
+            "text": "門診"
+          }
+        ],
+        "serviceType": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "394810000",
+              "display": "Rheumatology"
+            }
+          ],
+          "text": "風濕免疫科"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-01",
+          "display": "TESTA-01"
+        },
+        "period": {
+          "start": "2025-11-19T10:30:00+08:00",
+          "end": "2025-11-19T11:00:00+08:00"
+        },
+        "reasonCode": [
+          {
+            "text": "SLE 門診追蹤"
+          }
+        ],
+        "serviceProvider": {
+          "reference": "Organization/org-vghtpe",
+          "display": "臺北榮民總醫院"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Encounter/enc-testa01-opd-01"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Encounter/enc-testa01-opd-02",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "enc-testa01-opd-02",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Encounter-twcore"
+          ]
+        },
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "AMB",
+          "display": "ambulatory"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                "code": "AMB",
+                "display": "Ambulatory"
+              }
+            ],
+            "text": "門診"
+          }
+        ],
+        "serviceType": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "394810000",
+              "display": "Rheumatology"
+            }
+          ],
+          "text": "風濕免疫科"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-01",
+          "display": "TESTA-01"
+        },
+        "period": {
+          "start": "2025-12-17T14:00:00+08:00",
+          "end": "2025-12-17T14:30:00+08:00"
+        },
+        "reasonCode": [
+          {
+            "text": "SLE 門診追蹤 + 流感症狀"
+          }
+        ],
+        "serviceProvider": {
+          "reference": "Organization/org-vghtpe",
+          "display": "臺北榮民總醫院"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Encounter/enc-testa01-opd-02"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Condition/cond-testa01-sle",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "cond-testa01-sle",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Condition-twcore"
+          ]
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active",
+              "display": "Active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed",
+              "display": "Confirmed"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "encounter-diagnosis",
+                "display": "Encounter Diagnosis"
+              }
+            ]
+          }
+        ],
+        "severity": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "6736007",
+              "display": "Moderate"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "M32.19",
+              "display": "Other organ or system involvement in systemic lupus erythematosus"
+            },
+            {
+              "system": "http://snomed.info/sct",
+              "code": "55464009",
+              "display": "Systemic lupus erythematosus"
+            }
+          ],
+          "text": "Multiple joint swelling and pain, compatible with Systemic lupus erythematosus-related"
+        },
+        "bodySite": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "39352004",
+                "display": "Joint structure"
+              }
+            ],
+            "text": "Multiple joints (bilateral interphalangeal joints, left knee, wrist)"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/pt-testa-01",
+          "display": "TESTA-01"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-testa01-02"
+        },
+        "onsetDateTime": "2023-10-01",
+        "recordedDate": "2024-07-23",
+        "note": [
+          {
+            "text": "EULAR 2019 criteria: 16 points (Joint involvement +6, elevated dsDNA +6, low C3/C4+4). Antinuclear antibody 1:2560 (homogeneous, AC-1). s/p Belimumab since 2024/07/23, s/p Anifrolumab 2025/02-05 but arthritis recurred. Currently under Myfortic 1#BID. MSUS 2025/07/18: mild arthritis at Rt 2nd MCP, calcification at enthesis of the Lt 3rd central slip."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Condition/cond-testa01-sle"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Condition/cond-testa01-liver",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "cond-testa01-liver",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Condition-twcore"
+          ]
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "resolved",
+              "display": "Resolved"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed",
+              "display": "Confirmed"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "problem-list-item",
+                "display": "Problem List Item"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "R74.01",
+              "display": "Elevation of levels of liver transaminase levels"
+            }
+          ],
+          "text": "Elevated liver enzymes, cause to be determined (resolved)"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-01",
+          "display": "TESTA-01"
+        },
+        "recordedDate": "2024-05-14",
+        "note": [
+          {
+            "text": "HBsAg (-), anti-HCV (-), anti-HBs (-) on 2024/05/14. Abdominal sonogram 2024/07/22: no remarkable finding in liver, gallbladder, pancreas, spleen, kidneys, abdominal aorta, and urinary bladder."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Condition/cond-testa01-liver"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Procedure/proc-testa01-belimumab-01",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "proc-testa01-belimumab-01",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Procedure-twcore"
+          ]
+        },
+        "status": "completed",
+        "category": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "18629005",
+              "display": "Administration of drug or medicament"
+            }
+          ],
+          "text": "生物製劑治療"
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "1116635",
+              "display": "belimumab Injectable Product"
+            },
+            {
+              "system": "http://snomed.info/sct",
+              "code": "430127000",
+              "display": "Administration of biologic response modifier"
+            }
+          ],
+          "text": "Belimumab 480mg IV infusion"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-01",
+          "display": "TESTA-01"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-testa01-01"
+        },
+        "performedDateTime": "2025-11-21",
+        "performer": [
+          {
+            "actor": {
+              "reference": "Practitioner/prac-doc3311g",
+              "display": "陳光翰"
+            }
+          }
+        ],
+        "reasonReference": [
+          {
+            "reference": "Condition/cond-testa01-sle",
+            "display": "Systemic lupus erythematosus"
+          }
+        ],
+        "note": [
+          {
+            "text": "Benlysta 480mg IV infusion. Previous doses: 2024/07/23, 2024/08/30, 2024/09/29, 2024/10/26, 2024/11/30, 2025/01/05, 2025/06/15, 2025/07/18, 2025/08/19, 2025/09/16, 2025/10/17."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Procedure/proc-testa01-belimumab-01"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Procedure/proc-testa01-belimumab-02",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "proc-testa01-belimumab-02",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Procedure-twcore"
+          ]
+        },
+        "status": "completed",
+        "category": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "18629005",
+              "display": "Administration of drug or medicament"
+            }
+          ],
+          "text": "生物製劑治療"
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "1116635",
+              "display": "belimumab Injectable Product"
+            },
+            {
+              "system": "http://snomed.info/sct",
+              "code": "430127000",
+              "display": "Administration of biologic response modifier"
+            }
+          ],
+          "text": "Belimumab 480mg IV infusion"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-01",
+          "display": "TESTA-01"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-testa01-02"
+        },
+        "performedDateTime": "2026-01-02",
+        "performer": [
+          {
+            "actor": {
+              "reference": "Practitioner/prac-doc3311g",
+              "display": "陳光翰"
+            }
+          }
+        ],
+        "reasonReference": [
+          {
+            "reference": "Condition/cond-testa01-sle",
+            "display": "Systemic lupus erythematosus"
+          }
+        ],
+        "note": [
+          {
+            "text": "Benlysta 480mg IV infusion. This is the 13th cycle."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Procedure/proc-testa01-belimumab-02"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Procedure/proc-testa01-anifrolumab",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "proc-testa01-anifrolumab",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Procedure-twcore"
+          ]
+        },
+        "status": "stopped",
+        "statusReason": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "58848006",
+              "display": "Lack of drug action"
+            }
+          ],
+          "text": "Arthritis recurred despite treatment"
+        },
+        "category": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "18629005",
+              "display": "Administration of drug or medicament"
+            }
+          ],
+          "text": "生物製劑治療"
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "2472872",
+              "display": "anifrolumab Injectable Product"
+            }
+          ],
+          "text": "Anifrolumab IV infusion (self-paid)"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-01",
+          "display": "TESTA-01"
+        },
+        "performedPeriod": {
+          "start": "2025-02-02",
+          "end": "2025-05-18"
+        },
+        "performer": [
+          {
+            "actor": {
+              "reference": "Practitioner/prac-doc3311g",
+              "display": "陳光翰"
+            }
+          }
+        ],
+        "reasonReference": [
+          {
+            "reference": "Condition/cond-testa01-sle",
+            "display": "Systemic lupus erythematosus"
+          }
+        ],
+        "outcome": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "385671000",
+              "display": "Unsuccessful"
+            }
+          ],
+          "text": "Arthritis recurred after 4 cycles"
+        },
+        "note": [
+          {
+            "text": "Received self-paid Anifrolumab on 2025/02/02, 2025/03/01, 2025/04/12, 2025/05/18 but symptoms seemed refractory. Switched back to Belimumab."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Procedure/proc-testa01-anifrolumab"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:MedicationStatement/medstmt-testa01-myfortic-01",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medstmt-testa01-myfortic-01",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/MedicationStatement-twcore"
+          ]
+        },
+        "status": "active",
+        "category": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/medication-statement-category",
+              "code": "outpatient",
+              "display": "Outpatient"
+            }
+          ],
+          "text": "出院帶回藥"
+        },
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "606913",
+              "display": "mycophenolic acid 180 MG Delayed Release Oral Tablet"
+            },
+            {
+              "system": "https://www.nhi.gov.tw/drug",
+              "code": "BC25489100",
+              "display": "Myfortic tab 180mg"
+            }
+          ],
+          "text": "Myfortic tab 180mg (Mycophenolic acid)"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-01",
+          "display": "TESTA-01"
+        },
+        "context": {
+          "reference": "Encounter/enc-testa01-01"
+        },
+        "effectivePeriod": {
+          "start": "2025-11-21"
+        },
+        "dateAsserted": "2025-11-22",
+        "informationSource": {
+          "reference": "Practitioner/prac-doc3311g",
+          "display": "陳光翰"
+        },
+        "reasonReference": [
+          {
+            "reference": "Condition/cond-testa01-sle",
+            "display": "Systemic lupus erythematosus"
+          }
+        ],
+        "dosage": [
+          {
+            "sequence": 1,
+            "text": "1 tablet twice daily",
+            "timing": {
+              "repeat": {
+                "frequency": 2,
+                "period": 1,
+                "periodUnit": "d"
+              },
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/v3-GTSAbbreviation",
+                    "code": "BID",
+                    "display": "twice daily"
+                  }
+                ],
+                "text": "BID"
+              }
+            },
+            "route": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "26643006",
+                  "display": "Oral route"
+                }
+              ],
+              "text": "PO"
+            },
+            "doseAndRate": [
+              {
+                "type": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/dose-rate-type",
+                      "code": "ordered",
+                      "display": "Ordered"
+                    }
+                  ]
+                },
+                "doseQuantity": {
+                  "value": 180,
+                  "unit": "mg",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mg"
+                }
+              }
+            ]
+          }
+        ],
+        "note": [
+          {
+            "text": "Total dispensed: 60 tablets. Self-paid medication."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "MedicationStatement/medstmt-testa01-myfortic-01"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:MedicationStatement/medstmt-testa01-myfortic-02",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medstmt-testa01-myfortic-02",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/MedicationStatement-twcore"
+          ]
+        },
+        "status": "active",
+        "category": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/medication-statement-category",
+              "code": "outpatient",
+              "display": "Outpatient"
+            }
+          ],
+          "text": "出院帶回藥"
+        },
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "606913",
+              "display": "mycophenolic acid 180 MG Delayed Release Oral Tablet"
+            },
+            {
+              "system": "https://www.nhi.gov.tw/drug",
+              "code": "BC25489100",
+              "display": "Myfortic tab 180mg"
+            }
+          ],
+          "text": "Myfortic tab 180mg (Mycophenolic acid)"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-01",
+          "display": "TESTA-01"
+        },
+        "context": {
+          "reference": "Encounter/enc-testa01-02"
+        },
+        "effectivePeriod": {
+          "start": "2026-01-02"
+        },
+        "dateAsserted": "2026-01-03",
+        "informationSource": {
+          "reference": "Practitioner/prac-doc3311g",
+          "display": "陳光翰"
+        },
+        "reasonReference": [
+          {
+            "reference": "Condition/cond-testa01-sle",
+            "display": "Systemic lupus erythematosus"
+          }
+        ],
+        "dosage": [
+          {
+            "sequence": 1,
+            "text": "1 tablet every 12 hours",
+            "timing": {
+              "repeat": {
+                "frequency": 1,
+                "period": 12,
+                "periodUnit": "h"
+              },
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/v3-GTSAbbreviation",
+                    "code": "Q12H",
+                    "display": "every 12 hours"
+                  }
+                ],
+                "text": "Q12H"
+              }
+            },
+            "route": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "26643006",
+                  "display": "Oral route"
+                }
+              ],
+              "text": "PO"
+            },
+            "doseAndRate": [
+              {
+                "type": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/dose-rate-type",
+                      "code": "ordered",
+                      "display": "Ordered"
+                    }
+                  ]
+                },
+                "doseQuantity": {
+                  "value": 180,
+                  "unit": "mg",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mg"
+                }
+              }
+            ]
+          }
+        ],
+        "note": [
+          {
+            "text": "Total dispensed: 60 tablets. Self-paid medication."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "MedicationStatement/medstmt-testa01-myfortic-02"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:MedicationStatement/medstmt-testa01-opd01-xanax",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medstmt-testa01-opd01-xanax",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/MedicationStatement-twcore"
+          ]
+        },
+        "status": "active",
+        "category": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/medication-statement-category",
+              "code": "outpatient",
+              "display": "Outpatient"
+            }
+          ],
+          "text": "門診用藥"
+        },
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "308047",
+              "display": "alprazolam 0.5 MG Oral Tablet"
+            }
+          ],
+          "text": "Xanax tab 0.5mg (Alprazolam)"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-01",
+          "display": "TESTA-01"
+        },
+        "context": {
+          "reference": "Encounter/enc-testa01-opd-01"
+        },
+        "effectivePeriod": {
+          "start": "2025-11-19",
+          "end": "2025-12-17"
+        },
+        "dosage": [
+          {
+            "text": "1 tablet at bedtime",
+            "timing": {
+              "code": {
+                "text": "QN"
+              }
+            },
+            "route": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "26643006",
+                  "display": "Oral route"
+                }
+              ],
+              "text": "PO"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "MedicationStatement/medstmt-testa01-opd01-xanax"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:MedicationStatement/medstmt-testa01-opd01-tonec",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medstmt-testa01-opd01-tonec",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/MedicationStatement-twcore"
+          ]
+        },
+        "status": "active",
+        "category": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/medication-statement-category",
+              "code": "outpatient",
+              "display": "Outpatient"
+            }
+          ],
+          "text": "門診用藥"
+        },
+        "medicationCodeableConcept": {
+          "text": "Tonec tab 100mg (Celecoxib)"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-01",
+          "display": "TESTA-01"
+        },
+        "context": {
+          "reference": "Encounter/enc-testa01-opd-01"
+        },
+        "effectivePeriod": {
+          "start": "2025-11-19",
+          "end": "2025-12-17"
+        },
+        "dosage": [
+          {
+            "text": "1 tablet twice daily with meal",
+            "timing": {
+              "code": {
+                "text": "BIDCC"
+              }
+            },
+            "route": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "26643006",
+                  "display": "Oral route"
+                }
+              ],
+              "text": "PO"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "MedicationStatement/medstmt-testa01-opd01-tonec"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:MedicationStatement/medstmt-testa01-opd02-tonec",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medstmt-testa01-opd02-tonec",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/MedicationStatement-twcore"
+          ]
+        },
+        "status": "active",
+        "category": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/medication-statement-category",
+              "code": "outpatient",
+              "display": "Outpatient"
+            }
+          ],
+          "text": "門診用藥"
+        },
+        "medicationCodeableConcept": {
+          "text": "Tonec tab 100mg (Celecoxib)"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-01",
+          "display": "TESTA-01"
+        },
+        "context": {
+          "reference": "Encounter/enc-testa01-opd-02"
+        },
+        "effectivePeriod": {
+          "start": "2025-12-17",
+          "end": "2026-01-14"
+        },
+        "dosage": [
+          {
+            "text": "1 tablet twice daily with meal",
+            "timing": {
+              "code": {
+                "text": "BIDCC"
+              }
+            },
+            "route": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "26643006",
+                  "display": "Oral route"
+                }
+              ],
+              "text": "PO"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "MedicationStatement/medstmt-testa01-opd02-tonec"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:MedicationStatement/medstmt-testa01-opd02-broenc",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medstmt-testa01-opd02-broenc",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/MedicationStatement-twcore"
+          ]
+        },
+        "status": "completed",
+        "category": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/medication-statement-category",
+              "code": "outpatient",
+              "display": "Outpatient"
+            }
+          ],
+          "text": "門診用藥"
+        },
+        "medicationCodeableConcept": {
+          "text": "Broen-C enteric FC tab (Bromelain + Vitamin C)"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-01",
+          "display": "TESTA-01"
+        },
+        "context": {
+          "reference": "Encounter/enc-testa01-opd-02"
+        },
+        "effectivePeriod": {
+          "start": "2025-12-17",
+          "end": "2025-12-20"
+        },
+        "dosage": [
+          {
+            "text": "1 tablet three times daily",
+            "timing": {
+              "code": {
+                "text": "TID"
+              }
+            },
+            "route": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "26643006",
+                  "display": "Oral route"
+                }
+              ],
+              "text": "PO"
+            }
+          }
+        ],
+        "note": [
+          {
+            "text": "短期消炎用"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "MedicationStatement/medstmt-testa01-opd02-broenc"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:MedicationStatement/medstmt-testa01-opd02-xofluza",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medstmt-testa01-opd02-xofluza",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/MedicationStatement-twcore"
+          ]
+        },
+        "status": "completed",
+        "category": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/medication-statement-category",
+              "code": "outpatient",
+              "display": "Outpatient"
+            }
+          ],
+          "text": "門診用藥"
+        },
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "2173679",
+              "display": "baloxavir marboxil 20 MG Oral Tablet"
+            }
+          ],
+          "text": "Xofluza FC tab 20mg (Baloxavir)"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-01",
+          "display": "TESTA-01"
+        },
+        "context": {
+          "reference": "Encounter/enc-testa01-opd-02"
+        },
+        "effectivePeriod": {
+          "start": "2025-12-17",
+          "end": "2025-12-18"
+        },
+        "dosage": [
+          {
+            "text": "2 tablets once",
+            "timing": {
+              "code": {
+                "text": "ONCE"
+              }
+            },
+            "route": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "26643006",
+                  "display": "Oral route"
+                }
+              ],
+              "text": "PO"
+            }
+          }
+        ],
+        "note": [
+          {
+            "text": "流感抗病毒藥，自費"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "MedicationStatement/medstmt-testa01-opd02-xofluza"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:MedicationStatement/medstmt-testa01-opd02-xanax",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medstmt-testa01-opd02-xanax",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/MedicationStatement-twcore"
+          ]
+        },
+        "status": "active",
+        "category": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/medication-statement-category",
+              "code": "outpatient",
+              "display": "Outpatient"
+            }
+          ],
+          "text": "門診用藥"
+        },
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "308047",
+              "display": "alprazolam 0.5 MG Oral Tablet"
+            }
+          ],
+          "text": "Xanax tab 0.5mg (Alprazolam)"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-01",
+          "display": "TESTA-01"
+        },
+        "context": {
+          "reference": "Encounter/enc-testa01-opd-02"
+        },
+        "effectivePeriod": {
+          "start": "2025-12-17",
+          "end": "2026-01-14"
+        },
+        "dosage": [
+          {
+            "text": "1 tablet at bedtime",
+            "timing": {
+              "code": {
+                "text": "QN"
+              }
+            },
+            "route": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "26643006",
+                  "display": "Oral route"
+                }
+              ],
+              "text": "PO"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "MedicationStatement/medstmt-testa01-opd02-xanax"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Observation/obs-testa01-wbc-01",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-testa01-wbc-01",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Observation-laboratoryResult-twcore"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "6690-2",
+              "display": "Leukocytes [#/volume] in Blood by Automated count"
+            }
+          ],
+          "text": "WBC"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-01",
+          "display": "TESTA-01"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-testa01-01"
+        },
+        "effectiveDateTime": "2025-11-20",
+        "valueQuantity": {
+          "value": 8230,
+          "unit": "/cumm",
+          "system": "http://unitsofmeasure.org",
+          "code": "/uL"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/obs-testa01-wbc-01"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Observation/obs-testa01-rbc-01",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-testa01-rbc-01",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Observation-laboratoryResult-twcore"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "789-8",
+              "display": "Erythrocytes [#/volume] in Blood by Automated count"
+            }
+          ],
+          "text": "RBC"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-01",
+          "display": "TESTA-01"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-testa01-01"
+        },
+        "effectiveDateTime": "2025-11-20",
+        "valueQuantity": {
+          "value": 5,
+          "unit": "m/cumm",
+          "system": "http://unitsofmeasure.org",
+          "code": "10*6/uL"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/obs-testa01-rbc-01"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Observation/obs-testa01-hgb-01",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-testa01-hgb-01",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Observation-laboratoryResult-twcore"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "718-7",
+              "display": "Hemoglobin [Mass/volume] in Blood"
+            }
+          ],
+          "text": "HGB"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-01",
+          "display": "TESTA-01"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-testa01-01"
+        },
+        "effectiveDateTime": "2025-11-20",
+        "valueQuantity": {
+          "value": 14.5,
+          "unit": "g/dL",
+          "system": "http://unitsofmeasure.org",
+          "code": "g/dL"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/obs-testa01-hgb-01"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Observation/obs-testa01-hct-01",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-testa01-hct-01",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Observation-laboratoryResult-twcore"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "4544-3",
+              "display": "Hematocrit [Volume Fraction] of Blood by Automated count"
+            }
+          ],
+          "text": "HCT"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-01",
+          "display": "TESTA-01"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-testa01-01"
+        },
+        "effectiveDateTime": "2025-11-20",
+        "valueQuantity": {
+          "value": 43.9,
+          "unit": "%",
+          "system": "http://unitsofmeasure.org",
+          "code": "%"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/obs-testa01-hct-01"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Observation/obs-testa01-mcv-01",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-testa01-mcv-01",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Observation-laboratoryResult-twcore"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "787-2",
+              "display": "MCV [Entitic volume] by Automated count"
+            }
+          ],
+          "text": "MCV"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-01",
+          "display": "TESTA-01"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-testa01-01"
+        },
+        "effectiveDateTime": "2025-11-20",
+        "valueQuantity": {
+          "value": 87.8,
+          "unit": "fL",
+          "system": "http://unitsofmeasure.org",
+          "code": "fL"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/obs-testa01-mcv-01"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Observation/obs-testa01-plt-01",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-testa01-plt-01",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Observation-laboratoryResult-twcore"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "777-3",
+              "display": "Platelets [#/volume] in Blood by Automated count"
+            }
+          ],
+          "text": "Platelet"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-01",
+          "display": "TESTA-01"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-testa01-01"
+        },
+        "effectiveDateTime": "2025-11-20",
+        "valueQuantity": {
+          "value": 313000,
+          "unit": "/cumm",
+          "system": "http://unitsofmeasure.org",
+          "code": "/uL"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/obs-testa01-plt-01"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Observation/obs-testa01-esr-01",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-testa01-esr-01",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Observation-laboratoryResult-twcore"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "4537-7",
+              "display": "Erythrocyte sedimentation rate"
+            }
+          ],
+          "text": "ESR"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-01",
+          "display": "TESTA-01"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-testa01-01"
+        },
+        "effectiveDateTime": "2025-11-20",
+        "valueQuantity": {
+          "value": 2,
+          "unit": "mm/h",
+          "system": "http://unitsofmeasure.org",
+          "code": "mm/h"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/obs-testa01-esr-01"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Observation/obs-testa01-bun-01",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-testa01-bun-01",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Observation-laboratoryResult-twcore"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "3094-0",
+              "display": "Urea nitrogen [Mass/volume] in Serum or Plasma"
+            }
+          ],
+          "text": "BUN"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-01",
+          "display": "TESTA-01"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-testa01-01"
+        },
+        "effectiveDateTime": "2025-11-20",
+        "valueQuantity": {
+          "value": 11,
+          "unit": "mg/dL",
+          "system": "http://unitsofmeasure.org",
+          "code": "mg/dL"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/obs-testa01-bun-01"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Observation/obs-testa01-crea-01",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-testa01-crea-01",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Observation-laboratoryResult-twcore"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "2160-0",
+              "display": "Creatinine [Mass/volume] in Serum or Plasma"
+            }
+          ],
+          "text": "Creatinine"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-01",
+          "display": "TESTA-01"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-testa01-01"
+        },
+        "effectiveDateTime": "2025-11-20",
+        "valueQuantity": {
+          "value": 0.5,
+          "unit": "mg/dL",
+          "system": "http://unitsofmeasure.org",
+          "code": "mg/dL"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/obs-testa01-crea-01"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Observation/obs-testa01-tbil-01",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-testa01-tbil-01",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Observation-laboratoryResult-twcore"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "1975-2",
+              "display": "Bilirubin.total [Mass/volume] in Serum or Plasma"
+            }
+          ],
+          "text": "Total Bilirubin"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-01",
+          "display": "TESTA-01"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-testa01-01"
+        },
+        "effectiveDateTime": "2025-11-20",
+        "valueQuantity": {
+          "value": 0.48,
+          "unit": "mg/dL",
+          "system": "http://unitsofmeasure.org",
+          "code": "mg/dL"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/obs-testa01-tbil-01"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Observation/obs-testa01-alt-01",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-testa01-alt-01",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Observation-laboratoryResult-twcore"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "1742-6",
+              "display": "Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma"
+            }
+          ],
+          "text": "ALT"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-01",
+          "display": "TESTA-01"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-testa01-01"
+        },
+        "effectiveDateTime": "2025-11-20",
+        "valueQuantity": {
+          "value": 9,
+          "unit": "U/L",
+          "system": "http://unitsofmeasure.org",
+          "code": "U/L"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/obs-testa01-alt-01"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Observation/obs-testa01-na-01",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-testa01-na-01",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Observation-laboratoryResult-twcore"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "2951-2",
+              "display": "Sodium [Moles/volume] in Serum or Plasma"
+            }
+          ],
+          "text": "Sodium"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-01",
+          "display": "TESTA-01"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-testa01-01"
+        },
+        "effectiveDateTime": "2025-11-20",
+        "valueQuantity": {
+          "value": 143,
+          "unit": "mmol/L",
+          "system": "http://unitsofmeasure.org",
+          "code": "mmol/L"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/obs-testa01-na-01"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Observation/obs-testa01-k-01",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-testa01-k-01",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Observation-laboratoryResult-twcore"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "2823-3",
+              "display": "Potassium [Moles/volume] in Serum or Plasma"
+            }
+          ],
+          "text": "Potassium"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-01",
+          "display": "TESTA-01"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-testa01-01"
+        },
+        "effectiveDateTime": "2025-11-20",
+        "valueQuantity": {
+          "value": 4,
+          "unit": "mmol/L",
+          "system": "http://unitsofmeasure.org",
+          "code": "mmol/L"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/obs-testa01-k-01"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Observation/obs-testa01-crp-01",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-testa01-crp-01",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Observation-laboratoryResult-twcore"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "1988-5",
+              "display": "C reactive protein [Mass/volume] in Serum or Plasma"
+            }
+          ],
+          "text": "CRP"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-01",
+          "display": "TESTA-01"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-testa01-01"
+        },
+        "effectiveDateTime": "2025-11-20",
+        "valueQuantity": {
+          "value": 0.06,
+          "comparator": "<",
+          "unit": "mg/dL",
+          "system": "http://unitsofmeasure.org",
+          "code": "mg/dL"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/obs-testa01-crp-01"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Observation/obs-testa01-c3-01",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-testa01-c3-01",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Observation-laboratoryResult-twcore"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "4485-9",
+              "display": "Complement C3 [Mass/volume] in Serum or Plasma"
+            }
+          ],
+          "text": "C3"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-01",
+          "display": "TESTA-01"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-testa01-01"
+        },
+        "effectiveDateTime": "2025-11-21",
+        "valueQuantity": {
+          "value": 97.8,
+          "unit": "mg/dL",
+          "system": "http://unitsofmeasure.org",
+          "code": "mg/dL"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/obs-testa01-c3-01"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Observation/obs-testa01-c4-01",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-testa01-c4-01",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Observation-laboratoryResult-twcore"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "4498-2",
+              "display": "Complement C4 [Mass/volume] in Serum or Plasma"
+            }
+          ],
+          "text": "C4"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-01",
+          "display": "TESTA-01"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-testa01-01"
+        },
+        "effectiveDateTime": "2025-11-21",
+        "valueQuantity": {
+          "value": 15,
+          "unit": "mg/dL",
+          "system": "http://unitsofmeasure.org",
+          "code": "mg/dL"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/obs-testa01-c4-01"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Observation/obs-testa01-wbc-02",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-testa01-wbc-02",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Observation-laboratoryResult-twcore"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "6690-2",
+              "display": "Leukocytes [#/volume] in Blood by Automated count"
+            }
+          ],
+          "text": "WBC"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-01",
+          "display": "TESTA-01"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-testa01-02"
+        },
+        "effectiveDateTime": "2026-01-02",
+        "valueQuantity": {
+          "value": 9980,
+          "unit": "/cumm",
+          "system": "http://unitsofmeasure.org",
+          "code": "/uL"
+        },
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "H",
+                "display": "High"
+              }
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/obs-testa01-wbc-02"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Observation/obs-testa01-hgb-02",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-testa01-hgb-02",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Observation-laboratoryResult-twcore"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "718-7",
+              "display": "Hemoglobin [Mass/volume] in Blood"
+            }
+          ],
+          "text": "HGB"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-01",
+          "display": "TESTA-01"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-testa01-02"
+        },
+        "effectiveDateTime": "2026-01-02",
+        "valueQuantity": {
+          "value": 14.3,
+          "unit": "g/dL",
+          "system": "http://unitsofmeasure.org",
+          "code": "g/dL"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/obs-testa01-hgb-02"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Observation/obs-testa01-plt-02",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-testa01-plt-02",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Observation-laboratoryResult-twcore"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "777-3",
+              "display": "Platelets [#/volume] in Blood by Automated count"
+            }
+          ],
+          "text": "Platelet"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-01",
+          "display": "TESTA-01"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-testa01-02"
+        },
+        "effectiveDateTime": "2026-01-02",
+        "valueQuantity": {
+          "value": 398000,
+          "unit": "/cumm",
+          "system": "http://unitsofmeasure.org",
+          "code": "/uL"
+        },
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "H",
+                "display": "High"
+              }
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/obs-testa01-plt-02"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Observation/obs-testa01-bun-02",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-testa01-bun-02",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Observation-laboratoryResult-twcore"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "3094-0",
+              "display": "Urea nitrogen [Mass/volume] in Serum or Plasma"
+            }
+          ],
+          "text": "BUN"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-01",
+          "display": "TESTA-01"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-testa01-02"
+        },
+        "effectiveDateTime": "2026-01-02",
+        "valueQuantity": {
+          "value": 13,
+          "unit": "mg/dL",
+          "system": "http://unitsofmeasure.org",
+          "code": "mg/dL"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/obs-testa01-bun-02"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Observation/obs-testa01-crea-02",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-testa01-crea-02",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Observation-laboratoryResult-twcore"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "2160-0",
+              "display": "Creatinine [Mass/volume] in Serum or Plasma"
+            }
+          ],
+          "text": "Creatinine"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-01",
+          "display": "TESTA-01"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-testa01-02"
+        },
+        "effectiveDateTime": "2026-01-02",
+        "valueQuantity": {
+          "value": 0.45,
+          "unit": "mg/dL",
+          "system": "http://unitsofmeasure.org",
+          "code": "mg/dL"
+        },
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "L",
+                "display": "Low"
+              }
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/obs-testa01-crea-02"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Observation/obs-testa01-alt-02",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-testa01-alt-02",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Observation-laboratoryResult-twcore"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "1742-6",
+              "display": "Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma"
+            }
+          ],
+          "text": "ALT"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-01",
+          "display": "TESTA-01"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-testa01-02"
+        },
+        "effectiveDateTime": "2026-01-02",
+        "valueQuantity": {
+          "value": 9,
+          "unit": "U/L",
+          "system": "http://unitsofmeasure.org",
+          "code": "U/L"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/obs-testa01-alt-02"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Observation/obs-testa01-na-02",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-testa01-na-02",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Observation-laboratoryResult-twcore"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "2951-2",
+              "display": "Sodium [Moles/volume] in Serum or Plasma"
+            }
+          ],
+          "text": "Sodium"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-01",
+          "display": "TESTA-01"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-testa01-02"
+        },
+        "effectiveDateTime": "2026-01-02",
+        "valueQuantity": {
+          "value": 139,
+          "unit": "mmol/L",
+          "system": "http://unitsofmeasure.org",
+          "code": "mmol/L"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/obs-testa01-na-02"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Observation/obs-testa01-k-02",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-testa01-k-02",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Observation-laboratoryResult-twcore"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "2823-3",
+              "display": "Potassium [Moles/volume] in Serum or Plasma"
+            }
+          ],
+          "text": "Potassium"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-01",
+          "display": "TESTA-01"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-testa01-02"
+        },
+        "effectiveDateTime": "2026-01-02",
+        "valueQuantity": {
+          "value": 3.7,
+          "unit": "mmol/L",
+          "system": "http://unitsofmeasure.org",
+          "code": "mmol/L"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/obs-testa01-k-02"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Observation/obs-testa01-crp-02",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-testa01-crp-02",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Observation-laboratoryResult-twcore"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "1988-5",
+              "display": "C reactive protein [Mass/volume] in Serum or Plasma"
+            }
+          ],
+          "text": "CRP"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-01",
+          "display": "TESTA-01"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-testa01-02"
+        },
+        "effectiveDateTime": "2026-01-02",
+        "valueQuantity": {
+          "value": 0.06,
+          "comparator": "<",
+          "unit": "mg/dL",
+          "system": "http://unitsofmeasure.org",
+          "code": "mg/dL"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/obs-testa01-crp-02"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Observation/obs-testa01-c3-02",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-testa01-c3-02",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Observation-laboratoryResult-twcore"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "4485-9",
+              "display": "Complement C3 [Mass/volume] in Serum or Plasma"
+            }
+          ],
+          "text": "C3"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-01",
+          "display": "TESTA-01"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-testa01-02"
+        },
+        "effectiveDateTime": "2026-01-02",
+        "valueQuantity": {
+          "value": 116.3,
+          "unit": "mg/dL",
+          "system": "http://unitsofmeasure.org",
+          "code": "mg/dL"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/obs-testa01-c3-02"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Observation/obs-testa01-c4-02",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-testa01-c4-02",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Observation-laboratoryResult-twcore"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "4498-2",
+              "display": "Complement C4 [Mass/volume] in Serum or Plasma"
+            }
+          ],
+          "text": "C4"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-01",
+          "display": "TESTA-01"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-testa01-02"
+        },
+        "effectiveDateTime": "2026-01-02",
+        "valueQuantity": {
+          "value": 20.3,
+          "unit": "mg/dL",
+          "system": "http://unitsofmeasure.org",
+          "code": "mg/dL"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/obs-testa01-c4-02"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Observation/obs-testa01-igg-02",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-testa01-igg-02",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Observation-laboratoryResult-twcore"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "2465-3",
+              "display": "IgG [Mass/volume] in Serum or Plasma"
+            }
+          ],
+          "text": "IgG"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-01",
+          "display": "TESTA-01"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-testa01-02"
+        },
+        "effectiveDateTime": "2026-01-02",
+        "valueQuantity": {
+          "value": 1023,
+          "unit": "mg/dL",
+          "system": "http://unitsofmeasure.org",
+          "code": "mg/dL"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/obs-testa01-igg-02"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Composition/comp-testa01-discharge-01",
+      "resource": {
+        "resourceType": "Composition",
+        "id": "comp-testa01-discharge-01",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Composition-twcore"
+          ]
+        },
+        "status": "final",
+        "type": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "18842-5",
+              "display": "Discharge summary"
+            }
+          ],
+          "text": "出院病摘"
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://loinc.org",
+                "code": "11490-0",
+                "display": "Physician Discharge summary"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/pt-testa-01",
+          "display": "林小萱"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-testa01-01"
+        },
+        "date": "2025-11-22T15:00:00+08:00",
+        "author": [
+          {
+            "reference": "Practitioner/prac-doc3311g",
+            "display": "陳光翰（主治醫師）"
+          },
+          {
+            "reference": "Practitioner/prac-doc8330g",
+            "display": "陳曜瑋（住院醫師）"
+          }
+        ],
+        "title": "出院病歷摘要",
+        "custodian": {
+          "reference": "Organization/org-vghtpe",
+          "display": "臺北榮民總醫院"
+        },
+        "section": [
+          {
+            "title": "入院診斷",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "46241-6",
+                  "display": "Hospital admission diagnosis"
+                }
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><strong>【Active Problem】</strong></p><ol><li>多處關節腫脹疼痛，符合全身性紅斑狼瘡相關表現</li></ol><p>*EULAR 2019 診斷標準：16 分（關節侵犯 +6、dsDNA 抗體升高 +6、C3/C4 低下 +4）</p><p>*抗核抗體 1:2560（均質型，AC-1）</p><p>-曾使用 Belimumab 2024/07/23-2025/10/17</p><p>-曾使用 Anifrolumab 2025/02-05（關節炎復發）</p><p>-目前使用 Myfortic 1# BID</p><p><strong>【Inactive Problem】</strong></p><ol><li>肝功能指數上升，原因待查（已改善）</li></ol></div>"
+            },
+            "entry": [
+              {
+                "reference": "Condition/cond-testa01-sle"
+              }
+            ]
+          },
+          {
+            "title": "主訴",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "10154-3",
+                  "display": "Chief complaint"
+                }
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>左手肘及雙側膝蓋關節疼痛約兩週</p></div>"
+            }
+          },
+          {
+            "title": "現病史",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "10164-2",
+                  "display": "History of present illness"
+                }
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>病人為 35 歲女性，過去病史如上述。2023 年 10 月開始出現關節疼痛症狀，雙側指間關節及左膝出現疼痛伴隨腫脹。另有單一口腔潰瘍，後自行痊癒。至本院風濕免疫科門診就醫，發現 anti-dsDNA 抗體升高、抗核抗體升高、C3 及 C4 低下、紅血球沉降速率升高。抗核抗體為 1:2560，呈均質型。無蛋白尿或蝶形紅斑。與病人討論後，自 2024/07/23 起開始接受 Belimumab 注射治療。</p><p>上次出院後，無發燒、畏寒、體重減輕、食慾不振、頭暈、頭痛、胸痛、胸悶、呼吸困難或排尿不適，但仍有輕微雙側手腕及膝蓋疼痛。此次入院進一步處理。</p></div>"
+            }
+          },
+          {
+            "title": "住院經過",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "8648-8",
+                  "display": "Hospital course"
+                }
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>病人自述於入院前約一週出現關節疼痛加劇。止痛藥使用頻率不高，主要用於頭痛。評估無 Belimumab 使用禁忌，依排程給予 480mg 治療。病人住院期間穩定，於 2025/11/22 出院。</p></div>"
+            },
+            "entry": [
+              {
+                "reference": "Procedure/proc-testa01-belimumab-01"
+              }
+            ]
+          },
+          {
+            "title": "出院診斷",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "11535-2",
+                  "display": "Hospital discharge diagnosis"
+                }
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><strong>【Active Problem】</strong></p><ol><li>多處關節腫脹疼痛，符合全身性紅斑狼瘡相關表現</li></ol><p>*EULAR 2019 診斷標準：16 分</p><p>*2025/11/21 接受 Belimumab 治療</p><p><strong>【Inactive Problem】</strong></p><ol><li>肝功能指數上升（已改善）</li></ol></div>"
+            },
+            "entry": [
+              {
+                "reference": "Condition/cond-testa01-sle"
+              },
+              {
+                "reference": "Condition/cond-testa01-liver"
+              }
+            ]
+          },
+          {
+            "title": "過敏史",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "48765-2",
+                  "display": "Allergies and adverse reactions"
+                }
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>No known drug allergies (NKDA)</p></div>"
+            },
+            "emptyReason": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/list-empty-reason",
+                  "code": "nilknown",
+                  "display": "Nil Known"
+                }
+              ],
+              "text": "無已知藥物過敏"
+            }
+          },
+          {
+            "title": "出院用藥",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "10183-2",
+                  "display": "Hospital discharge medications"
+                }
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table><thead><tr><th>藥品名稱</th><th>劑量</th><th>頻次</th><th>途徑</th><th>數量</th></tr></thead><tbody><tr><td>Myfortic tab 180mg（麥考酚酸）</td><td>180mg</td><td>BID</td><td>PO</td><td>60</td></tr></tbody></table></div>"
+            },
+            "entry": [
+              {
+                "reference": "MedicationStatement/medstmt-testa01-myfortic-01"
+              }
+            ]
+          },
+          {
+            "title": "檢驗結果",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "30954-2",
+                  "display": "Relevant diagnostic tests/laboratory data"
+                }
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h4>血液常規 (2025-11-20)</h4><table><tr><td>白血球</td><td>8230 /cumm</td></tr><tr><td>紅血球</td><td>5.00 m/cumm</td></tr><tr><td>血紅素</td><td>14.5 g/dL</td></tr><tr><td>血比容</td><td>43.9%</td></tr><tr><td>平均紅血球容積</td><td>87.8 fL</td></tr><tr><td>血小板</td><td>313000 /cumm</td></tr><tr><td>紅血球沉降速率</td><td>2 mm/h</td></tr></table><h4>生化 (2025-11-20)</h4><table><tr><td>尿素氮</td><td>11 mg/dL</td></tr><tr><td>肌酸酐</td><td>0.50 mg/dL</td></tr><tr><td>總膽紅素</td><td>0.48 mg/dL</td></tr><tr><td>ALT</td><td>9 U/L</td></tr><tr><td>鈉</td><td>143 mmol/L</td></tr><tr><td>鉀</td><td>4.0 mmol/L</td></tr><tr><td>CRP</td><td>&lt;0.06 mg/dL</td></tr></table><h4>免疫 (2025-11-21)</h4><table><tr><td>C3 補體</td><td>97.8 mg/dL</td></tr><tr><td>C4 補體</td><td>15.0 mg/dL</td></tr></table></div>"
+            },
+            "entry": [
+              {
+                "reference": "Observation/obs-testa01-wbc-01"
+              },
+              {
+                "reference": "Observation/obs-testa01-rbc-01"
+              },
+              {
+                "reference": "Observation/obs-testa01-hgb-01"
+              },
+              {
+                "reference": "Observation/obs-testa01-hct-01"
+              },
+              {
+                "reference": "Observation/obs-testa01-mcv-01"
+              },
+              {
+                "reference": "Observation/obs-testa01-plt-01"
+              },
+              {
+                "reference": "Observation/obs-testa01-esr-01"
+              },
+              {
+                "reference": "Observation/obs-testa01-bun-01"
+              },
+              {
+                "reference": "Observation/obs-testa01-crea-01"
+              },
+              {
+                "reference": "Observation/obs-testa01-tbil-01"
+              },
+              {
+                "reference": "Observation/obs-testa01-alt-01"
+              },
+              {
+                "reference": "Observation/obs-testa01-na-01"
+              },
+              {
+                "reference": "Observation/obs-testa01-k-01"
+              },
+              {
+                "reference": "Observation/obs-testa01-crp-01"
+              },
+              {
+                "reference": "Observation/obs-testa01-c3-01"
+              },
+              {
+                "reference": "Observation/obs-testa01-c4-01"
+              }
+            ]
+          },
+          {
+            "title": "出院計畫",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "18776-5",
+                  "display": "Plan of care"
+                }
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>出院後繼續於本院門診追蹤</p></div>"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Composition/comp-testa01-discharge-01"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Composition/comp-testa01-discharge-02",
+      "resource": {
+        "resourceType": "Composition",
+        "id": "comp-testa01-discharge-02",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Composition-twcore"
+          ]
+        },
+        "status": "final",
+        "type": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "18842-5",
+              "display": "Discharge summary"
+            }
+          ],
+          "text": "出院病摘"
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://loinc.org",
+                "code": "11490-0",
+                "display": "Physician Discharge summary"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/pt-testa-01",
+          "display": "林小萱"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-testa01-02"
+        },
+        "date": "2026-01-10T15:00:00+08:00",
+        "author": [
+          {
+            "reference": "Practitioner/prac-doc3311g",
+            "display": "陳光翰（主治醫師）"
+          },
+          {
+            "reference": "Practitioner/prac-doc8434l",
+            "display": "曾心宜（住院醫師）"
+          }
+        ],
+        "title": "出院病歷摘要",
+        "custodian": {
+          "reference": "Organization/org-vghtpe",
+          "display": "臺北榮民總醫院"
+        },
+        "section": [
+          {
+            "title": "入院診斷",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "46241-6",
+                  "display": "Hospital admission diagnosis"
+                }
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><strong>【Active Problem】</strong></p><ol><li>多處關節腫脹疼痛，符合全身性紅斑狼瘡相關表現</li></ol><p>*EULAR 2019 診斷標準：16 分（關節侵犯 +6、dsDNA 抗體升高 +6、C3/C4 低下 +4）</p><p>*抗核抗體 1:2560（均質型，AC-1）</p><p>-曾使用 Belimumab 2024/07/23-2025/11/21</p><p>-曾使用 Anifrolumab 2025/02-05（關節炎復發）</p><p>-目前使用 Myfortic 1# BID</p><p><strong>【Inactive Problem】</strong></p><ol><li>肝功能指數上升，原因待查（已改善）</li></ol></div>"
+            },
+            "entry": [
+              {
+                "reference": "Condition/cond-testa01-sle"
+              }
+            ]
+          },
+          {
+            "title": "主訴",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "10154-3",
+                  "display": "Chief complaint"
+                }
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>左手肘及雙側膝蓋關節疼痛約兩週，近日加劇影響日常生活</p></div>"
+            }
+          },
+          {
+            "title": "現病史",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "10164-2",
+                  "display": "History of present illness"
+                }
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>病人為 35 歲女性，過去病史如上述。2023 年 10 月開始出現關節疼痛症狀，雙側指間關節及左膝出現疼痛伴隨腫脹。另有單一口腔潰瘍，後自行痊癒。至本院風濕免疫科門診就醫，發現 anti-dsDNA 抗體升高、抗核抗體升高、C3 及 C4 低下、紅血球沉降速率升高。抗核抗體為 1:2560，呈均質型。無蛋白尿或蝶形紅斑。與病人討論後，自 2024/07/23 起開始接受 Belimumab 注射治療。</p><p>上次出院後，仍有輕微雙側手腕及膝蓋疼痛。此次入院進一步處理。</p></div>"
+            }
+          },
+          {
+            "title": "住院經過",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "8648-8",
+                  "display": "Hospital course"
+                }
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>病人自述於入院前約一週出現關節疼痛加劇。止痛藥使用頻率不高，主要用於頭痛。評估無 Belimumab 使用禁忌，依排程給予 480mg 治療。病人住院期間穩定，於 2026 年 1 月 10 日出院。</p></div>"
+            },
+            "entry": [
+              {
+                "reference": "Procedure/proc-testa01-belimumab-02"
+              }
+            ]
+          },
+          {
+            "title": "出院診斷",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "11535-2",
+                  "display": "Hospital discharge diagnosis"
+                }
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><strong>【Active Problem】</strong></p><ol><li>多處關節腫脹疼痛，符合全身性紅斑狼瘡相關表現</li></ol><p>*EULAR 2019 診斷標準：16 分</p><p>*2026/01/09 接受 Belimumab 治療</p><p><strong>【Inactive Problem】</strong></p><ol><li>肝功能指數上升（已改善）</li></ol></div>"
+            },
+            "entry": [
+              {
+                "reference": "Condition/cond-testa01-sle"
+              },
+              {
+                "reference": "Condition/cond-testa01-liver"
+              }
+            ]
+          },
+          {
+            "title": "過敏史",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "48765-2",
+                  "display": "Allergies and adverse reactions"
+                }
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>No known drug allergies (NKDA)</p></div>"
+            },
+            "emptyReason": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/list-empty-reason",
+                  "code": "nilknown",
+                  "display": "Nil Known"
+                }
+              ],
+              "text": "無已知藥物過敏"
+            }
+          },
+          {
+            "title": "出院用藥",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "10183-2",
+                  "display": "Hospital discharge medications"
+                }
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table><thead><tr><th>藥品名稱</th><th>劑量</th><th>頻次</th><th>途徑</th><th>數量</th></tr></thead><tbody><tr><td>Myfortic tab 180mg（麥考酚酸）</td><td>180mg</td><td>Q12H</td><td>PO</td><td>60</td></tr></tbody></table></div>"
+            },
+            "entry": [
+              {
+                "reference": "MedicationStatement/medstmt-testa01-myfortic-02"
+              }
+            ]
+          },
+          {
+            "title": "檢驗結果",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "30954-2",
+                  "display": "Relevant diagnostic tests/laboratory data"
+                }
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h4>血液常規 (2026-01-09)</h4><table><tr><td>白血球</td><td>9980 /cumm</td><td>H</td></tr><tr><td>血紅素</td><td>14.3 g/dL</td><td></td></tr><tr><td>血小板</td><td>398000 /cumm</td><td>H</td></tr></table><h4>生化 (2026-01-09)</h4><table><tr><td>尿素氮</td><td>13 mg/dL</td><td></td></tr><tr><td>肌酸酐</td><td>0.45 mg/dL</td><td>L</td></tr><tr><td>ALT</td><td>9 U/L</td><td></td></tr><tr><td>鈉</td><td>139 mmol/L</td><td></td></tr><tr><td>鉀</td><td>3.7 mmol/L</td><td></td></tr><tr><td>CRP</td><td>&lt;0.06 mg/dL</td><td></td></tr></table><h4>免疫 (2026-01-09)</h4><table><tr><td>C3 補體</td><td>116.3 mg/dL</td><td></td></tr><tr><td>C4 補體</td><td>20.3 mg/dL</td><td></td></tr><tr><td>IgG</td><td>1023 mg/dL</td><td></td></tr></table></div>"
+            },
+            "entry": [
+              {
+                "reference": "Observation/obs-testa01-wbc-02"
+              },
+              {
+                "reference": "Observation/obs-testa01-hgb-02"
+              },
+              {
+                "reference": "Observation/obs-testa01-plt-02"
+              },
+              {
+                "reference": "Observation/obs-testa01-bun-02"
+              },
+              {
+                "reference": "Observation/obs-testa01-crea-02"
+              },
+              {
+                "reference": "Observation/obs-testa01-alt-02"
+              },
+              {
+                "reference": "Observation/obs-testa01-na-02"
+              },
+              {
+                "reference": "Observation/obs-testa01-k-02"
+              },
+              {
+                "reference": "Observation/obs-testa01-crp-02"
+              },
+              {
+                "reference": "Observation/obs-testa01-c3-02"
+              },
+              {
+                "reference": "Observation/obs-testa01-c4-02"
+              },
+              {
+                "reference": "Observation/obs-testa01-igg-02"
+              }
+            ]
+          },
+          {
+            "title": "出院計畫",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "18776-5",
+                  "display": "Plan of care"
+                }
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>出院後繼續於本院門診追蹤</p></div>"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Composition/comp-testa01-discharge-02"
+      }
+    }
+  ]
+}

@@ -40,7 +40,7 @@ export function useFhirClient() {
             const authorizeParams = {
                 clientId: creds.clientId,
                 scope: 'launch openid fhirUser patient/*.read',
-                redirectUri: window.location.origin + window.location.pathname
+                redirectUri: window.location.origin + window.location.pathname.replace(/\/?(index\.html)?$/, '') + '/'
             };
             if (creds.clientSecret) {
                 authorizeParams.clientSecret = creds.clientSecret;

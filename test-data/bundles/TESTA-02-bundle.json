@@ -1,0 +1,3723 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:Organization/org-vghtpe",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "org-vghtpe",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Organization-twcore"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "https://thas.mohw.gov.tw/orggov",
+            "value": "0601160016"
+          }
+        ],
+        "active": true,
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "prov",
+                "display": "Healthcare Provider"
+              }
+            ]
+          }
+        ],
+        "name": "臺北榮民總醫院",
+        "alias": [
+          "Taipei Veterans General Hospital",
+          "VGHTPE",
+          "北榮"
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "+886-2-28712121"
+          },
+          {
+            "system": "url",
+            "value": "https://www.vghtpe.gov.tw/"
+          }
+        ],
+        "address": [
+          {
+            "use": "work",
+            "type": "physical",
+            "text": "台北市北投區石牌路二段201號",
+            "city": "台北市",
+            "district": "北投區",
+            "postalCode": "112",
+            "country": "TW"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Organization/org-vghtpe"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Patient/pt-testa-02",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "pt-testa-02",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Patient-twcore"
+          ]
+        },
+        "identifier": [
+          {
+            "use": "official",
+            "system": "urn:oid:2.16.886.103",
+            "value": "H405481546",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "NI",
+                  "display": "National unique individual identifier"
+                }
+              ],
+              "text": "身分證字號"
+            }
+          },
+          {
+            "use": "secondary",
+            "system": "urn:oid:2.16.886.101.100",
+            "value": "900000000202",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "NI",
+                  "display": "National unique individual identifier"
+                }
+              ],
+              "text": "健保卡號"
+            }
+          },
+          {
+            "use": "secondary",
+            "system": "https://www.vghtpe.gov.tw/mrn",
+            "value": "5141095421",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "MR",
+                  "display": "Medical record number"
+                }
+              ],
+              "text": "病歷號"
+            }
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "text": "王美華"
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1958-05-13",
+        "address": [
+          {
+            "use": "home",
+            "text": "新北市淡水區明德2路41號7樓",
+            "city": "淡水區",
+            "district": "新北市",
+            "postalCode": "251",
+            "country": "TW"
+          }
+        ],
+        "managingOrganization": {
+          "reference": "Organization/org-vghtpe",
+          "display": "臺北榮民總醫院"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Patient/pt-testa-02"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Practitioner/prac-doc6817h",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "prac-doc6817h",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Practitioner-twcore"
+          ]
+        },
+        "identifier": [
+          {
+            "use": "official",
+            "system": "https://www.vghtpe.gov.tw/practitioner",
+            "value": "DOC6817H"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "text": "張奕煌"
+          }
+        ],
+        "qualification": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0360",
+                  "code": "MD",
+                  "display": "Doctor of Medicine"
+                }
+              ],
+              "text": "主治醫師"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Practitioner/prac-doc6817h"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Practitioner/prac-doc9625k",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "prac-doc9625k",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Practitioner-twcore"
+          ]
+        },
+        "identifier": [
+          {
+            "use": "official",
+            "system": "https://www.vghtpe.gov.tw/practitioner",
+            "value": "DOC9625K"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "text": "陳效宏"
+          }
+        ],
+        "qualification": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0360",
+                  "code": "MD",
+                  "display": "Doctor of Medicine"
+                }
+              ],
+              "text": "住院醫師"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Practitioner/prac-doc9625k"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Practitioner/prac-doc5426c",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "prac-doc5426c",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Practitioner-twcore"
+          ]
+        },
+        "identifier": [
+          {
+            "use": "official",
+            "system": "https://www.vghtpe.gov.tw/practitioner",
+            "value": "DOC5426C"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "text": "鄭光翔"
+          }
+        ],
+        "qualification": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0360",
+                  "code": "MD",
+                  "display": "Doctor of Medicine"
+                }
+              ],
+              "text": "住院醫師"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Practitioner/prac-doc5426c"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Encounter/enc-testa02-01",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "enc-testa02-01",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Encounter-twcore"
+          ]
+        },
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "IMP",
+          "display": "inpatient encounter"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/encounter-type",
+                "code": "ADMS",
+                "display": "Annual diabetes mellitus screening"
+              }
+            ],
+            "text": "Pre-TAVI evaluation"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/pt-testa-02",
+          "display": "TESTA-02"
+        },
+        "participant": [
+          {
+            "type": [
+              {
+                "coding": [
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                    "code": "ATND",
+                    "display": "attender"
+                  }
+                ]
+              }
+            ],
+            "individual": {
+              "reference": "Practitioner/prac-doc6817h",
+              "display": "張奕煌（主治醫師）"
+            }
+          },
+          {
+            "type": [
+              {
+                "coding": [
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                    "code": "PPRF",
+                    "display": "primary performer"
+                  }
+                ]
+              }
+            ],
+            "individual": {
+              "reference": "Practitioner/prac-doc9625k",
+              "display": "陳效宏（住院醫師）"
+            }
+          }
+        ],
+        "period": {
+          "start": "2025-08-14",
+          "end": "2025-08-19"
+        },
+        "length": {
+          "value": 5,
+          "unit": "days",
+          "system": "http://unitsofmeasure.org",
+          "code": "d"
+        },
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                "code": "I35.0",
+                "display": "Aortic (valve) stenosis"
+              }
+            ],
+            "text": "Severe aortic stenosis, pre-TAVI evaluation"
+          }
+        ],
+        "hospitalization": {
+          "admitSource": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/admit-source",
+                "code": "outp",
+                "display": "From outpatient department"
+              }
+            ]
+          },
+          "dischargeDisposition": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/discharge-disposition",
+                "code": "home",
+                "display": "Home"
+              }
+            ],
+            "text": "出院後繼續來本院門診"
+          }
+        },
+        "location": [
+          {
+            "location": {
+              "display": "B107-20 心臟外科病房"
+            },
+            "status": "completed",
+            "period": {
+              "start": "2025-08-14",
+              "end": "2025-08-19"
+            }
+          }
+        ],
+        "serviceProvider": {
+          "reference": "Organization/org-vghtpe",
+          "display": "臺北榮民總醫院"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Encounter/enc-testa02-01"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Encounter/enc-testa02-02",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "enc-testa02-02",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Encounter-twcore"
+          ]
+        },
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "IMP",
+          "display": "inpatient encounter"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "387713003",
+                "display": "Surgical procedure"
+              }
+            ],
+            "text": "TAVI procedure"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/pt-testa-02",
+          "display": "TESTA-02"
+        },
+        "participant": [
+          {
+            "type": [
+              {
+                "coding": [
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                    "code": "ATND",
+                    "display": "attender"
+                  }
+                ]
+              }
+            ],
+            "individual": {
+              "reference": "Practitioner/prac-doc6817h",
+              "display": "張奕煌（主治醫師）"
+            }
+          },
+          {
+            "type": [
+              {
+                "coding": [
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                    "code": "PPRF",
+                    "display": "primary performer"
+                  }
+                ]
+              }
+            ],
+            "individual": {
+              "reference": "Practitioner/prac-doc5426c",
+              "display": "鄭光翔（住院醫師）"
+            }
+          }
+        ],
+        "period": {
+          "start": "2025-09-21",
+          "end": "2025-09-27"
+        },
+        "length": {
+          "value": 6,
+          "unit": "days",
+          "system": "http://unitsofmeasure.org",
+          "code": "d"
+        },
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                "code": "I35.0",
+                "display": "Aortic (valve) stenosis"
+              }
+            ],
+            "text": "Severe aortic stenosis, for TAVI"
+          }
+        ],
+        "hospitalization": {
+          "admitSource": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/admit-source",
+                "code": "outp",
+                "display": "From outpatient department"
+              }
+            ]
+          },
+          "dischargeDisposition": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/discharge-disposition",
+                "code": "home",
+                "display": "Home"
+              }
+            ],
+            "text": "出院後繼續來本院門診"
+          }
+        },
+        "location": [
+          {
+            "location": {
+              "display": "B107-46 CVS Ward"
+            },
+            "status": "completed",
+            "period": {
+              "start": "2025-09-21",
+              "end": "2025-09-23"
+            }
+          },
+          {
+            "location": {
+              "display": "CVSA-5 ICU"
+            },
+            "status": "completed",
+            "period": {
+              "start": "2025-09-23",
+              "end": "2025-09-24"
+            }
+          },
+          {
+            "location": {
+              "display": "B107-24 CVS Ward"
+            },
+            "status": "completed",
+            "period": {
+              "start": "2025-09-24",
+              "end": "2025-09-27"
+            }
+          }
+        ],
+        "serviceProvider": {
+          "reference": "Organization/org-vghtpe",
+          "display": "臺北榮民總醫院"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Encounter/enc-testa02-02"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Encounter/enc-testa02-opd-01",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "enc-testa02-opd-01",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Encounter-twcore"
+          ]
+        },
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "AMB",
+          "display": "ambulatory"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                "code": "AMB",
+                "display": "Ambulatory"
+              }
+            ],
+            "text": "門診"
+          }
+        ],
+        "serviceType": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "394594003",
+              "display": "Ophthalmology"
+            }
+          ],
+          "text": "眼科"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-02",
+          "display": "TESTA-02"
+        },
+        "period": {
+          "start": "2026-01-15T09:00:00+08:00",
+          "end": "2026-01-15T09:30:00+08:00"
+        },
+        "reasonCode": [
+          {
+            "text": "眼睛癢、過敏性結膜炎"
+          }
+        ],
+        "serviceProvider": {
+          "reference": "Organization/org-vghtpe",
+          "display": "臺北榮民總醫院"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Encounter/enc-testa02-opd-01"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Encounter/enc-testa02-opd-02",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "enc-testa02-opd-02",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Encounter-twcore"
+          ]
+        },
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "AMB",
+          "display": "ambulatory"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                "code": "AMB",
+                "display": "Ambulatory"
+              }
+            ],
+            "text": "門診"
+          }
+        ],
+        "serviceType": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "394594003",
+              "display": "Ophthalmology"
+            }
+          ],
+          "text": "眼科"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-02",
+          "display": "TESTA-02"
+        },
+        "period": {
+          "start": "2026-01-27T10:00:00+08:00",
+          "end": "2026-01-27T10:30:00+08:00"
+        },
+        "reasonCode": [
+          {
+            "text": "白內障術後追蹤"
+          }
+        ],
+        "serviceProvider": {
+          "reference": "Organization/org-vghtpe",
+          "display": "臺北榮民總醫院"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Encounter/enc-testa02-opd-02"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Condition/cond-testa02-as",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "cond-testa02-as",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Condition-twcore"
+          ]
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "resolved",
+              "display": "Resolved"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed",
+              "display": "Confirmed"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "encounter-diagnosis",
+                "display": "Encounter Diagnosis"
+              }
+            ]
+          }
+        ],
+        "severity": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "24484000",
+              "display": "Severe"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "I35.0",
+              "display": "Aortic (valve) stenosis"
+            }
+          ],
+          "text": "Severe aortic stenosis"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-02",
+          "display": "TESTA-02"
+        },
+        "onsetDateTime": "2025-07-29",
+        "recordedDate": "2025-08-14",
+        "note": [
+          {
+            "text": "Echocardiography (2025/7/29): AVA 0.78 cm2, mean PG 34.3 mmHg, jet velocity 3.68 m/s. s/p TAVI on 2025/9/23 with 24.5mm MyVAL valve."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Condition/cond-testa02-as"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Condition/cond-testa02-hf",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "cond-testa02-hf",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Condition-twcore"
+          ]
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active",
+              "display": "Active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed",
+              "display": "Confirmed"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "encounter-diagnosis",
+                "display": "Encounter Diagnosis"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "I50.20",
+              "display": "Unspecified systolic (congestive) heart failure"
+            }
+          ],
+          "text": "Heart failure with reduced ejection fraction"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-02",
+          "display": "TESTA-02"
+        },
+        "onsetDateTime": "2025-07-29",
+        "recordedDate": "2025-08-14",
+        "note": [
+          {
+            "text": "Echocardiography (2025/7/29): LVEF 32.9%"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Condition/cond-testa02-hf"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Condition/cond-testa02-esrd",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "cond-testa02-esrd",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Condition-twcore"
+          ]
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active",
+              "display": "Active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed",
+              "display": "Confirmed"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "problem-list-item",
+                "display": "Problem List Item"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "N18.6",
+              "display": "End stage renal disease"
+            }
+          ],
+          "text": "End stage renal disease"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-02",
+          "display": "TESTA-02"
+        },
+        "note": [
+          {
+            "text": "Under hemodialysis via left AV fistula TIW 135 for 20+ years"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Condition/cond-testa02-esrd"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Condition/cond-testa02-cad",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "cond-testa02-cad",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Condition-twcore"
+          ]
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active",
+              "display": "Active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed",
+              "display": "Confirmed"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "problem-list-item",
+                "display": "Problem List Item"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "I25.10",
+              "display": "Atherosclerotic heart disease of native coronary artery without angina pectoris"
+            }
+          ],
+          "text": "Coronary artery disease, double vessel disease"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-02",
+          "display": "TESTA-02"
+        },
+        "onsetDateTime": "2025-07-24",
+        "note": [
+          {
+            "text": "Initial presented as NSTEMI. CAG on 2025/7/30: LAD 70% stenosis at ostium, 75% stenosis at middle part; LCX 60% stenosis at distal part. s/p DES over LAD-ostial to proximal and BMS over LAD-M on 2025/7/30. Currently under dual-antiplatelet with aspirin, plavix."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Condition/cond-testa02-cad"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Condition/cond-testa02-dm",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "cond-testa02-dm",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Condition-twcore"
+          ]
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active",
+              "display": "Active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed",
+              "display": "Confirmed"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "problem-list-item",
+                "display": "Problem List Item"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "E11.9",
+              "display": "Type 2 diabetes mellitus without complications"
+            }
+          ],
+          "text": "Diabetes mellitus"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-02",
+          "display": "TESTA-02"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Condition/cond-testa02-dm"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Condition/cond-testa02-hbv",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "cond-testa02-hbv",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Condition-twcore"
+          ]
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "inactive",
+              "display": "Inactive"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed",
+              "display": "Confirmed"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "problem-list-item",
+                "display": "Problem List Item"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "B18.1",
+              "display": "Chronic viral hepatitis B without delta-agent"
+            }
+          ],
+          "text": "Hepatitis B carrier, currently inactive"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-02",
+          "display": "TESTA-02"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Condition/cond-testa02-hbv"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Procedure/proc-testa02-tavi",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "proc-testa02-tavi",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Procedure-twcore"
+          ]
+        },
+        "status": "completed",
+        "category": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "387713003",
+              "display": "Surgical procedure"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "418824004",
+              "display": "Transcatheter aortic valve implantation"
+            }
+          ],
+          "text": "TAVI (transcatheter aortic valve implantation)"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-02",
+          "display": "TESTA-02"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-testa02-02"
+        },
+        "performedDateTime": "2025-09-23",
+        "performer": [
+          {
+            "actor": {
+              "reference": "Practitioner/prac-doc6817h",
+              "display": "張奕煌"
+            }
+          }
+        ],
+        "reasonReference": [
+          {
+            "reference": "Condition/cond-testa02-as",
+            "display": "Severe aortic stenosis"
+          }
+        ],
+        "outcome": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "385669000",
+              "display": "Successful"
+            }
+          ],
+          "text": "Patient tolerated procedure well"
+        },
+        "note": [
+          {
+            "text": "Implanted 24.5mm MyVAL valve. Patient transferred to CVS-A ICU post-procedure for close monitoring, then transferred back to general ward on 9/24."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Procedure/proc-testa02-tavi"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Procedure/proc-testa02-pci",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "proc-testa02-pci",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Procedure-twcore"
+          ]
+        },
+        "status": "completed",
+        "category": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "103693007",
+              "display": "Diagnostic procedure"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "415070008",
+              "display": "Percutaneous coronary intervention"
+            }
+          ],
+          "text": "PCI with DES and BMS over LAD"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-02",
+          "display": "TESTA-02"
+        },
+        "performedDateTime": "2025-07-30",
+        "reasonReference": [
+          {
+            "reference": "Condition/cond-testa02-cad",
+            "display": "Coronary artery disease"
+          }
+        ],
+        "note": [
+          {
+            "text": "Performed at CGMH. DES over LAD-ostial to proximal and BMS over LAD-M. Currently under dual-antiplatelet therapy."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Procedure/proc-testa02-pci"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Procedure/proc-testa02-tooth",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "proc-testa02-tooth",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Procedure-twcore"
+          ]
+        },
+        "status": "completed",
+        "category": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "387713003",
+              "display": "Surgical procedure"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "173155008",
+              "display": "Extraction of tooth"
+            }
+          ],
+          "text": "Tooth extraction"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-02",
+          "display": "TESTA-02"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-testa02-01"
+        },
+        "performedDateTime": "2025-08-19",
+        "note": [
+          {
+            "text": "Pre-TAVI dental clearance"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Procedure/proc-testa02-tooth"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:MedicationStatement/medstmt-testa02-acetylcysteine",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medstmt-testa02-acetylcysteine",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/MedicationStatement-twcore"
+          ]
+        },
+        "status": "active",
+        "category": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/medication-statement-category",
+              "code": "outpatient",
+              "display": "Outpatient"
+            }
+          ],
+          "text": "出院帶回藥"
+        },
+        "medicationCodeableConcept": {
+          "text": "Acetylcysteine granules 600mg"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-02",
+          "display": "TESTA-02"
+        },
+        "context": {
+          "reference": "Encounter/enc-testa02-01"
+        },
+        "effectivePeriod": {
+          "start": "2025-08-19"
+        },
+        "dosage": [
+          {
+            "text": "1 packet twice daily",
+            "timing": {
+              "code": {
+                "text": "BID"
+              }
+            },
+            "route": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "26643006",
+                  "display": "Oral route"
+                }
+              ],
+              "text": "PO"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "MedicationStatement/medstmt-testa02-acetylcysteine"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:MedicationStatement/medstmt-testa02-medicon",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medstmt-testa02-medicon",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/MedicationStatement-twcore"
+          ]
+        },
+        "status": "active",
+        "category": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/medication-statement-category",
+              "code": "outpatient",
+              "display": "Outpatient"
+            }
+          ],
+          "text": "出院帶回藥"
+        },
+        "medicationCodeableConcept": {
+          "text": "Medicon-A cap (antitussive)"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-02",
+          "display": "TESTA-02"
+        },
+        "context": {
+          "reference": "Encounter/enc-testa02-01"
+        },
+        "effectivePeriod": {
+          "start": "2025-08-19"
+        },
+        "dosage": [
+          {
+            "text": "1 capsule three times daily",
+            "timing": {
+              "code": {
+                "text": "TID"
+              }
+            },
+            "route": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "26643006",
+                  "display": "Oral route"
+                }
+              ],
+              "text": "PO"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "MedicationStatement/medstmt-testa02-medicon"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:MedicationStatement/medstmt-testa02-aspirin",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medstmt-testa02-aspirin",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/MedicationStatement-twcore"
+          ]
+        },
+        "status": "active",
+        "category": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/medication-statement-category",
+              "code": "outpatient",
+              "display": "Outpatient"
+            }
+          ],
+          "text": "出院帶回藥"
+        },
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "243670",
+              "display": "aspirin 100 MG Enteric Coated Tablet"
+            }
+          ],
+          "text": "Espin EM cap 100mg (Aspirin)"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-02",
+          "display": "TESTA-02"
+        },
+        "context": {
+          "reference": "Encounter/enc-testa02-01"
+        },
+        "effectivePeriod": {
+          "start": "2025-08-19"
+        },
+        "reasonReference": [
+          {
+            "reference": "Condition/cond-testa02-cad",
+            "display": "Coronary artery disease"
+          }
+        ],
+        "dosage": [
+          {
+            "text": "1 capsule daily with meal",
+            "timing": {
+              "code": {
+                "text": "QDCC"
+              }
+            },
+            "route": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "26643006",
+                  "display": "Oral route"
+                }
+              ],
+              "text": "PO"
+            }
+          }
+        ],
+        "note": [
+          {
+            "text": "Part of dual-antiplatelet therapy post PCI"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "MedicationStatement/medstmt-testa02-aspirin"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:MedicationStatement/medstmt-testa02-clopidogrel",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medstmt-testa02-clopidogrel",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/MedicationStatement-twcore"
+          ]
+        },
+        "status": "active",
+        "category": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/medication-statement-category",
+              "code": "outpatient",
+              "display": "Outpatient"
+            }
+          ],
+          "text": "出院帶回藥"
+        },
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "309362",
+              "display": "clopidogrel 75 MG Oral Tablet"
+            }
+          ],
+          "text": "Plavix FC tab 75mg (Clopidogrel)"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-02",
+          "display": "TESTA-02"
+        },
+        "context": {
+          "reference": "Encounter/enc-testa02-01"
+        },
+        "effectivePeriod": {
+          "start": "2025-08-19"
+        },
+        "reasonReference": [
+          {
+            "reference": "Condition/cond-testa02-cad",
+            "display": "Coronary artery disease"
+          }
+        ],
+        "dosage": [
+          {
+            "text": "1 tablet daily",
+            "timing": {
+              "code": {
+                "text": "QD"
+              }
+            },
+            "route": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "26643006",
+                  "display": "Oral route"
+                }
+              ],
+              "text": "PO"
+            }
+          }
+        ],
+        "note": [
+          {
+            "text": "Part of dual-antiplatelet therapy post PCI"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "MedicationStatement/medstmt-testa02-clopidogrel"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:MedicationStatement/medstmt-testa02-atorvastatin",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medstmt-testa02-atorvastatin",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/MedicationStatement-twcore"
+          ]
+        },
+        "status": "active",
+        "category": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/medication-statement-category",
+              "code": "outpatient",
+              "display": "Outpatient"
+            }
+          ],
+          "text": "出院帶回藥"
+        },
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "617314",
+              "display": "atorvastatin 40 MG Oral Tablet"
+            }
+          ],
+          "text": "Lipitor FC tab 40mg (Atorvastatin)"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-02",
+          "display": "TESTA-02"
+        },
+        "context": {
+          "reference": "Encounter/enc-testa02-01"
+        },
+        "effectivePeriod": {
+          "start": "2025-08-19"
+        },
+        "reasonReference": [
+          {
+            "reference": "Condition/cond-testa02-cad",
+            "display": "Coronary artery disease"
+          }
+        ],
+        "dosage": [
+          {
+            "text": "1 tablet daily",
+            "timing": {
+              "code": {
+                "text": "QD"
+              }
+            },
+            "route": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "26643006",
+                  "display": "Oral route"
+                }
+              ],
+              "text": "PO"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "MedicationStatement/medstmt-testa02-atorvastatin"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:MedicationStatement/medstmt-testa02-bisoprolol",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medstmt-testa02-bisoprolol",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/MedicationStatement-twcore"
+          ]
+        },
+        "status": "active",
+        "category": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/medication-statement-category",
+              "code": "outpatient",
+              "display": "Outpatient"
+            }
+          ],
+          "text": "出院帶回藥"
+        },
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "854901",
+              "display": "bisoprolol fumarate 1.25 MG Oral Tablet"
+            }
+          ],
+          "text": "Concor FC tab 1.25mg (Bisoprolol)"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-02",
+          "display": "TESTA-02"
+        },
+        "context": {
+          "reference": "Encounter/enc-testa02-01"
+        },
+        "effectivePeriod": {
+          "start": "2025-08-19"
+        },
+        "reasonReference": [
+          {
+            "reference": "Condition/cond-testa02-hf",
+            "display": "Heart failure"
+          }
+        ],
+        "dosage": [
+          {
+            "text": "1 tablet twice daily",
+            "timing": {
+              "code": {
+                "text": "BID"
+              }
+            },
+            "route": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "26643006",
+                  "display": "Oral route"
+                }
+              ],
+              "text": "PO"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "MedicationStatement/medstmt-testa02-bisoprolol"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:MedicationStatement/medstmt-testa02-amlodipine",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medstmt-testa02-amlodipine",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/MedicationStatement-twcore"
+          ]
+        },
+        "status": "active",
+        "category": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/medication-statement-category",
+              "code": "outpatient",
+              "display": "Outpatient"
+            }
+          ],
+          "text": "出院帶回藥"
+        },
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "197361",
+              "display": "amlodipine 5 MG Oral Tablet"
+            }
+          ],
+          "text": "Norvasc tab 5mg (Amlodipine)"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-02",
+          "display": "TESTA-02"
+        },
+        "context": {
+          "reference": "Encounter/enc-testa02-01"
+        },
+        "effectivePeriod": {
+          "start": "2025-08-19"
+        },
+        "dosage": [
+          {
+            "text": "1 tablet daily",
+            "timing": {
+              "code": {
+                "text": "QD"
+              }
+            },
+            "route": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "26643006",
+                  "display": "Oral route"
+                }
+              ],
+              "text": "PO"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "MedicationStatement/medstmt-testa02-amlodipine"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:MedicationStatement/medstmt-testa02-traceton",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medstmt-testa02-traceton",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/MedicationStatement-twcore"
+          ]
+        },
+        "status": "active",
+        "category": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/medication-statement-category",
+              "code": "outpatient",
+              "display": "Outpatient"
+            }
+          ],
+          "text": "出院帶回藥"
+        },
+        "medicationCodeableConcept": {
+          "text": "Traceton FC tab (antitussive)"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-02",
+          "display": "TESTA-02"
+        },
+        "context": {
+          "reference": "Encounter/enc-testa02-02"
+        },
+        "effectivePeriod": {
+          "start": "2025-09-26"
+        },
+        "dosage": [
+          {
+            "text": "1 tablet three times daily as needed",
+            "timing": {
+              "code": {
+                "text": "TIDPRN"
+              }
+            },
+            "route": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "26643006",
+                  "display": "Oral route"
+                }
+              ],
+              "text": "PO"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "MedicationStatement/medstmt-testa02-traceton"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:MedicationStatement/medstmt-testa02-opd01-cm",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medstmt-testa02-opd01-cm",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/MedicationStatement-twcore"
+          ]
+        },
+        "status": "active",
+        "category": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/medication-statement-category",
+              "code": "outpatient",
+              "display": "Outpatient"
+            }
+          ],
+          "text": "門診用藥"
+        },
+        "medicationCodeableConcept": {
+          "text": "CM eye drop 0.25% 5ml (Carboxymethylcellulose)"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-02",
+          "display": "TESTA-02"
+        },
+        "context": {
+          "reference": "Encounter/enc-testa02-opd-01"
+        },
+        "effectivePeriod": {
+          "start": "2026-01-15",
+          "end": "2026-02-12"
+        },
+        "dosage": [
+          {
+            "text": "Both eyes four times daily",
+            "timing": {
+              "code": {
+                "text": "QID"
+              }
+            },
+            "route": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "54485002",
+                  "display": "Ophthalmic route"
+                }
+              ],
+              "text": "OU"
+            }
+          }
+        ],
+        "note": [
+          {
+            "text": "人工淚液"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "MedicationStatement/medstmt-testa02-opd01-cm"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:MedicationStatement/medstmt-testa02-opd01-ketotifen",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medstmt-testa02-opd01-ketotifen",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/MedicationStatement-twcore"
+          ]
+        },
+        "status": "active",
+        "category": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/medication-statement-category",
+              "code": "outpatient",
+              "display": "Outpatient"
+            }
+          ],
+          "text": "門診用藥"
+        },
+        "medicationCodeableConcept": {
+          "text": "Ketotifen oph soln 0.25mg/ml 5ml"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-02",
+          "display": "TESTA-02"
+        },
+        "context": {
+          "reference": "Encounter/enc-testa02-opd-01"
+        },
+        "effectivePeriod": {
+          "start": "2026-01-15",
+          "end": "2026-02-12"
+        },
+        "dosage": [
+          {
+            "text": "Both eyes twice daily",
+            "timing": {
+              "code": {
+                "text": "BID"
+              }
+            },
+            "route": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "54485002",
+                  "display": "Ophthalmic route"
+                }
+              ],
+              "text": "OU"
+            }
+          }
+        ],
+        "note": [
+          {
+            "text": "抗過敏眼藥水"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "MedicationStatement/medstmt-testa02-opd01-ketotifen"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:MedicationStatement/medstmt-testa02-opd02-cravit",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medstmt-testa02-opd02-cravit",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/MedicationStatement-twcore"
+          ]
+        },
+        "status": "active",
+        "category": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/medication-statement-category",
+              "code": "outpatient",
+              "display": "Outpatient"
+            }
+          ],
+          "text": "門診用藥"
+        },
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "403918",
+              "display": "Levofloxacin 5 MG/ML Ophthalmic Solution"
+            }
+          ],
+          "text": "CRAVIT OPH soln 0.5% 5ml (Levofloxacin)"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-02",
+          "display": "TESTA-02"
+        },
+        "context": {
+          "reference": "Encounter/enc-testa02-opd-02"
+        },
+        "effectivePeriod": {
+          "start": "2026-01-27",
+          "end": "2026-02-03"
+        },
+        "dosage": [
+          {
+            "text": "Left eye four times daily",
+            "timing": {
+              "code": {
+                "text": "QID"
+              }
+            },
+            "route": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "54485002",
+                  "display": "Ophthalmic route"
+                }
+              ],
+              "text": "OS"
+            }
+          }
+        ],
+        "note": [
+          {
+            "text": "抗生素眼藥水，術後預防感染"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "MedicationStatement/medstmt-testa02-opd02-cravit"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:MedicationStatement/medstmt-testa02-opd02-predforte",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medstmt-testa02-opd02-predforte",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/MedicationStatement-twcore"
+          ]
+        },
+        "status": "active",
+        "category": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/medication-statement-category",
+              "code": "outpatient",
+              "display": "Outpatient"
+            }
+          ],
+          "text": "門診用藥"
+        },
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "310149",
+              "display": "Prednisolone Acetate 10 MG/ML Ophthalmic Suspension"
+            }
+          ],
+          "text": "Pred forte oph susp 1% 5ml (Prednisolone)"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-02",
+          "display": "TESTA-02"
+        },
+        "context": {
+          "reference": "Encounter/enc-testa02-opd-02"
+        },
+        "effectivePeriod": {
+          "start": "2026-01-27",
+          "end": "2026-02-03"
+        },
+        "dosage": [
+          {
+            "text": "Left eye every 2 hours",
+            "timing": {
+              "code": {
+                "text": "Q2H"
+              }
+            },
+            "route": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "54485002",
+                  "display": "Ophthalmic route"
+                }
+              ],
+              "text": "OS"
+            }
+          }
+        ],
+        "note": [
+          {
+            "text": "類固醇眼藥水，術後消炎"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "MedicationStatement/medstmt-testa02-opd02-predforte"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:MedicationStatement/medstmt-testa02-opd02-gentamycin",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medstmt-testa02-opd02-gentamycin",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/MedicationStatement-twcore"
+          ]
+        },
+        "status": "active",
+        "category": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/medication-statement-category",
+              "code": "outpatient",
+              "display": "Outpatient"
+            }
+          ],
+          "text": "門診用藥"
+        },
+        "medicationCodeableConcept": {
+          "text": "GENTAMYCIN OPH OINT 3MG/G 5G"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-02",
+          "display": "TESTA-02"
+        },
+        "context": {
+          "reference": "Encounter/enc-testa02-opd-02"
+        },
+        "effectivePeriod": {
+          "start": "2026-01-27",
+          "end": "2026-02-03"
+        },
+        "dosage": [
+          {
+            "text": "Left eye at bedtime",
+            "timing": {
+              "code": {
+                "text": "QN"
+              }
+            },
+            "route": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "54485002",
+                  "display": "Ophthalmic route"
+                }
+              ],
+              "text": "OS"
+            }
+          }
+        ],
+        "note": [
+          {
+            "text": "抗生素眼藥膏，睡前使用"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "MedicationStatement/medstmt-testa02-opd02-gentamycin"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:MedicationStatement/medstmt-testa02-opd02-acetazolamide",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medstmt-testa02-opd02-acetazolamide",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/MedicationStatement-twcore"
+          ]
+        },
+        "status": "completed",
+        "category": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/medication-statement-category",
+              "code": "outpatient",
+              "display": "Outpatient"
+            }
+          ],
+          "text": "門診用藥"
+        },
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "197318",
+              "display": "acetazolamide 250 MG Oral Tablet"
+            }
+          ],
+          "text": "Acetazolamide tab 250mg"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-02",
+          "display": "TESTA-02"
+        },
+        "context": {
+          "reference": "Encounter/enc-testa02-opd-02"
+        },
+        "effectivePeriod": {
+          "start": "2026-01-27",
+          "end": "2026-01-28"
+        },
+        "dosage": [
+          {
+            "text": "1 tablet once",
+            "timing": {
+              "code": {
+                "text": "ONCE"
+              }
+            },
+            "route": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "26643006",
+                  "display": "Oral route"
+                }
+              ],
+              "text": "PO"
+            }
+          }
+        ],
+        "note": [
+          {
+            "text": "術後降眼壓"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "MedicationStatement/medstmt-testa02-opd02-acetazolamide"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Observation/obs-testa02-wbc-01",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-testa02-wbc-01",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Observation-laboratoryResult-twcore"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "6690-2",
+              "display": "Leukocytes [#/volume] in Blood by Automated count"
+            }
+          ],
+          "text": "WBC"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-02"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-testa02-01"
+        },
+        "effectiveDateTime": "2025-08-15",
+        "valueQuantity": {
+          "value": 8000,
+          "unit": "/cumm",
+          "system": "http://unitsofmeasure.org",
+          "code": "/uL"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/obs-testa02-wbc-01"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Observation/obs-testa02-rbc-01",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-testa02-rbc-01",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Observation-laboratoryResult-twcore"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "789-8",
+              "display": "Erythrocytes [#/volume] in Blood by Automated count"
+            }
+          ],
+          "text": "RBC"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-02"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-testa02-01"
+        },
+        "effectiveDateTime": "2025-08-15",
+        "valueQuantity": {
+          "value": 3.56,
+          "unit": "m/cumm",
+          "system": "http://unitsofmeasure.org",
+          "code": "10*6/uL"
+        },
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "L",
+                "display": "Low"
+              }
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/obs-testa02-rbc-01"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Observation/obs-testa02-hgb-01",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-testa02-hgb-01",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Observation-laboratoryResult-twcore"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "718-7",
+              "display": "Hemoglobin [Mass/volume] in Blood"
+            }
+          ],
+          "text": "HGB"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-02"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-testa02-01"
+        },
+        "effectiveDateTime": "2025-08-15",
+        "valueQuantity": {
+          "value": 10.9,
+          "unit": "g/dL",
+          "system": "http://unitsofmeasure.org",
+          "code": "g/dL"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/obs-testa02-hgb-01"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Observation/obs-testa02-plt-01",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-testa02-plt-01",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Observation-laboratoryResult-twcore"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "777-3",
+              "display": "Platelets [#/volume] in Blood by Automated count"
+            }
+          ],
+          "text": "Platelet"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-02"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-testa02-01"
+        },
+        "effectiveDateTime": "2025-08-15",
+        "valueQuantity": {
+          "value": 222000,
+          "unit": "/cumm",
+          "system": "http://unitsofmeasure.org",
+          "code": "/uL"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/obs-testa02-plt-01"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Observation/obs-testa02-bun-01",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-testa02-bun-01",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Observation-laboratoryResult-twcore"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "3094-0",
+              "display": "Urea nitrogen [Mass/volume] in Serum or Plasma"
+            }
+          ],
+          "text": "BUN"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-02"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-testa02-01"
+        },
+        "effectiveDateTime": "2025-08-15",
+        "valueQuantity": {
+          "value": 73,
+          "unit": "mg/dL",
+          "system": "http://unitsofmeasure.org",
+          "code": "mg/dL"
+        },
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "H",
+                "display": "High"
+              }
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/obs-testa02-bun-01"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Observation/obs-testa02-crea-01",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-testa02-crea-01",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Observation-laboratoryResult-twcore"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "2160-0",
+              "display": "Creatinine [Mass/volume] in Serum or Plasma"
+            }
+          ],
+          "text": "Creatinine"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-02"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-testa02-01"
+        },
+        "effectiveDateTime": "2025-08-15",
+        "valueQuantity": {
+          "value": 7.92,
+          "unit": "mg/dL",
+          "system": "http://unitsofmeasure.org",
+          "code": "mg/dL"
+        },
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "H",
+                "display": "High"
+              }
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/obs-testa02-crea-01"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Observation/obs-testa02-glu-01",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-testa02-glu-01",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Observation-laboratoryResult-twcore"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "2345-7",
+              "display": "Glucose [Mass/volume] in Serum or Plasma"
+            }
+          ],
+          "text": "Glucose"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-02"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-testa02-01"
+        },
+        "effectiveDateTime": "2025-08-15",
+        "valueQuantity": {
+          "value": 116,
+          "unit": "mg/dL",
+          "system": "http://unitsofmeasure.org",
+          "code": "mg/dL"
+        },
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "H",
+                "display": "High"
+              }
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/obs-testa02-glu-01"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Observation/obs-testa02-na-01",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-testa02-na-01",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Observation-laboratoryResult-twcore"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "2951-2",
+              "display": "Sodium [Moles/volume] in Serum or Plasma"
+            }
+          ],
+          "text": "Sodium"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-02"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-testa02-01"
+        },
+        "effectiveDateTime": "2025-08-15",
+        "valueQuantity": {
+          "value": 134,
+          "unit": "mmol/L",
+          "system": "http://unitsofmeasure.org",
+          "code": "mmol/L"
+        },
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "L",
+                "display": "Low"
+              }
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/obs-testa02-na-01"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Observation/obs-testa02-k-01",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-testa02-k-01",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Observation-laboratoryResult-twcore"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "2823-3",
+              "display": "Potassium [Moles/volume] in Serum or Plasma"
+            }
+          ],
+          "text": "Potassium"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-02"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-testa02-01"
+        },
+        "effectiveDateTime": "2025-08-15",
+        "valueQuantity": {
+          "value": 4.2,
+          "unit": "mmol/L",
+          "system": "http://unitsofmeasure.org",
+          "code": "mmol/L"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/obs-testa02-k-01"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Observation/obs-testa02-wbc-02",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-testa02-wbc-02",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Observation-laboratoryResult-twcore"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "6690-2",
+              "display": "Leukocytes [#/volume] in Blood by Automated count"
+            }
+          ],
+          "text": "WBC"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-02"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-testa02-02"
+        },
+        "effectiveDateTime": "2025-09-22",
+        "valueQuantity": {
+          "value": 5930,
+          "unit": "/cumm",
+          "system": "http://unitsofmeasure.org",
+          "code": "/uL"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/obs-testa02-wbc-02"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Observation/obs-testa02-hgb-02",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-testa02-hgb-02",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Observation-laboratoryResult-twcore"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "718-7",
+              "display": "Hemoglobin [Mass/volume] in Blood"
+            }
+          ],
+          "text": "HGB"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-02"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-testa02-02"
+        },
+        "effectiveDateTime": "2025-09-22",
+        "valueQuantity": {
+          "value": 10.2,
+          "unit": "g/dL",
+          "system": "http://unitsofmeasure.org",
+          "code": "g/dL"
+        },
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "L",
+                "display": "Low"
+              }
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/obs-testa02-hgb-02"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Observation/obs-testa02-plt-02",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-testa02-plt-02",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Observation-laboratoryResult-twcore"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "777-3",
+              "display": "Platelets [#/volume] in Blood by Automated count"
+            }
+          ],
+          "text": "Platelet"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-02"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-testa02-02"
+        },
+        "effectiveDateTime": "2025-09-22",
+        "valueQuantity": {
+          "value": 136000,
+          "unit": "/cumm",
+          "system": "http://unitsofmeasure.org",
+          "code": "/uL"
+        },
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "L",
+                "display": "Low"
+              }
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/obs-testa02-plt-02"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Observation/obs-testa02-crea-02",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-testa02-crea-02",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Observation-laboratoryResult-twcore"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "2160-0",
+              "display": "Creatinine [Mass/volume] in Serum or Plasma"
+            }
+          ],
+          "text": "Creatinine"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-02"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-testa02-02"
+        },
+        "effectiveDateTime": "2025-09-22",
+        "valueQuantity": {
+          "value": 9.65,
+          "unit": "mg/dL",
+          "system": "http://unitsofmeasure.org",
+          "code": "mg/dL"
+        },
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "H",
+                "display": "High"
+              }
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/obs-testa02-crea-02"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Observation/obs-testa02-hscrp-02",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-testa02-hscrp-02",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Observation-laboratoryResult-twcore"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "30522-7",
+              "display": "C reactive protein [Mass/volume] in Serum or Plasma by High sensitivity method"
+            }
+          ],
+          "text": "HS-CRP"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-02"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-testa02-02"
+        },
+        "effectiveDateTime": "2025-09-24",
+        "valueQuantity": {
+          "value": 3.57,
+          "unit": "mg/dL",
+          "system": "http://unitsofmeasure.org",
+          "code": "mg/dL"
+        },
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "H",
+                "display": "High"
+              }
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/obs-testa02-hscrp-02"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:DiagnosticReport/dr-testa02-ekg-01",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "id": "dr-testa02-ekg-01",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/DiagnosticReport-twcore"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "code": "EC",
+                "display": "Electrocardiac"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "11524-6",
+              "display": "EKG study"
+            }
+          ],
+          "text": "ECG (EKG)"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-02",
+          "display": "TESTA-02"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-testa02-02"
+        },
+        "effectiveDateTime": "2025-09-21",
+        "conclusion": "Sinus rhythm. LVH with secondary repolarization abnormality. T wave inversion in lead V1-6, I, aVL."
+      },
+      "request": {
+        "method": "PUT",
+        "url": "DiagnosticReport/dr-testa02-ekg-01"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:DiagnosticReport/dr-testa02-cxr-01",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "id": "dr-testa02-cxr-01",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/DiagnosticReport-twcore"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "code": "RAD",
+                "display": "Radiology"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "36643-5",
+              "display": "XR Chest 2 Views"
+            }
+          ],
+          "text": "Chest PA + Lateral"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-02",
+          "display": "TESTA-02"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-testa02-01"
+        },
+        "effectiveDateTime": "2025-08-14",
+        "conclusion": "Borderline heart size. Preserved bilateral CP angle. Tortuosity of thoracic aorta with aortic knob wall calcification. Increased opacity at right paratracheal space. Multiple nodular opacities noted over bilateral hilar regions, probably vascular shadow en face. Increased pulmonary infiltrates at both lung regions."
+      },
+      "request": {
+        "method": "PUT",
+        "url": "DiagnosticReport/dr-testa02-cxr-01"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:DiagnosticReport/dr-testa02-ct-01",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "id": "dr-testa02-ct-01",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/DiagnosticReport-twcore"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "code": "RAD",
+                "display": "Radiology"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "24627-2",
+              "display": "CT Chest"
+            }
+          ],
+          "text": "CT Scan Chest"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-02",
+          "display": "TESTA-02"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-testa02-01"
+        },
+        "effectiveDateTime": "2025-08-18",
+        "conclusion": "Pulmonary trunk diameter about 3.4 cm, pulmonary hypertension cannot be ruled out. Atherosclerotic vascular change with mural calcification at coronary arteries and aorta with risk of CAD. Aortic valve and mitral valve calcification. Cardiomegaly. Smaller size with thinning cortex of bilateral kidneys, chronic parenchymal disease considered."
+      },
+      "request": {
+        "method": "PUT",
+        "url": "DiagnosticReport/dr-testa02-ct-01"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:DiagnosticReport/dr-testa02-doppler-01",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "id": "dr-testa02-doppler-01",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/DiagnosticReport-twcore"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "code": "RAD",
+                "display": "Radiology"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "30800-7",
+              "display": "US Doppler Carotid vessels"
+            }
+          ],
+          "text": "DopScan Carotid"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-02",
+          "display": "TESTA-02"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-testa02-01"
+        },
+        "effectiveDateTime": "2025-08-15",
+        "conclusion": "Multifocal plaques with mild luminal narrowing in the bifurcation of bilateral common carotid arteries. Doppler study showed no significant stenosis in cervical portion of bilateral internal carotid arteries, bilateral external carotid arteries and bilateral vertebral arteries."
+      },
+      "request": {
+        "method": "PUT",
+        "url": "DiagnosticReport/dr-testa02-doppler-01"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Composition/comp-testa02-discharge-01",
+      "resource": {
+        "resourceType": "Composition",
+        "id": "comp-testa02-discharge-01",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Composition-twcore"
+          ]
+        },
+        "status": "final",
+        "type": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "18842-5",
+              "display": "Discharge summary"
+            }
+          ],
+          "text": "出院病摘"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-02",
+          "display": "王美華"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-testa02-01"
+        },
+        "date": "2025-08-19T15:00:00+08:00",
+        "author": [
+          {
+            "reference": "Practitioner/prac-doc6817h",
+            "display": "張奕煌（主治醫師）"
+          },
+          {
+            "reference": "Practitioner/prac-doc9625k",
+            "display": "陳效宏（住院醫師）"
+          }
+        ],
+        "title": "出院病歷摘要 - TAVI 術前評估",
+        "custodian": {
+          "reference": "Organization/org-vghtpe",
+          "display": "臺北榮民總醫院"
+        },
+        "section": [
+          {
+            "title": "入院診斷",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "46241-6",
+                  "display": "Hospital admission diagnosis"
+                }
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><strong>【Active Problem】</strong></p><ol><li>嚴重主動脈瓣狹窄（心臟超音波：瓣膜面積 0.78 cm²，平均壓差 34.3mmHg）</li><li>射出分率降低之心臟衰竭（左心室射出分率 32.9%）</li></ol><p><strong>【Inactive Problem】</strong></p><ul><li>末期腎病，經左側動靜脈廔管血液透析，每週三次</li><li>冠狀動脈疾病，2025/7/30 接受經皮冠狀動脈介入治療置放藥物塗層及金屬支架</li><li>糖尿病</li><li>B 型肝炎帶原（不活動期）</li></ul></div>"
+            },
+            "entry": [
+              {
+                "reference": "Condition/cond-testa02-as"
+              },
+              {
+                "reference": "Condition/cond-testa02-hf"
+              }
+            ]
+          },
+          {
+            "title": "主訴",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "10154-3",
+                  "display": "Chief complaint"
+                }
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>呼吸困難及胸悶約兩週，外院告知有主動脈瓣狹窄</p></div>"
+            }
+          },
+          {
+            "title": "現病史",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "10164-2",
+                  "display": "History of present illness"
+                }
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>病人為 67 歲女性，過去病史如上述。近兩週出現活動時呼吸困難及胸悶症狀，至外院就醫發現主動脈瓣狹窄，轉介至本院心臟血管外科進一步評估是否適合經導管主動脈瓣膜置換術（TAVI）。</p></div>"
+            }
+          },
+          {
+            "title": "住院經過",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "8648-8",
+                  "display": "Hospital course"
+                }
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>安排系列術前檢查。頸動脈超音波顯示雙側總頸動脈有多發性斑塊伴輕度管腔狹窄。二維心臟超音波顯示鈣化的主動脈瓣伴輕度逆流、嚴重瓣膜性主動脈狹窄。胸部電腦斷層顯示肺動脈主幹直徑 3.4 公分、動脈粥樣硬化變化。2025/08/19 進行拔牙作為 TAVI 術前準備。</p></div>"
+            },
+            "entry": [
+              {
+                "reference": "Procedure/proc-testa02-tooth"
+              },
+              {
+                "reference": "DiagnosticReport/dr-testa02-doppler-01"
+              },
+              {
+                "reference": "DiagnosticReport/dr-testa02-ct-01"
+              }
+            ]
+          },
+          {
+            "title": "過敏史",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "48765-2",
+                  "display": "Allergies and adverse reactions"
+                }
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>No known drug allergies (NKDA)</p></div>"
+            },
+            "emptyReason": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/list-empty-reason",
+                  "code": "nilknown",
+                  "display": "Nil Known"
+                }
+              ]
+            }
+          },
+          {
+            "title": "出院用藥",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "10183-2",
+                  "display": "Hospital discharge medications"
+                }
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table><tr><td>Acetylcysteine 顆粒 600mg</td><td>BID</td></tr><tr><td>Medicon-A 膠囊（止咳）</td><td>TID</td></tr><tr><td>Aspirin (Espin) 100mg</td><td>QD</td></tr><tr><td>Clopidogrel (Plavix) 75mg</td><td>QD</td></tr><tr><td>Atorvastatin (Lipitor) 40mg</td><td>QD</td></tr><tr><td>Bisoprolol (Concor) 1.25mg</td><td>BID</td></tr><tr><td>Amlodipine (Norvasc) 5mg</td><td>QD</td></tr></table></div>"
+            },
+            "entry": [
+              {
+                "reference": "MedicationStatement/medstmt-testa02-acetylcysteine"
+              },
+              {
+                "reference": "MedicationStatement/medstmt-testa02-medicon"
+              },
+              {
+                "reference": "MedicationStatement/medstmt-testa02-aspirin"
+              },
+              {
+                "reference": "MedicationStatement/medstmt-testa02-clopidogrel"
+              },
+              {
+                "reference": "MedicationStatement/medstmt-testa02-atorvastatin"
+              },
+              {
+                "reference": "MedicationStatement/medstmt-testa02-bisoprolol"
+              },
+              {
+                "reference": "MedicationStatement/medstmt-testa02-amlodipine"
+              }
+            ]
+          },
+          {
+            "title": "檢驗結果",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "30954-2",
+                  "display": "Relevant diagnostic tests/laboratory data"
+                }
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h4>血液常規 (2025-08-15)</h4><table><tr><td>白血球</td><td>8000 /cumm</td></tr><tr><td>紅血球</td><td>3.56 m/cumm</td><td>L</td></tr><tr><td>血紅素</td><td>10.9 g/dL</td></tr><tr><td>血小板</td><td>222000 /cumm</td></tr></table><h4>生化 (2025-08-15)</h4><table><tr><td>尿素氮</td><td>73 mg/dL</td><td>H</td></tr><tr><td>肌酸酐</td><td>7.92 mg/dL</td><td>H</td></tr><tr><td>血糖</td><td>116 mg/dL</td><td>H</td></tr><tr><td>鈉</td><td>134 mmol/L</td><td>L</td></tr><tr><td>鉀</td><td>4.2 mmol/L</td></tr></table></div>"
+            },
+            "entry": [
+              {
+                "reference": "Observation/obs-testa02-wbc-01"
+              },
+              {
+                "reference": "Observation/obs-testa02-rbc-01"
+              },
+              {
+                "reference": "Observation/obs-testa02-hgb-01"
+              },
+              {
+                "reference": "Observation/obs-testa02-plt-01"
+              },
+              {
+                "reference": "Observation/obs-testa02-bun-01"
+              },
+              {
+                "reference": "Observation/obs-testa02-crea-01"
+              },
+              {
+                "reference": "Observation/obs-testa02-glu-01"
+              },
+              {
+                "reference": "Observation/obs-testa02-na-01"
+              },
+              {
+                "reference": "Observation/obs-testa02-k-01"
+              }
+            ]
+          },
+          {
+            "title": "出院計畫",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "18776-5",
+                  "display": "Plan of care"
+                }
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>出院後繼續於本院門診追蹤，安排 TAVI 手術</p></div>"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Composition/comp-testa02-discharge-01"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Composition/comp-testa02-discharge-02",
+      "resource": {
+        "resourceType": "Composition",
+        "id": "comp-testa02-discharge-02",
+        "meta": {
+          "profile": [
+            "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Composition-twcore"
+          ]
+        },
+        "status": "final",
+        "type": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "18842-5",
+              "display": "Discharge summary"
+            }
+          ],
+          "text": "出院病摘"
+        },
+        "subject": {
+          "reference": "Patient/pt-testa-02",
+          "display": "王美華"
+        },
+        "encounter": {
+          "reference": "Encounter/enc-testa02-02"
+        },
+        "date": "2025-09-27T15:00:00+08:00",
+        "author": [
+          {
+            "reference": "Practitioner/prac-doc6817h",
+            "display": "張奕煌（主治醫師）"
+          },
+          {
+            "reference": "Practitioner/prac-doc5426c",
+            "display": "鄭光翔（住院醫師）"
+          }
+        ],
+        "title": "出院病歷摘要 - TAVI 術後",
+        "custodian": {
+          "reference": "Organization/org-vghtpe",
+          "display": "臺北榮民總醫院"
+        },
+        "section": [
+          {
+            "title": "出院診斷",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "11535-2",
+                  "display": "Hospital discharge diagnosis"
+                }
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><strong>【Active Problem】</strong></p><ol><li>嚴重主動脈瓣狹窄 - <strong>2025/9/23 接受 TAVI（24.5mm MyVAL 瓣膜）</strong></li><li>射出分率降低之心臟衰竭</li></ol><p><strong>【Inactive Problem】</strong></p><ul><li>末期腎病，血液透析中</li><li>冠狀動脈疾病，2025/7/30 接受經皮冠狀動脈介入治療</li><li>糖尿病</li><li>B 型肝炎帶原</li></ul></div>"
+            },
+            "entry": [
+              {
+                "reference": "Condition/cond-testa02-as"
+              },
+              {
+                "reference": "Condition/cond-testa02-hf"
+              }
+            ]
+          },
+          {
+            "title": "主訴",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "10154-3",
+                  "display": "Chief complaint"
+                }
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>入院接受經導管主動脈瓣膜置換術（TAVI）</p></div>"
+            }
+          },
+          {
+            "title": "手術方法及日期",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "10223-6",
+                  "display": "Operation note"
+                }
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><strong>2025-09-23</strong>：經導管主動脈瓣膜置換術（TAVI），置入 24.5mm MyVAL 瓣膜</p></div>"
+            },
+            "entry": [
+              {
+                "reference": "Procedure/proc-testa02-tavi"
+              }
+            ]
+          },
+          {
+            "title": "住院經過",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "8648-8",
+                  "display": "Hospital course"
+                }
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>完成術前檢查。9/22 與家屬進行術前說明會議。2025/9/23 進行 TAVI 手術。病人手術過程順利。術後轉至心臟血管外科加護病房密切監測。9/24 轉回普通病房。病人狀況穩定，出院門診追蹤。</p></div>"
+            }
+          },
+          {
+            "title": "心電圖",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "11524-6",
+                  "display": "EKG study"
+                }
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><strong>2025-09-21</strong>：竇性心律。左心室肥厚伴續發性再極化異常。V1-6、I、aVL 導程 T 波倒置。</p></div>"
+            },
+            "entry": [
+              {
+                "reference": "DiagnosticReport/dr-testa02-ekg-01"
+              }
+            ]
+          },
+          {
+            "title": "過敏史",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "48765-2",
+                  "display": "Allergies and adverse reactions"
+                }
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>No known drug allergies (NKDA)</p></div>"
+            },
+            "emptyReason": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/list-empty-reason",
+                  "code": "nilknown",
+                  "display": "Nil Known"
+                }
+              ]
+            }
+          },
+          {
+            "title": "出院用藥",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "10183-2",
+                  "display": "Hospital discharge medications"
+                }
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table><tr><td>Traceton 膜衣錠（止咳）</td><td>TID PRN</td></tr></table></div>"
+            },
+            "entry": [
+              {
+                "reference": "MedicationStatement/medstmt-testa02-traceton"
+              }
+            ]
+          },
+          {
+            "title": "檢驗結果",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "30954-2",
+                  "display": "Relevant diagnostic tests/laboratory data"
+                }
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h4>血液常規 (2025-09-22)</h4><table><tr><td>白血球</td><td>5930 /cumm</td></tr><tr><td>血紅素</td><td>10.2 g/dL</td><td>L</td></tr><tr><td>血小板</td><td>136000 /cumm</td><td>L</td></tr></table><h4>生化</h4><table><tr><td>肌酸酐</td><td>9.65 mg/dL</td><td>H</td></tr><tr><td>高敏感度 CRP (9/24)</td><td>3.57 mg/dL</td><td>H</td></tr></table></div>"
+            },
+            "entry": [
+              {
+                "reference": "Observation/obs-testa02-wbc-02"
+              },
+              {
+                "reference": "Observation/obs-testa02-hgb-02"
+              },
+              {
+                "reference": "Observation/obs-testa02-plt-02"
+              },
+              {
+                "reference": "Observation/obs-testa02-crea-02"
+              },
+              {
+                "reference": "Observation/obs-testa02-hscrp-02"
+              }
+            ]
+          },
+          {
+            "title": "出院計畫",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "18776-5",
+                  "display": "Plan of care"
+                }
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>出院後繼續於本院門診追蹤</p></div>"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Composition/comp-testa02-discharge-02"
+      }
+    }
+  ]
+}

@@ -59,7 +59,7 @@ export default function SmartLaunchTest() {
         const authorizeParams = {
             clientId: clientId,
             scope: scope,
-            redirectUri: window.location.origin + window.location.pathname,
+            redirectUri: window.location.origin + window.location.pathname.replace(/\/?(index\.html)?$/, '') + '/',
             iss: server,
         };
 
@@ -217,7 +217,7 @@ export default function SmartLaunchTest() {
                 </ol>
                 <div className="mt-4 pt-4 border-t border-slate-100">
                     <p className="text-xs text-slate-400">
-                        Redirect URI: <code className="bg-slate-100 px-1.5 py-0.5 rounded">{window.location.origin + window.location.pathname}</code>
+                        Redirect URI: <code className="bg-slate-100 px-1.5 py-0.5 rounded">{window.location.origin + window.location.pathname.replace(/\/?(index\.html)?$/, '') + '/'}</code>
                     </p>
                 </div>
             </div>

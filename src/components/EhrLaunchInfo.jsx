@@ -8,8 +8,10 @@ const LAUNCH_SERVER = 'https://launch.smarthealthit.org/v/r4/fhir';
 
 export default function EhrLaunchInfo() {
     const navigate = useNavigate();
-    const launchUrl = window.location.origin + window.location.pathname.replace(/\/$/, '') + '/launch.html';
-    const redirectUri = window.location.origin + window.location.pathname;
+    // 取得 base path，移除尾端的 / 和 index.html
+    const basePath = window.location.origin + window.location.pathname.replace(/\/?(index\.html)?$/, '');
+    const launchUrl = basePath + '/launch.html';
+    const redirectUri = basePath + '/';
 
     const hasCredentials = !!(import.meta.env.VITE_SMART_CLIENT_ID);
 
