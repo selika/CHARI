@@ -17,7 +17,45 @@
 
 ---
 
-### 二、OAuth 流程說明
+### 二、原先架構與修正說明
+
+#### 原先架構（第一階段）
+
+在第一階段測試中，CHARI 直接連接衛福部 THAS 沙盒取得病患資料，不需要 OAuth 認證：
+
+```
+使用者 → CHARI → 直接查詢 THAS (https://thas.mohw.gov.tw/v/r4/fhir) → 取得資料
+```
+
+- 資料來源：衛福部 THAS Sandbox（開放存取）
+- 認證方式：無（THAS 沙盒為公開測試環境）
+
+#### 進入第二階段後的問題
+
+收到第二階段通知後，我們加入了 OAuth2 授權流程。但初期的設計是：
+
+```
+測試官 Launcher → CHARI OAuth 登入（測試官的伺服器）→ 認證完成後 → 回到 CHARI 讀取 THAS 的資料
+```
+
+這個架構有誤：**OAuth Token 是由測試官的 FHIR Server 簽發的，只能存取該伺服器的資料，無法用於存取 THAS。** 等同於在 A 醫院登入，卻試圖讀 B 醫院的資料。
+
+#### 修正後的架構（現行版本）
+
+現在 CHARI 遵循 SMART on FHIR 標準流程 — **OAuth 登入哪台伺服器，就從哪台伺服器取資料**：
+
+```
+測試官 Launcher (iss=測試官的 FHIR Server)
+  → CHARI OAuth 登入
+  → Patient Picker 選擇病人
+  → CHARI 用 OAuth Token 從「同一台伺服器」讀取該病人的資料
+```
+
+因此需要將測試資料上傳至測試官的 FHIR Server，才能在 OAuth 完成後看到完整的臨床資料。
+
+---
+
+### 三、OAuth 流程說明
 
 1. 測試官從 Launcher 啟動 CHARI，帶入 `iss` 與 `launch` 參數至 `launch.html`
 2. CHARI 自動啟動 OAuth2 授權流程（`FHIR.oauth2.authorize()`）
@@ -27,7 +65,7 @@
 
 ---
 
-### 三、測試資料
+### 四、測試資料
 
 隨信附上 **CHARI-test-bundles.zip**，包含 3 筆測試案例的 FHIR Transaction Bundle：
 
@@ -50,7 +88,7 @@
 
 ---
 
-### 四、預期測試結果
+### 五、預期測試結果
 
 OAuth 登入並選擇病人後，CHARI 會顯示：
 
